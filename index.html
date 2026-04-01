@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScaleNational — Fill Your Calendar with Qualified Decision-Makers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,32 +12,17 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #0d4a3f;
-            --accent: #2fb896;
-            --accent-light: #5fd4b3;
-            --bg-dark: #0a0e12;
-            --bg-light: #f8f9fa;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b8c1;
-            --text-dark: #0d4a3f;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, #0f1419 100%);
-            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #111111;
             line-height: 1.6;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 32px;
         }
 
         /* Navigation */
@@ -45,161 +31,174 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid #f0f0f0;
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(10, 14, 18, 0.95);
-            backdrop-filter: blur(10px);
+            background: #ffffff;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary);
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1a73e8 0%, #00bfa5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
         }
 
         nav .nav-right {
             display: flex;
-            gap: 16px;
+            gap: 24px;
             align-items: center;
         }
 
         nav a {
-            color: var(--text-secondary);
+            color: #666;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--accent);
+            color: #1a73e8;
         }
 
         /* Hero */
         .hero {
-            padding: 100px 0 80px;
+            padding: 80px 0 100px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f7ff 100%);
+            border-radius: 24px;
+            margin-top: 40px;
+            padding-left: 48px;
+            padding-right: 48px;
         }
 
         .hero h1 {
-            font-size: 56px;
-            font-weight: 700;
-            line-height: 1.2;
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.15;
             margin-bottom: 20px;
-            color: var(--text-primary);
+            color: #111111;
+            letter-spacing: -0.5px;
         }
 
         .hero .highlight {
-            color: var(--accent);
+            background: linear-gradient(135deg, #1a73e8 0%, #00bfa5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
             font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
+            color: #555;
+            margin-bottom: 16px;
             max-width: 700px;
             line-height: 1.8;
+            font-weight: 400;
         }
 
-        .hero-subtext {
-            font-size: 16px;
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 32px;
-            max-width: 700px;
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            margin-top: 40px;
         }
 
-        .cta-primary {
-            display: inline-block;
-            padding: 14px 36px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
+        .btn {
+            padding: 16px 32px;
+            border-radius: 10px;
             font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 32px rgba(47, 184, 150, 0.2);
-            border: none;
+            font-size: 15px;
+            text-decoration: none;
             cursor: pointer;
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 48px rgba(47, 184, 150, 0.3);
-        }
-
-        .cta-secondary {
-            display: inline-block;
-            padding: 14px 36px;
-            background: transparent;
-            color: var(--accent);
-            text-decoration: none;
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
+            border: none;
             transition: all 0.3s ease;
-            margin-left: 12px;
+            display: inline-block;
         }
 
-        .cta-secondary:hover {
-            background: rgba(47, 184, 150, 0.1);
+        .btn-primary {
+            background: linear-gradient(135deg, #1a73e8 0%, #0d5bbb 100%);
+            color: white;
+            box-shadow: 0 8px 24px rgba(26, 115, 232, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(26, 115, 232, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #111;
+            border: 1px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #e8e8e8;
         }
 
         /* Section */
         .section {
             padding: 80px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .section h2 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 48px;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
             text-align: center;
+            color: #111;
+            letter-spacing: -0.5px;
         }
 
-        .section h3 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 24px;
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section.light {
-            background: rgba(13, 74, 63, 0.08);
+            background: #f8f9ff;
+            margin: 0 -32px;
+            padding: 80px 32px;
+            border-radius: 24px;
         }
 
-        /* Testimonials */
-        .testimonials {
+        /* Stats */
+        .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            margin-bottom: 48px;
         }
 
-        .testimonial {
+        .stat {
             padding: 32px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            background: white;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #f0f0f0;
         }
 
-        .testimonial-stat {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 8px;
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1a73e8 0%, #00bfa5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
         }
 
-        .testimonial p {
-            color: var(--text-secondary);
-            font-size: 15px;
+        .stat p {
+            color: #666;
+            font-size: 16px;
         }
 
         /* Grid */
@@ -207,100 +206,99 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            margin-bottom: 48px;
         }
 
         .card {
-            padding: 32px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            padding: 40px 32px;
+            background: white;
+            border: 1px solid #f0f0f0;
+            border-radius: 16px;
             transition: all 0.3s ease;
         }
 
         .card:hover {
-            border-color: var(--accent);
-            background: rgba(255, 255, 255, 0.06);
+            border-color: #1a73e8;
+            box-shadow: 0 12px 32px rgba(26, 115, 232, 0.08);
             transform: translateY(-4px);
         }
 
-        .card h4 {
-            font-size: 18px;
-            font-weight: 600;
+        .card h3 {
+            font-size: 20px;
+            font-weight: 700;
             margin-bottom: 12px;
-            color: var(--text-primary);
+            color: #111;
         }
 
         .card p {
-            color: var(--text-secondary);
+            color: #666;
             font-size: 15px;
             line-height: 1.8;
         }
 
         /* Process */
-        .process-steps {
+        .process {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 24px;
         }
 
         .step {
-            padding: 32px 20px;
+            padding: 40px 24px;
             text-align: center;
         }
 
         .step-number {
-            display: inline-block;
-            width: 48px;
-            height: 48px;
-            background: var(--accent);
-            color: var(--bg-dark);
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #1a73e8 0%, #00bfa5 100%);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin: 0 auto 20px;
         }
 
-        .step h4 {
-            font-size: 16px;
-            font-weight: 600;
+        .step h3 {
+            font-size: 18px;
+            font-weight: 700;
             margin-bottom: 12px;
+            color: #111;
         }
 
         .step p {
-            color: var(--text-secondary);
+            color: #666;
             font-size: 14px;
             line-height: 1.8;
         }
 
-        /* CTA Section */
+        /* CTA */
         .cta-final {
-            background: linear-gradient(135deg, rgba(13, 74, 63, 0.2), rgba(47, 184, 150, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 16px;
-            padding: 64px 40px;
+            background: linear-gradient(135deg, #1a73e8 0%, #00bfa5 100%);
+            border-radius: 24px;
+            padding: 80px 60px;
             text-align: center;
             margin: 80px 0;
+            color: white;
         }
 
         .cta-final h2 {
-            font-size: 42px;
-            margin-bottom: 24px;
+            color: white;
+            margin-bottom: 20px;
+            font-size: 48px;
         }
 
         .cta-final p {
+            color: rgba(255, 255, 255, 0.9);
             font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
+            margin-bottom: 40px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Form */
         .email-form {
             display: flex;
             gap: 12px;
@@ -311,52 +309,74 @@
         .email-form input {
             flex: 1;
             padding: 14px 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-size: 14px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
         }
 
         .email-form input::placeholder {
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .email-form input:focus {
             outline: none;
-            border-color: var(--accent);
-            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .email-form button {
+            padding: 14px 28px;
+            background: white;
+            color: #1a73e8;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .email-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         }
 
         /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
         .faq-item {
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            margin-bottom: 16px;
+            padding: 28px;
+            background: white;
+            border: 1px solid #f0f0f0;
+            border-radius: 16px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .faq-item:hover {
-            border-color: var(--accent);
+            border-color: #1a73e8;
+            box-shadow: 0 8px 20px rgba(26, 115, 232, 0.08);
         }
 
         .faq-item h4 {
             font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 12px;
         }
 
         .faq-item p {
-            color: var(--text-secondary);
+            color: #666;
             font-size: 14px;
+            line-height: 1.7;
             display: none;
-            margin-top: 12px;
         }
 
         .faq-item.active p {
@@ -365,30 +385,38 @@
 
         /* Footer */
         footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid #f0f0f0;
             padding: 40px 0;
             text-align: center;
-            color: var(--text-secondary);
+            color: #999;
             font-size: 14px;
+        }
+
+        footer a {
+            color: #1a73e8;
+            text-decoration: none;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 36px;
+                font-size: 40px;
             }
 
-            .grid, .testimonials {
+            .hero {
+                padding: 40px 24px;
+            }
+
+            .grid, .stats, .faq-grid {
                 grid-template-columns: 1fr;
             }
 
-            .process-steps {
+            .process {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .cta-primary, .cta-secondary {
-                display: block;
-                margin: 12px auto;
+            .hero-cta {
+                flex-direction: column;
             }
 
             .email-form {
@@ -405,12 +433,10 @@
 <body>
     <!-- Navigation -->
     <nav class="container">
-        <a href="#" class="logo">
-            📈 ScaleNational
-        </a>
+        <a href="#" class="logo">ScaleNational</a>
         <div class="nav-right">
             <a href="#process">How It Works</a>
-            <a href="#book-call" class="cta-primary">Book Call</a>
+            <a href="#book-call" class="btn btn-primary" style="padding: 12px 24px;">Book Call</a>
         </div>
     </nav>
 
@@ -419,27 +445,28 @@
         <section class="hero">
             <h1>Fill Your Calendar with <span class="highlight">Qualified Decision-Makers</span></h1>
             <p>We make it impossible for your dream buyers to not know you.</p>
-            <p>We build automated cold email systems that reach your ICP, deliver qualified leads, and scale your business nationally.</p>
-            <div>
-                <a href="#book-call" class="cta-primary">Get Started Today</a>
-                <a href="#process" class="cta-secondary">See How It Works</a>
+            <p>Done-for-you cold email campaigns that deliver qualified leads and scale your business nationally.</p>
+            <div class="hero-cta">
+                <a href="#book-call" class="btn btn-primary">Get Started Today</a>
+                <a href="#process" class="btn btn-secondary">See How It Works</a>
             </div>
         </section>
 
         <!-- Social Proof -->
         <section class="section light">
-            <div class="testimonials">
-                <div class="testimonial">
-                    <div class="testimonial-stat">47+</div>
-                    <p>B2B SaaS sales calls booked in first 8 days</p>
+            <h2>Results That Speak</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">47+</div>
+                    <p>B2B SaaS calls booked in first 8 days</p>
                 </div>
-                <div class="testimonial">
-                    <div class="testimonial-stat">3.2x</div>
-                    <p>Average ROI vs. traditional lead gen methods</p>
+                <div class="stat">
+                    <div class="stat-number">3.2x</div>
+                    <p>Average ROI vs traditional lead gen</p>
                 </div>
-                <div class="testimonial">
-                    <div class="testimonial-stat">94%</div>
-                    <p>Inbox delivery rate (industry average: 60%)</p>
+                <div class="stat">
+                    <div class="stat-number">94%</div>
+                    <p>Inbox delivery rate (vs 60% industry)</p>
                 </div>
             </div>
         </section>
@@ -447,138 +474,113 @@
         <!-- How It Works -->
         <section class="section" id="process">
             <h2>The ScaleNational System</h2>
-            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 48px; font-size: 16px; max-width: 700px; margin-left: auto; margin-right: auto;">
-                Done-for-you outbound that builds, manages, and optimizes campaigns using dedicated IP addresses and precision targeting.
-            </p>
-            <div class="process-steps">
+            <p class="section-subtitle">Done-for-you outbound campaigns built on dedicated infrastructure with precision targeting.</p>
+            <div class="process">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h4>Market Analysis & ICP</h4>
-                    <p>We research your market and define your ideal client profile with precision targeting criteria.</p>
+                    <h3>Market Analysis</h3>
+                    <p>We research your market and define your ideal client profile with pinpoint precision.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h4>List Building</h4>
-                    <p>Source, enrich, and verify decision-makers from 250M+ contacts. Every lead validated against your ICP.</p>
+                    <h3>List Building</h3>
+                    <p>Source, enrich, verify. Every decision-maker validated against your ICP.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h4>AI-Powered Messaging</h4>
-                    <p>Personalized email sequences with AI-generated insights. Messaging that resonates with your prospects.</p>
+                    <h3>AI Messaging</h3>
+                    <p>Personalized sequences that resonate. AI-driven insights + expert copywriting.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h4>Campaign Management</h4>
-                    <p>Launch, monitor, optimize. A/B testing, rotation, reply handling — we run the entire outbound function.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Core Features -->
-        <section class="section light">
-            <h2>What We Build For You</h2>
-            <div class="grid">
-                <div class="card">
-                    <h4>Dedicated Private IP</h4>
-                    <p>Enterprise-grade infrastructure separate from risky sender pools. Maximum deliverability, zero compromises.</p>
-                </div>
-                <div class="card">
-                    <h4>Real-Time Insights</h4>
-                    <p>Spot opportunities faster with 30+ daily buying signals from verified, updated data.</p>
-                </div>
-                <div class="card">
-                    <h4>Pipeline-Ready Leads</h4>
-                    <p>Not just contacts — qualified prospects ready to discuss solutions with your sales team.</p>
-                </div>
-                <div class="card">
-                    <h4>Done-For-You Management</h4>
-                    <p>We handle infrastructure, targeting, messaging, and replies. Your team focuses on closing.</p>
-                </div>
-                <div class="card">
-                    <h4>Performance Tracking</h4>
-                    <p>Real-time campaign analytics, reply rates, booking data. Know exactly what's working.</p>
-                </div>
-                <div class="card">
-                    <h4>Continuous Optimization</h4>
-                    <p>A/B testing, segment rotation, messaging refinement. We optimize until meetings hit your calendar.</p>
+                    <h3>Campaign Optimization</h3>
+                    <p>Launch, monitor, optimize. We run everything until meetings hit your calendar.</p>
                 </div>
             </div>
         </section>
 
         <!-- Services -->
         <section class="section">
-            <h2>Who We Work With</h2>
+            <h2>What We Build</h2>
+            <p class="section-subtitle">Everything you need to scale outbound and fill your pipeline.</p>
             <div class="grid">
                 <div class="card">
-                    <h4>B2B Service Providers</h4>
-                    <p>Agencies, consultants, and professional services expanding into new regions and markets.</p>
+                    <h3>Dedicated IP Infrastructure</h3>
+                    <p>Enterprise-grade setup separate from risky sender pools. Maximum deliverability, zero compromises.</p>
                 </div>
                 <div class="card">
-                    <h4>SaaS & Software</h4>
-                    <p>Tech companies and platforms needing consistent qualified B2B lead flow at scale.</p>
+                    <h3>Real-Time Market Intelligence</h3>
+                    <p>Spot opportunities with 30+ daily buying signals from 250M+ verified contacts.</p>
                 </div>
                 <div class="card">
-                    <h4>Outdoor & Growth Companies</h4>
-                    <p>Brands in outdoor, retail, and lifestyle sectors scaling nationally without traditional ads.</p>
+                    <h3>Pipeline-Ready Leads</h3>
+                    <p>Not just contact lists. Qualified prospects ready to book meetings with your sales team.</p>
+                </div>
+                <div class="card">
+                    <h3>Done-For-You Management</h3>
+                    <p>We handle infrastructure, targeting, messaging. You focus on closing deals.</p>
+                </div>
+                <div class="card">
+                    <h3>Real-Time Analytics</h3>
+                    <p>Track every metric. Reply rates, booking data, ROI. Know exactly what's working.</p>
+                </div>
+                <div class="card">
+                    <h3>Continuous A/B Testing</h3>
+                    <p>We optimize messaging, segments, timing until meetings consistently hit your calendar.</p>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
         <section class="section light">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <h4>How fast will I see results? <span>+</span></h4>
-                <p>Most of our clients see qualified meetings booked within 10-21 days of campaign launch. Timeline depends on your ICP, market, and sales cycle.</p>
-            </div>
-            <div class="faq-item">
-                <h4>How does pricing work? <span>+</span></h4>
-                <p>We charge based on your target market size, campaign scope, and desired lead volume. No setup fees — only pay for performance. Get a custom quote on your call.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Will this land in spam? <span>+</span></h4>
-                <p>No. We use dedicated private IP addresses, warm up accounts properly, and follow deliverability best practices. Our average inbox rate is 94% vs. 60% industry average.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Can you target multiple markets at once? <span>+</span></h4>
-                <p>Absolutely. That's the whole point of ScaleNational. We scale campaigns across regions, industries, and market segments simultaneously.</p>
-            </div>
-            <div class="faq-item">
-                <h4>What if the leads aren't qualified? <span>+</span></h4>
-                <p>We validate every contact against your ICP before sending a single email. If a lead doesn't fit, we don't send. Quality over quantity, always.</p>
+            <h2>Common Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How fast will I see results?</h4>
+                    <p>Most clients book qualified meetings within 10-21 days of launch. Timeline depends on your market and sales cycle.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Will emails land in spam?</h4>
+                    <p>No. We use dedicated IPs, warm up properly, and follow deliverability best practices. 94% inbox rate vs 60% industry average.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How does pricing work?</h4>
+                    <p>Based on target market size and campaign scope. No setup fees. Only pay for performance. Get a custom quote on your call.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can you scale across multiple markets?</h4>
+                    <p>Absolutely. That's the whole point of ScaleNational. We run simultaneous campaigns across regions and industries.</p>
+                </div>
             </div>
         </section>
 
         <!-- Final CTA -->
         <section class="cta-final" id="book-call">
-            <h2>Book a Free Strategy Call</h2>
-            <p>Let's talk about scaling your business. We'll outline a custom outbound plan to get qualified meetings on your calendar within 30 days.</p>
+            <h2>Book Your Free Strategy Call</h2>
+            <p>Let's outline a custom outbound plan to get qualified meetings on your calendar within 30 days. No credit card required.</p>
             <div class="email-form">
                 <input type="email" placeholder="your@company.com" required>
-                <button class="cta-primary">Get Started</button>
+                <button>Get Started</button>
             </div>
-            <p style="margin-top: 16px; font-size: 14px;">No credit card required. 30 minutes of free advice, guaranteed.</p>
         </section>
     </div>
 
     <!-- Footer -->
     <footer class="container">
-        <p>&copy; 2026 ScaleNational. All rights reserved. | <a href="#" style="color: var(--accent); text-decoration: none;">Privacy</a> | <a href="#" style="color: var(--accent); text-decoration: none;">Terms</a></p>
+        <p>&copy; 2026 ScaleNational. All rights reserved. | <a href="#">Privacy</a> | <a href="#">Terms</a></p>
     </footer>
 
     <script>
-        // FAQ functionality
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', function() {
                 this.classList.toggle('active');
             });
         });
 
-        // CTA form
         document.querySelector('.email-form button').addEventListener('click', function() {
             const email = document.querySelector('.email-form input').value;
             if (email) {
-                alert('Thanks! We\'ll reach out to ' + email + ' shortly.');
+                alert('Thanks! We\'ll reach out shortly.');
                 document.querySelector('.email-form input').value = '';
             }
         });
