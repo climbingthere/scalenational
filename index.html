@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScaleNational — Fill Your Calendar with Qualified Decision-Makers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,36 +17,32 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: #ffffff;
-            color: #1a1a1a;
+            color: #0f1419;
             line-height: 1.6;
             font-size: 16px;
-            padding-top: 60px;
         }
 
-        /* Typography - Swiss style */
-        h1, h2, h3, h4 {
-            font-weight: 500;
-            letter-spacing: -0.5px;
-            line-height: 1.2;
-        }
-
+        /* Typography */
         h1 {
-            font-size: clamp(36px, 8vw, 72px);
-            font-weight: 400;
-            margin-bottom: 24px;
+            font-size: clamp(32px, 8vw, 64px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.8px;
         }
 
         h2 {
             font-size: clamp(28px, 6vw, 48px);
-            font-weight: 400;
-            margin-bottom: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
         }
 
         h3 {
             font-size: 18px;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 12px;
         }
 
@@ -56,7 +52,7 @@
             line-height: 1.7;
         }
 
-        .accent {
+        .text-accent {
             color: #2bb67f;
         }
 
@@ -64,57 +60,65 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 clamp(20px, 5vw, 60px);
+            padding: 0 clamp(16px, 5vw, 48px);
         }
 
         section {
-            padding: clamp(60px, 10vw, 120px) 0;
+            padding: clamp(50px, 12vw, 100px) 0;
         }
 
-        /* Navigation */
+        /* Navigation - FIXED (iOS optimized) */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px clamp(20px, 5vw, 60px);
-            border-bottom: 1px solid #f0f0f0;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
 
         .logo-wrapper {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            color: #1a1a1a;
-        }
-
-        .logo-svg {
-            width: 32px;
-            height: 32px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f1419;
             flex-shrink: 0;
         }
 
-        nav .nav-right {
+        .logo-wrapper img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        nav .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 32px;
             align-items: center;
+            margin-left: auto;
         }
 
         nav a {
             color: #555;
             text-decoration: none;
             font-size: 14px;
-            font-weight: 400;
+            font-weight: 500;
             transition: color 0.2s;
         }
 
@@ -122,55 +126,74 @@
             color: #2bb67f;
         }
 
+        /* Add space for fixed nav */
+        body {
+            padding-top: 60px;
+        }
+
         /* Buttons */
         .btn {
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-weight: 500;
-            font-size: 14px;
+            display: inline-block;
+            padding: clamp(11px, 2.5vw, 14px) clamp(20px, 4vw, 32px);
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
             text-decoration: none;
             cursor: pointer;
             border: none;
             transition: all 0.2s ease;
-            display: inline-block;
             white-space: nowrap;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .btn-primary {
-            background: #1a5f3f;
+            background: #0d4a3f;
             color: white;
         }
 
         .btn-primary:hover {
-            background: #0f3a24;
+            background: #082f28;
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
             background: transparent;
-            color: #1a1a1a;
-            border: 1px solid #ddd;
+            color: #0d4a3f;
+            border: 1.5px solid #ddd;
         }
 
         .btn-secondary:hover {
-            border-color: #1a1a1a;
-            background: #f9f9f9;
+            border-color: #0d4a3f;
+            background: rgba(13, 74, 63, 0.03);
         }
 
         /* Hero */
         .hero {
-            padding-top: 40px;
+            padding-top: clamp(40px, 8vw, 60px);
+            padding-bottom: clamp(40px, 8vw, 80px);
         }
 
         .hero h1 {
-            max-width: 800px;
-            margin-bottom: 32px;
+            max-width: 750px;
+            margin-bottom: 24px;
+        }
+
+        .hero > p {
+            max-width: 650px;
+            font-size: clamp(16px, 4vw, 18px);
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.7;
         }
 
         .hero-subtext {
-            max-width: 600px;
-            font-size: 18px;
+            max-width: 650px;
+            font-size: clamp(16px, 4vw, 18px);
             color: #666;
-            margin-bottom: 48px;
+            margin-bottom: 40px;
             line-height: 1.7;
         }
 
@@ -178,35 +201,36 @@
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
+            margin-bottom: 0;
         }
 
-        /* Logo Carousel */
+        /* Logos Section */
         .logos-section {
             border-top: 1px solid #f0f0f0;
             border-bottom: 1px solid #f0f0f0;
         }
 
-        .logos-title {
+        .logos-label {
             text-align: center;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 13px;
+            font-weight: 600;
             color: #999;
-            margin-bottom: 48px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
+            margin-bottom: 40px;
         }
 
         .logos-carousel {
             position: relative;
             overflow: hidden;
-            margin: 0 -60px;
-            padding: 0 60px;
+            margin: 0 calc(-1 * clamp(16px, 5vw, 48px));
+            padding: 0 clamp(16px, 5vw, 48px);
         }
 
         .logos-track {
             display: flex;
-            gap: 80px;
-            animation: scroll 60s linear infinite;
+            gap: clamp(40px, 6vw, 60px);
+            animation: scroll 50s linear infinite;
             will-change: transform;
         }
 
@@ -227,43 +251,40 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
             flex-shrink: 0;
-            min-width: 140px;
+            min-width: 110px;
         }
 
-        .logo-box {
-            width: 120px;
-            height: 60px;
+        .logo-visual {
+            width: 100px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #f8f8f8;
-            border: 1px solid #eee;
-            border-radius: 4px;
-            overflow: hidden;
-            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #efefef;
         }
 
-        .logo-box svg {
-            width: 100%;
-            height: 100%;
+        .logo-visual svg {
+            width: 80%;
+            height: 80%;
             object-fit: contain;
         }
 
         .logo-name {
-            font-size: 13px;
+            font-size: 12px;
+            font-weight: 500;
             color: #999;
-            font-weight: 400;
             text-align: center;
         }
 
-        /* Stats */
+        /* Stats Section */
         .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: clamp(40px, 8vw, 80px);
-            margin-bottom: 0;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: clamp(30px, 6vw, 50px);
         }
 
         .stat {
@@ -271,85 +292,155 @@
         }
 
         .stat-number {
-            font-size: clamp(32px, 6vw, 56px);
-            font-weight: 400;
+            font-size: clamp(40px, 8vw, 56px);
+            font-weight: 700;
             color: #2bb67f;
+            line-height: 1;
             margin-bottom: 12px;
         }
 
         .stat p {
-            font-size: 16px;
+            font-size: 15px;
             color: #666;
+            line-height: 1.6;
         }
 
-        /* Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: clamp(40px, 6vw, 60px);
-        }
-
-        .card {
-            padding: 0;
-        }
-
-        .card h3 {
-            margin-bottom: 16px;
-        }
-
-        /* Process */
+        /* Process Section */
         .process {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: clamp(40px, 6vw, 60px);
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: clamp(30px, 5vw, 50px);
         }
 
-        .step {
+        .process-step {
             padding: 0;
         }
 
         .step-number {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: #f0f0f0;
-            color: #2bb67f;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 24px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #2bb67f;
+            margin-bottom: 20px;
         }
 
-        /* CTA Final */
-        .cta-final {
-            background: #1a5f3f;
-            padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 60px);
-            text-align: center;
+        .process-step h3 {
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(30px, 5vw, 50px);
+        }
+
+        .feature {
+            padding: 0;
+        }
+
+        .feature h3 {
+            margin-bottom: 12px;
+        }
+
+        .feature p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: clamp(20px, 4vw, 40px);
+        }
+
+        .faq-item {
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .faq-item:hover {
+            background: #f0f0f0;
+        }
+
+        .faq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .faq-header h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0f1419;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .faq-toggle {
+            font-size: 20px;
+            flex-shrink: 0;
+            transition: transform 0.2s;
+            line-height: 1;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-item p {
+            display: none;
+            margin-top: 16px;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .faq-item.active p {
+            display: block;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #0d4a3f;
             color: white;
-            border-radius: 0;
-            margin: clamp(60px, 10vw, 120px) 0 0 0;
+            margin: clamp(50px, 10vw, 100px) 0 0 0;
         }
 
-        .cta-final h2 {
+        .cta-section h2 {
             color: white;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
-        .cta-final p {
+        .cta-section > p {
             color: rgba(255, 255, 255, 0.85);
             max-width: 600px;
-            margin: 0 auto 40px;
+            margin-bottom: 40px;
+            font-size: clamp(16px, 4vw, 18px);
         }
 
         .email-form {
             display: flex;
             gap: 12px;
             max-width: 500px;
-            margin: 0 auto 24px;
             flex-wrap: wrap;
-            justify-content: center;
         }
 
         .email-form input {
@@ -358,10 +449,11 @@
             padding: 12px 16px;
             background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 4px;
+            border-radius: 6px;
             color: white;
             font-size: 14px;
             font-family: inherit;
+            transition: all 0.2s;
         }
 
         .email-form input::placeholder {
@@ -370,73 +462,35 @@
 
         .email-form input:focus {
             outline: none;
-            border-color: rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.25);
         }
 
         .email-form button {
-            padding: 12px 32px;
+            padding: 12px 28px;
             background: white;
-            color: #1a5f3f;
+            color: #0d4a3f;
             border: none;
-            border-radius: 4px;
-            font-weight: 500;
+            border-radius: 6px;
+            font-weight: 600;
             font-size: 14px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.2s;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
             white-space: nowrap;
         }
 
         .email-form button:hover {
             background: #f0f0f0;
+            transform: translateY(-1px);
         }
 
         .cta-note {
+            margin-top: 16px;
             font-size: 13px;
             color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* FAQ */
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-        }
-
-        .faq-item {
-            padding: 0;
-            cursor: pointer;
-        }
-
-        .faq-item h4 {
-            font-size: 16px;
-            font-weight: 500;
-            color: #1a1a1a;
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-toggle {
-            font-size: 20px;
-            transition: transform 0.2s;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .faq-item p {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.8;
-            display: none;
-            margin-top: 16px;
-        }
-
-        .faq-item.active p {
-            display: block;
         }
 
         /* Footer */
@@ -444,8 +498,8 @@
             border-top: 1px solid #f0f0f0;
             padding: 40px 0;
             text-align: center;
-            color: #999;
             font-size: 13px;
+            color: #999;
         }
 
         footer a {
@@ -455,67 +509,25 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 32px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            nav {
-                flex-wrap: wrap;
+            nav .nav-links {
                 gap: 12px;
+                display: none;
             }
 
-            nav .nav-right {
-                width: 100%;
-                justify-content: flex-start;
-                gap: 12px;
-                margin-top: 12px;
-                padding-top: 12px;
-                border-top: 1px solid #f0f0f0;
+            .logo-wrapper span {
+                display: none;
+            }
+
+            .logo-wrapper {
+                gap: 0;
             }
 
             .hero-cta {
-                gap: 12px;
+                flex-direction: column;
             }
 
             .btn {
-                flex: 1;
-                min-width: 150px;
-                text-align: center;
-            }
-
-            section {
-                padding: 40px 0;
-            }
-
-            .stats {
-                gap: 30px;
-            }
-
-            .grid, .process, .faq-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .logos-carousel {
-                margin: 0 -20px;
-                padding: 0 20px;
-            }
-
-            .logos-track {
-                gap: 60px;
-            }
-
-            .logo-item {
-                min-width: 120px;
-            }
-
-            .logo-box {
-                width: 100px;
-                height: 50px;
+                width: 100%;
             }
 
             .email-form {
@@ -525,47 +537,46 @@
             .email-form input,
             .email-form button {
                 width: 100%;
-                min-width: auto;
+            }
+
+            .logos-track {
+                gap: clamp(30px, 4vw, 40px);
+            }
+
+            .logo-item {
+                min-width: 90px;
+            }
+
+            .logo-visual {
+                width: 80px;
+                height: 40px;
             }
 
             .faq-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+            }
+
+            section {
+                padding: clamp(40px, 8vw, 60px) 0;
             }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
-            }
-
             h1 {
                 font-size: 28px;
             }
 
             h2 {
-                font-size: 20px;
-            }
-
-            section {
-                padding: 30px 0;
-            }
-
-            .stat-number {
-                font-size: 36px;
-            }
-
-            .logos-track {
-                gap: 40px;
+                font-size: 22px;
             }
 
             .logo-item {
-                min-width: 100px;
+                min-width: 80px;
             }
 
-            .logo-box {
-                width: 80px;
-                height: 40px;
+            .logo-visual {
+                width: 70px;
+                height: 35px;
             }
 
             .logo-name {
@@ -576,205 +587,202 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="container">
-        <a href="#" class="logo-wrapper">
-            <svg class="logo-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-                <g transform="translate(50, 40)">
-                    <path d="M 0 150 L 60 0 L 120 150" stroke="#0d4a3f" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <line x1="30" y1="90" x2="90" y2="90" stroke="#0d4a3f" stroke-width="13" stroke-linecap="round"/>
-                    <path d="M 60 120 L 60 50" stroke="#2fb896" stroke-width="12" stroke-linecap="round"/>
-                    <path d="M 60 50 L 45 75" stroke="#2fb896" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 60 50 L 75 75" stroke="#2fb896" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
-            </svg>
-            <span>ScaleNational</span>
-        </a>
-        <div class="nav-right">
-            <a href="#process">How It Works</a>
-            <a href="#book-call" class="btn btn-primary">Get Started</a>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo-wrapper">
+                <img src="logo.jpg" alt="ScaleNational">
+                <span>ScaleNational</span>
+            </a>
+            <div class="nav-links">
+                <a href="#how-it-works">How It Works</a>
+                <a href="#cta" class="btn btn-primary">Get Started</a>
+            </div>
         </div>
     </nav>
 
-    <div class="container">
-        <!-- Hero -->
-        <section class="hero">
-            <h1>Fill Your Calendar with <span class="accent">Qualified Decision-Makers</span></h1>
-            <p class="hero-subtext">Done-for-you cold email campaigns that deliver sales-ready leads. We make it impossible for your dream buyers to not know you.</p>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Fill Your Calendar with <span class="text-accent">Qualified Decision-Makers</span></h1>
+            <p>Done-for-you cold email campaigns that deliver qualified leads and scale your business nationally.</p>
+            <p class="hero-subtext">We make it impossible for your dream buyers to not know you.</p>
             <div class="hero-cta">
-                <a href="#book-call" class="btn btn-primary">Start Today</a>
-                <a href="#process" class="btn btn-secondary">See How</a>
+                <a href="#cta" class="btn btn-primary">Start Today</a>
+                <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Logos -->
-        <section class="logos-section">
-            <p class="logos-title">Trusted by Leading Companies</p>
+    <!-- Logos Section -->
+    <section class="logos-section">
+        <div class="container">
+            <p class="logos-label">Trusted by Leading Companies</p>
             <div class="logos-carousel">
                 <div class="logos-track">
                     <!-- Google -->
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <text x="24" y="32" font-size="24" font-weight="bold" text-anchor="middle" fill="#4285F4">G</text>
+                                <text x="24" y="34" font-size="26" font-weight="700" text-anchor="middle" fill="#4285F4">G</text>
                             </svg>
                         </div>
                         <span class="logo-name">Google</span>
                     </div>
                     <!-- Oracle -->
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <text x="24" y="32" font-size="20" font-weight="bold" text-anchor="middle" fill="#F80000">Oracle</text>
+                                <text x="24" y="34" font-size="18" font-weight="700" text-anchor="middle" fill="#EA1428">Oracle</text>
                             </svg>
                         </div>
                         <span class="logo-name">Oracle</span>
                     </div>
                     <!-- Microsoft -->
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="8" fill="#0078D4"/>
-                                <circle cx="36" cy="12" r="8" fill="#50E6FF"/>
-                                <circle cx="12" cy="36" r="8" fill="#FFB900"/>
-                                <circle cx="36" cy="36" r="8" fill="#107C10"/>
+                                <rect x="8" y="8" width="10" height="10" fill="#0078D4"/>
+                                <rect x="22" y="8" width="10" height="10" fill="#50E6FF"/>
+                                <rect x="8" y="22" width="10" height="10" fill="#FFB900"/>
+                                <rect x="22" y="22" width="10" height="10" fill="#107C10"/>
                             </svg>
                         </div>
                         <span class="logo-name">Microsoft</span>
                     </div>
                     <!-- Cisco -->
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <text x="24" y="32" font-size="16" font-weight="bold" text-anchor="middle" fill="#1BA0D7">CISCO</text>
+                                <text x="24" y="34" font-size="14" font-weight="700" text-anchor="middle" fill="#1BA0D7">CISCO</text>
                             </svg>
                         </div>
                         <span class="logo-name">Cisco</span>
                     </div>
                     <!-- IBM -->
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="6" y="12" width="4" height="24" fill="#0F0F0F"/>
-                                <rect x="14" y="12" width="4" height="24" fill="#0F0F0F"/>
-                                <rect x="22" y="12" width="4" height="24" fill="#0F0F0F"/>
-                                <rect x="30" y="16" width="4" height="20" fill="#0F0F0F"/>
-                                <rect x="38" y="16" width="4" height="20" fill="#0F0F0F"/>
+                                <rect x="6" y="10" width="4" height="28" fill="#0F1F78"/>
+                                <rect x="14" y="10" width="4" height="28" fill="#0F1F78"/>
+                                <rect x="22" y="10" width="4" height="28" fill="#0F1F78"/>
+                                <path d="M 32 14 L 42 24 L 32 34" fill="#0F1F78"/>
                             </svg>
                         </div>
                         <span class="logo-name">IBM</span>
                     </div>
                     <!-- Salesforce -->
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <text x="24" y="32" font-size="14" font-weight="bold" text-anchor="middle" fill="#00A1DF">Salesforce</text>
+                                <text x="24" y="34" font-size="12" font-weight="700" text-anchor="middle" fill="#00A1DF">Salesforce</text>
                             </svg>
                         </div>
                         <span class="logo-name">Salesforce</span>
                     </div>
                     <!-- Amazon -->
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <text x="24" y="32" font-size="18" font-weight="bold" text-anchor="middle" fill="#FF9900">A</text>
+                                <text x="24" y="34" font-size="24" font-weight="700" text-anchor="middle" fill="#FF9900">A</text>
                             </svg>
                         </div>
                         <span class="logo-name">Amazon</span>
                     </div>
-                    <!-- Mercedes-Benz -->
+                    <!-- Mercedes -->
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="24" cy="24" r="20" fill="none" stroke="#000" stroke-width="2"/>
+                                <circle cx="24" cy="24" r="18" fill="none" stroke="#000" stroke-width="2"/>
                                 <circle cx="24" cy="24" r="3" fill="#000"/>
-                                <line x1="24" y1="6" x2="24" y2="42" stroke="#000" stroke-width="2"/>
-                                <line x1="6" y1="24" x2="42" y2="24" stroke="#000" stroke-width="2"/>
+                                <line x1="24" y1="8" x2="24" y2="40" stroke="#000" stroke-width="1.5"/>
+                                <line x1="8" y1="24" x2="40" y2="24" stroke="#000" stroke-width="1.5"/>
                             </svg>
                         </div>
-                        <span class="logo-name">Mercedes-Benz</span>
+                        <span class="logo-name">Mercedes</span>
                     </div>
 
                     <!-- Repeat for infinite scroll -->
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <text x="24" y="32" font-size="24" font-weight="bold" text-anchor="middle" fill="#4285F4">G</text>
+                                <text x="24" y="34" font-size="26" font-weight="700" text-anchor="middle" fill="#4285F4">G</text>
                             </svg>
                         </div>
                         <span class="logo-name">Google</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <text x="24" y="32" font-size="20" font-weight="bold" text-anchor="middle" fill="#F80000">Oracle</text>
+                                <text x="24" y="34" font-size="18" font-weight="700" text-anchor="middle" fill="#EA1428">Oracle</text>
                             </svg>
                         </div>
                         <span class="logo-name">Oracle</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="8" fill="#0078D4"/>
-                                <circle cx="36" cy="12" r="8" fill="#50E6FF"/>
-                                <circle cx="12" cy="36" r="8" fill="#FFB900"/>
-                                <circle cx="36" cy="36" r="8" fill="#107C10"/>
+                                <rect x="8" y="8" width="10" height="10" fill="#0078D4"/>
+                                <rect x="22" y="8" width="10" height="10" fill="#50E6FF"/>
+                                <rect x="8" y="22" width="10" height="10" fill="#FFB900"/>
+                                <rect x="22" y="22" width="10" height="10" fill="#107C10"/>
                             </svg>
                         </div>
                         <span class="logo-name">Microsoft</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <text x="24" y="32" font-size="16" font-weight="bold" text-anchor="middle" fill="#1BA0D7">CISCO</text>
+                                <text x="24" y="34" font-size="14" font-weight="700" text-anchor="middle" fill="#1BA0D7">CISCO</text>
                             </svg>
                         </div>
                         <span class="logo-name">Cisco</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="6" y="12" width="4" height="24" fill="#0F0F0F"/>
-                                <rect x="14" y="12" width="4" height="24" fill="#0F0F0F"/>
-                                <rect x="22" y="12" width="4" height="24" fill="#0F0F0F"/>
-                                <rect x="30" y="16" width="4" height="20" fill="#0F0F0F"/>
-                                <rect x="38" y="16" width="4" height="20" fill="#0F0F0F"/>
+                                <rect x="6" y="10" width="4" height="28" fill="#0F1F78"/>
+                                <rect x="14" y="10" width="4" height="28" fill="#0F1F78"/>
+                                <rect x="22" y="10" width="4" height="28" fill="#0F1F78"/>
+                                <path d="M 32 14 L 42 24 L 32 34" fill="#0F1F78"/>
                             </svg>
                         </div>
                         <span class="logo-name">IBM</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <text x="24" y="32" font-size="14" font-weight="bold" text-anchor="middle" fill="#00A1DF">Salesforce</text>
+                                <text x="24" y="34" font-size="12" font-weight="700" text-anchor="middle" fill="#00A1DF">Salesforce</text>
                             </svg>
                         </div>
                         <span class="logo-name">Salesforce</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <text x="24" y="32" font-size="18" font-weight="bold" text-anchor="middle" fill="#FF9900">A</text>
+                                <text x="24" y="34" font-size="24" font-weight="700" text-anchor="middle" fill="#FF9900">A</text>
                             </svg>
                         </div>
                         <span class="logo-name">Amazon</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">
+                        <div class="logo-visual">
                             <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="24" cy="24" r="20" fill="none" stroke="#000" stroke-width="2"/>
+                                <circle cx="24" cy="24" r="18" fill="none" stroke="#000" stroke-width="2"/>
                                 <circle cx="24" cy="24" r="3" fill="#000"/>
-                                <line x1="24" y1="6" x2="24" y2="42" stroke="#000" stroke-width="2"/>
-                                <line x1="6" y1="24" x2="42" y2="24" stroke="#000" stroke-width="2"/>
+                                <line x1="24" y1="8" x2="24" y2="40" stroke="#000" stroke-width="1.5"/>
+                                <line x1="8" y1="24" x2="40" y2="24" stroke="#000" stroke-width="1.5"/>
                             </svg>
                         </div>
-                        <span class="logo-name">Mercedes-Benz</span>
+                        <span class="logo-name">Mercedes</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Stats -->
-        <section>
+    <!-- Stats -->
+    <section>
+        <div class="container">
             <div class="stats">
                 <div class="stat">
                     <div class="stat-number">47+</div>
@@ -786,124 +794,145 @@
                 </div>
                 <div class="stat">
                     <div class="stat-number">94%</div>
-                    <p>Inbox delivery rate vs 60% industry</p>
+                    <p>Inbox delivery rate</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Process -->
-        <section id="process">
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <div class="container">
             <h2>How It Works</h2>
             <div class="process">
-                <div class="step">
+                <div class="process-step">
                     <div class="step-number">1</div>
                     <h3>Market Analysis</h3>
                     <p>We research your market and define your ideal client profile with precision.</p>
                 </div>
-                <div class="step">
+                <div class="process-step">
                     <div class="step-number">2</div>
                     <h3>List Building</h3>
                     <p>Source, enrich, verify. Every decision-maker validated against your ICP.</p>
                 </div>
-                <div class="step">
+                <div class="process-step">
                     <div class="step-number">3</div>
                     <h3>AI Messaging</h3>
                     <p>Personalized sequences that resonate. Expert copywriting powered by AI.</p>
                 </div>
-                <div class="step">
+                <div class="process-step">
                     <div class="step-number">4</div>
                     <h3>Campaign Optimization</h3>
                     <p>Launch, monitor, optimize. We run everything until meetings hit your calendar.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Services -->
-        <section>
+    <!-- What We Build -->
+    <section>
+        <div class="container">
             <h2>What We Build For You</h2>
-            <div class="grid">
-                <div class="card">
+            <div class="features">
+                <div class="feature">
                     <h3>Dedicated IP Infrastructure</h3>
-                    <p>Enterprise-grade setup. Maximum deliverability. Zero email provider risk.</p>
+                    <p>Enterprise-grade email setup. Maximum deliverability. Zero provider risk.</p>
                 </div>
-                <div class="card">
+                <div class="feature">
                     <h3>Real-Time Market Intelligence</h3>
-                    <p>30+ daily buying signals from 250M+ verified contacts. Stay ahead of competition.</p>
+                    <p>30+ daily buying signals from 250M+ verified contacts. Stay ahead.</p>
                 </div>
-                <div class="card">
+                <div class="feature">
                     <h3>Pipeline-Ready Leads</h3>
                     <p>Not just contact lists. Qualified prospects ready to book meetings.</p>
                 </div>
-                <div class="card">
+                <div class="feature">
                     <h3>Done-For-You Management</h3>
                     <p>We handle everything. You focus on closing deals.</p>
                 </div>
-                <div class="card">
+                <div class="feature">
                     <h3>Real-Time Analytics</h3>
                     <p>Track every metric. Know exactly what's working.</p>
                 </div>
-                <div class="card">
+                <div class="feature">
                     <h3>Continuous A/B Testing</h3>
                     <p>We optimize until meetings consistently hit your calendar.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- FAQ -->
-        <section>
+    <!-- FAQ -->
+    <section>
+        <div class="container">
             <h2>Questions</h2>
             <div class="faq-grid">
                 <div class="faq-item active">
-                    <h4>How fast will I see results? <span class="faq-toggle">−</span></h4>
+                    <div class="faq-header">
+                        <h4>How fast will I see results?</h4>
+                        <span class="faq-toggle">−</span>
+                    </div>
                     <p>Most clients book qualified meetings within 10–21 days of launch. Timeline depends on your market and sales cycle.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Will emails land in spam? <span class="faq-toggle">+</span></h4>
-                    <p>No. We use dedicated IPs, warm up properly, and follow best practices. 94% inbox rate vs 60% industry average.</p>
+                    <div class="faq-header">
+                        <h4>Will emails land in spam?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <p>No. We use dedicated IPs, warm up properly, and follow deliverability best practices. 94% inbox rate vs 60% industry average.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>How does pricing work? <span class="faq-toggle">+</span></h4>
+                    <div class="faq-header">
+                        <h4>How does pricing work?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
                     <p>Based on target market size and scope. No setup fees. Only pay for performance. Get a custom quote on your call.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Can you scale across markets? <span class="faq-toggle">+</span></h4>
+                    <div class="faq-header">
+                        <h4>Can you scale across markets?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
                     <p>Absolutely. We run simultaneous campaigns across regions and industries. That's the whole point of ScaleNational.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CTA -->
-        <section class="cta-final" id="book-call">
+    <!-- CTA Final -->
+    <section class="cta-section" id="cta">
+        <div class="container">
             <h2>Book Your Free Strategy Call</h2>
             <p>Let's outline a custom plan to get qualified meetings on your calendar within 30 days.</p>
             <div class="email-form">
                 <input type="email" placeholder="your@company.com" required>
-                <button>Get Started</button>
+                <button class="btn-cta">Get Started</button>
             </div>
-            <p class="cta-note">No credit card required. 30 minutes of free advice.</p>
-        </section>
-    </div>
+            <p class="cta-note">No credit card required. 30 minutes of free strategy.</p>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="container">
-        <p>&copy; 2026 ScaleNational. All rights reserved.</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ScaleNational. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
         // FAQ toggle
-        document.querySelectorAll('.faq-item h4').forEach(header => {
-            header.addEventListener('click', function() {
-                const item = header.parentElement;
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
                 document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
                 item.classList.add('active');
             });
         });
 
         // Email form
-        document.querySelector('.email-form button').addEventListener('click', function() {
+        document.querySelector('.btn-cta').addEventListener('click', () => {
             const email = document.querySelector('.email-form input').value;
             if (email) {
-                alert('Thanks! We\'ll reach out shortly.');
+                alert('Thanks! We\'ll reach out shortly to book your strategy call.');
                 document.querySelector('.email-form input').value = '';
             }
         });
