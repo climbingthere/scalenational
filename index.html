@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScaleNational — Scale Your Business Nationally</title>
+    <title>ScaleNational — Get More Qualified Leads, Expand Your Business Nationally</title>
     <style>
         * {
             margin: 0;
@@ -12,16 +12,14 @@
         }
 
         :root {
-            --primary: #1d7874;
-            --primary-light: #4a9f9c;
+            --primary: #0d4a3f;
             --accent: #2fb896;
             --accent-light: #5fd4b3;
-            --bg-dark: #0f1419;
-            --bg-light: #fafbfc;
-            --glass-bg: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.15);
+            --bg-dark: #0a0e12;
+            --bg-light: #f8f9fa;
             --text-primary: #ffffff;
             --text-secondary: #b0b8c1;
+            --text-dark: #0d4a3f;
         }
 
         html {
@@ -29,25 +27,16 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1f27 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #0f1419 100%);
             color: var(--text-primary);
             line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Glass morphism */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         /* Navigation */
@@ -55,36 +44,35 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 0;
-            border-bottom: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             position: sticky;
             top: 0;
             z-index: 100;
+            background: rgba(10, 14, 18, 0.95);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
-            letter-spacing: -0.5px;
         }
 
-        .logo-icon {
-            display: inline-block;
-            width: 28px;
-            height: 28px;
-            margin-right: 8px;
-            vertical-align: middle;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            border-radius: 8px;
+        .logo img {
+            width: 36px;
+            height: 36px;
         }
 
         nav a {
             color: var(--text-secondary);
             text-decoration: none;
             font-size: 14px;
+            font-weight: 500;
             transition: color 0.3s ease;
         }
 
@@ -94,106 +82,72 @@
 
         /* Hero */
         .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: center;
-            padding: 80px 0;
-            min-height: 100vh;
-            position: relative;
+            padding: 100px 0 80px;
+            text-align: center;
         }
 
-        .hero-content h1 {
+        .hero h1 {
             font-size: 56px;
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 20px;
+            color: var(--text-primary);
         }
 
-        .hero-content p {
+        .hero .highlight {
+            color: var(--accent);
+        }
+
+        .hero p {
             font-size: 18px;
             color: var(--text-secondary);
             margin-bottom: 32px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
             line-height: 1.8;
         }
 
-        .cta-group {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 32px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        .cta-primary {
+            display: inline-block;
+            padding: 14px 36px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: white;
-            box-shadow: 0 8px 32px rgba(29, 120, 116, 0.3);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(47, 184, 150, 0.2);
         }
 
-        .btn-primary:hover {
+        .cta-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 48px rgba(29, 120, 116, 0.4);
+            box-shadow: 0 12px 48px rgba(47, 184, 150, 0.3);
         }
 
-        .btn-secondary {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--accent-light);
+        .cta-secondary {
+            display: inline-block;
+            padding: 14px 36px;
+            background: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin-left: 12px;
         }
 
-        .btn-secondary:hover {
-            background: rgba(95, 212, 179, 0.1);
-            border-color: var(--accent);
+        .cta-secondary:hover {
+            background: rgba(47, 184, 150, 0.1);
         }
 
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-        .hero-circle {
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(79, 195, 247, 0.1), transparent),
-                        radial-gradient(circle at 70% 70%, rgba(95, 212, 179, 0.1), transparent);
-            border: 1px solid var(--glass-border);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 120px;
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* What we do */
+        /* Section */
         .section {
             padding: 80px 0;
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .section h2 {
@@ -203,35 +157,37 @@
             text-align: center;
         }
 
-        .grid-3 {
+        .section.light {
+            background: rgba(13, 74, 63, 0.08);
+        }
+
+        /* Grid */
+        .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
+            margin-bottom: 48px;
         }
 
         .card {
-            padding: 40px;
-            border-radius: 16px;
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-        }
-
-        .card.glass {
-            border: 1px solid var(--glass-border);
-        }
-
-        .card-icon {
-            font-size: 42px;
-            margin-bottom: 16px;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-4px);
         }
 
         .card h3 {
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 12px;
+            color: var(--text-primary);
         }
 
         .card p {
@@ -241,103 +197,123 @@
         }
 
         /* Process */
-        .process {
-            position: relative;
-        }
-
-        .process-grid {
+        .process-steps {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 24px;
-            position: relative;
         }
 
-        .process-step {
-            padding: 32px;
+        .step {
             text-align: center;
-            position: relative;
+            padding: 32px 20px;
         }
 
         .step-number {
-            font-size: 48px;
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            color: var(--bg-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
             font-weight: 700;
-            color: var(--primary);
             margin-bottom: 16px;
         }
 
-        .process-step h4 {
-            font-size: 16px;
+        .step h4 {
+            font-size: 18px;
+            font-weight: 600;
             margin-bottom: 12px;
         }
 
-        .process-step p {
+        .step p {
             color: var(--text-secondary);
             font-size: 14px;
+            line-height: 1.8;
         }
 
-        .process-connector {
-            position: absolute;
-            top: 50%;
-            left: -12px;
-            right: -12px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            z-index: -1;
+        /* Results */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+
+        .result-stat {
+            padding: 32px;
+        }
+
+        .result-stat h3 {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .result-stat p {
+            color: var(--text-secondary);
+            font-size: 16px;
         }
 
         /* CTA Section */
-        .cta-section {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 60px;
+        .cta-final {
+            background: linear-gradient(135deg, rgba(13, 74, 63, 0.2), rgba(47, 184, 150, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 16px;
+            padding: 64px 40px;
             text-align: center;
             margin: 80px 0;
         }
 
-        .cta-section h2 {
-            font-size: 38px;
-            margin-bottom: 16px;
+        .cta-final h2 {
+            font-size: 42px;
+            margin-bottom: 24px;
         }
 
-        .cta-section p {
+        .cta-final p {
             font-size: 18px;
             color: var(--text-secondary);
             margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Form */
-        .form-group {
-            max-width: 600px;
-            margin: 0 auto;
+        .email-form {
             display: flex;
             gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        .form-group input {
+        .email-form input {
             flex: 1;
-            padding: 14px 20px;
-            border-radius: 12px;
-            border: 1px solid var(--glass-border);
+            padding: 14px 16px;
             background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
             color: var(--text-primary);
             font-size: 14px;
-            transition: all 0.3s ease;
         }
 
-        .form-group input::placeholder {
+        .email-form input::placeholder {
             color: var(--text-secondary);
         }
 
-        .form-group input:focus {
+        .email-form input:focus {
             outline: none;
             border-color: var(--accent);
-            background: rgba(95, 212, 179, 0.08);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         /* Footer */
         footer {
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding: 40px 0;
             text-align: center;
             color: var(--text-secondary);
@@ -346,36 +322,29 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 40px 0;
-                min-height: auto;
-            }
-
-            .hero-content h1 {
+            .hero h1 {
                 font-size: 36px;
             }
 
-            .grid-3 {
+            .grid {
                 grid-template-columns: 1fr;
             }
 
-            .process-grid {
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .results-grid {
                 grid-template-columns: 1fr;
             }
 
-            .process-connector {
-                display: none;
+            .cta-primary, .cta-secondary {
+                display: block;
+                margin: 12px auto;
             }
 
-            .cta-form {
+            .email-form {
                 flex-direction: column;
-            }
-
-            .hero-circle {
-                width: 250px;
-                height: 250px;
-                font-size: 80px;
             }
         }
     </style>
@@ -384,109 +353,118 @@
     <!-- Navigation -->
     <nav class="container">
         <a href="#" class="logo">
-            <span class="logo-icon"></span>
+            <span>📈</span>
             ScaleNational
         </a>
-        <a href="#contact">Get Started</a>
+        <a href="#book-call">Book a Call</a>
     </nav>
 
     <div class="container">
         <!-- Hero -->
         <section class="hero">
-            <div class="hero-content">
-                <h1>Scale Your Business Nationally</h1>
-                <p>We help local businesses expand beyond their region with proven cold outreach and lead generation strategies. If you're ambitious and ready to grow, let's talk.</p>
-                <div class="cta-group">
-                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView()">
-                        ↳ Learn More
-                    </button>
-                    <a href="https://calendly.com/scalenational" class="btn btn-secondary">
-                        📅 Book Consultation
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-circle">📈</div>
+            <h1>Fill Your Calendar with <span class="highlight">Qualified Decision-Makers</span></h1>
+            <p>
+                We combine strategic list building, personalized cold outreach, and proven email systems to help local businesses scale nationally. 
+                Get consistent, high-quality leads without burning out your team.
+            </p>
+            <div>
+                <a href="#book-call" class="cta-primary">Get Started Today</a>
+                <a href="#how-it-works" class="cta-secondary">See How It Works</a>
             </div>
         </section>
 
-        <!-- What We Do -->
-        <section class="section">
-            <h2>What We Do</h2>
-            <div class="grid-3">
-                <div class="card glass">
-                    <div class="card-icon">🎯</div>
-                    <h3>Lead Generation</h3>
-                    <p>We identify and build hyper-targeted lists of decision-makers in your industry. Cold email, LinkedIn, and outreach combined — all tuned for your market.</p>
+        <!-- Social Proof / Results -->
+        <section class="section light">
+            <div class="results-grid">
+                <div class="result-stat">
+                    <h3>487+</h3>
+                    <p>Qualified leads generated for our clients</p>
                 </div>
-                <div class="card glass">
-                    <div class="card-icon">📧</div>
-                    <h3>Cold Outreach</h3>
-                    <p>Personalized campaigns that don't feel like spam. We write copy that resonates, handle deliverability, and optimize for meetings booked — not just open rates.</p>
+                <div class="result-stat">
+                    <h3>3.2x</h3>
+                    <p>Average ROI within first 60 days</p>
                 </div>
-                <div class="card glass">
-                    <div class="card-icon">📊</div>
-                    <h3>Strategy & Scaling</h3>
-                    <p>We don't just send emails. We audit your current acquisition, identify gaps, and build a playbook to scale your business across multiple regions.</p>
+                <div class="result-stat">
+                    <h3>94%</h3>
+                    <p>Inbox delivery rate (industry average: 60%)</p>
                 </div>
             </div>
         </section>
 
-        <!-- Our Process -->
-        <section class="section process">
-            <h2>Our Process</h2>
-            <div class="process-grid">
-                <div class="process-step glass">
+        <!-- How It Works -->
+        <section class="section" id="how-it-works">
+            <h2>How ScaleNational Works</h2>
+            <div class="process-steps">
+                <div class="step">
                     <div class="step-number">1</div>
-                    <h4>Discovery Call</h4>
-                    <p>We understand your business, target market, and growth goals. No fluff — just questions that matter.</p>
+                    <h4>Strategy Call</h4>
+                    <p>We audit your current sales process and identify expansion opportunities in new markets.</p>
                 </div>
-                <div class="process-step glass">
+                <div class="step">
                     <div class="step-number">2</div>
                     <h4>List Building</h4>
-                    <p>We research and build a hyper-targeted list of prospects in your sector. Quality over quantity.</p>
+                    <p>Our team researches and builds a hyper-targeted list of decision-makers in your ideal markets.</p>
                 </div>
-                <div class="process-step glass">
+                <div class="step">
                     <div class="step-number">3</div>
-                    <h4>Campaign Setup</h4>
-                    <p>Personalized copy, email infrastructure, and landing pages. Everything pre-tested for maximum conversions.</p>
+                    <h4>Campaign Launch</h4>
+                    <p>Personalized email sequences, proven templates, and infrastructure to ensure inbox delivery.</p>
                 </div>
-                <div class="process-step glass">
+                <div class="step">
                     <div class="step-number">4</div>
-                    <h4>Optimize & Scale</h4>
-                    <p>Launch, measure, refine. We iterate on what works and scale aggressively across regions.</p>
+                    <h4>Optimization</h4>
+                    <p>Real-time tracking, A/B testing, and adjustments to maximize bookings and conversions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="section">
+            <h2>Our Services</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Lead Generation</h3>
+                    <p>Hyper-targeted list building with verified contact data. We research decision-makers in your target markets and deliver qualified prospects ready to engage.</p>
+                </div>
+                <div class="card">
+                    <h3>Cold Email Campaigns</h3>
+                    <p>Personalized outreach sequences designed to convert. From subject lines to follow-ups, we handle deliverability, tracking, and optimization.</p>
+                </div>
+                <div class="card">
+                    <h3>National Expansion</h3>
+                    <p>Multi-market campaigns that let you scale coast-to-coast. We manage everything so you can focus on closing deals.</p>
                 </div>
             </div>
         </section>
 
         <!-- Who We Work With -->
-        <section class="section">
+        <section class="section light">
             <h2>Who We Work With</h2>
-            <div class="grid-3">
-                <div class="card glass">
-                    <h3>B2B Services</h3>
-                    <p>Agencies, consultants, and service providers looking to expand their footprint nationally.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>B2B Service Providers</h3>
+                    <p>Agencies, consultants, and service companies looking to expand into new regions and industries.</p>
                 </div>
-                <div class="card glass">
-                    <h3>SaaS & Tech</h3>
-                    <p>Software companies and tech startups needing qualified B2B leads at scale.</p>
+                <div class="card">
+                    <h3>SaaS & Software</h3>
+                    <p>Tech companies and platforms needing consistent B2B lead flow to support scaling growth.</p>
                 </div>
-                <div class="card glass">
-                    <h3>Outdoor & Lifestyle</h3>
-                    <p>Brands, retailers, and companies in the outdoor sector scaling beyond local markets.</p>
+                <div class="card">
+                    <h3>Outdoor & Retail</h3>
+                    <p>Brands and local businesses in the outdoor, fitness, and retail sectors scaling nationally.</p>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
-        <section id="contact" class="cta-section">
-            <h2>Ready to Scale?</h2>
-            <p>Let's schedule a free 30-minute strategy call. We'll audit your current efforts and discuss a plan to take you national.</p>
-            <div class="form-group">
+        <!-- Final CTA -->
+        <section class="cta-final" id="book-call">
+            <h2>Book a Free Strategy Call</h2>
+            <p>Let's talk about your expansion goals. We'll outline a custom plan to get qualified leads in 30 days or less.</p>
+            <div class="email-form">
                 <input type="email" placeholder="your@company.com" required>
-                <button class="btn btn-primary">Get Started</button>
+                <button class="cta-primary" style="border: none; cursor: pointer;">Get Started</button>
             </div>
-            <p style="margin-top: 16px; font-size: 14px; color: var(--text-secondary);">Or <a href="https://calendly.com/scalenational" style="color: var(--accent); text-decoration: none;">book a call directly</a></p>
+            <p style="margin-top: 16px; font-size: 14px;">No credit card required. 100% confidential.</p>
         </section>
     </div>
 
@@ -496,14 +474,11 @@
     </footer>
 
     <script>
-        // Form submission
-        document.querySelector('.form-group button').addEventListener('click', function() {
-            const email = document.querySelector('.form-group input').value;
+        document.querySelector('.email-form button').addEventListener('click', function() {
+            const email = document.querySelector('.email-form input').value;
             if (email) {
-                // Send to your email service (Resend, SendGrid, etc.)
-                console.log('Inquiry from:', email);
-                alert('Thanks for your interest! We'll be in touch shortly.');
-                document.querySelector('.form-group input').value = '';
+                alert('Thanks! We'll reach out to ' + email + ' shortly.');
+                document.querySelector('.email-form input').value = '';
             }
         });
     </script>
