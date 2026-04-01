@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScaleNational — Fill Your Calendar with Qualified Decision-Makers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,17 +12,62 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #ffffff;
-            color: #111111;
-            line-height: 1.6;
+        html {
+            scroll-behavior: smooth;
         }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Typography - Swiss style */
+        h1, h2, h3, h4 {
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(36px, 8vw, 72px);
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: clamp(28px, 6vw, 48px);
+            font-weight: 400;
+            margin-bottom: 32px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .accent {
+            color: #2bb67f;
+        }
+
+        /* Layout */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 clamp(20px, 5vw, 60px);
+        }
+
+        section {
+            padding: clamp(60px, 10vw, 120px) 0;
         }
 
         /* Navigation */
@@ -35,93 +80,56 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
         }
 
-        .logo {
+        .logo-wrapper {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 18px;
-            font-weight: 700;
-            color: #1a5f3f;
             text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a1a;
         }
 
-        .logo-icon {
+        .logo-svg {
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, #1a5f3f 0%, #2bb67f 100%);
-            border-radius: 6px;
+            flex-shrink: 0;
         }
 
         nav .nav-right {
             display: flex;
-            gap: 20px;
+            gap: 24px;
             align-items: center;
         }
 
         nav a {
-            color: #666;
+            color: #555;
             text-decoration: none;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 400;
+            transition: color 0.2s;
         }
 
         nav a:hover {
-            color: #1a5f3f;
-        }
-
-        /* Hero */
-        .hero {
-            padding: 100px 0;
-        }
-
-        .hero h1 {
-            font-size: 72px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            color: #111111;
-            letter-spacing: -1px;
-        }
-
-        .hero .highlight {
             color: #2bb67f;
         }
 
-        .hero > p {
-            font-size: 20px;
-            color: #666;
-            margin-bottom: 20px;
-            max-width: 700px;
-            line-height: 1.6;
-            font-weight: 400;
-        }
-
-        .hero-subtext {
-            font-size: 18px;
-            color: #999;
-            margin-bottom: 40px;
-            max-width: 700px;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 16px;
-            margin-top: 40px;
-        }
-
+        /* Buttons */
         .btn {
-            padding: 14px 32px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 15px;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 14px;
             text-decoration: none;
             cursor: pointer;
             border: none;
             transition: all 0.2s ease;
             display: inline-block;
+            white-space: nowrap;
         }
 
         .btn-primary {
@@ -131,44 +139,70 @@
 
         .btn-primary:hover {
             background: #0f3a24;
-            transform: translateY(-1px);
         }
 
         .btn-secondary {
             background: transparent;
-            color: #1a5f3f;
+            color: #1a1a1a;
             border: 1px solid #ddd;
         }
 
         .btn-secondary:hover {
-            border-color: #1a5f3f;
+            border-color: #1a1a1a;
             background: #f9f9f9;
         }
 
-        /* Logos Section */
-        .logos-section {
-            padding: 80px 0;
-            border-top: 1px solid #f0f0f0;
+        /* Hero */
+        .hero {
+            padding-top: 80px;
         }
 
-        .logos-section p {
-            font-size: 16px;
+        .hero h1 {
+            max-width: 800px;
+            margin-bottom: 32px;
+        }
+
+        .hero-subtext {
+            max-width: 600px;
+            font-size: 18px;
             color: #666;
             margin-bottom: 48px;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Logo Carousel */
+        .logos-section {
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .logos-title {
             text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: #999;
+            margin-bottom: 48px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .logos-carousel {
             position: relative;
             overflow: hidden;
-            background: white;
+            margin: 0 -60px;
+            padding: 0 60px;
         }
 
         .logos-track {
             display: flex;
-            gap: 60px;
-            animation: scroll 40s linear infinite;
-            padding: 40px 0;
+            gap: 80px;
+            animation: scroll 60s linear infinite;
             will-change: transform;
         }
 
@@ -191,83 +225,63 @@
             align-items: center;
             gap: 16px;
             flex-shrink: 0;
-            min-width: 150px;
+            min-width: 140px;
         }
 
-        .logo-box {
-            width: 140px;
-            height: 80px;
+        .logo-img {
+            width: 120px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #f8f8f8;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 13px;
-            color: #555;
-            text-align: center;
-            padding: 12px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 8px;
         }
 
         .logo-name {
             font-size: 13px;
             color: #999;
-            font-weight: 500;
+            font-weight: 400;
             text-align: center;
-            max-width: 140px;
-        }
-
-        /* Section */
-        .section {
-            padding: 100px 0;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .section h2 {
-            font-size: 52px;
-            font-weight: 800;
-            margin-bottom: 50px;
-            color: #111;
-            letter-spacing: -0.5px;
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 60px;
-            max-width: 700px;
         }
 
         /* Stats */
         .stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(40px, 8vw, 80px);
+            margin-bottom: 0;
         }
 
         .stat {
-            padding: 0;
+            text-align: left;
         }
 
         .stat-number {
-            font-size: 52px;
-            font-weight: 800;
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: 400;
             color: #2bb67f;
             margin-bottom: 12px;
         }
 
         .stat p {
-            color: #666;
             font-size: 16px;
-            line-height: 1.6;
+            color: #666;
         }
 
         /* Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(40px, 6vw, 60px);
         }
 
         .card {
@@ -275,23 +289,14 @@
         }
 
         .card h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #111;
-        }
-
-        .card p {
-            color: #666;
-            font-size: 15px;
-            line-height: 1.8;
+            margin-bottom: 16px;
         }
 
         /* Process */
         .process {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: clamp(40px, 6vw, 60px);
         }
 
         .step {
@@ -299,95 +304,82 @@
         }
 
         .step-number {
-            width: 48px;
-            height: 48px;
-            background: #2bb67f;
-            color: white;
+            width: 40px;
+            height: 40px;
+            background: #f0f0f0;
+            color: #2bb67f;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 24px;
         }
 
-        .step h3 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #111;
-        }
-
-        .step p {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-        /* CTA */
+        /* CTA Final */
         .cta-final {
             background: #1a5f3f;
-            padding: 80px 60px;
+            padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 60px);
             text-align: center;
-            margin: 100px 0;
             color: white;
             border-radius: 0;
+            margin: clamp(60px, 10vw, 120px) 0 0 0;
         }
 
         .cta-final h2 {
             color: white;
-            margin-bottom: 20px;
-            font-size: 52px;
-            font-weight: 800;
+            margin-bottom: 24px;
         }
 
         .cta-final p {
             color: rgba(255, 255, 255, 0.85);
-            font-size: 18px;
-            margin-bottom: 40px;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 40px;
         }
 
         .email-form {
             display: flex;
             gap: 12px;
             max-width: 500px;
-            margin: 0 auto;
+            margin: 0 auto 24px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .email-form input {
             flex: 1;
+            min-width: 200px;
             padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 4px;
             color: white;
             font-size: 14px;
+            font-family: inherit;
         }
 
         .email-form input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.5);
         }
 
         .email-form input:focus {
             outline: none;
             border-color: rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .email-form button {
-            padding: 12px 28px;
+            padding: 12px 32px;
             background: white;
             color: #1a5f3f;
             border: none;
             border-radius: 4px;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 14px;
             cursor: pointer;
             transition: all 0.2s ease;
+            white-space: nowrap;
         }
 
         .email-form button:hover {
@@ -397,14 +389,13 @@
         .cta-note {
             font-size: 13px;
             color: rgba(255, 255, 255, 0.7);
-            margin-top: 16px;
         }
 
         /* FAQ */
         .faq-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
         }
 
         .faq-item {
@@ -414,9 +405,21 @@
 
         .faq-item h4 {
             font-size: 16px;
-            font-weight: 700;
-            color: #111;
+            font-weight: 500;
+            color: #1a1a1a;
             margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-toggle {
+            font-size: 20px;
+            transition: transform 0.2s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
         }
 
         .faq-item p {
@@ -424,6 +427,7 @@
             font-size: 14px;
             line-height: 1.8;
             display: none;
+            margin-top: 16px;
         }
 
         .faq-item.active p {
@@ -440,43 +444,126 @@
         }
 
         footer a {
-            color: #1a5f3f;
+            color: #2bb67f;
             text-decoration: none;
         }
 
-        /* Responsive */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 44px;
+            h1 {
+                font-size: 32px;
             }
 
-            .section h2 {
-                font-size: 36px;
+            h2 {
+                font-size: 24px;
             }
 
-            .grid, .stats, .faq-grid {
+            nav {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            nav .nav-right {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 12px;
+                margin-top: 12px;
+                padding-top: 12px;
+                border-top: 1px solid #f0f0f0;
+            }
+
+            .hero-cta {
+                gap: 12px;
+            }
+
+            .btn {
+                flex: 1;
+                min-width: 150px;
+                text-align: center;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .stats {
+                gap: 30px;
+            }
+
+            .grid, .process, .faq-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
-            .process {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero-cta, .email-form {
-                flex-direction: column;
+            .logos-carousel {
+                margin: 0 -20px;
+                padding: 0 20px;
             }
 
             .logos-track {
-                gap: 32px;
+                gap: 60px;
             }
 
             .logo-item {
                 min-width: 120px;
             }
 
-            .logo-box {
+            .logo-img {
                 width: 100px;
-                height: 70px;
+                height: 50px;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .email-form input,
+            .email-form button {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            section {
+                padding: 30px 0;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .logos-track {
+                gap: 40px;
+            }
+
+            .logo-item {
+                min-width: 100px;
+            }
+
+            .logo-img {
+                width: 80px;
+                height: 40px;
+            }
+
+            .logo-name {
                 font-size: 11px;
             }
         }
@@ -485,105 +572,144 @@
 <body>
     <!-- Navigation -->
     <nav class="container">
-        <a href="#" class="logo">
-            <span class="logo-icon"></span>
-            ScaleNational
+        <a href="#" class="logo-wrapper">
+            <svg class="logo-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(50, 40)">
+                    <path d="M 0 150 L 60 0 L 120 150" stroke="#0d4a3f" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="30" y1="90" x2="90" y2="90" stroke="#0d4a3f" stroke-width="13" stroke-linecap="round"/>
+                    <path d="M 60 120 L 60 50" stroke="#2fb896" stroke-width="12" stroke-linecap="round"/>
+                    <path d="M 60 50 L 45 75" stroke="#2fb896" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 60 50 L 75 75" stroke="#2fb896" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+            </svg>
+            <span>ScaleNational</span>
         </a>
         <div class="nav-right">
             <a href="#process">How It Works</a>
-            <a href="#book-call" class="btn btn-primary">Book Call</a>
+            <a href="#book-call" class="btn btn-primary">Get Started</a>
         </div>
     </nav>
 
     <div class="container">
         <!-- Hero -->
         <section class="hero">
-            <h1>Fill Your Calendar with <span class="highlight">Qualified Decision-Makers</span></h1>
-            <p>We make it impossible for your dream buyers to not know you.</p>
-            <p class="hero-subtext">Done-for-you cold email campaigns that deliver qualified leads and scale your business nationally.</p>
+            <h1>Fill Your Calendar with <span class="accent">Qualified Decision-Makers</span></h1>
+            <p class="hero-subtext">Done-for-you cold email campaigns that deliver sales-ready leads. We make it impossible for your dream buyers to not know you.</p>
             <div class="hero-cta">
-                <a href="#book-call" class="btn btn-primary">Get Started Today</a>
-                <a href="#process" class="btn btn-secondary">See How It Works</a>
+                <a href="#book-call" class="btn btn-primary">Start Today</a>
+                <a href="#process" class="btn btn-secondary">See How</a>
             </div>
         </section>
 
-        <!-- Logos Section -->
+        <!-- Logos -->
         <section class="logos-section">
-            <p>Our Clients Have Worked With the Best</p>
+            <p class="logos-title">Trusted by Leading Companies</p>
             <div class="logos-carousel">
                 <div class="logos-track">
+                    <!-- Real logos from CDN -->
                     <div class="logo-item">
-                        <div class="logo-box">Google</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/google.com?size=300" alt="Google" onerror="this.parentElement.textContent='Google'">
+                        </div>
                         <span class="logo-name">Google</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">Oracle</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/oracle.com?size=300" alt="Oracle" onerror="this.parentElement.textContent='Oracle'">
+                        </div>
                         <span class="logo-name">Oracle</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">Microsoft</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/microsoft.com?size=300" alt="Microsoft" onerror="this.parentElement.textContent='Microsoft'">
+                        </div>
                         <span class="logo-name">Microsoft</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">Cisco</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/cisco.com?size=300" alt="Cisco" onerror="this.parentElement.textContent='Cisco'">
+                        </div>
                         <span class="logo-name">Cisco</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">IBM</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/ibm.com?size=300" alt="IBM" onerror="this.parentElement.textContent='IBM'">
+                        </div>
                         <span class="logo-name">IBM</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">Salesforce</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/salesforce.com?size=300" alt="Salesforce" onerror="this.parentElement.textContent='Salesforce'">
+                        </div>
                         <span class="logo-name">Salesforce</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">Amazon</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/amazon.com?size=300" alt="Amazon" onerror="this.parentElement.textContent='Amazon'">
+                        </div>
                         <span class="logo-name">Amazon</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">Mercedes-Benz</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/mercedes-benz.com?size=300" alt="Mercedes-Benz" onerror="this.parentElement.textContent='Mercedes-Benz'">
+                        </div>
                         <span class="logo-name">Mercedes-Benz</span>
                     </div>
                     <!-- Repeat for infinite scroll -->
                     <div class="logo-item">
-                        <div class="logo-box">Google</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/google.com?size=300" alt="Google" onerror="this.parentElement.textContent='Google'">
+                        </div>
                         <span class="logo-name">Google</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">Oracle</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/oracle.com?size=300" alt="Oracle" onerror="this.parentElement.textContent='Oracle'">
+                        </div>
                         <span class="logo-name">Oracle</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">Microsoft</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/microsoft.com?size=300" alt="Microsoft" onerror="this.parentElement.textContent='Microsoft'">
+                        </div>
                         <span class="logo-name">Microsoft</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">Cisco</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/cisco.com?size=300" alt="Cisco" onerror="this.parentElement.textContent='Cisco'">
+                        </div>
                         <span class="logo-name">Cisco</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">IBM</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/ibm.com?size=300" alt="IBM" onerror="this.parentElement.textContent='IBM'">
+                        </div>
                         <span class="logo-name">IBM</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">Salesforce</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/salesforce.com?size=300" alt="Salesforce" onerror="this.parentElement.textContent='Salesforce'">
+                        </div>
                         <span class="logo-name">Salesforce</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">Amazon</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/amazon.com?size=300" alt="Amazon" onerror="this.parentElement.textContent='Amazon'">
+                        </div>
                         <span class="logo-name">Amazon</span>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-box">Mercedes-Benz</div>
+                        <div class="logo-img">
+                            <img src="https://logo.clearbit.com/mercedes-benz.com?size=300" alt="Mercedes-Benz" onerror="this.parentElement.textContent='Mercedes-Benz'">
+                        </div>
                         <span class="logo-name">Mercedes-Benz</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Social Proof -->
-        <section class="section">
-            <h2>Results That Speak</h2>
+        <!-- Stats -->
+        <section>
             <div class="stats">
                 <div class="stat">
                     <div class="stat-number">47+</div>
@@ -595,20 +721,19 @@
                 </div>
                 <div class="stat">
                     <div class="stat-number">94%</div>
-                    <p>Inbox delivery rate (vs 60% industry)</p>
+                    <p>Inbox delivery rate vs 60% industry</p>
                 </div>
             </div>
         </section>
 
-        <!-- How It Works -->
-        <section class="section" id="process">
-            <h2>The ScaleNational System</h2>
-            <p class="section-subtitle">Done-for-you outbound campaigns built on dedicated infrastructure with precision targeting.</p>
+        <!-- Process -->
+        <section id="process">
+            <h2>How It Works</h2>
             <div class="process">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Market Analysis</h3>
-                    <p>We research your market and define your ideal client profile with pinpoint precision.</p>
+                    <p>We research your market and define your ideal client profile with precision.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
@@ -618,7 +743,7 @@
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>AI Messaging</h3>
-                    <p>Personalized sequences that resonate. Expert copywriting powered by AI insights.</p>
+                    <p>Personalized sequences that resonate. Expert copywriting powered by AI.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
@@ -629,85 +754,87 @@
         </section>
 
         <!-- Services -->
-        <section class="section">
+        <section>
             <h2>What We Build For You</h2>
-            <p class="section-subtitle">Everything you need to scale outbound and fill your pipeline.</p>
             <div class="grid">
                 <div class="card">
                     <h3>Dedicated IP Infrastructure</h3>
-                    <p>Enterprise-grade setup separate from risky sender pools. Maximum deliverability, zero compromises.</p>
+                    <p>Enterprise-grade setup. Maximum deliverability. Zero email provider risk.</p>
                 </div>
                 <div class="card">
                     <h3>Real-Time Market Intelligence</h3>
-                    <p>Spot opportunities with 30+ daily buying signals from 250M+ verified contacts.</p>
+                    <p>30+ daily buying signals from 250M+ verified contacts. Stay ahead of competition.</p>
                 </div>
                 <div class="card">
                     <h3>Pipeline-Ready Leads</h3>
-                    <p>Not just contact lists. Qualified prospects ready to book meetings with your sales team.</p>
+                    <p>Not just contact lists. Qualified prospects ready to book meetings.</p>
                 </div>
                 <div class="card">
                     <h3>Done-For-You Management</h3>
-                    <p>We handle infrastructure, targeting, messaging. You focus on closing deals.</p>
+                    <p>We handle everything. You focus on closing deals.</p>
                 </div>
                 <div class="card">
                     <h3>Real-Time Analytics</h3>
-                    <p>Track every metric. Reply rates, booking data, ROI. Know exactly what's working.</p>
+                    <p>Track every metric. Know exactly what's working.</p>
                 </div>
                 <div class="card">
                     <h3>Continuous A/B Testing</h3>
-                    <p>We optimize messaging, segments, timing until meetings consistently hit your calendar.</p>
+                    <p>We optimize until meetings consistently hit your calendar.</p>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="section">
-            <h2>Common Questions</h2>
+        <section>
+            <h2>Questions</h2>
             <div class="faq-grid">
-                <div class="faq-item">
-                    <h4>How fast will I see results?</h4>
-                    <p>Most clients book qualified meetings within 10-21 days of launch. Timeline depends on your market and sales cycle.</p>
+                <div class="faq-item active">
+                    <h4>How fast will I see results? <span class="faq-toggle">−</span></h4>
+                    <p>Most clients book qualified meetings within 10–21 days of launch. Timeline depends on your market and sales cycle.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Will emails land in spam?</h4>
-                    <p>No. We use dedicated IPs, warm up properly, and follow deliverability best practices. 94% inbox rate vs 60% industry average.</p>
+                    <h4>Will emails land in spam? <span class="faq-toggle">+</span></h4>
+                    <p>No. We use dedicated IPs, warm up properly, and follow best practices. 94% inbox rate vs 60% industry average.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>How does pricing work?</h4>
-                    <p>Based on target market size and campaign scope. No setup fees. Only pay for performance. Get a custom quote on your call.</p>
+                    <h4>How does pricing work? <span class="faq-toggle">+</span></h4>
+                    <p>Based on target market size and scope. No setup fees. Only pay for performance. Get a custom quote on your call.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Can you scale across multiple markets?</h4>
-                    <p>Absolutely. That's the whole point of ScaleNational. We run simultaneous campaigns across regions and industries.</p>
+                    <h4>Can you scale across markets? <span class="faq-toggle">+</span></h4>
+                    <p>Absolutely. We run simultaneous campaigns across regions and industries. That's the whole point of ScaleNational.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Final CTA -->
+        <!-- CTA -->
         <section class="cta-final" id="book-call">
             <h2>Book Your Free Strategy Call</h2>
-            <p>Let's outline a custom outbound plan to get qualified meetings on your calendar within 30 days.</p>
+            <p>Let's outline a custom plan to get qualified meetings on your calendar within 30 days.</p>
             <div class="email-form">
                 <input type="email" placeholder="your@company.com" required>
                 <button>Get Started</button>
             </div>
-            <p class="cta-note">No credit card required. 30 minutes of free advice, guaranteed.</p>
+            <p class="cta-note">No credit card required. 30 minutes of free advice.</p>
         </section>
     </div>
 
     <!-- Footer -->
     <footer class="container">
-        <p>&copy; 2026 ScaleNational. All rights reserved. | <a href="#">Privacy</a> | <a href="#">Terms</a></p>
+        <p>&copy; 2026 ScaleNational. All rights reserved.</p>
     </footer>
 
     <script>
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', function() {
+        // FAQ toggle
+        document.querySelectorAll('.faq-item h4').forEach(header => {
+            header.addEventListener('click', function() {
+                const item = header.parentElement;
                 document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                this.classList.add('active');
+                item.classList.add('active');
             });
         });
 
+        // Email form
         document.querySelector('.email-form button').addEventListener('click', function() {
             const email = document.querySelector('.email-form input').value;
             if (email) {
