@@ -1,9 +1,9 @@
 {
   "name": "scalenational",
   "type": "javascript",
-  "main": "index.html",
   "compatibility_date": "2025-09-27",
   "assets": {
     "directory": "."
-  }
+  },
+  "routes": []
 }
