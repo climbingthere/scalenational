@@ -22,7 +22,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding: 0 40px;
         }
 
         /* Navigation */
@@ -30,7 +30,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 24px 0;
             border-bottom: 1px solid #f0f0f0;
             position: sticky;
             top: 0;
@@ -39,66 +39,71 @@
         }
 
         .logo {
-            font-size: 20px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #1a73e8 0%, #00bfa5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a5f3f;
             text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #1a5f3f 0%, #2bb67f 100%);
+            border-radius: 6px;
         }
 
         nav .nav-right {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             align-items: center;
         }
 
         nav a {
             color: #666;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
-            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #1a73e8;
+            color: #1a5f3f;
         }
 
         /* Hero */
         .hero {
-            padding: 80px 0 100px;
-            background: linear-gradient(135deg, #f8f9ff 0%, #f0f7ff 100%);
-            border-radius: 24px;
-            margin-top: 40px;
-            padding-left: 48px;
-            padding-right: 48px;
+            padding: 100px 0;
         }
 
         .hero h1 {
-            font-size: 64px;
+            font-size: 72px;
             font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 20px;
+            line-height: 1.1;
+            margin-bottom: 24px;
             color: #111111;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
         }
 
         .hero .highlight {
-            background: linear-gradient(135deg, #1a73e8 0%, #00bfa5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #2bb67f;
         }
 
-        .hero p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 16px;
+        .hero > p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 20px;
             max-width: 700px;
-            line-height: 1.8;
+            line-height: 1.6;
             font-weight: 400;
+        }
+
+        .hero-subtext {
+            font-size: 18px;
+            color: #999;
+            margin-bottom: 40px;
+            max-width: 700px;
         }
 
         .hero-cta {
@@ -108,122 +113,96 @@
         }
 
         .btn {
-            padding: 16px 32px;
-            border-radius: 10px;
+            padding: 14px 32px;
+            border-radius: 6px;
             font-weight: 600;
             font-size: 15px;
             text-decoration: none;
             cursor: pointer;
             border: none;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             display: inline-block;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #1a73e8 0%, #0d5bbb 100%);
+            background: #1a5f3f;
             color: white;
-            box-shadow: 0 8px 24px rgba(26, 115, 232, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(26, 115, 232, 0.4);
+            background: #0f3a24;
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
-            background: #f0f0f0;
-            color: #111;
+            background: transparent;
+            color: #1a5f3f;
             border: 1px solid #ddd;
         }
 
         .btn-secondary:hover {
-            background: #e8e8e8;
+            border-color: #1a5f3f;
+            background: #f9f9f9;
         }
 
         /* Section */
         .section {
-            padding: 80px 0;
+            padding: 100px 0;
+            border-top: 1px solid #f0f0f0;
         }
 
         .section h2 {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 800;
-            margin-bottom: 16px;
-            text-align: center;
+            margin-bottom: 50px;
             color: #111;
             letter-spacing: -0.5px;
         }
 
         .section-subtitle {
-            text-align: center;
-            color: #666;
             font-size: 18px;
+            color: #666;
             margin-bottom: 60px;
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section.light {
-            background: #f8f9ff;
-            margin: 0 -32px;
-            padding: 80px 32px;
-            border-radius: 24px;
         }
 
         /* Stats */
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            gap: 40px;
         }
 
         .stat {
-            padding: 32px;
-            background: white;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid #f0f0f0;
+            padding: 0;
         }
 
         .stat-number {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 800;
-            background: linear-gradient(135deg, #1a73e8 0%, #00bfa5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #2bb67f;
             margin-bottom: 12px;
         }
 
         .stat p {
             color: #666;
             font-size: 16px;
+            line-height: 1.6;
         }
 
         /* Grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            gap: 40px;
         }
 
         .card {
-            padding: 40px 32px;
-            background: white;
-            border: 1px solid #f0f0f0;
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: #1a73e8;
-            box-shadow: 0 12px 32px rgba(26, 115, 232, 0.08);
-            transform: translateY(-4px);
+            padding: 0;
         }
 
         .card h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             margin-bottom: 12px;
             color: #111;
@@ -239,30 +218,29 @@
         .process {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
+            gap: 40px;
         }
 
         .step {
-            padding: 40px 24px;
-            text-align: center;
+            padding: 0;
         }
 
         .step-number {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #1a73e8 0%, #00bfa5 100%);
+            width: 48px;
+            height: 48px;
+            background: #2bb67f;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
-            margin: 0 auto 20px;
+            margin-bottom: 20px;
         }
 
         .step h3 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             margin-bottom: 12px;
             color: #111;
@@ -276,22 +254,23 @@
 
         /* CTA */
         .cta-final {
-            background: linear-gradient(135deg, #1a73e8 0%, #00bfa5 100%);
-            border-radius: 24px;
+            background: #1a5f3f;
             padding: 80px 60px;
             text-align: center;
-            margin: 80px 0;
+            margin: 100px 0;
             color: white;
+            border-radius: 0;
         }
 
         .cta-final h2 {
             color: white;
             margin-bottom: 20px;
-            font-size: 48px;
+            font-size: 52px;
+            font-weight: 800;
         }
 
         .cta-final p {
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.85);
             font-size: 18px;
             margin-bottom: 40px;
             max-width: 600px;
@@ -308,13 +287,12 @@
 
         .email-form input {
             flex: 1;
-            padding: 14px 16px;
-            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
+            border-radius: 4px;
             color: white;
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 14px;
         }
 
         .email-form input::placeholder {
@@ -324,45 +302,41 @@
         .email-form input:focus {
             outline: none;
             border-color: rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .email-form button {
-            padding: 14px 28px;
+            padding: 12px 28px;
             background: white;
-            color: #1a73e8;
+            color: #1a5f3f;
             border: none;
-            border-radius: 10px;
+            border-radius: 4px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .email-form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            background: #f0f0f0;
+        }
+
+        .cta-note {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 16px;
         }
 
         /* FAQ */
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+            gap: 32px;
         }
 
         .faq-item {
-            padding: 28px;
-            background: white;
-            border: 1px solid #f0f0f0;
-            border-radius: 16px;
+            padding: 0;
             cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            border-color: #1a73e8;
-            box-shadow: 0 8px 20px rgba(26, 115, 232, 0.08);
         }
 
         .faq-item h4 {
@@ -370,12 +344,15 @@
             font-weight: 700;
             color: #111;
             margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
         .faq-item p {
             color: #666;
             font-size: 14px;
-            line-height: 1.7;
+            line-height: 1.8;
             display: none;
         }
 
@@ -389,22 +366,22 @@
             padding: 40px 0;
             text-align: center;
             color: #999;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         footer a {
-            color: #1a73e8;
+            color: #1a5f3f;
             text-decoration: none;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 40px;
+                font-size: 44px;
             }
 
-            .hero {
-                padding: 40px 24px;
+            .section h2 {
+                font-size: 36px;
             }
 
             .grid, .stats, .faq-grid {
@@ -415,17 +392,8 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .hero-cta {
+            .hero-cta, .email-form {
                 flex-direction: column;
-            }
-
-            .email-form {
-                flex-direction: column;
-            }
-
-            nav .nav-right {
-                flex-direction: column;
-                gap: 8px;
             }
         }
     </style>
@@ -433,10 +401,13 @@
 <body>
     <!-- Navigation -->
     <nav class="container">
-        <a href="#" class="logo">ScaleNational</a>
+        <a href="#" class="logo">
+            <span class="logo-icon"></span>
+            ScaleNational
+        </a>
         <div class="nav-right">
             <a href="#process">How It Works</a>
-            <a href="#book-call" class="btn btn-primary" style="padding: 12px 24px;">Book Call</a>
+            <a href="#book-call" class="btn btn-primary">Book Call</a>
         </div>
     </nav>
 
@@ -445,7 +416,7 @@
         <section class="hero">
             <h1>Fill Your Calendar with <span class="highlight">Qualified Decision-Makers</span></h1>
             <p>We make it impossible for your dream buyers to not know you.</p>
-            <p>Done-for-you cold email campaigns that deliver qualified leads and scale your business nationally.</p>
+            <p class="hero-subtext">Done-for-you cold email campaigns that deliver qualified leads and scale your business nationally.</p>
             <div class="hero-cta">
                 <a href="#book-call" class="btn btn-primary">Get Started Today</a>
                 <a href="#process" class="btn btn-secondary">See How It Works</a>
@@ -453,7 +424,7 @@
         </section>
 
         <!-- Social Proof -->
-        <section class="section light">
+        <section class="section">
             <h2>Results That Speak</h2>
             <div class="stats">
                 <div class="stat">
@@ -489,7 +460,7 @@
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>AI Messaging</h3>
-                    <p>Personalized sequences that resonate. AI-driven insights + expert copywriting.</p>
+                    <p>Personalized sequences that resonate. Expert copywriting powered by AI insights.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
@@ -501,7 +472,7 @@
 
         <!-- Services -->
         <section class="section">
-            <h2>What We Build</h2>
+            <h2>What We Build For You</h2>
             <p class="section-subtitle">Everything you need to scale outbound and fill your pipeline.</p>
             <div class="grid">
                 <div class="card">
@@ -532,23 +503,23 @@
         </section>
 
         <!-- FAQ -->
-        <section class="section light">
+        <section class="section">
             <h2>Common Questions</h2>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h4>How fast will I see results?</h4>
+                    <h4>How fast will I see results? <span>+</span></h4>
                     <p>Most clients book qualified meetings within 10-21 days of launch. Timeline depends on your market and sales cycle.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Will emails land in spam?</h4>
+                    <h4>Will emails land in spam? <span>+</span></h4>
                     <p>No. We use dedicated IPs, warm up properly, and follow deliverability best practices. 94% inbox rate vs 60% industry average.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>How does pricing work?</h4>
+                    <h4>How does pricing work? <span>+</span></h4>
                     <p>Based on target market size and campaign scope. No setup fees. Only pay for performance. Get a custom quote on your call.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Can you scale across multiple markets?</h4>
+                    <h4>Can you scale across multiple markets? <span>+</span></h4>
                     <p>Absolutely. That's the whole point of ScaleNational. We run simultaneous campaigns across regions and industries.</p>
                 </div>
             </div>
@@ -557,11 +528,12 @@
         <!-- Final CTA -->
         <section class="cta-final" id="book-call">
             <h2>Book Your Free Strategy Call</h2>
-            <p>Let's outline a custom outbound plan to get qualified meetings on your calendar within 30 days. No credit card required.</p>
+            <p>Let's outline a custom outbound plan to get qualified meetings on your calendar within 30 days.</p>
             <div class="email-form">
                 <input type="email" placeholder="your@company.com" required>
                 <button>Get Started</button>
             </div>
+            <p class="cta-note">No credit card required. 30 minutes of free advice, guaranteed.</p>
         </section>
     </div>
 
@@ -573,7 +545,8 @@
     <script>
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', function() {
-                this.classList.toggle('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
             });
         });
 
