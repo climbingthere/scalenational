@@ -145,6 +145,78 @@
             background: #f9f9f9;
         }
 
+        /* Logos Section */
+        .logos-section {
+            padding: 80px 0;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .logos-section p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .logos-carousel {
+            position: relative;
+            overflow: hidden;
+            background: white;
+        }
+
+        .logos-track {
+            display: flex;
+            gap: 48px;
+            animation: scroll 30s linear infinite;
+            padding: 40px 0;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-50% - 24px));
+            }
+        }
+
+        .logos-track:hover {
+            animation-play-state: paused;
+        }
+
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+            min-width: 150px;
+        }
+
+        .logo-box {
+            width: 140px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f8f8;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            color: #555;
+            text-align: center;
+            padding: 12px;
+        }
+
+        .logo-name {
+            font-size: 13px;
+            color: #999;
+            font-weight: 500;
+            text-align: center;
+            max-width: 140px;
+        }
+
         /* Section */
         .section {
             padding: 100px 0;
@@ -344,9 +416,6 @@
             font-weight: 700;
             color: #111;
             margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
         }
 
         .faq-item p {
@@ -395,6 +464,20 @@
             .hero-cta, .email-form {
                 flex-direction: column;
             }
+
+            .logos-track {
+                gap: 32px;
+            }
+
+            .logo-item {
+                min-width: 120px;
+            }
+
+            .logo-box {
+                width: 100px;
+                height: 70px;
+                font-size: 11px;
+            }
         }
     </style>
 </head>
@@ -420,6 +503,80 @@
             <div class="hero-cta">
                 <a href="#book-call" class="btn btn-primary">Get Started Today</a>
                 <a href="#process" class="btn btn-secondary">See How It Works</a>
+            </div>
+        </section>
+
+        <!-- Logos Section -->
+        <section class="logos-section">
+            <p>Our Clients Have Worked With the Best</p>
+            <div class="logos-carousel">
+                <div class="logos-track">
+                    <div class="logo-item">
+                        <div class="logo-box">Google</div>
+                        <span class="logo-name">Google</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">Oracle</div>
+                        <span class="logo-name">Oracle</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">Microsoft</div>
+                        <span class="logo-name">Microsoft</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">Cisco</div>
+                        <span class="logo-name">Cisco</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">IBM</div>
+                        <span class="logo-name">IBM</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">Salesforce</div>
+                        <span class="logo-name">Salesforce</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">Amazon</div>
+                        <span class="logo-name">Amazon</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">Mercedes-Benz</div>
+                        <span class="logo-name">Mercedes-Benz</span>
+                    </div>
+                    <!-- Repeat for infinite scroll -->
+                    <div class="logo-item">
+                        <div class="logo-box">Google</div>
+                        <span class="logo-name">Google</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">Oracle</div>
+                        <span class="logo-name">Oracle</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">Microsoft</div>
+                        <span class="logo-name">Microsoft</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">Cisco</div>
+                        <span class="logo-name">Cisco</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">IBM</div>
+                        <span class="logo-name">IBM</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">Salesforce</div>
+                        <span class="logo-name">Salesforce</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">Amazon</div>
+                        <span class="logo-name">Amazon</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">Mercedes-Benz</div>
+                        <span class="logo-name">Mercedes-Benz</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -507,19 +664,19 @@
             <h2>Common Questions</h2>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h4>How fast will I see results? <span>+</span></h4>
+                    <h4>How fast will I see results?</h4>
                     <p>Most clients book qualified meetings within 10-21 days of launch. Timeline depends on your market and sales cycle.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Will emails land in spam? <span>+</span></h4>
+                    <h4>Will emails land in spam?</h4>
                     <p>No. We use dedicated IPs, warm up properly, and follow deliverability best practices. 94% inbox rate vs 60% industry average.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>How does pricing work? <span>+</span></h4>
+                    <h4>How does pricing work?</h4>
                     <p>Based on target market size and campaign scope. No setup fees. Only pay for performance. Get a custom quote on your call.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Can you scale across multiple markets? <span>+</span></h4>
+                    <h4>Can you scale across multiple markets?</h4>
                     <p>Absolutely. That's the whole point of ScaleNational. We run simultaneous campaigns across regions and industries.</p>
                 </div>
             </div>
