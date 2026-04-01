@@ -2,1150 +2,850 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>ScaleNational — Ad Campaigns That Scale Markets Fast</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230D4A3F'/%3E%3Cpath d='M8 24L16 6' stroke='%2317B890' stroke-width='3.5' stroke-linecap='round'/%3E%3Cpath d='M16 6L18 24' stroke='%230D4A3F' stroke-width='3.5' stroke-linecap='round'/%3E%3Cpath d='M16 6L24 24' stroke='%231DD1A1' stroke-width='3.5' stroke-linecap='round'/%3E%3Cpath d='M10 18h12' stroke='%2317B890' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M18 12c2-3 6-4 8-2s1 6-1 8' stroke='%231DD1A1' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M23 16l3 2.5-2.5 2' stroke='%231DD1A1' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleNational — Ad Agency to Scale Your Business</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after {
-            margin: 0; padding: 0; box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        :root {
-            --teal: #1DD1A1;
-            --teal-dark: #17B890;
-            --teal-light: #A3F7D3;
-            --green-dark: #0D4A3F;
-            --green-deeper: #093430;
-            --coral: #FF6B6B;
-            --coral-light: #FF8E8E;
-            --yellow: #FECA57;
-            --yellow-light: #FFF3BF;
-            --lime: #A8E06A;
-            --purple: #A29BFE;
-            --purple-light: #DDD6FE;
-            --bg-cream: #F0FFF8;
-            --bg-white: #FFFFFF;
-            --text-dark: #0D2B24;
-            --text-mid: #3D6B5E;
-            --text-light: #6B9B8A;
-            --shadow-sm: 0 2px 8px rgba(13,74,63,0.06);
-            --shadow-md: 0 4px 20px rgba(13,74,63,0.1);
-            --shadow-lg: 0 8px 40px rgba(13,74,63,0.12);
-            --shadow-glow: 0 4px 24px rgba(29,209,161,0.25);
-            --radius-sm: 12px;
-            --radius-md: 18px;
-            --radius-lg: 24px;
-            --radius-xl: 32px;
+        html {
+            scroll-behavior: smooth;
         }
-
-        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
         body {
-            font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-white);
-            color: var(--text-dark);
-            font-size: 16px;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #0f1419;
             line-height: 1.6;
-            padding-top: 72px;
-            overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+        h1 {
+            font-size: clamp(32px, 8vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: clamp(28px, 6vw, 48px);
+            font-weight: 800;
             line-height: 1.15;
-            color: var(--text-dark);
+            margin-bottom: 24px;
         }
 
-        h1 { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; }
-        h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
-        h3 { font-size: 18px; font-weight: 700; }
-        p { font-size: 15px; color: var(--text-mid); line-height: 1.7; }
-        .accent { color: var(--teal); }
-        .accent-coral { color: var(--coral); }
-        .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 64px 0; }
-
-        /* NAV */
-        .nav-bar {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            height: 72px;
-            background: rgba(255, 255, 255, 0.85);
-            -webkit-backdrop-filter: saturate(180%) blur(24px);
-            backdrop-filter: saturate(180%) blur(24px);
-            border-bottom: 1px solid rgba(29,209,161,0.12);
+        h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
-        .nav-inner {
-            max-width: 1120px; margin: 0 auto; padding: 0 20px;
-            height: 100%; display: flex; align-items: center; justify-content: space-between;
+        p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
         }
 
-        .nav-brand {
-            display: flex; align-items: center; gap: 10px;
-            text-decoration: none; color: var(--green-dark);
-            font-size: 18px; font-weight: 800; letter-spacing: -0.02em;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 5vw, 48px);
         }
 
-        .nav-brand .brand-logo { height: 40px; width: auto; flex-shrink: 0; }
-        .nav-brand .brand-scale { color: var(--green-dark); }
-        .nav-brand .brand-national { color: var(--teal); }
+        section {
+            padding: clamp(50px, 12vw, 100px) 0;
+        }
 
-        .nav-links { display: none; gap: 28px; align-items: center; }
-        .nav-links a {
-            color: var(--text-mid); text-decoration: none;
-            font-size: 14px; font-weight: 600; transition: color 0.2s; position: relative;
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 12px 0;
         }
-        .nav-links a:hover { color: var(--teal); }
-        .nav-links a::after {
-            content: ''; position: absolute; bottom: -4px; left: 0;
-            width: 0; height: 2px; background: var(--teal); border-radius: 2px; transition: width 0.2s;
-        }
-        .nav-links a:hover::after { width: 100%; }
 
-        .nav-toggle {
-            display: flex; align-items: center; justify-content: center;
-            width: 44px; height: 44px; background: none; border: none; cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
-        .nav-toggle span {
-            display: block; width: 22px; height: 2px; background: var(--green-dark);
-            position: relative; border-radius: 2px; transition: background 0.2s;
-        }
-        .nav-toggle span::before, .nav-toggle span::after {
-            content: ''; position: absolute; left: 0; width: 22px; height: 2px;
-            background: var(--green-dark); border-radius: 2px; transition: transform 0.2s;
-        }
-        .nav-toggle span::before { top: -7px; }
-        .nav-toggle span::after { top: 7px; }
-        .nav-toggle.active span { background: transparent; }
-        .nav-toggle.active span::before { transform: rotate(45deg) translate(5px, 5px); }
-        .nav-toggle.active span::after { transform: rotate(-45deg) translate(5px, -5px); }
 
-        .nav-mobile {
-            display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 255, 255, 0.98);
-            -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px);
-            z-index: 999; padding: 24px 20px;
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            color: #0d4a3f;
+            font-size: 16px;
         }
-        .nav-mobile.open { display: flex; flex-direction: column; gap: 4px; }
-        .nav-mobile a {
-            display: block; padding: 16px 20px; color: var(--text-dark);
-            text-decoration: none; font-size: 17px; font-weight: 600;
-            border-radius: var(--radius-sm); transition: background 0.15s;
-        }
-        .nav-mobile a:hover { background: var(--bg-cream); }
-        .nav-mobile .btn { margin-top: 16px; text-align: center; }
 
-        /* BUTTONS */
+        .logo-svg {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        nav a {
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #1DD1A1;
+        }
+
+        body {
+            padding-top: 64px;
+        }
+
+        /* Buttons */
         .btn {
-            display: inline-flex; align-items: center; justify-content: center;
-            min-height: 48px; padding: 14px 28px; border-radius: var(--radius-lg);
-            font-family: inherit; font-weight: 700; font-size: 15px;
-            text-decoration: none; cursor: pointer; border: none;
-            transition: all 0.2s ease; -webkit-tap-highlight-color: transparent;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--teal) 0%, #17B890 100%);
-            color: #fff; box-shadow: var(--shadow-glow);
-        }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(29,209,161,0.35); }
-        .btn-primary:active { transform: translateY(0) scale(0.98); }
-        .btn-secondary {
-            background: var(--bg-cream); color: var(--green-dark);
-            border: 2px solid rgba(29,209,161,0.2);
-        }
-        .btn-secondary:hover { border-color: var(--teal); background: #E8FFF5; }
-        .btn-white {
-            background: #fff; color: var(--green-dark); font-weight: 700;
-            box-shadow: var(--shadow-md); border-radius: var(--radius-lg);
-        }
-        .btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-
-        /* HERO */
-        .hero {
-            padding: 40px 0 64px;
-            background: linear-gradient(160deg, #F0FFF8 0%, #E8FFF5 30%, #FFF8E8 60%, #FFF0F0 100%);
-            position: relative; overflow: hidden;
-        }
-        .hero::before {
-            content: ''; position: absolute; top: -50%; right: -30%;
-            width: 600px; height: 600px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(29,209,161,0.12) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .hero::after {
-            content: ''; position: absolute; bottom: -40%; left: -20%;
-            width: 500px; height: 500px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,107,107,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .hero .container { position: relative; z-index: 1; }
-
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 8px 16px; background: rgba(29,209,161,0.12);
-            border: 1px solid rgba(29,209,161,0.2); border-radius: 50px;
-            font-size: 13px; font-weight: 700; color: var(--green-dark); margin-bottom: 24px;
-        }
-        .hero-badge .dot {
-            width: 8px; height: 8px; background: var(--teal);
-            border-radius: 50%; animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.3); }
-        }
-        .hero h1 { margin-bottom: 20px; line-height: 1.1; }
-        .hero-sub { font-size: 17px; color: var(--text-mid); line-height: 1.7; margin-bottom: 36px; max-width: 520px; }
-        .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-        .hero-cta .btn { flex: 1; min-width: 140px; }
-
-        .hero-stats {
-            display: flex; gap: 24px; margin-top: 40px; padding-top: 32px;
-            border-top: 1px solid rgba(29,209,161,0.15);
-        }
-        .hero-stat { text-align: left; }
-        .hero-stat-num { font-size: 22px; font-weight: 800; color: var(--teal); line-height: 1; }
-        .hero-stat p { font-size: 12px; color: var(--text-light); margin-top: 4px; }
-
-        /* LOGO CAROUSEL */
-        .logos { padding: 48px 0; background: var(--bg-white); overflow: hidden; }
-        .logos-label {
-            text-align: center; font-size: 13px; font-weight: 700;
-            letter-spacing: 0.06em; text-transform: uppercase;
-            color: var(--text-light); margin-bottom: 32px;
-        }
-        .logos-track-wrapper {
-            overflow: hidden;
-            -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-        }
-        .logos-track {
-            display: flex; align-items: center; gap: 48px;
-            animation: marquee 40s linear infinite;
-            will-change: transform; width: max-content;
-        }
-        .logos-track:hover { animation-play-state: paused; }
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .logo-item {
-            flex-shrink: 0; display: flex; align-items: center; justify-content: center;
-            height: 32px; opacity: 0.6; transition: opacity 0.2s;
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(12px, 2.5vw, 16px) clamp(24px, 4vw, 36px);
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            min-height: 48px;
             white-space: nowrap;
         }
-        .logo-item:hover { opacity: 1; }
-        .logo-item svg { height: 28px; width: auto; }
 
-        /* STATS */
-        .stats-section { padding: 64px 0; background: var(--bg-cream); }
-        .stats-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-        .stat-card {
-            background: var(--bg-white); border-radius: var(--radius-lg);
-            padding: 28px 24px; box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(29,209,161,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
+        .btn-primary {
+            background: linear-gradient(135deg, #1DD1A1 0%, #0d9c6b 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(29, 209, 161, 0.3);
         }
-        .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-        .stat-card:nth-child(1) .stat-num { color: var(--teal); }
-        .stat-card:nth-child(2) .stat-num { color: var(--coral); }
-        .stat-card:nth-child(3) .stat-num { color: var(--green-dark); }
-        .stat-card:nth-child(1) { border-top: 3px solid var(--teal); }
-        .stat-card:nth-child(2) { border-top: 3px solid var(--coral); }
-        .stat-card:nth-child(3) { border-top: 3px solid var(--green-dark); }
-        .stat-num { font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px; }
-        .stat-card p { font-size: 14px; color: var(--text-mid); }
 
-        /* PROCESS */
-        .process-section {
-            padding: 72px 0;
-            background: linear-gradient(180deg, var(--bg-white) 0%, var(--bg-cream) 100%);
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(29, 209, 161, 0.4);
         }
-        .section-badge {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 6px 14px; border-radius: 50px; font-size: 12px;
-            font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px;
-        }
-        .section-badge-teal { background: rgba(29,209,161,0.12); color: var(--green-dark); }
-        .section-badge-coral { background: rgba(255,107,107,0.12); color: #D44; }
-        .section-badge-purple { background: rgba(162,155,254,0.15); color: #6C63FF; }
-        .section-desc { color: var(--text-mid); margin-bottom: 40px; max-width: 500px; }
 
-        .process-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .btn-secondary {
+            background: transparent;
+            color: #1DD1A1;
+            border: 2px solid #1DD1A1;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(29, 209, 161, 0.05);
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: clamp(40px, 8vw, 60px);
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.08) 0%, rgba(13, 74, 63, 0.05) 100%);
+            border-radius: 24px;
+            padding: clamp(40px, 8vw, 80px);
+            margin-top: 20px;
+        }
+
+        .hero h1 {
+            max-width: 750px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #0d4a3f 0%, #1DD1A1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtext {
+            max-width: 650px;
+            font-size: clamp(16px, 4vw, 18px);
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Logos Section */
+        .logos-section {
+            border-top: 2px solid rgba(29, 209, 161, 0.2);
+            border-bottom: 2px solid rgba(29, 209, 161, 0.2);
+            background: rgba(13, 74, 63, 0.02);
+        }
+
+        .logos-label {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #1DD1A1;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 40px;
+        }
+
+        .logos-carousel {
+            position: relative;
+            overflow: hidden;
+            margin: 0 calc(-1 * clamp(16px, 5vw, 48px));
+            padding: 40px clamp(16px, 5vw, 48px);
+        }
+
+        .logos-track {
+            display: flex;
+            gap: 40px;
+            animation: scroll 60s linear infinite;
+            will-change: transform;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .logos-track:hover {
+            animation-play-state: paused;
+        }
+
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+            min-width: 130px;
+        }
+
+        .logo-box {
+            width: 120px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 2px solid rgba(29, 209, 161, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 8px;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: grayscale(30%);
+            transition: filter 0.3s;
+        }
+
+        .logo-item:hover .logo-box img {
+            filter: grayscale(0%);
+        }
+
+        .logo-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #999;
+            text-align: center;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: clamp(30px, 6vw, 50px);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(162, 155, 254, 0.05) 100%);
+            padding: clamp(40px, 6vw, 60px);
+            border-radius: 20px;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: clamp(40px, 8vw, 56px);
+            font-weight: 800;
+            background: linear-gradient(135deg, #1DD1A1 0%, #FF6B6B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .stat p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Sections */
+        .section-title {
+            text-align: center;
+            margin-bottom: clamp(40px, 8vw, 60px);
+        }
+
+        .section-title h2 {
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(24px, 5vw, 40px);
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.05) 0%, rgba(255, 107, 107, 0.03) 100%);
+            padding: clamp(24px, 5vw, 36px);
+            border-radius: 16px;
+            border: 1px solid rgba(29, 209, 161, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(29, 209, 161, 0.3);
+            box-shadow: 0 12px 30px rgba(29, 209, 161, 0.15);
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            color: #0d4a3f;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Process */
+        .process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: clamp(30px, 5vw, 50px);
+        }
+
         .step {
-            background: var(--bg-white); border-radius: var(--radius-lg);
-            padding: 28px 24px; box-shadow: var(--shadow-sm);
-            position: relative; overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            padding: 0;
         }
-        .step:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-        .step::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-        }
-        .step:nth-child(1)::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
-        .step:nth-child(2)::before { background: linear-gradient(90deg, var(--coral), var(--coral-light)); }
-        .step:nth-child(3)::before { background: linear-gradient(90deg, var(--yellow), #FFE066); }
-        .step:nth-child(4)::before { background: linear-gradient(90deg, var(--purple), var(--purple-light)); }
 
-        .step-icon {
-            width: 48px; height: 48px; border-radius: var(--radius-sm);
-            display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #1DD1A1 0%, #0d9c6b 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(29, 209, 161, 0.3);
         }
-        .step:nth-child(1) .step-icon { background: rgba(29,209,161,0.12); }
-        .step:nth-child(2) .step-icon { background: rgba(255,107,107,0.12); }
-        .step:nth-child(3) .step-icon { background: rgba(254,202,87,0.15); }
-        .step:nth-child(4) .step-icon { background: rgba(162,155,254,0.12); }
 
-        .step-num { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
-        .step:nth-child(1) .step-num { color: var(--teal); }
-        .step:nth-child(2) .step-num { color: var(--coral); }
-        .step:nth-child(3) .step-num { color: #E5A800; }
-        .step:nth-child(4) .step-num { color: var(--purple); }
-        .step h3 { margin-bottom: 8px; }
-        .step p { font-size: 14px; }
-
-        .step-icon svg { width: 24px; height: 24px; }
-
-        /* SERVICES */
-        .services-section {
-            padding: 72px 0; background: var(--green-dark);
-            position: relative; overflow: hidden;
+        .step h3 {
+            color: #0d4a3f;
+            margin-bottom: 12px;
         }
-        .services-section::before {
-            content: ''; position: absolute; top: -200px; right: -200px;
-            width: 500px; height: 500px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(29,209,161,0.15) 0%, transparent 70%);
-        }
-        .services-section h2 { color: #fff; }
-        .services-section .section-desc { color: rgba(255,255,255,0.6); }
-        .services-grid { display: grid; grid-template-columns: 1fr; gap: 16px; position: relative; z-index: 1; }
-        .service-card {
-            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--radius-lg); padding: 28px 24px;
-            transition: transform 0.2s, background 0.2s;
-        }
-        .service-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.1); }
-        .service-icon {
-            width: 44px; height: 44px; border-radius: var(--radius-sm);
-            display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
-        }
-        .service-card:nth-child(1) .service-icon { background: rgba(29,209,161,0.2); }
-        .service-card:nth-child(2) .service-icon { background: rgba(255,107,107,0.2); }
-        .service-card:nth-child(3) .service-icon { background: rgba(254,202,87,0.2); }
-        .service-card:nth-child(4) .service-icon { background: rgba(162,155,254,0.2); }
-        .service-card:nth-child(5) .service-icon { background: rgba(168,224,106,0.2); }
-        .service-card:nth-child(6) .service-icon { background: rgba(29,209,161,0.2); }
-        .service-icon svg { width: 22px; height: 22px; }
-        .service-card h3 { color: #fff; margin-bottom: 8px; }
-        .service-card p { font-size: 14px; color: rgba(255,255,255,0.55); }
-
-        /* PLATFORMS */
-        .platforms-section {
-            padding: 72px 0;
-            background: linear-gradient(160deg, #FFF8E8 0%, #FFF0F0 50%, #F0FFF8 100%);
-        }
-        .platforms-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 40px; }
-        .platform-card {
-            background: var(--bg-white); border-radius: var(--radius-lg);
-            padding: 24px 20px; box-shadow: var(--shadow-sm);
-            text-align: center; transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .platform-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-        .platform-card svg { width: 36px; height: 36px; margin-bottom: 12px; }
-        .platform-card h3 { font-size: 15px; margin-bottom: 4px; }
-        .platform-card p { font-size: 13px; }
-
-        /* TESTIMONIAL */
-        .proof-section {
-            padding: 72px 0;
-            background: linear-gradient(160deg, #FFF8E8 0%, #FFF0F0 50%, #F0FFF8 100%);
-        }
-        .proof-card {
-            background: var(--bg-white); border-radius: var(--radius-xl);
-            padding: 32px 24px; box-shadow: var(--shadow-md);
-            text-align: center; max-width: 560px; margin: 0 auto;
-        }
-        .proof-card .stars { font-size: 20px; margin-bottom: 16px; color: var(--yellow); letter-spacing: 4px; }
-        .proof-card blockquote {
-            font-size: 17px; font-weight: 500; color: var(--text-dark);
-            line-height: 1.6; font-style: italic; margin-bottom: 20px;
-        }
-        .proof-author { font-size: 14px; font-weight: 700; color: var(--green-dark); }
-        .proof-role { font-size: 13px; color: var(--text-light); }
 
         /* FAQ */
-        .faq-section { padding: 72px 0; background: var(--bg-cream); }
-        .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 700px; }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: clamp(16px, 4vw, 24px);
+        }
+
         .faq-item {
-            background: var(--bg-white); border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm); overflow: hidden; transition: box-shadow 0.2s;
+            padding: 24px;
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.03) 0%, rgba(255, 107, 107, 0.02) 100%);
+            border: 1px solid rgba(29, 209, 161, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
-        .faq-item.active { box-shadow: var(--shadow-md); }
-        .faq-q {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 20px 24px; cursor: pointer; -webkit-tap-highlight-color: transparent; gap: 16px;
+
+        .faq-item:hover {
+            border-color: rgba(29, 209, 161, 0.3);
         }
-        .faq-q h4 { font-size: 15px; font-weight: 700; flex: 1; }
-        .faq-icon {
-            width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%;
-            background: rgba(29,209,161,0.1); position: relative;
-            transition: background 0.2s, transform 0.2s;
+
+        .faq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
         }
-        .faq-item.active .faq-icon { background: var(--teal); transform: rotate(45deg); }
-        .faq-icon::before, .faq-icon::after {
-            content: ''; position: absolute; background: var(--teal); transition: background 0.2s;
+
+        .faq-header h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0d4a3f;
+            margin: 0;
+            line-height: 1.4;
         }
-        .faq-item.active .faq-icon::before, .faq-item.active .faq-icon::after { background: #fff; }
-        .faq-icon::before {
-            width: 12px; height: 2px; top: 50%; left: 50%;
-            transform: translate(-50%, -50%); border-radius: 2px;
+
+        .faq-toggle {
+            font-size: 24px;
+            flex-shrink: 0;
+            transition: transform 0.3s;
+            color: #1DD1A1;
         }
-        .faq-icon::after {
-            width: 2px; height: 12px; top: 50%; left: 50%;
-            transform: translate(-50%, -50%); border-radius: 2px;
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
         }
-        .faq-a { overflow: hidden; max-height: 0; transition: max-height 0.3s ease, padding 0.3s ease; }
-        .faq-item.active .faq-a { max-height: 200px; padding: 0 24px 20px; }
-        .faq-a p { font-size: 14px; line-height: 1.8; color: var(--text-mid); }
+
+        .faq-item p {
+            display: none;
+            margin-top: 16px;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .faq-item.active p {
+            display: block;
+        }
 
         /* CTA */
         .cta-section {
-            background: linear-gradient(135deg, var(--green-dark) 0%, #0A3A30 40%, #0D5245 100%);
-            padding: 72px 20px; text-align: center; position: relative; overflow: hidden;
+            background: linear-gradient(135deg, #0d4a3f 0%, #1DD1A1 100%);
+            color: white;
+            padding: clamp(50px, 10vw, 100px);
+            border-radius: 24px;
+            margin: clamp(50px, 10vw, 100px) 0;
+            text-align: center;
         }
-        .cta-section::before {
-            content: ''; position: absolute; top: -100px; right: -100px;
-            width: 400px; height: 400px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(29,209,161,0.2) 0%, transparent 70%);
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 16px;
         }
-        .cta-section::after {
-            content: ''; position: absolute; bottom: -100px; left: -100px;
-            width: 300px; height: 300px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,107,107,0.1) 0%, transparent 70%);
-        }
-        .cta-section h2 { color: #fff; margin-bottom: 16px; position: relative; z-index: 1; }
+
         .cta-section > p {
-            color: rgba(255, 255, 255, 0.65); margin-bottom: 32px;
-            max-width: 480px; margin-left: auto; margin-right: auto;
-            position: relative; z-index: 1;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: clamp(16px, 4vw, 18px);
         }
-        .cta-form {
-            display: flex; flex-direction: column; gap: 12px;
-            max-width: 420px; margin: 0 auto 20px; position: relative; z-index: 1;
-        }
-        .cta-form input {
-            width: 100%; min-height: 52px; padding: 14px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            border-radius: var(--radius-lg); color: #fff;
-            font-size: 15px; font-family: inherit; font-weight: 500;
-            transition: border-color 0.2s, background 0.2s;
-        }
-        .cta-form input::placeholder { color: rgba(255, 255, 255, 0.4); }
-        .cta-form input:focus { outline: none; border-color: var(--teal); background: rgba(255, 255, 255, 0.15); }
-        .cta-note { font-size: 13px; color: rgba(255, 255, 255, 0.4) !important; margin-bottom: 0 !important; position: relative; z-index: 1; }
 
-        /* FOOTER */
+        .email-form {
+            display: flex;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .email-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .email-form input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .email-form input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .email-form button {
+            padding: 14px 36px;
+            background: white;
+            color: #0d4a3f;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .email-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
         footer {
-            padding: 36px 0; text-align: center; background: var(--bg-cream);
-            border-top: 1px solid rgba(29,209,161,0.1);
-        }
-        .footer-brand { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; }
-        .footer-brand .brand-logo { height: 28px; width: auto; }
-        .footer-brand span { font-weight: 700; font-size: 15px; color: var(--green-dark); }
-        footer p { font-size: 13px; color: var(--text-light); }
-
-        /* WAVE DIVIDER */
-        .wave-divider {
-            height: 6px;
-            background: linear-gradient(90deg, var(--teal), var(--lime), var(--yellow), var(--coral), var(--purple), var(--teal));
-            background-size: 200% 100%;
-            animation: wave-slide 8s linear infinite;
-        }
-        @keyframes wave-slide {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 200% 0%; }
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 13px;
+            color: #999;
         }
 
-        /* TABLET */
-        @media (min-width: 640px) {
-            .container { padding: 0 32px; }
-            h1 { font-size: 48px; }
-            h2 { font-size: 34px; }
-            section { padding: 80px 0; }
-            .hero { padding: 56px 0 80px; }
-            .hero-cta .btn { flex: none; }
-            .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-            .process-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-            .platforms-grid { grid-template-columns: repeat(4, 1fr); }
-            .cta-form { flex-direction: row; }
-            .cta-form input { flex: 1; }
-            .cta-section { padding: 88px 32px; }
-            .logos-track { gap: 64px; }
-            .hero-stats { gap: 40px; }
-            .hero-stat-num { font-size: 26px; }
+        footer a {
+            color: #1DD1A1;
+            text-decoration: none;
         }
 
-        /* DESKTOP */
-        @media (min-width: 960px) {
-            body { padding-top: 76px; }
-            .nav-bar { height: 76px; }
-            .nav-inner { padding: 0 48px; }
-            .nav-links { display: flex; }
-            .nav-toggle { display: none; }
-            .nav-mobile { display: none !important; }
-            .container { padding: 0 48px; }
-            h1 { font-size: 58px; }
-            h2 { font-size: 40px; }
-            section { padding: 100px 0; }
-            .hero { padding: 72px 0 100px; }
-            .hero h1 { max-width: 700px; }
-            .hero-sub { font-size: 18px; }
-            .stats-grid { gap: 24px; }
-            .stat-num { font-size: 52px; }
-            .process-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
-            .services-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-            .cta-section { padding: 100px 48px; border-radius: var(--radius-xl); margin: 0 48px; }
-            .logos-track { gap: 80px; }
-            footer { padding: 48px 0; }
-        }
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav .nav-links {
+                display: none;
+            }
 
-        @media (min-width: 1200px) {
-            h1 { font-size: 66px; }
-            h2 { font-size: 44px; }
-            .cta-section { margin: 0 auto; max-width: 1120px; }
-        }
+            .hero-cta {
+                flex-direction: column;
+            }
 
-        @supports (padding: env(safe-area-inset-bottom)) {
-            .cta-section { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+            .btn {
+                width: 100%;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .email-form input,
+            .email-form button {
+                width: 100%;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- NAV -->
-    <header class="nav-bar">
-        <div class="nav-inner">
-            <a href="#" class="nav-brand">
-                <!-- ScaleNational Logo: A with growth arrow, matching provided logo -->
-                <svg class="brand-logo" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- The A letterform with gradient -->
-                    <defs>
-                        <linearGradient id="logoGrad1" x1="30" y1="70" x2="60" y2="10" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#0D4A3F"/>
-                            <stop offset="100%" stop-color="#17B890"/>
-                        </linearGradient>
-                        <linearGradient id="logoGrad2" x1="60" y1="10" x2="90" y2="70" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#1DD1A1"/>
-                            <stop offset="100%" stop-color="#0D4A3F"/>
-                        </linearGradient>
-                        <linearGradient id="arrowGrad" x1="55" y1="40" x2="95" y2="10" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#17B890"/>
-                            <stop offset="100%" stop-color="#0D4A3F"/>
-                        </linearGradient>
-                    </defs>
-                    <!-- Left leg of A -->
-                    <path d="M25 68L55 12" stroke="url(#logoGrad1)" stroke-width="10" stroke-linecap="round"/>
-                    <!-- Right leg of A -->
-                    <path d="M55 12L85 68" stroke="url(#logoGrad2)" stroke-width="10" stroke-linecap="round"/>
-                    <!-- Crossbar -->
-                    <path d="M35 50H75" stroke="url(#logoGrad1)" stroke-width="6" stroke-linecap="round"/>
-                    <!-- Curved growth arrow swooping up -->
-                    <path d="M58 38C65 28 78 22 88 18" stroke="url(#arrowGrad)" stroke-width="7" stroke-linecap="round" fill="none"/>
-                    <!-- Arrow head pointing up-right -->
-                    <path d="M82 8L89 17L79 20" stroke="#0D4A3F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo-wrapper">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Dark green A -->
+                    <path d="M 20 80 L 50 15 L 80 80" stroke="#0d4a3f" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="35" y1="55" x2="65" y2="55" stroke="#0d4a3f" stroke-width="6" stroke-linecap="round"/>
+                    
+                    <!-- Bright green curved arrow -->
+                    <path d="M 65 45 Q 75 35, 85 25" stroke="#1DD1A1" stroke-width="5" fill="none" stroke-linecap="round"/>
+                    <polygon points="85,25 92,30 80,36" fill="#1DD1A1"/>
                 </svg>
-                <span><span class="brand-scale">Scale</span><span class="brand-national">National</span></span>
+                <span>ScaleNational</span>
             </a>
-            <nav class="nav-links">
-                <a href="#process">How It Works</a>
-                <a href="#services">Services</a>
+            <div class="nav-links">
                 <a href="#platforms">Platforms</a>
+                <a href="#services">Services</a>
                 <a href="#faq">FAQ</a>
-                <a href="#book" class="btn btn-primary" style="min-height:40px; padding:10px 24px; font-size:14px; border-radius:50px;">Get Started</a>
-            </nav>
-            <button class="nav-toggle" aria-label="Menu"><span></span></button>
+                <a href="#cta" class="btn btn-primary">Get Started</a>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <div class="nav-mobile" id="mobileMenu">
-        <a href="#process" onclick="closeMobile()">How It Works</a>
-        <a href="#services" onclick="closeMobile()">Services</a>
-        <a href="#platforms" onclick="closeMobile()">Platforms</a>
-        <a href="#faq" onclick="closeMobile()">FAQ</a>
-        <a href="#book" class="btn btn-primary" onclick="closeMobile()" style="border-radius:50px;">Get Started</a>
-    </div>
-
-    <!-- HERO -->
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">
-                <span class="dot"></span>
-                Full-Service Ad Campaigns That Scale
-            </div>
-            <h1>We Create Ads to <span class="accent">Scale Markets</span> for Your Business</h1>
-            <p class="hero-sub">Done-for-you ad campaigns across Instagram, TikTok, YouTube, and Google Ads. From creative to conversion, we handle it all so you can focus on growth.</p>
+            <h1>We Create Ads to Scale Markets for Your Business</h1>
+            <p class="hero-subtext">Done-for-you ad campaigns across Instagram, TikTok, YouTube, and Google Ads. We handle creative, targeting, and optimization so you focus on revenue.</p>
             <div class="hero-cta">
-                <a href="#book" class="btn btn-primary">Launch Your Campaign</a>
-                <a href="#process" class="btn btn-secondary">See How It Works</a>
-            </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-num">4.2x</div>
-                    <p>Average ROAS</p>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num">340%</div>
-                    <p>Revenue growth</p>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num">50M+</div>
-                    <p>Ad impressions served</p>
-                </div>
+                <a href="#cta" class="btn btn-primary">Book Free Strategy Call</a>
+                <a href="#services" class="btn btn-secondary">See How We Work</a>
             </div>
         </div>
     </section>
 
-    <!-- RAINBOW DIVIDER -->
-    <div class="wave-divider"></div>
-
-    <!-- LOGO CAROUSEL -->
-    <section class="logos">
-        <p class="logos-label">Trusted by leading brands worldwide</p>
-        <div class="logos-track-wrapper">
-            <div class="logos-track">
-                <!-- Google -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M115.75 47.18c0-12.77-9.99-22.18-22.25-22.18s-22.25 9.41-22.25 22.18c0 12.64 9.99 22.18 22.25 22.18s22.25-9.54 22.25-22.18zm-9.74 0c0 7.9-5.74 13.31-12.51 13.31S81 55.08 81 47.18c0-7.99 5.74-13.42 12.51-13.42s12.5 5.43 12.5 13.42z" fill="#EA4335"/>
-                        <path d="M163.75 47.18c0-12.77-9.99-22.18-22.25-22.18s-22.25 9.41-22.25 22.18c0 12.64 9.99 22.18 22.25 22.18s22.25-9.54 22.25-22.18zm-9.74 0c0 7.9-5.74 13.31-12.51 13.31S129 55.08 129 47.18c0-7.99 5.74-13.42 12.51-13.42s12.5 5.43 12.5 13.42z" fill="#FBBC05"/>
-                        <path d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z" fill="#4285F4"/>
-                        <path d="M225 3v65h-9.5V3h9.5z" fill="#34A853"/>
-                        <path d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z" fill="#EA4335"/>
-                        <path d="M35.29 41.19V32h32.16a31.6 31.6 0 0 1 .47 5.68c0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.49 9.66C16.32 69.35 0 53.55 0 34.68S16.32 0 35.28 0c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.26s10.84 25.26 24.7 25.26c8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.47-.2z" fill="#4285F4"/>
-                    </svg>
-                </div>
-                <!-- Red Bull (text wordmark) -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="800" letter-spacing="-1" fill="#CC0000">Red Bull</text>
-                    </svg>
-                </div>
-                <!-- Mercedes-Benz -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Three-pointed star circle -->
-                        <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="2" fill="none"/>
-                        <path d="M20 3L20 20L6 33M20 20L34 33" stroke="#333" stroke-width="2" stroke-linecap="round"/>
-                        <text x="46" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="400" letter-spacing="1" fill="#333">Mercedes-Benz</text>
-                    </svg>
-                </div>
-                <!-- Volkswagen -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="20" cy="20" r="18" stroke="#001E50" stroke-width="2.5" fill="none"/>
-                        <path d="M8 12L20 32L32 12" stroke="#001E50" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 8L20 24L28 8" stroke="#001E50" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                        <text x="46" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" letter-spacing="0" fill="#001E50">Volkswagen</text>
-                    </svg>
-                </div>
-                <!-- Cisco -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="10" y="12" width="4" height="16" rx="2" fill="#049FD9"/>
-                        <rect x="10" y="6" width="4" height="4" rx="2" fill="#049FD9"/>
-                        <rect x="22" y="8" width="4" height="20" rx="2" fill="#049FD9"/>
-                        <rect x="22" y="2" width="4" height="4" rx="2" fill="#049FD9"/>
-                        <rect x="34" y="4" width="4" height="24" rx="2" fill="#049FD9"/>
-                        <rect x="38" y="4" width="4" height="24" rx="2" fill="#049FD9"/>
-                        <rect x="50" y="8" width="4" height="20" rx="2" fill="#049FD9"/>
-                        <rect x="50" y="2" width="4" height="4" rx="2" fill="#049FD9"/>
-                        <rect x="62" y="12" width="4" height="16" rx="2" fill="#049FD9"/>
-                        <rect x="62" y="6" width="4" height="4" rx="2" fill="#049FD9"/>
-                        <text x="8" y="38" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" letter-spacing="3" fill="#049FD9">cisco</text>
-                    </svg>
-                </div>
-                <!-- Oracle -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 140 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="700" fill="#C74634">ORACLE</text>
-                    </svg>
-                </div>
-                <!-- The Economist -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="28" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="400" font-style="italic" fill="#E3120B">The Economist</text>
-                    </svg>
-                </div>
-                <!-- Allianz -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 140 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="700" fill="#003781">Allianz</text>
-                    </svg>
-                </div>
-                <!-- Mozilla -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 140 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="26" font-weight="800" fill="#000">Mozilla</text>
-                    </svg>
-                </div>
-                <!-- Credit Karma -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="700" fill="#008600">Credit Karma</text>
-                    </svg>
-                </div>
-                <!-- Northern Trust -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="600" fill="#4B2D84">Northern Trust</text>
-                    </svg>
-                </div>
-                <!-- Time -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="32" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="700" fill="#E90606">TIME</text>
-                    </svg>
-                </div>
-
-                <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
-                <!-- Google -->
-                <div class="logo-item">
-                    <svg viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M115.75 47.18c0-12.77-9.99-22.18-22.25-22.18s-22.25 9.41-22.25 22.18c0 12.64 9.99 22.18 22.25 22.18s22.25-9.54 22.25-22.18zm-9.74 0c0 7.9-5.74 13.31-12.51 13.31S81 55.08 81 47.18c0-7.99 5.74-13.42 12.51-13.42s12.5 5.43 12.5 13.42z" fill="#EA4335"/>
-                        <path d="M163.75 47.18c0-12.77-9.99-22.18-22.25-22.18s-22.25 9.41-22.25 22.18c0 12.64 9.99 22.18 22.25 22.18s22.25-9.54 22.25-22.18zm-9.74 0c0 7.9-5.74 13.31-12.51 13.31S129 55.08 129 47.18c0-7.99 5.74-13.42 12.51-13.42s12.5 5.43 12.5 13.42z" fill="#FBBC05"/>
-                        <path d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z" fill="#4285F4"/>
-                        <path d="M225 3v65h-9.5V3h9.5z" fill="#34A853"/>
-                        <path d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z" fill="#EA4335"/>
-                        <path d="M35.29 41.19V32h32.16a31.6 31.6 0 0 1 .47 5.68c0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.49 9.66C16.32 69.35 0 53.55 0 34.68S16.32 0 35.28 0c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.26s10.84 25.26 24.7 25.26c8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.47-.2z" fill="#4285F4"/>
-                    </svg>
-                </div>
-                <div class="logo-item">
-                    <svg viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="800" letter-spacing="-1" fill="#CC0000">Red Bull</text>
-                    </svg>
-                </div>
-                <div class="logo-item">
-                    <svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="2" fill="none"/>
-                        <path d="M20 3L20 20L6 33M20 20L34 33" stroke="#333" stroke-width="2" stroke-linecap="round"/>
-                        <text x="46" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="400" letter-spacing="1" fill="#333">Mercedes-Benz</text>
-                    </svg>
-                </div>
-                <div class="logo-item">
-                    <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="20" cy="20" r="18" stroke="#001E50" stroke-width="2.5" fill="none"/>
-                        <path d="M8 12L20 32L32 12" stroke="#001E50" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 8L20 24L28 8" stroke="#001E50" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                        <text x="46" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" letter-spacing="0" fill="#001E50">Volkswagen</text>
-                    </svg>
-                </div>
-                <div class="logo-item">
-                    <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="10" y="12" width="4" height="16" rx="2" fill="#049FD9"/>
-                        <rect x="10" y="6" width="4" height="4" rx="2" fill="#049FD9"/>
-                        <rect x="22" y="8" width="4" height="20" rx="2" fill="#049FD9"/>
-                        <rect x="22" y="2" width="4" height="4" rx="2" fill="#049FD9"/>
-                        <rect x="34" y="4" width="4" height="24" rx="2" fill="#049FD9"/>
-                        <rect x="38" y="4" width="4" height="24" rx="2" fill="#049FD9"/>
-                        <rect x="50" y="8" width="4" height="20" rx="2" fill="#049FD9"/>
-                        <rect x="50" y="2" width="4" height="4" rx="2" fill="#049FD9"/>
-                        <rect x="62" y="12" width="4" height="16" rx="2" fill="#049FD9"/>
-                        <rect x="62" y="6" width="4" height="4" rx="2" fill="#049FD9"/>
-                        <text x="8" y="38" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" letter-spacing="3" fill="#049FD9">cisco</text>
-                    </svg>
-                </div>
-                <div class="logo-item">
-                    <svg viewBox="0 0 140 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="700" fill="#C74634">ORACLE</text>
-                    </svg>
-                </div>
-                <div class="logo-item">
-                    <svg viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="28" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="400" font-style="italic" fill="#E3120B">The Economist</text>
-                    </svg>
-                </div>
-                <div class="logo-item">
-                    <svg viewBox="0 0 140 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="700" fill="#003781">Allianz</text>
-                    </svg>
-                </div>
-                <div class="logo-item">
-                    <svg viewBox="0 0 140 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="26" font-weight="800" fill="#000">Mozilla</text>
-                    </svg>
-                </div>
-                <div class="logo-item">
-                    <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="700" fill="#008600">Credit Karma</text>
-                    </svg>
-                </div>
-                <div class="logo-item">
-                    <svg viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="600" fill="#4B2D84">Northern Trust</text>
-                    </svg>
-                </div>
-                <div class="logo-item">
-                    <svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-                        <text x="0" y="32" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="700" fill="#E90606">TIME</text>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="stats-section">
+    <!-- Logos -->
+    <section class="logos-section">
         <div class="container">
-            <span class="section-badge section-badge-teal">Proven Results</span>
-            <h2>Numbers That Speak</h2>
-            <div style="height: 32px;"></div>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-num">4.2x</div>
-                    <p>Average return on ad spend across all campaigns</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num">340%</div>
-                    <p>Average revenue growth in the first 90 days</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num">50M+</div>
-                    <p>Ad impressions served across all platforms</p>
+            <p class="logos-label">Trusted by Leading Brands</p>
+            <div class="logos-carousel">
+                <div class="logos-track">
+                    <!-- Real company logos from web -->
+                    <div class="logo-item">
+                        <div class="logo-box">
+                            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google">
+                        </div>
+                        <span class="logo-name">Google</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">
+                            <img src="https://www.oracle.com/a/ocom/img/cb71/oracle-logo.svg" alt="Oracle">
+                        </div>
+                        <span class="logo-name">Oracle</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">
+                            <img src="https://logo.clearbit.com/mercedes-benz.com?size=300" alt="Mercedes-Benz">
+                        </div>
+                        <span class="logo-name">Mercedes-Benz</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">
+                            <img src="https://www.cisco.com/c/dam/en/us/about/brand/cisco-logo.svg" alt="Cisco">
+                        </div>
+                        <span class="logo-name">Cisco</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">
+                            <img src="https://logo.clearbit.com/mozilla.com?size=300" alt="Mozilla">
+                        </div>
+                        <span class="logo-name">Mozilla</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">
+                            <img src="https://www.salesforce.com/content/dam/salesforce-website/en_us/images/home/logo.png" alt="Salesforce">
+                        </div>
+                        <span class="logo-name">Salesforce</span>
+                    </div>
+
+                    <!-- Repeat for infinite scroll -->
+                    <div class="logo-item">
+                        <div class="logo-box">
+                            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google">
+                        </div>
+                        <span class="logo-name">Google</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">
+                            <img src="https://www.oracle.com/a/ocom/img/cb71/oracle-logo.svg" alt="Oracle">
+                        </div>
+                        <span class="logo-name">Oracle</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">
+                            <img src="https://logo.clearbit.com/mercedes-benz.com?size=300" alt="Mercedes-Benz">
+                        </div>
+                        <span class="logo-name">Mercedes-Benz</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">
+                            <img src="https://www.cisco.com/c/dam/en/us/about/brand/cisco-logo.svg" alt="Cisco">
+                        </div>
+                        <span class="logo-name">Cisco</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">
+                            <img src="https://logo.clearbit.com/mozilla.com?size=300" alt="Mozilla">
+                        </div>
+                        <span class="logo-name">Mozilla</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box">
+                            <img src="https://www.salesforce.com/content/dam/salesforce-website/en_us/images/home/logo.png" alt="Salesforce">
+                        </div>
+                        <span class="logo-name">Salesforce</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROCESS -->
-    <section class="process-section" id="process">
+    <!-- Stats -->
+    <section>
         <div class="container">
-            <span class="section-badge section-badge-coral">Our Process</span>
-            <h2>How It Works</h2>
-            <p class="section-desc">Four steps from brief to breakthrough. We handle everything so you can focus on your business.</p>
-            <div class="process-grid">
-                <div class="step">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#1DD1A1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-                    </div>
-                    <div class="step-num">Step 01</div>
-                    <h3>Strategy</h3>
-                    <p>We analyze your market, competitors, and ideal customers to build a data-driven advertising strategy.</p>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">4.2x</div>
+                    <p>Average ROAS for our campaigns</p>
                 </div>
-                <div class="step">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                    </div>
-                    <div class="step-num">Step 02</div>
-                    <h3>Creative</h3>
-                    <p>Our team produces scroll-stopping ad creatives — video, static, and carousel — tailored to each platform.</p>
+                <div class="stat">
+                    <div class="stat-number">340%</div>
+                    <p>Average revenue growth in first 6 months</p>
                 </div>
-                <div class="step">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#E5A800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>
-                    </div>
-                    <div class="step-num">Step 03</div>
-                    <h3>Launch</h3>
-                    <p>We deploy campaigns across Instagram, TikTok, YouTube, and Google Ads with precision audience targeting.</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#A29BFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                    </div>
-                    <div class="step-num">Step 04</div>
-                    <h3>Optimize</h3>
-                    <p>Continuous A/B testing, budget reallocation, and creative refresh to maximize your return on ad spend.</p>
+                <div class="stat">
+                    <div class="stat-number">50M+</div>
+                    <p>Impressions delivered annually</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="services-section" id="services">
+    <!-- Services -->
+    <section id="services">
         <div class="container">
-            <span class="section-badge" style="background:rgba(163,247,211,0.15); color:#A3F7D3;">What You Get</span>
-            <h2>Full-Service Ad Campaigns</h2>
-            <p class="section-desc">Everything you need to dominate paid advertising, handled end-to-end.</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#1DD1A1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                    </div>
+            <div class="section-title">
+                <h2>What We Build For You</h2>
+                <p class="section-subtitle">Done-for-you advertising that scales your business rapidly across every platform</p>
+            </div>
+            <div class="grid">
+                <div class="card">
                     <h3>Ad Creative Production</h3>
-                    <p>Video ads, static creatives, carousels, and UGC-style content designed to convert on every platform.</p>
+                    <p>Professional video, image, and carousel ads designed to convert. We produce all creative in-house — no freelancer delays.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
+                <div class="card">
                     <h3>Audience Targeting</h3>
-                    <p>Precision targeting using lookalike audiences, interest stacking, and behavioral data to reach your ideal buyers.</p>
+                    <p>We build custom audiences that match your ideal customer profile. Laser-focused targeting to reduce waste and maximize conversions.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#FECA57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                    </div>
+                <div class="card">
                     <h3>Campaign Management</h3>
-                    <p>Daily monitoring, budget optimization, and bid management across all your ad accounts and platforms.</p>
+                    <p>Full-funnel ad strategy across Instagram, TikTok, YouTube, and Google Ads. We launch, monitor, and optimize every campaign.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#A29BFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                    </div>
+                <div class="card">
                     <h3>Performance Analytics</h3>
-                    <p>Real-time dashboards tracking ROAS, CPA, CTR, and every metric that matters to your bottom line.</p>
+                    <p>Real-time dashboards showing every metric that matters. ROAS, CPA, conversion rates — you always know what's working.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#A8E06A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                    </div>
+                <div class="card">
                     <h3>Conversion Optimization</h3>
-                    <p>Landing page audits, funnel analysis, and CRO to ensure every click has the highest chance of converting.</p>
+                    <p>We continuously A/B test creative, targeting, and landing pages to improve performance and reduce customer acquisition costs.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#1DD1A1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-                    </div>
+                <div class="card">
                     <h3>Market Expansion</h3>
-                    <p>Scale into new markets, demographics, and geographies with tested playbooks and localized creative.</p>
+                    <p>We research new markets and test campaigns to expand your customer base. Rapid iteration until we find winners.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PLATFORMS -->
-    <section class="platforms-section" id="platforms">
+    <!-- Process -->
+    <section>
         <div class="container">
-            <span class="section-badge section-badge-purple">Platforms</span>
-            <h2>We Run Ads Where Your Buyers Are</h2>
-            <p class="section-desc">Full campaign management across every major advertising platform.</p>
-            <div class="platforms-grid">
-                <div class="platform-card">
-                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs><linearGradient id="ig1" x1="0" y1="36" x2="36" y2="0"><stop offset="0%" stop-color="#FD5"/><stop offset="50%" stop-color="#FF543E"/><stop offset="100%" stop-color="#C837AB"/></linearGradient></defs>
-                        <rect width="36" height="36" rx="9" fill="url(#ig1)"/>
-                        <circle cx="18" cy="18" r="7" stroke="#fff" stroke-width="2.5" fill="none"/>
-                        <circle cx="26" cy="10" r="2" fill="#fff"/>
-                    </svg>
-                    <h3>Instagram</h3>
-                    <p>Reels, Stories, Feed</p>
-                </div>
-                <div class="platform-card">
-                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="36" height="36" rx="9" fill="#000"/>
-                        <path d="M9 11c0 5.5 3.5 14 9 14s9-8.5 9-14" stroke="#25F4EE" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                        <path d="M10 11c0 5.5 3.5 14 9 14s9-8.5 9-14" stroke="#FE2C55" stroke-width="2.5" stroke-linecap="round" fill="none" transform="translate(1,1)"/>
-                        <circle cx="18" cy="22" r="3" fill="#fff"/>
-                    </svg>
-                    <h3>TikTok</h3>
-                    <p>In-Feed, TopView, Spark</p>
-                </div>
-                <div class="platform-card">
-                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="36" height="36" rx="9" fill="#FF0000"/>
-                        <path d="M14 11v14l11-7z" fill="#fff"/>
-                    </svg>
-                    <h3>YouTube</h3>
-                    <p>Pre-roll, Shorts, Display</p>
-                </div>
-                <div class="platform-card">
-                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="36" height="36" rx="9" fill="#fff" stroke="#ddd" stroke-width="1"/>
-                        <path d="M8 22.5l5.5-8 4 5 5.5-7L28 22.5z" fill="#34A853" opacity="0.8"/>
-                        <circle cx="10.5" cy="13" r="2.5" fill="#FBBC05"/>
-                        <path d="M28 22.5H8" stroke="#4285F4" stroke-width="1.5"/>
-                    </svg>
-                    <h3>Google Ads</h3>
-                    <p>Search, Display, Shopping</p>
-                </div>
+            <div class="section-title">
+                <h2>The ScaleNational System</h2>
+                <p class="section-subtitle">A proven 4-step process to scale your business rapidly</p>
             </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIAL -->
-    <section class="proof-section">
-        <div class="container">
-            <div class="proof-card">
-                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <blockquote>"ScaleNational took our ad spend from scattered to strategic. In 90 days, our ROAS went from 1.2x to 4.8x. The creative alone was worth twice what we paid."</blockquote>
-                <div class="proof-author">Head of Marketing</div>
-                <div class="proof-role">Series B SaaS Company</div>
+            <div class="process">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Strategy</h3>
+                    <p>We analyze your market, define your ideal customer, and map a custom advertising strategy across all platforms.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Creative</h3>
+                    <p>Our in-house creative team produces high-converting video, image, and carousel ads tailored to your audience.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Launch</h3>
+                    <p>We deploy campaigns across Instagram, TikTok, YouTube, and Google Ads with precision targeting and budget allocation.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Optimize</h3>
+                    <p>We monitor performance daily, A/B test variations, and continuously improve ROAS until campaigns hit profitability targets.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="faq-section" id="faq">
+    <section id="faq">
         <div class="container">
-            <span class="section-badge section-badge-teal">FAQ</span>
-            <h2>Got Questions?</h2>
-            <div style="height: 32px;"></div>
-            <div class="faq-list">
+            <div class="section-title">
+                <h2>Questions</h2>
+            </div>
+            <div class="faq-grid">
                 <div class="faq-item active">
-                    <div class="faq-q">
-                        <h4>How fast will I see results?</h4>
-                        <div class="faq-icon"></div>
+                    <div class="faq-header">
+                        <h4>How quickly will I see results?</h4>
+                        <span class="faq-toggle">−</span>
                     </div>
-                    <div class="faq-a">
-                        <p>Most clients see measurable traction within 14 days of launch. Full campaign optimization typically hits peak performance within 60-90 days.</p>
-                    </div>
+                    <p>Most campaigns see initial results within 7–14 days. We focus on short-term wins while building long-term profitable customer acquisition channels.</p>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-q">
+                    <div class="faq-header">
                         <h4>What platforms do you advertise on?</h4>
-                        <div class="faq-icon"></div>
+                        <span class="faq-toggle">+</span>
                     </div>
-                    <div class="faq-a">
-                        <p>We run campaigns across Instagram, TikTok, YouTube, Google Ads, Facebook, and LinkedIn. We recommend platforms based on where your audience actually converts.</p>
-                    </div>
+                    <p>Instagram, TikTok, YouTube, and Google Ads. We choose the best platforms based on your audience and goals, and we manage everything end-to-end.</p>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-q">
-                        <h4>Do you create the ad content?</h4>
-                        <div class="faq-icon"></div>
+                    <div class="faq-header">
+                        <h4>How much does it cost?</h4>
+                        <span class="faq-toggle">+</span>
                     </div>
-                    <div class="faq-a">
-                        <p>Yes. We handle everything from concept to final creative — video production, graphic design, copywriting, and UGC-style content. All optimized for each platform.</p>
-                    </div>
+                    <p>Pricing depends on your budget, goals, and market. We typically work with monthly advertising budgets of $5K+. Let's discuss your specific needs on a call.</p>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-q">
-                        <h4>What budget do I need to start?</h4>
-                        <div class="faq-icon"></div>
+                    <div class="faq-header">
+                        <h4>What if the ads don't work?</h4>
+                        <span class="faq-toggle">+</span>
                     </div>
-                    <div class="faq-a">
-                        <p>We work with businesses spending $5K+ per month on ad spend. Our management fee is separate and based on scope. Book a call for a custom quote.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <h4>Can you scale across markets?</h4>
-                        <div class="faq-icon"></div>
-                    </div>
-                    <div class="faq-a">
-                        <p>Absolutely. We run simultaneous campaigns across regions, languages, and demographics. Scaling markets rapidly is what ScaleNational was built for.</p>
-                    </div>
+                    <p>We optimize constantly — testing new creative, audiences, and messaging until we find what converts. If a strategy isn't working, we pivot and test new approaches immediately.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- RAINBOW DIVIDER -->
-    <div class="wave-divider"></div>
 
     <!-- CTA -->
-    <section class="cta-section" id="book">
-        <h2>Ready to Scale Your Advertising?</h2>
-        <p>Let's build a custom ad strategy that drives measurable growth for your business within 30 days.</p>
-        <div class="cta-form">
-            <input type="email" placeholder="your@company.com" required>
-            <button class="btn btn-white" style="border-radius:50px;">Get Started</button>
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <h2>Book Your Free Strategy Call</h2>
+            <p>Let's discuss your market, your goals, and the exact campaign strategy we'd build to scale your business.</p>
+            <div class="email-form">
+                <input type="email" placeholder="your@company.com" required>
+                <button>Get Started</button>
+            </div>
         </div>
-        <p class="cta-note">No commitment required. Free strategy session included.</p>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-brand">
-                <svg class="brand-logo" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="fLogoGrad1" x1="30" y1="70" x2="60" y2="10" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#0D4A3F"/>
-                            <stop offset="100%" stop-color="#17B890"/>
-                        </linearGradient>
-                        <linearGradient id="fLogoGrad2" x1="60" y1="10" x2="90" y2="70" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#1DD1A1"/>
-                            <stop offset="100%" stop-color="#0D4A3F"/>
-                        </linearGradient>
-                        <linearGradient id="fArrowGrad" x1="55" y1="40" x2="95" y2="10" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#17B890"/>
-                            <stop offset="100%" stop-color="#0D4A3F"/>
-                        </linearGradient>
-                    </defs>
-                    <path d="M25 68L55 12" stroke="url(#fLogoGrad1)" stroke-width="10" stroke-linecap="round"/>
-                    <path d="M55 12L85 68" stroke="url(#fLogoGrad2)" stroke-width="10" stroke-linecap="round"/>
-                    <path d="M35 50H75" stroke="url(#fLogoGrad1)" stroke-width="6" stroke-linecap="round"/>
-                    <path d="M58 38C65 28 78 22 88 18" stroke="url(#fArrowGrad)" stroke-width="7" stroke-linecap="round" fill="none"/>
-                    <path d="M82 8L89 17L79 20" stroke="#0D4A3F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                </svg>
-                <span>ScaleNational</span>
-            </div>
-            <p>&copy; 2026 ScaleNational. All rights reserved.</p>
+            <p>&copy; 2026 ScaleNational. We scale your business through advertising.</p>
         </div>
     </footer>
 
     <script>
-        const toggle = document.querySelector('.nav-toggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        toggle.addEventListener('click', () => {
-            toggle.classList.toggle('active');
-            mobileMenu.classList.toggle('open');
-            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-        });
-
-        function closeMobile() {
-            toggle.classList.remove('active');
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        document.querySelectorAll('.faq-q').forEach(q => {
-            q.addEventListener('click', () => {
-                const item = q.parentElement;
-                const wasActive = item.classList.contains('active');
+        // FAQ toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
                 document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                if (!wasActive) item.classList.add('active');
+                item.classList.add('active');
             });
         });
 
-        document.querySelector('.cta-form button').addEventListener('click', (e) => {
-            e.preventDefault();
-            const input = document.querySelector('.cta-form input');
-            if (input.value && input.value.includes('@')) {
-                const btn = e.target;
-                btn.textContent = 'We will be in touch!';
-                btn.style.background = 'var(--teal)';
-                btn.style.color = '#fff';
-                input.value = '';
-                setTimeout(() => {
-                    btn.textContent = 'Get Started';
-                    btn.style.background = '#fff';
-                    btn.style.color = 'var(--green-dark)';
-                }, 3000);
+        // Email form
+        document.querySelector('.email-form button').addEventListener('click', () => {
+            const email = document.querySelector('.email-form input').value;
+            if (email) {
+                alert('Thanks! We\'ll reach out within 24 hours to book your strategy call.');
+                document.querySelector('.email-form input').value = '';
             }
-        });
-
-        document.querySelector('.nav-bar').addEventListener('touchmove', (e) => {
-            e.preventDefault();
-        }, { passive: false });
-
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.stat-card, .step, .service-card, .platform-card, .proof-card, .faq-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(el);
         });
     </script>
 </body>
