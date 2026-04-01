@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScaleNational — Get More Qualified Leads, Expand Your Business Nationally</title>
+    <title>ScaleNational — Fill Your Calendar with Qualified Decision-Makers</title>
     <style>
         * {
             margin: 0;
@@ -63,9 +63,10 @@
             text-decoration: none;
         }
 
-        .logo img {
-            width: 36px;
-            height: 36px;
+        nav .nav-right {
+            display: flex;
+            gap: 16px;
+            align-items: center;
         }
 
         nav a {
@@ -83,7 +84,6 @@
         /* Hero */
         .hero {
             padding: 100px 0 80px;
-            text-align: center;
         }
 
         .hero h1 {
@@ -103,9 +103,15 @@
             color: var(--text-secondary);
             margin-bottom: 32px;
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
             line-height: 1.8;
+        }
+
+        .hero-subtext {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 32px;
+            max-width: 700px;
         }
 
         .cta-primary {
@@ -119,6 +125,8 @@
             font-size: 16px;
             transition: all 0.3s ease;
             box-shadow: 0 8px 32px rgba(47, 184, 150, 0.2);
+            border: none;
+            cursor: pointer;
         }
 
         .cta-primary:hover {
@@ -157,8 +165,41 @@
             text-align: center;
         }
 
+        .section h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
         .section.light {
             background: rgba(13, 74, 63, 0.08);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .testimonial {
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+        }
+
+        .testimonial-stat {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .testimonial p {
+            color: var(--text-secondary);
+            font-size: 15px;
         }
 
         /* Grid */
@@ -183,8 +224,8 @@
             transform: translateY(-4px);
         }
 
-        .card h3 {
-            font-size: 20px;
+        .card h4 {
+            font-size: 18px;
             font-weight: 600;
             margin-bottom: 12px;
             color: var(--text-primary);
@@ -204,8 +245,8 @@
         }
 
         .step {
-            text-align: center;
             padding: 32px 20px;
+            text-align: center;
         }
 
         .step-number {
@@ -224,7 +265,7 @@
         }
 
         .step h4 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             margin-bottom: 12px;
         }
@@ -233,30 +274,6 @@
             color: var(--text-secondary);
             font-size: 14px;
             line-height: 1.8;
-        }
-
-        /* Results */
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            text-align: center;
-        }
-
-        .result-stat {
-            padding: 32px;
-        }
-
-        .result-stat h3 {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 12px;
-        }
-
-        .result-stat p {
-            color: var(--text-secondary);
-            font-size: 16px;
         }
 
         /* CTA Section */
@@ -311,6 +328,41 @@
             background: rgba(255, 255, 255, 0.08);
         }
 
+        /* FAQ */
+        .faq-item {
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent);
+        }
+
+        .faq-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: none;
+            margin-top: 12px;
+        }
+
+        .faq-item.active p {
+            display: block;
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -326,16 +378,12 @@
                 font-size: 36px;
             }
 
-            .grid {
+            .grid, .testimonials {
                 grid-template-columns: 1fr;
             }
 
             .process-steps {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .results-grid {
-                grid-template-columns: 1fr;
             }
 
             .cta-primary, .cta-secondary {
@@ -346,6 +394,11 @@
             .email-form {
                 flex-direction: column;
             }
+
+            nav .nav-right {
+                flex-direction: column;
+                gap: 8px;
+            }
         }
     </style>
 </head>
@@ -353,118 +406,158 @@
     <!-- Navigation -->
     <nav class="container">
         <a href="#" class="logo">
-            <span>📈</span>
-            ScaleNational
+            📈 ScaleNational
         </a>
-        <a href="#book-call">Book a Call</a>
+        <div class="nav-right">
+            <a href="#process">How It Works</a>
+            <a href="#book-call" class="cta-primary">Book Call</a>
+        </div>
     </nav>
 
     <div class="container">
         <!-- Hero -->
         <section class="hero">
             <h1>Fill Your Calendar with <span class="highlight">Qualified Decision-Makers</span></h1>
-            <p>
-                We combine strategic list building, personalized cold outreach, and proven email systems to help local businesses scale nationally. 
-                Get consistent, high-quality leads without burning out your team.
-            </p>
+            <p>We make it impossible for your dream buyers to not know you.</p>
+            <p>We build automated cold email systems that reach your ICP, deliver qualified leads, and scale your business nationally.</p>
             <div>
                 <a href="#book-call" class="cta-primary">Get Started Today</a>
-                <a href="#how-it-works" class="cta-secondary">See How It Works</a>
+                <a href="#process" class="cta-secondary">See How It Works</a>
             </div>
         </section>
 
-        <!-- Social Proof / Results -->
+        <!-- Social Proof -->
         <section class="section light">
-            <div class="results-grid">
-                <div class="result-stat">
-                    <h3>487+</h3>
-                    <p>Qualified leads generated for our clients</p>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-stat">47+</div>
+                    <p>B2B SaaS sales calls booked in first 8 days</p>
                 </div>
-                <div class="result-stat">
-                    <h3>3.2x</h3>
-                    <p>Average ROI within first 60 days</p>
+                <div class="testimonial">
+                    <div class="testimonial-stat">3.2x</div>
+                    <p>Average ROI vs. traditional lead gen methods</p>
                 </div>
-                <div class="result-stat">
-                    <h3>94%</h3>
+                <div class="testimonial">
+                    <div class="testimonial-stat">94%</div>
                     <p>Inbox delivery rate (industry average: 60%)</p>
                 </div>
             </div>
         </section>
 
         <!-- How It Works -->
-        <section class="section" id="how-it-works">
-            <h2>How ScaleNational Works</h2>
+        <section class="section" id="process">
+            <h2>The ScaleNational System</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 48px; font-size: 16px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Done-for-you outbound that builds, manages, and optimizes campaigns using dedicated IP addresses and precision targeting.
+            </p>
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h4>Strategy Call</h4>
-                    <p>We audit your current sales process and identify expansion opportunities in new markets.</p>
+                    <h4>Market Analysis & ICP</h4>
+                    <p>We research your market and define your ideal client profile with precision targeting criteria.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <h4>List Building</h4>
-                    <p>Our team researches and builds a hyper-targeted list of decision-makers in your ideal markets.</p>
+                    <p>Source, enrich, and verify decision-makers from 250M+ contacts. Every lead validated against your ICP.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h4>Campaign Launch</h4>
-                    <p>Personalized email sequences, proven templates, and infrastructure to ensure inbox delivery.</p>
+                    <h4>AI-Powered Messaging</h4>
+                    <p>Personalized email sequences with AI-generated insights. Messaging that resonates with your prospects.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h4>Optimization</h4>
-                    <p>Real-time tracking, A/B testing, and adjustments to maximize bookings and conversions.</p>
+                    <h4>Campaign Management</h4>
+                    <p>Launch, monitor, optimize. A/B testing, rotation, reply handling — we run the entire outbound function.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Features -->
+        <section class="section light">
+            <h2>What We Build For You</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Dedicated Private IP</h4>
+                    <p>Enterprise-grade infrastructure separate from risky sender pools. Maximum deliverability, zero compromises.</p>
+                </div>
+                <div class="card">
+                    <h4>Real-Time Insights</h4>
+                    <p>Spot opportunities faster with 30+ daily buying signals from verified, updated data.</p>
+                </div>
+                <div class="card">
+                    <h4>Pipeline-Ready Leads</h4>
+                    <p>Not just contacts — qualified prospects ready to discuss solutions with your sales team.</p>
+                </div>
+                <div class="card">
+                    <h4>Done-For-You Management</h4>
+                    <p>We handle infrastructure, targeting, messaging, and replies. Your team focuses on closing.</p>
+                </div>
+                <div class="card">
+                    <h4>Performance Tracking</h4>
+                    <p>Real-time campaign analytics, reply rates, booking data. Know exactly what's working.</p>
+                </div>
+                <div class="card">
+                    <h4>Continuous Optimization</h4>
+                    <p>A/B testing, segment rotation, messaging refinement. We optimize until meetings hit your calendar.</p>
                 </div>
             </div>
         </section>
 
         <!-- Services -->
         <section class="section">
-            <h2>Our Services</h2>
+            <h2>Who We Work With</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>Lead Generation</h3>
-                    <p>Hyper-targeted list building with verified contact data. We research decision-makers in your target markets and deliver qualified prospects ready to engage.</p>
+                    <h4>B2B Service Providers</h4>
+                    <p>Agencies, consultants, and professional services expanding into new regions and markets.</p>
                 </div>
                 <div class="card">
-                    <h3>Cold Email Campaigns</h3>
-                    <p>Personalized outreach sequences designed to convert. From subject lines to follow-ups, we handle deliverability, tracking, and optimization.</p>
+                    <h4>SaaS & Software</h4>
+                    <p>Tech companies and platforms needing consistent qualified B2B lead flow at scale.</p>
                 </div>
                 <div class="card">
-                    <h3>National Expansion</h3>
-                    <p>Multi-market campaigns that let you scale coast-to-coast. We manage everything so you can focus on closing deals.</p>
+                    <h4>Outdoor & Growth Companies</h4>
+                    <p>Brands in outdoor, retail, and lifestyle sectors scaling nationally without traditional ads.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Who We Work With -->
+        <!-- FAQ -->
         <section class="section light">
-            <h2>Who We Work With</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>B2B Service Providers</h3>
-                    <p>Agencies, consultants, and service companies looking to expand into new regions and industries.</p>
-                </div>
-                <div class="card">
-                    <h3>SaaS & Software</h3>
-                    <p>Tech companies and platforms needing consistent B2B lead flow to support scaling growth.</p>
-                </div>
-                <div class="card">
-                    <h3>Outdoor & Retail</h3>
-                    <p>Brands and local businesses in the outdoor, fitness, and retail sectors scaling nationally.</p>
-                </div>
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h4>How fast will I see results? <span>+</span></h4>
+                <p>Most of our clients see qualified meetings booked within 10-21 days of campaign launch. Timeline depends on your ICP, market, and sales cycle.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How does pricing work? <span>+</span></h4>
+                <p>We charge based on your target market size, campaign scope, and desired lead volume. No setup fees — only pay for performance. Get a custom quote on your call.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Will this land in spam? <span>+</span></h4>
+                <p>No. We use dedicated private IP addresses, warm up accounts properly, and follow deliverability best practices. Our average inbox rate is 94% vs. 60% industry average.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can you target multiple markets at once? <span>+</span></h4>
+                <p>Absolutely. That's the whole point of ScaleNational. We scale campaigns across regions, industries, and market segments simultaneously.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What if the leads aren't qualified? <span>+</span></h4>
+                <p>We validate every contact against your ICP before sending a single email. If a lead doesn't fit, we don't send. Quality over quantity, always.</p>
             </div>
         </section>
 
         <!-- Final CTA -->
         <section class="cta-final" id="book-call">
             <h2>Book a Free Strategy Call</h2>
-            <p>Let's talk about your expansion goals. We'll outline a custom plan to get qualified leads in 30 days or less.</p>
+            <p>Let's talk about scaling your business. We'll outline a custom outbound plan to get qualified meetings on your calendar within 30 days.</p>
             <div class="email-form">
                 <input type="email" placeholder="your@company.com" required>
-                <button class="cta-primary" style="border: none; cursor: pointer;">Get Started</button>
+                <button class="cta-primary">Get Started</button>
             </div>
-            <p style="margin-top: 16px; font-size: 14px;">No credit card required. 100% confidential.</p>
+            <p style="margin-top: 16px; font-size: 14px;">No credit card required. 30 minutes of free advice, guaranteed.</p>
         </section>
     </div>
 
@@ -474,10 +567,18 @@
     </footer>
 
     <script>
+        // FAQ functionality
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+
+        // CTA form
         document.querySelector('.email-form button').addEventListener('click', function() {
             const email = document.querySelector('.email-form input').value;
             if (email) {
-                alert('Thanks! We'll reach out to ' + email + ' shortly.');
+                alert('Thanks! We\'ll reach out to ' + email + ' shortly.');
                 document.querySelector('.email-form input').value = '';
             }
         });
