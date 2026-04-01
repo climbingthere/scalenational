@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleNational — Scale Your Business Nationally</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1d7874;
+            --primary-light: #4a9f9c;
+            --accent: #2fb896;
+            --accent-light: #5fd4b3;
+            --bg-dark: #0f1419;
+            --bg-light: #fafbfc;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: #b0b8c1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1f27 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Glass morphism */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            margin-right: 8px;
+            vertical-align: middle;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 8px;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            padding: 80px 0;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            box-shadow: 0 8px 32px rgba(29, 120, 116, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 48px rgba(29, 120, 116, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--accent-light);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(95, 212, 179, 0.1);
+            border-color: var(--accent);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .hero-circle {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(79, 195, 247, 0.1), transparent),
+                        radial-gradient(circle at 70% 70%, rgba(95, 212, 179, 0.1), transparent);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 120px;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* What we do */
+        .section {
+            padding: 80px 0;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .section h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .card {
+            padding: 40px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card.glass {
+            border: 1px solid var(--glass-border);
+        }
+
+        .card-icon {
+            font-size: 42px;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Process */
+        .process {
+            position: relative;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .process-step {
+            padding: 32px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .process-step h4 {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .process-connector {
+            position: absolute;
+            top: 50%;
+            left: -12px;
+            right: -12px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            z-index: -1;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 60px;
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 38px;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        /* Form */
+        .form-group {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 12px;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(95, 212, 179, 0.08);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 40px 0;
+                min-height: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-connector {
+                display: none;
+            }
+
+            .cta-form {
+                flex-direction: column;
+            }
+
+            .hero-circle {
+                width: 250px;
+                height: 250px;
+                font-size: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="container">
+        <a href="#" class="logo">
+            <span class="logo-icon"></span>
+            ScaleNational
+        </a>
+        <a href="#contact">Get Started</a>
+    </nav>
+
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Scale Your Business Nationally</h1>
+                <p>We help local businesses expand beyond their region with proven cold outreach and lead generation strategies. If you're ambitious and ready to grow, let's talk.</p>
+                <div class="cta-group">
+                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView()">
+                        ↳ Learn More
+                    </button>
+                    <a href="https://calendly.com/scalenational" class="btn btn-secondary">
+                        📅 Book Consultation
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-circle">📈</div>
+            </div>
+        </section>
+
+        <!-- What We Do -->
+        <section class="section">
+            <h2>What We Do</h2>
+            <div class="grid-3">
+                <div class="card glass">
+                    <div class="card-icon">🎯</div>
+                    <h3>Lead Generation</h3>
+                    <p>We identify and build hyper-targeted lists of decision-makers in your industry. Cold email, LinkedIn, and outreach combined — all tuned for your market.</p>
+                </div>
+                <div class="card glass">
+                    <div class="card-icon">📧</div>
+                    <h3>Cold Outreach</h3>
+                    <p>Personalized campaigns that don't feel like spam. We write copy that resonates, handle deliverability, and optimize for meetings booked — not just open rates.</p>
+                </div>
+                <div class="card glass">
+                    <div class="card-icon">📊</div>
+                    <h3>Strategy & Scaling</h3>
+                    <p>We don't just send emails. We audit your current acquisition, identify gaps, and build a playbook to scale your business across multiple regions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Process -->
+        <section class="section process">
+            <h2>Our Process</h2>
+            <div class="process-grid">
+                <div class="process-step glass">
+                    <div class="step-number">1</div>
+                    <h4>Discovery Call</h4>
+                    <p>We understand your business, target market, and growth goals. No fluff — just questions that matter.</p>
+                </div>
+                <div class="process-step glass">
+                    <div class="step-number">2</div>
+                    <h4>List Building</h4>
+                    <p>We research and build a hyper-targeted list of prospects in your sector. Quality over quantity.</p>
+                </div>
+                <div class="process-step glass">
+                    <div class="step-number">3</div>
+                    <h4>Campaign Setup</h4>
+                    <p>Personalized copy, email infrastructure, and landing pages. Everything pre-tested for maximum conversions.</p>
+                </div>
+                <div class="process-step glass">
+                    <div class="step-number">4</div>
+                    <h4>Optimize & Scale</h4>
+                    <p>Launch, measure, refine. We iterate on what works and scale aggressively across regions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who We Work With -->
+        <section class="section">
+            <h2>Who We Work With</h2>
+            <div class="grid-3">
+                <div class="card glass">
+                    <h3>B2B Services</h3>
+                    <p>Agencies, consultants, and service providers looking to expand their footprint nationally.</p>
+                </div>
+                <div class="card glass">
+                    <h3>SaaS & Tech</h3>
+                    <p>Software companies and tech startups needing qualified B2B leads at scale.</p>
+                </div>
+                <div class="card glass">
+                    <h3>Outdoor & Lifestyle</h3>
+                    <p>Brands, retailers, and companies in the outdoor sector scaling beyond local markets.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="contact" class="cta-section">
+            <h2>Ready to Scale?</h2>
+            <p>Let's schedule a free 30-minute strategy call. We'll audit your current efforts and discuss a plan to take you national.</p>
+            <div class="form-group">
+                <input type="email" placeholder="your@company.com" required>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+            <p style="margin-top: 16px; font-size: 14px; color: var(--text-secondary);">Or <a href="https://calendly.com/scalenational" style="color: var(--accent); text-decoration: none;">book a call directly</a></p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container">
+        <p>&copy; 2026 ScaleNational. All rights reserved. | <a href="#" style="color: var(--accent); text-decoration: none;">Privacy</a> | <a href="#" style="color: var(--accent); text-decoration: none;">Terms</a></p>
+    </footer>
+
+    <script>
+        // Form submission
+        document.querySelector('.form-group button').addEventListener('click', function() {
+            const email = document.querySelector('.form-group input').value;
+            if (email) {
+                // Send to your email service (Resend, SendGrid, etc.)
+                console.log('Inquiry from:', email);
+                alert('Thanks for your interest! We'll be in touch shortly.');
+                document.querySelector('.form-group input').value = '';
+            }
+        });
+    </script>
+</body>
+</html>
