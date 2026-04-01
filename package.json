@@ -1,0 +1,12 @@
+{
+  "name": "scalenational",
+  "version": "1.0.0",
+  "description": "ScaleNational - Scale Your Business Nationally",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["leadgen", "cold-email", "b2b"],
+  "author": "",
+  "license": "MIT"
+}

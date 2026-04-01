@@ -1,0 +1,12 @@
+name = "scalenational"
+type = "javascript"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+[env.production]
+name = "scalenational-prod"
+routes = [
+  { pattern = "scalenational.com", zone_name = "scalenational.com" }
+]
