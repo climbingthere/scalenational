@@ -914,30 +914,34 @@
             opacity: 1;
         }
 
-        .step-visual {
-            width: 100%;
-            max-width: 160px;
-            height: 160px;
-            margin: 0 auto 24px;
-            background: linear-gradient(135deg, rgba(29, 209, 161, 0.08), rgba(29, 209, 161, 0.02));
-            border-radius: 16px;
+        .step-icon-wrap {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 28px;
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.12), rgba(29, 209, 161, 0.05));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1.5px solid rgba(29, 209, 161, 0.15);
+            border: 2px solid rgba(29, 209, 161, 0.2);
             transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .step-illustration {
-            width: 100%;
-            height: 100%;
-            padding: 20px;
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .step:hover .step-visual {
-            background: linear-gradient(135deg, rgba(29, 209, 161, 0.12), rgba(29, 209, 161, 0.04));
-            border-color: rgba(29, 209, 161, 0.3);
-            transform: translateY(-4px);
+        .step:hover .step-icon-wrap {
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.18), rgba(29, 209, 161, 0.08));
+            border-color: rgba(29, 209, 161, 0.35);
+            transform: translateY(-6px) scale(1.08);
+            box-shadow: 0 12px 32px rgba(29, 209, 161, 0.15);
+        }
+
+        .step:hover .step-icon {
+            transform: scale(1.15);
         }
 
         .step-metric {
@@ -1713,17 +1717,13 @@
             <div class="process-wrapper">
                 <div class="process">
                     <div class="step">
-                        <div class="step-visual">
-                            <svg viewBox="0 0 200 200" class="step-illustration">
-                                <!-- Strategy: Brain with gears -->
-                                <circle cx="100" cy="60" r="35" fill="none" stroke="#1DD1A1" stroke-width="3"/>
-                                <path d="M 70 60 L 85 60 M 115 60 L 130 60 M 100 25 L 100 40 M 100 80 L 100 95" stroke="#1DD1A1" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="100" cy="60" r="12" fill="#1DD1A1" opacity="0.3"/>
-                                <!-- Chart below -->
-                                <line x1="70" y1="140" x2="130" y2="140" stroke="#1DD1A1" stroke-width="2"/>
-                                <line x1="75" y1="140" x2="75" y2="120" stroke="#1DD1A1" stroke-width="3"/>
-                                <line x1="95" y1="140" x2="95" y2="110" stroke="#1DD1A1" stroke-width="3"/>
-                                <line x1="115" y1="140" x2="115" y2="100" stroke="#1DD1A1" stroke-width="3"/>
+                        <div class="step-icon-wrap">
+                            <svg viewBox="0 0 100 100" class="step-icon">
+                                <!-- Strategy: Target/Bullseye -->
+                                <circle cx="50" cy="50" r="35" fill="none" stroke="#1DD1A1" stroke-width="2.5"/>
+                                <circle cx="50" cy="50" r="25" fill="none" stroke="#1DD1A1" stroke-width="2.5"/>
+                                <circle cx="50" cy="50" r="15" fill="none" stroke="#1DD1A1" stroke-width="2.5"/>
+                                <circle cx="50" cy="50" r="5" fill="#1DD1A1"/>
                             </svg>
                         </div>
                         <span class="step-label">Week 1</span>
@@ -1735,19 +1735,16 @@
                         </div>
                     </div>
                     <div class="step">
-                        <div class="step-visual">
-                            <svg viewBox="0 0 200 200" class="step-illustration">
-                                <!-- Creative: Video frames -->
-                                <rect x="60" y="40" width="80" height="60" fill="none" stroke="#1DD1A1" stroke-width="3" rx="4"/>
-                                <line x1="80" y1="40" x2="80" y2="100" stroke="#1DD1A1" stroke-width="2"/>
-                                <line x1="100" y1="40" x2="100" y2="100" stroke="#1DD1A1" stroke-width="2"/>
-                                <line x1="120" y1="40" x2="120" y2="100" stroke="#1DD1A1" stroke-width="2"/>
-                                <!-- Play button -->
-                                <circle cx="100" cy="70" r="20" fill="none" stroke="#1DD1A1" stroke-width="2"/>
-                                <polygon points="95,65 95,75 108,70" fill="#1DD1A1"/>
-                                <!-- Stats below -->
-                                <text x="100" y="165" text-anchor="middle" font-size="28" font-weight="700" fill="#1DD1A1">5</text>
-                                <text x="100" y="185" text-anchor="middle" font-size="12" fill="#555">Variations</text>
+                        <div class="step-icon-wrap">
+                            <svg viewBox="0 0 100 100" class="step-icon">
+                                <!-- Creative: Palette -->
+                                <ellipse cx="50" cy="50" rx="30" ry="35" fill="none" stroke="#1DD1A1" stroke-width="2.5"/>
+                                <circle cx="35" cy="35" r="5" fill="#1DD1A1"/>
+                                <circle cx="65" cy="35" r="5" fill="#1DD1A1"/>
+                                <circle cx="50" cy="50" r="5" fill="#1DD1A1"/>
+                                <circle cx="35" cy="65" r="5" fill="#1DD1A1"/>
+                                <circle cx="65" cy="65" r="5" fill="#1DD1A1"/>
+                                <path d="M 40 80 Q 50 85 60 80" fill="none" stroke="#1DD1A1" stroke-width="2.5" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <span class="step-label">Week 2</span>
@@ -1759,14 +1756,13 @@
                         </div>
                     </div>
                     <div class="step">
-                        <div class="step-visual">
-                            <svg viewBox="0 0 200 200" class="step-illustration">
+                        <div class="step-icon-wrap">
+                            <svg viewBox="0 0 100 100" class="step-icon">
                                 <!-- Launch: Rocket -->
-                                <path d="M 100 30 L 95 60 L 90 80 L 100 75 L 110 80 L 105 60 L 100 30" fill="#1DD1A1" opacity="0.5" stroke="#1DD1A1" stroke-width="2"/>
-                                <circle cx="100" cy="90" r="18" fill="none" stroke="#1DD1A1" stroke-width="2"/>
-                                <circle cx="100" cy="90" r="12" fill="#1DD1A1" opacity="0.2"/>
-                                <!-- Platforms -->
-                                <text x="100" y="155" text-anchor="middle" font-size="14" font-weight="700" fill="#1DD1A1">4 Platforms</text>
+                                <path d="M 50 15 L 45 35 L 40 55 L 50 50 L 60 55 L 55 35 L 50 15" fill="none" stroke="#1DD1A1" stroke-width="2.5" stroke-linejoin="round"/>
+                                <circle cx="50" cy="60" r="12" fill="none" stroke="#1DD1A1" stroke-width="2.5"/>
+                                <rect x="35" y="70" width="8" height="12" fill="none" stroke="#1DD1A1" stroke-width="2"/>
+                                <rect x="57" y="70" width="8" height="12" fill="none" stroke="#1DD1A1" stroke-width="2"/>
                             </svg>
                         </div>
                         <span class="step-label">Week 3</span>
@@ -1778,18 +1774,12 @@
                         </div>
                     </div>
                     <div class="step">
-                        <div class="step-visual">
-                            <svg viewBox="0 0 200 200" class="step-illustration">
-                                <!-- Graph trending up -->
-                                <line x1="60" y1="120" x2="140" y2="120" stroke="#1DD1A1" stroke-width="2"/>
-                                <polyline points="70,110 85,85 100,95 115,60 130,70" fill="none" stroke="#1DD1A1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="70" cy="110" r="4" fill="#1DD1A1"/>
-                                <circle cx="85" cy="85" r="4" fill="#1DD1A1"/>
-                                <circle cx="100" cy="95" r="4" fill="#1DD1A1"/>
-                                <circle cx="115" cy="60" r="4" fill="#1DD1A1"/>
-                                <circle cx="130" cy="70" r="4" fill="#1DD1A1"/>
-                                <!-- Arrow up -->
-                                <path d="M 150 100 L 150 50 M 145 60 L 150 50 L 155 60" stroke="#1DD1A1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <div class="step-icon-wrap">
+                            <svg viewBox="0 0 100 100" class="step-icon">
+                                <!-- Optimize: Trending Up -->
+                                <line x1="25" y1="70" x2="75" y2="70" stroke="#1DD1A1" stroke-width="2.5" stroke-linecap="round"/>
+                                <polyline points="30,65 40,50 50,60 60,35 70,45" fill="none" stroke="#1DD1A1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M 70 35 L 70 20 M 65 25 L 70 20 L 75 25" fill="none" stroke="#1DD1A1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <span class="step-label">Ongoing</span>
