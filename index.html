@@ -904,12 +904,12 @@
         .step {
             position: relative;
             padding: clamp(32px, 5vw, 44px);
-            background: linear-gradient(135deg, #0f1419 0%, #1a2128 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);
             border-radius: 20px;
-            border: 2px solid rgba(29, 209, 161, 0.25);
+            border: 2px solid rgba(29, 209, 161, 0.2);
             transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
             text-align: center;
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
             flex: 1;
         }
 
@@ -927,10 +927,9 @@
         }
 
         .step:hover {
-            box-shadow: 0 24px 72px rgba(29, 209, 161, 0.35), 0 8px 24px rgba(0,0,0,0.4);
+            box-shadow: 0 24px 72px rgba(29, 209, 161, 0.2), 0 8px 24px rgba(0,0,0,0.08);
             transform: translateY(-8px);
-            border-color: rgba(29, 209, 161, 0.5);
-            background: linear-gradient(135deg, #1a2128 0%, #232d36 100%);
+            border-color: rgba(29, 209, 161, 0.35);
         }
 
         .step:hover::after {
@@ -951,7 +950,7 @@
         .step-number {
             width: 72px;
             height: 72px;
-            background: linear-gradient(135deg, #1DD1A1 0%, #0d9c6b 100%);
+            background: linear-gradient(135deg, #0d9c6b 0%, #0a6d52 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -960,7 +959,7 @@
             font-weight: 900;
             color: white;
             margin: 0 auto 24px;
-            box-shadow: 0 8px 28px rgba(29, 209, 161, 0.4), 0 0 0 6px rgba(29, 209, 161, 0.15);
+            box-shadow: 0 8px 28px rgba(13, 156, 107, 0.5), 0 0 0 6px rgba(29, 209, 161, 0.15);
             transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
             position: relative;
             z-index: 2;
@@ -1034,8 +1033,8 @@
 
         .step-label {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(29, 209, 161, 0.2), rgba(29, 209, 161, 0.12));
-            color: #1DD1A1;
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.15), rgba(29, 209, 161, 0.08));
+            color: #0d4a3f;
             font-size: 11px;
             font-weight: 800;
             letter-spacing: 0.12em;
@@ -1043,11 +1042,11 @@
             padding: 6px 16px;
             border-radius: 50px;
             margin-bottom: 16px;
-            border: 1px solid rgba(29, 209, 161, 0.35);
+            border: 1px solid rgba(29, 209, 161, 0.2);
         }
 
         .step h3 {
-            color: #ffffff;
+            color: #0d4a3f;
             margin-bottom: 14px;
             font-size: 22px;
             font-weight: 800;
@@ -1055,7 +1054,7 @@
         }
         
         .step p {
-            color: #bbb;
+            color: #555;
             font-size: 15px;
             line-height: 1.7;
             font-weight: 500;
