@@ -866,21 +866,51 @@
         }
 
         .process {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: clamp(24px, 4vw, 36px);
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(20px, 3vw, 32px);
             position: relative;
             z-index: 1;
+            align-items: stretch;
+            justify-content: space-between;
+        }
+
+        .step-arrow {
+            display: none;
+            color: #1DD1A1;
+            font-size: 32px;
+            font-weight: 700;
+            align-self: center;
+            animation: arrowFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes arrowFloat {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(4px); }
+        }
+
+        @media (min-width: 900px) {
+            .step-arrow {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .process {
+                flex-wrap: nowrap;
+            }
         }
 
         .step {
             position: relative;
-            padding: clamp(28px, 4vw, 36px);
-            background: linear-gradient(180deg, #ffffff 0%, #f8fffe 100%);
-            border-radius: 16px;
-            border: 1px solid rgba(29, 209, 161, 0.12);
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            padding: clamp(32px, 5vw, 44px);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(29, 209, 161, 0.2);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
             text-align: center;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+            flex: 1;
         }
 
         .step::after {
@@ -889,40 +919,56 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 3px;
+            height: 4px;
             background: linear-gradient(90deg, transparent, #1DD1A1, transparent);
             opacity: 0;
             transition: opacity 0.3s;
-            border-radius: 0 0 16px 16px;
+            border-radius: 0 0 20px 20px;
         }
 
         .step:hover {
-            box-shadow: 0 12px 32px rgba(29, 209, 161, 0.12), 0 4px 8px rgba(0,0,0,0.03);
-            transform: translateY(-4px);
-            border-color: rgba(29, 209, 161, 0.25);
+            box-shadow: 0 20px 48px rgba(29, 209, 161, 0.2), 0 8px 16px rgba(0,0,0,0.08);
+            transform: translateY(-6px);
+            border-color: rgba(29, 209, 161, 0.4);
         }
 
         .step:hover::after {
             opacity: 1;
         }
 
+        .step-number-bg {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(29, 209, 161, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
         .step-number {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #1DD1A1 0%, #0d4a3f 100%);
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #1DD1A1 0%, #0d9c6b 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            font-weight: 800;
+            font-size: 36px;
+            font-weight: 900;
             color: white;
-            margin: 0 auto 18px;
-            box-shadow: 0 4px 20px rgba(29, 209, 161, 0.3), 0 0 0 4px rgba(29, 209, 161, 0.1);
-            transition: all 0.3s;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 28px rgba(29, 209, 161, 0.4), 0 0 0 6px rgba(29, 209, 161, 0.15);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
             position: relative;
             z-index: 2;
             overflow: hidden;
+        }
+
+        .step:hover .step-number {
+            transform: scale(1.12);
+            box-shadow: 0 12px 36px rgba(29, 209, 161, 0.5), 0 0 0 8px rgba(29, 209, 161, 0.2);
         }
 
         .step-number::before {
@@ -961,27 +1007,31 @@
 
         .step-label {
             display: inline-block;
-            background: rgba(29, 209, 161, 0.08);
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.15), rgba(29, 209, 161, 0.08));
             color: #0d4a3f;
-            font-size: 8px;
+            font-size: 11px;
             font-weight: 800;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            padding: 4px 12px;
+            padding: 6px 16px;
             border-radius: 50px;
-            margin-bottom: 10px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(29, 209, 161, 0.2);
         }
 
         .step h3 {
             color: #0d4a3f;
-            margin-bottom: 10px;
-            font-size: 19px;
+            margin-bottom: 14px;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.01em;
         }
         
         .step p {
             color: #555;
-            font-size: 14px;
-            line-height: 1.65;
+            font-size: 15px;
+            line-height: 1.7;
+            font-weight: 500;
         }
 
         /* FAQ */
@@ -1666,33 +1716,39 @@
                 <p class="section-subtitle">A proven <strong>4-step process</strong> to scale your business</p>
             </div>
             <div class="process-wrapper">
-            <div class="process-connector"></div>
-            <div class="process">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <span class="step-label">Week 1</span>
-                    <h3>Strategy</h3>
-                    <p>We analyze your market and define a <strong>custom advertising strategy</strong> across all platforms tailored to your goals.</p>
+                <div class="process">
+                    <div class="step">
+                        <div class="step-number-bg"></div>
+                        <div class="step-number">1</div>
+                        <span class="step-label">Week 1</span>
+                        <h3>Strategy</h3>
+                        <p>We analyze your market and define a <strong>custom advertising strategy</strong> across all platforms tailored to your goals.</p>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="step">
+                        <div class="step-number-bg"></div>
+                        <div class="step-number">2</div>
+                        <span class="step-label">Week 2</span>
+                        <h3>Creative</h3>
+                        <p>Our in-house team produces <strong>high-converting video and image ads</strong> tailored to your target audience.</p>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="step">
+                        <div class="step-number-bg"></div>
+                        <div class="step-number">3</div>
+                        <span class="step-label">Week 3</span>
+                        <h3>Launch</h3>
+                        <p>We deploy campaigns across <strong>Instagram, TikTok, YouTube, and Google Ads</strong> with precision targeting.</p>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="step">
+                        <div class="step-number-bg"></div>
+                        <div class="step-number">4</div>
+                        <span class="step-label">Ongoing</span>
+                        <h3>Optimize</h3>
+                        <p>We monitor daily, A/B test variations, and <strong>continuously improve ROAS</strong> until campaigns hit profitability targets.</p>
+                    </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <span class="step-label">Week 2</span>
-                    <h3>Creative</h3>
-                    <p>Our in-house team produces <strong>high-converting video and image ads</strong> tailored to your target audience.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <span class="step-label">Week 3</span>
-                    <h3>Launch</h3>
-                    <p>We deploy campaigns across <strong>Instagram, TikTok, YouTube, and Google Ads</strong> with precision targeting.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <span class="step-label">Ongoing</span>
-                    <h3>Optimize</h3>
-                    <p>We monitor daily, A/B test variations, and <strong>continuously improve ROAS</strong> until campaigns hit profitability targets.</p>
-                </div>
-            </div>
             </div>
         </div>
     </section>
