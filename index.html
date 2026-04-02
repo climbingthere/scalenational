@@ -781,17 +781,18 @@
         .benefit-highlight {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: linear-gradient(135deg, rgba(29, 209, 161, 0.08), rgba(29, 209, 161, 0.02));
-            border: 1px solid rgba(29, 209, 161, 0.12);
-            border-radius: 8px;
-            padding: 8px 14px;
-            font-size: 12px;
-            font-weight: 700;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.15), rgba(29, 209, 161, 0.08));
+            border: 1.5px solid rgba(29, 209, 161, 0.25);
+            border-radius: 10px;
+            padding: 12px 18px;
+            font-size: 13px;
+            font-weight: 800;
             color: #0d4a3f;
-            margin-top: 18px;
+            margin-top: 20px;
             letter-spacing: 0.03em;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 4px 16px rgba(29, 209, 161, 0.1);
         }
 
         .benefit-highlight::before {
@@ -799,20 +800,22 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 18px;
-            height: 18px;
+            width: 22px;
+            height: 22px;
             background: linear-gradient(135deg, #1DD1A1, #0d9c6b);
             color: white;
             border-radius: 50%;
-            font-size: 8px;
+            font-size: 12px;
             font-weight: 800;
             flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(29, 209, 161, 0.3);
         }
 
         .card:hover .benefit-highlight {
-            background: linear-gradient(135deg, rgba(29, 209, 161, 0.12), rgba(29, 209, 161, 0.04));
-            border-color: rgba(29, 209, 161, 0.25);
-            transform: translateX(4px);
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.2), rgba(29, 209, 161, 0.1));
+            border-color: rgba(29, 209, 161, 0.4);
+            transform: translateY(-3px) translateX(4px);
+            box-shadow: 0 8px 24px rgba(29, 209, 161, 0.15);
         }
 
         /* Process */
