@@ -317,12 +317,32 @@
         .hero h1 {
             max-width: 800px;
             margin-bottom: 24px;
-            background: linear-gradient(135deg, #0d4a3f 0%, #1DD1A1 100%);
+            position: relative;
+            z-index: 1;
+            font-size: clamp(40px, 9vw, 76px);
+        }
+
+        .hero h1 .headline-gradient {
+            background: linear-gradient(135deg, #1DD1A1 0%, #0d9c6b 40%, #1DD1A1 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            position: relative;
-            z-index: 1;
+            filter: drop-shadow(0 0 30px rgba(29, 209, 161, 0.3));
+            animation: heroHeadlineIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+            display: inline;
+        }
+
+        .hero h1 .headline-fast {
+            background: linear-gradient(135deg, #6ff7d5 0%, #1DD1A1 50%, #0d4a3f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            font-style: italic;
+            filter: drop-shadow(0 0 20px rgba(29, 209, 161, 0.4));
+            animation: heroHeadlineIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+            display: inline;
         }
 
         .hero-subtext {
@@ -372,8 +392,21 @@
         .logos-track {
             display: flex;
             gap: 24px;
-            animation: scroll 15s linear infinite;
+            animation: scroll 20s linear infinite;
             will-change: transform;
+        }
+
+        @keyframes heroHeadlineIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.92);
+                filter: blur(4px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
         }
 
         @keyframes scroll {
@@ -919,7 +952,7 @@
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <h1>Ads That Scale Your Business. Fast.</h1>
+            <h1><span class="headline-gradient">Ads That Scale Your Business.</span> <span class="headline-fast">Fast.</span></h1>
             <p class="hero-subtext">Done-for-you ad campaigns that fill your pipeline with <strong class="text-teal">qualified customers</strong>. We handle strategy, creative, targeting, and optimization across <strong>Instagram, TikTok, YouTube, and Google Ads</strong>.</p>
             <div class="hero-cta">
                 <a href="#cta" class="btn btn-primary">Book Free Strategy Call</a>
@@ -982,8 +1015,80 @@
                         <div class="logo-box"><img src="https://img.logo.dev/volkswagen.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Volkswagen"></div>
                         <span class="logo-name">Volkswagen</span>
                     </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/amazon.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Amazon"></div>
+                        <span class="logo-name">Amazon</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/microsoft.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Microsoft"></div>
+                        <span class="logo-name">Microsoft</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/netflix.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Netflix"></div>
+                        <span class="logo-name">Netflix</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/stripe.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Stripe"></div>
+                        <span class="logo-name">Stripe</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/slack.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Slack"></div>
+                        <span class="logo-name">Slack</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/goldmansachs.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Goldman Sachs"></div>
+                        <span class="logo-name">Goldman Sachs</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/visa.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Visa"></div>
+                        <span class="logo-name">Visa</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/mastercard.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Mastercard"></div>
+                        <span class="logo-name">Mastercard</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/paypal.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="PayPal"></div>
+                        <span class="logo-name">PayPal</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/tesla.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Tesla"></div>
+                        <span class="logo-name">Tesla</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/bmw.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="BMW"></div>
+                        <span class="logo-name">BMW</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/bloomberg.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Bloomberg"></div>
+                        <span class="logo-name">Bloomberg</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/nike.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Nike"></div>
+                        <span class="logo-name">Nike</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/uber.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Uber"></div>
+                        <span class="logo-name">Uber</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/airbnb.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Airbnb"></div>
+                        <span class="logo-name">Airbnb</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/salesforce.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Salesforce"></div>
+                        <span class="logo-name">Salesforce</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/hubspot.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="HubSpot"></div>
+                        <span class="logo-name">HubSpot</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/zoom.us?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Zoom"></div>
+                        <span class="logo-name">Zoom</span>
+                    </div>
 
-                    <!-- Repeat for infinite scroll -->
+                    <!-- Repeat all 31 logos for seamless infinite scroll -->
                     <div class="logo-item">
                         <div class="logo-box"><img src="https://img.logo.dev/google.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Google"></div>
                         <span class="logo-name">Google</span>
@@ -1032,6 +1137,78 @@
                         <div class="logo-box"><img src="https://img.logo.dev/volkswagen.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Volkswagen"></div>
                         <span class="logo-name">Volkswagen</span>
                     </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/amazon.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Amazon"></div>
+                        <span class="logo-name">Amazon</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/microsoft.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Microsoft"></div>
+                        <span class="logo-name">Microsoft</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/netflix.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Netflix"></div>
+                        <span class="logo-name">Netflix</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/stripe.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Stripe"></div>
+                        <span class="logo-name">Stripe</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/slack.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Slack"></div>
+                        <span class="logo-name">Slack</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/goldmansachs.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Goldman Sachs"></div>
+                        <span class="logo-name">Goldman Sachs</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/visa.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Visa"></div>
+                        <span class="logo-name">Visa</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/mastercard.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Mastercard"></div>
+                        <span class="logo-name">Mastercard</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/paypal.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="PayPal"></div>
+                        <span class="logo-name">PayPal</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/tesla.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Tesla"></div>
+                        <span class="logo-name">Tesla</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/bmw.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="BMW"></div>
+                        <span class="logo-name">BMW</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/bloomberg.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Bloomberg"></div>
+                        <span class="logo-name">Bloomberg</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/nike.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Nike"></div>
+                        <span class="logo-name">Nike</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/uber.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Uber"></div>
+                        <span class="logo-name">Uber</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/airbnb.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Airbnb"></div>
+                        <span class="logo-name">Airbnb</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/salesforce.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Salesforce"></div>
+                        <span class="logo-name">Salesforce</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/hubspot.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="HubSpot"></div>
+                        <span class="logo-name">HubSpot</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://img.logo.dev/zoom.us?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Zoom"></div>
+                        <span class="logo-name">Zoom</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1070,37 +1247,37 @@
             </div>
             <div class="grid">
                 <div class="card">
-                    <span class="card-icon">🎬</span>
+                    <span class="card-icon">1</span>
                     <h3>Ad Creative Production</h3>
                     <p>Professional video and image ads designed to convert. We produce all creative <strong>in-house</strong> with no freelancer delays.</p>
                     <span class="benefit-highlight">Zero production delays</span>
                 </div>
                 <div class="card">
-                    <span class="card-icon">🎯</span>
+                    <span class="card-icon">2</span>
                     <h3>Audience Targeting</h3>
                     <p>Custom audiences built to match your <strong>ideal customer</strong>. Laser-focused targeting to reduce waste and maximize conversions.</p>
                     <span class="benefit-highlight">Precision-matched audiences</span>
                 </div>
                 <div class="card">
-                    <span class="card-icon">📡</span>
+                    <span class="card-icon">3</span>
                     <h3>Campaign Management</h3>
                     <p>Full-funnel ad strategy across <strong>Instagram, TikTok, YouTube, and Google Ads</strong>. We launch, monitor, and optimize everything.</p>
                     <span class="benefit-highlight">All platforms, one team</span>
                 </div>
                 <div class="card">
-                    <span class="card-icon">📊</span>
+                    <span class="card-icon">4</span>
                     <h3>Performance Analytics</h3>
                     <p>Real-time dashboards showing every metric that matters. <strong>ROAS, CPA, conversion rates</strong> — you always know what's working.</p>
                     <span class="benefit-highlight">Full transparency</span>
                 </div>
                 <div class="card">
-                    <span class="card-icon">🔄</span>
+                    <span class="card-icon">5</span>
                     <h3>Conversion Optimization</h3>
                     <p>Continuous <strong>A/B testing</strong> on creative, targeting, and landing pages to improve performance and reduce CAC.</p>
                     <span class="benefit-highlight">Always improving</span>
                 </div>
                 <div class="card">
-                    <span class="card-icon">🌍</span>
+                    <span class="card-icon">6</span>
                     <h3>Market Expansion</h3>
                     <p>We research <strong>new markets</strong> and test campaigns to expand your customer base through rapid iteration.</p>
                     <span class="benefit-highlight">Scale beyond borders</span>
@@ -1244,7 +1421,7 @@
         const heroH1 = document.querySelector('.hero h1');
         const heroSub = document.querySelector('.hero-subtext');
         const heroCta = document.querySelector('.hero-cta');
-        if (heroH1) { heroH1.style.opacity = '0'; heroH1.style.animation = 'fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards'; }
+        if (heroH1) { heroH1.style.opacity = '1'; }
         if (heroSub) { heroSub.style.opacity = '0'; heroSub.style.animation = 'fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards'; }
         if (heroCta) { heroCta.style.opacity = '0'; heroCta.style.animation = 'fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards'; }
 
