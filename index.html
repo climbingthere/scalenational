@@ -399,7 +399,7 @@
         .logos-track {
             display: flex;
             gap: 12px;
-            animation: scroll 20s linear infinite;
+            animation: scroll 30s linear infinite;
             will-change: transform;
         }
 
@@ -418,10 +418,10 @@
 
         @keyframes scroll {
             0% {
-                transform: translateX(0%);
+                transform: translateX(0);
             }
             100% {
-                transform: translateX(-100%);
+                transform: translateX(calc(-160px * 31));
             }
         }
 
