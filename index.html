@@ -866,16 +866,38 @@
         }
 
         .process {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: clamp(24px, 4vw, 36px);
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(20px, 3vw, 32px);
             position: relative;
             z-index: 1;
+            align-items: stretch;
+            justify-content: space-between;
         }
 
-        @media (min-width: 1024px) {
+        .step-arrow {
+            display: none;
+            color: #1DD1A1;
+            font-size: 32px;
+            font-weight: 700;
+            align-self: center;
+            animation: arrowFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes arrowFloat {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(4px); }
+        }
+
+        @media (min-width: 900px) {
+            .step-arrow {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
             .process {
-                grid-template-columns: repeat(4, 1fr);
+                flex-wrap: nowrap;
             }
         }
 
@@ -914,34 +936,39 @@
             opacity: 1;
         }
 
-        .step-icon-wrap {
+        .step-number-bg {
+            position: absolute;
+            top: -20px;
+            right: -20px;
             width: 120px;
             height: 120px;
-            margin: 0 auto 28px;
-            background: linear-gradient(135deg, rgba(29, 209, 161, 0.12), rgba(29, 209, 161, 0.05));
-            border-radius: 20px;
+            background: radial-gradient(circle, rgba(29, 209, 161, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #1DD1A1 0%, #0d9c6b 100%);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid rgba(29, 209, 161, 0.2);
+            font-size: 36px;
+            font-weight: 900;
+            color: white;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 28px rgba(29, 209, 161, 0.4), 0 0 0 6px rgba(29, 209, 161, 0.15);
             transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
         }
 
-        .step-icon {
-            width: 70px;
-            height: 70px;
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .step:hover .step-icon-wrap {
-            background: linear-gradient(135deg, rgba(29, 209, 161, 0.18), rgba(29, 209, 161, 0.08));
-            border-color: rgba(29, 209, 161, 0.35);
-            transform: translateY(-6px) scale(1.08);
-            box-shadow: 0 12px 32px rgba(29, 209, 161, 0.15);
-        }
-
-        .step:hover .step-icon {
-            transform: scale(1.15);
+        .step:hover .step-number {
+            transform: scale(1.12);
+            box-shadow: 0 12px 36px rgba(29, 209, 161, 0.5), 0 0 0 8px rgba(29, 209, 161, 0.2);
         }
 
         .step-metric {
@@ -1717,78 +1744,35 @@
             <div class="process-wrapper">
                 <div class="process">
                     <div class="step">
-                        <div class="step-icon-wrap">
-                            <svg viewBox="0 0 100 100" class="step-icon">
-                                <!-- Strategy: Target/Bullseye -->
-                                <circle cx="50" cy="50" r="35" fill="none" stroke="#1DD1A1" stroke-width="2.5"/>
-                                <circle cx="50" cy="50" r="25" fill="none" stroke="#1DD1A1" stroke-width="2.5"/>
-                                <circle cx="50" cy="50" r="15" fill="none" stroke="#1DD1A1" stroke-width="2.5"/>
-                                <circle cx="50" cy="50" r="5" fill="#1DD1A1"/>
-                            </svg>
-                        </div>
+                        <div class="step-number-bg"></div>
+                        <div class="step-number">1</div>
                         <span class="step-label">Week 1</span>
                         <h3>Strategy</h3>
-                        <p>Market analysis & custom targeting</p>
-                        <div class="step-metric">
-                            <span class="metric-value">100%</span>
-                            <span class="metric-label">Research</span>
-                        </div>
+                        <p>We analyze your market and define a <strong>custom advertising strategy</strong> across all platforms tailored to your goals.</p>
                     </div>
+                    <div class="step-arrow">→</div>
                     <div class="step">
-                        <div class="step-icon-wrap">
-                            <svg viewBox="0 0 100 100" class="step-icon">
-                                <!-- Creative: Palette -->
-                                <ellipse cx="50" cy="50" rx="30" ry="35" fill="none" stroke="#1DD1A1" stroke-width="2.5"/>
-                                <circle cx="35" cy="35" r="5" fill="#1DD1A1"/>
-                                <circle cx="65" cy="35" r="5" fill="#1DD1A1"/>
-                                <circle cx="50" cy="50" r="5" fill="#1DD1A1"/>
-                                <circle cx="35" cy="65" r="5" fill="#1DD1A1"/>
-                                <circle cx="65" cy="65" r="5" fill="#1DD1A1"/>
-                                <path d="M 40 80 Q 50 85 60 80" fill="none" stroke="#1DD1A1" stroke-width="2.5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
+                        <div class="step-number-bg"></div>
+                        <div class="step-number">2</div>
                         <span class="step-label">Week 2</span>
                         <h3>Creative</h3>
-                        <p>High-converting video & image ads</p>
-                        <div class="step-metric">
-                            <span class="metric-value">5+</span>
-                            <span class="metric-label">Ad Variations</span>
-                        </div>
+                        <p>Our in-house team produces <strong>high-converting video and image ads</strong> tailored to your target audience.</p>
                     </div>
+                    <div class="step-arrow">→</div>
                     <div class="step">
-                        <div class="step-icon-wrap">
-                            <svg viewBox="0 0 100 100" class="step-icon">
-                                <!-- Launch: Rocket -->
-                                <path d="M 50 15 L 45 35 L 40 55 L 50 50 L 60 55 L 55 35 L 50 15" fill="none" stroke="#1DD1A1" stroke-width="2.5" stroke-linejoin="round"/>
-                                <circle cx="50" cy="60" r="12" fill="none" stroke="#1DD1A1" stroke-width="2.5"/>
-                                <rect x="35" y="70" width="8" height="12" fill="none" stroke="#1DD1A1" stroke-width="2"/>
-                                <rect x="57" y="70" width="8" height="12" fill="none" stroke="#1DD1A1" stroke-width="2"/>
-                            </svg>
-                        </div>
+                        <div class="step-number-bg"></div>
+                        <div class="step-number">3</div>
                         <span class="step-label">Week 3</span>
                         <h3>Launch</h3>
-                        <p>Deploy across all major channels</p>
-                        <div class="step-metric">
-                            <span class="metric-value">4</span>
-                            <span class="metric-label">Platforms Live</span>
-                        </div>
+                        <p>We deploy campaigns across <strong>Instagram, TikTok, YouTube, and Google Ads</strong> with precision targeting.</p>
                     </div>
+                    <div class="step-arrow">→</div>
                     <div class="step">
-                        <div class="step-icon-wrap">
-                            <svg viewBox="0 0 100 100" class="step-icon">
-                                <!-- Optimize: Trending Up -->
-                                <line x1="25" y1="70" x2="75" y2="70" stroke="#1DD1A1" stroke-width="2.5" stroke-linecap="round"/>
-                                <polyline points="30,65 40,50 50,60 60,35 70,45" fill="none" stroke="#1DD1A1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M 70 35 L 70 20 M 65 25 L 70 20 L 75 25" fill="none" stroke="#1DD1A1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
+                        <div class="step-number-bg"></div>
+                        <div class="step-number">4</div>
                         <span class="step-label">Ongoing</span>
                         <h3>Optimize</h3>
-                        <p>Daily monitoring & continuous improvement</p>
-                        <div class="step-metric">
-                            <span class="metric-value">+200%</span>
-                            <span class="metric-label">Avg ROAS</span>
-                        </div>
+                        <p>We monitor daily, A/B test variations, and <strong>continuously improve ROAS</strong> until campaigns hit profitability targets.</p>
                     </div>
                 </div>
             </div>
