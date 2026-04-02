@@ -476,12 +476,19 @@
 
         .stat {
             text-align: left;
-            padding: clamp(20px, 4vw, 32px);
+            padding: clamp(24px, 4vw, 36px);
             border-radius: 16px;
-            background: linear-gradient(135deg, rgba(29, 209, 161, 0.12) 0%, rgba(29, 209, 161, 0.04) 100%);
-            border: 1px solid rgba(29, 209, 161, 0.2);
+            background: #ffffff;
+            border: 1px solid rgba(29, 209, 161, 0.15);
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            border-color: rgba(29, 209, 161, 0.35);
+            box-shadow: 0 8px 24px rgba(29, 209, 161, 0.1);
+            transform: translateY(-2px);
         }
 
         .stat::before {
@@ -490,21 +497,13 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #1DD1A1 0%, #0d4a3f 100%);
-        }
-
-        .stat:nth-child(2)::before {
-            background: linear-gradient(90deg, #FF6B6B 0%, #FF8C42 100%);
-        }
-
-        .stat:nth-child(3)::before {
-            background: linear-gradient(90deg, #6C63FF 0%, #1DD1A1 100%);
+            height: 3px;
+            background: #1DD1A1;
         }
 
         .stat-label {
             display: inline-block;
-            background: rgba(29, 209, 161, 0.15);
+            background: rgba(29, 209, 161, 0.1);
             color: #0d4a3f;
             font-size: 10px;
             font-weight: 800;
@@ -512,42 +511,15 @@
             text-transform: uppercase;
             padding: 6px 14px;
             border-radius: 50px;
-            margin-bottom: 12px;
-        }
-
-        .stat:nth-child(2) .stat-label {
-            background: rgba(255, 107, 107, 0.15);
-            color: #FF6B6B;
-        }
-
-        .stat:nth-child(3) .stat-label {
-            background: rgba(108, 99, 255, 0.15);
-            color: #6C63FF;
+            margin-bottom: 14px;
         }
 
         .stat-number {
             font-size: clamp(44px, 9vw, 64px);
             font-weight: 800;
-            background: linear-gradient(135deg, #1DD1A1 0%, #0d4a3f 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #0d4a3f;
             margin-bottom: 10px;
             letter-spacing: 0.03em;
-        }
-
-        .stat:nth-child(2) .stat-number {
-            background: linear-gradient(135deg, #FF6B6B 0%, #FF8C42 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat:nth-child(3) .stat-number {
-            background: linear-gradient(135deg, #6C63FF 0%, #1DD1A1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .stat p {
