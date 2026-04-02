@@ -16,6 +16,60 @@
             scroll-behavior: smooth;
         }
 
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(29, 209, 161, 0); }
+            50% { box-shadow: 0 0 30px rgba(29, 209, 161, 0.3); }
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: #ffffff;
@@ -871,13 +925,65 @@
     </footer>
 
     <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Animate elements on scroll
+        document.querySelectorAll('section, .card, .stat, .step, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Logo floating animation
+        document.querySelectorAll('.hero-logo img, .hero-logo svg').forEach(logo => {
+            logo.style.animation = 'float 3s ease-in-out infinite';
+        });
+
+        // Button hover animations
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Card hover lift
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.transition = 'all 0.3s ease';
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // FAQ animations
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                    i.style.maxHeight = 'auto';
+                });
                 item.classList.add('active');
             });
         });
 
+        // Email form submission
         document.querySelector('.email-form button').addEventListener('click', () => {
             const email = document.querySelector('.email-form input').value;
             if (email) {
@@ -885,6 +991,31 @@
                 document.querySelector('.email-form input').value = '';
             }
         });
+
+        // Logo carousel smooth scroll
+        const carousel = document.querySelector('.logos-track');
+        if (carousel) {
+            carousel.style.willChange = 'transform';
+        }
     </script>
+
+    <style>
+        /* Additional animation styles */
+        .card, .stat, .step, .faq-item, section {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn {
+            transition: all 0.3s ease;
+        }
+
+        .hero-logo img, .hero-logo svg {
+            transition: filter 0.3s ease;
+        }
+
+        .hero-logo img:hover, .hero-logo svg:hover {
+            filter: brightness(1.1);
+        }
+    </style>
 </body>
 </html>
