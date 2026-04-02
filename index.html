@@ -120,6 +120,11 @@
             50% { box-shadow: 0 0 30px rgba(29, 209, 161, 0.3); }
         }
 
+        @keyframes tilt {
+            0%, 100% { transform: rotateZ(-2deg); }
+            50% { transform: rotateZ(2deg); }
+        }
+
         @keyframes expandDown {
             from {
                 opacity: 0;
@@ -739,6 +744,10 @@
             position: relative;
         }
 
+        .card-icon {
+            animation: tilt 3s ease-in-out infinite;
+        }
+
         .card-icon svg {
             width: 26px;
             height: 26px;
@@ -752,6 +761,7 @@
         .card:hover .card-icon {
             transform: scale(1.1) rotate(-3deg);
             box-shadow: 0 8px 28px rgba(29, 209, 161, 0.35);
+            animation: none;
         }
 
         .card h3 {
