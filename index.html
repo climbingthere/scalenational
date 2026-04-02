@@ -608,16 +608,18 @@
         /* FAQ */
         .faq-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: clamp(14px, 3vw, 20px);
+            grid-template-columns: 1fr;
+            gap: clamp(10px, 2vw, 14px);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .faq-item {
-            padding: 22px 26px;
+            padding: 16px 20px;
             background: #ffffff;
             border: 1px solid rgba(29, 209, 161, 0.1);
             border-left: 4px solid #1DD1A1;
-            border-radius: 12px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -636,23 +638,24 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 16px;
+            gap: 12px;
         }
 
         .faq-header h4 {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: #0d4a3f;
             margin: 0;
-            line-height: 1.5;
+            line-height: 1.4;
             letter-spacing: 0.02em;
         }
 
         .faq-toggle {
-            font-size: 24px;
+            font-size: 20px;
             flex-shrink: 0;
             transition: transform 0.3s;
             color: #1DD1A1;
+            font-weight: 700;
         }
 
         .faq-item.active .faq-toggle {
@@ -662,10 +665,10 @@
         .faq-item p {
             max-height: 0;
             opacity: 0;
-            margin-top: 14px;
-            font-size: 14px;
+            margin-top: 10px;
+            font-size: 13px;
             color: #555;
-            line-height: 1.8;
+            line-height: 1.7;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
@@ -673,16 +676,32 @@
         .faq-item.active p {
             max-height: 500px;
             opacity: 1;
-            margin-top: 14px;
+            margin-top: 10px;
         }
 
         /* CTA */
+        @keyframes ctaPulse {
+            0%, 100% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(29, 209, 161, 0.4); }
+            50% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 0 30px 8px rgba(29, 209, 161, 0.2); }
+        }
+
+        @keyframes ctaOrbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -20px) scale(1.1); }
+            66% { transform: translate(-20px, 15px) scale(0.95); }
+        }
+
+        @keyframes ctaShimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
         .cta-section {
-            background: linear-gradient(135deg, #0d4a3f 0%, #1DD1A1 100%);
+            background: linear-gradient(135deg, #071f1a 0%, #0d4a3f 35%, #0f6b54 60%, #1DD1A1 100%);
             color: white;
-            padding: clamp(50px, 10vw, 90px);
-            border-radius: 24px;
-            margin: clamp(40px, 8vw, 70px) 0;
+            padding: clamp(70px, 14vw, 130px) clamp(30px, 6vw, 60px);
+            border-radius: 28px;
+            margin: clamp(50px, 10vw, 80px) 0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -691,98 +710,145 @@
         .cta-section::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -15%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            top: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(29, 209, 161, 0.2) 0%, rgba(29, 209, 161, 0.05) 40%, transparent 70%);
             border-radius: 50%;
+            animation: ctaOrbFloat 8s ease-in-out infinite;
         }
 
         .cta-section::after {
             content: '';
             position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+            bottom: -25%;
+            left: -8%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(29, 209, 161, 0.04) 40%, transparent 70%);
             border-radius: 50%;
+            animation: ctaOrbFloat 10s ease-in-out infinite reverse;
+        }
+
+        .cta-dots {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 32px 32px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-eyebrow {
+            display: inline-block;
+            background: rgba(29, 209, 161, 0.2);
+            border: 1px solid rgba(29, 209, 161, 0.4);
+            color: #1DD1A1;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 6px 20px;
+            border-radius: 50px;
+            margin-bottom: 28px;
         }
 
         .cta-section h2 {
             color: white;
-            margin-bottom: 16px;
-            letter-spacing: 0.05em;
+            font-size: clamp(34px, 7vw, 58px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
-        .cta-section > p {
-            color: rgba(255, 255, 255, 0.92);
-            max-width: 620px;
-            margin: 0 auto 40px;
-            font-size: clamp(17px, 4vw, 20px);
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
+        .cta-highlight {
+            background: linear-gradient(90deg, #1DD1A1, #6ff7d5, #1DD1A1);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: ctaShimmer 4s linear infinite;
         }
 
-        .email-form {
+        .cta-subtext {
+            color: rgba(255, 255, 255, 0.88) !important;
+            max-width: 580px;
+            margin: 0 auto 44px !important;
+            font-size: clamp(17px, 3.5vw, 21px) !important;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
+        }
+
+        .cta-btn-wrap {
+            position: relative;
+            z-index: 2;
             display: flex;
-            gap: 12px;
-            max-width: 500px;
-            margin: 0 auto;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .cta-mega-btn {
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .email-form input {
-            flex: 1;
-            min-width: 200px;
-            padding: 14px 18px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            color: white;
-            font-size: 14px;
-            font-family: inherit;
-            transition: all 0.2s;
-            letter-spacing: 0.02em;
-        }
-
-        .email-form input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .email-form input:focus {
-            outline: none;
-            border-color: rgba(255, 255, 255, 0.8);
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .email-form button {
-            padding: 14px 36px;
-            background: white;
+            gap: 10px;
+            padding: 20px 52px;
+            background: linear-gradient(135deg, #ffffff 0%, #e8fdf5 100%);
             color: #0d4a3f;
             border: none;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 14px;
+            border-radius: 16px;
+            font-size: clamp(17px, 3vw, 20px);
+            font-weight: 800;
             cursor: pointer;
-            transition: all 0.2s;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            white-space: nowrap;
-            letter-spacing: 0.03em;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            animation: ctaPulse 2.5s ease-in-out infinite;
+            min-height: 64px;
+            font-family: inherit;
         }
 
-        .email-form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        .cta-mega-btn:hover {
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), 0 0 40px rgba(29, 209, 161, 0.35);
+            background: linear-gradient(135deg, #ffffff 0%, #d0f9ec 100%);
+            animation: none;
+        }
+
+        .cta-mega-btn:active {
+            transform: translateY(-1px) scale(1.01);
+        }
+
+        .cta-mega-btn .btn-arrow {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-mega-btn:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+
+        .cta-trust-line {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+        }
+
+        .cta-trust-line span {
+            color: #1DD1A1;
         }
 
         /* Footer */
@@ -1121,12 +1187,16 @@
 
     <!-- CTA -->
     <section class="cta-section" id="cta">
-        <div class="container">
-            <h2>Book Your Free Strategy Call</h2>
-            <p>Let's discuss your market, goals, and the <strong>exact campaign strategy</strong> we'd build to scale your business.</p>
-            <div class="email-form">
-                <input type="email" placeholder="your@company.com" required>
-                <button>Get Started</button>
+        <div class="cta-dots"></div>
+        <div class="container cta-inner">
+            <span class="cta-eyebrow">🚀 Free — No Obligation</span>
+            <h2>Ready to <span class="cta-highlight">Scale Your Business</span>?</h2>
+            <p class="cta-subtext">Book a free 30-minute strategy call. We'll map out the exact ad campaigns to fill your pipeline with qualified leads.</p>
+            <div class="cta-btn-wrap">
+                <a href="https://calendly.com" class="cta-mega-btn" target="_blank" rel="noopener">
+                    Book Your Free Call <span class="btn-arrow">→</span>
+                </a>
+                <p class="cta-trust-line"><span>✓</span> No commitment &nbsp;·&nbsp; <span>✓</span> 30 min &nbsp;·&nbsp; <span>✓</span> Custom strategy</p>
             </div>
         </div>
     </section>
