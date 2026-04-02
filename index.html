@@ -137,7 +137,7 @@
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: 0.05em;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
         }
 
         h3 {
@@ -163,7 +163,39 @@
         }
 
         section {
-            padding: clamp(70px, 14vw, 130px) 0;
+            padding: clamp(50px, 10vw, 90px) 0;
+        }
+
+        /* Section Backgrounds - Alternating */
+        .bg-teal {
+            background: #f0fdf9;
+        }
+
+        .bg-dots {
+            background-image: radial-gradient(circle, rgba(29, 209, 161, 0.07) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .bg-gradient-subtle {
+            background: linear-gradient(180deg, #ffffff 0%, #f0fdf9 50%, #ffffff 100%);
+        }
+
+        /* Section Divider */
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #1DD1A1, #0d4a3f);
+            border-radius: 2px;
+            margin: 0 auto 20px;
+        }
+
+        /* Text accent classes */
+        .text-teal {
+            color: #1DD1A1;
+        }
+
+        .text-dark-green {
+            color: #0d4a3f;
         }
 
         /* Navigation */
@@ -213,8 +245,8 @@
         /* Hero Logo */
         .hero-logo {
             text-align: center;
-            margin-bottom: 48px;
-            padding-top: 50px;
+            margin-bottom: 36px;
+            padding-top: 40px;
         }
 
         .hero-logo img {
@@ -230,30 +262,60 @@
             border-radius: 24px;
             padding: clamp(50px, 8vw, 100px);
             margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(29, 209, 161, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -60px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(13, 74, 63, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
         .hero h1 {
             max-width: 800px;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             background: linear-gradient(135deg, #0d4a3f 0%, #1DD1A1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-subtext {
             max-width: 660px;
             font-size: clamp(17px, 4vw, 20px);
             color: #555;
-            margin-bottom: 48px;
+            margin-bottom: 40px;
             line-height: 1.8;
             letter-spacing: 0.01em;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-cta {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         /* Logos Section */
@@ -261,6 +323,7 @@
             border-top: 2px solid rgba(29, 209, 161, 0.2);
             border-bottom: 2px solid rgba(29, 209, 161, 0.2);
             background: rgba(13, 74, 63, 0.02);
+            padding: clamp(30px, 6vw, 50px) 0;
         }
 
         .logos-label {
@@ -345,14 +408,28 @@
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: clamp(30px, 6vw, 50px);
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(162, 155, 254, 0.05) 100%);
-            padding: clamp(44px, 6vw, 68px);
+            gap: clamp(24px, 5vw, 40px);
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.06) 0%, rgba(13, 74, 63, 0.04) 100%);
+            padding: clamp(36px, 5vw, 56px);
             border-radius: 20px;
+            border: 1px solid rgba(29, 209, 161, 0.12);
         }
 
         .stat {
             text-align: left;
+        }
+
+        .stat-label {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.15), rgba(29, 209, 161, 0.05));
+            color: #0d4a3f;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
         }
 
         .stat-number {
@@ -362,7 +439,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 14px;
+            margin-bottom: 8px;
             letter-spacing: 0.03em;
         }
 
@@ -375,11 +452,11 @@
         /* Sections */
         .section-title {
             text-align: center;
-            margin-bottom: clamp(50px, 10vw, 80px);
+            margin-bottom: clamp(36px, 7vw, 56px);
         }
 
         .section-title h2 {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .section-subtitle {
@@ -395,26 +472,42 @@
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: clamp(28px, 5vw, 44px);
+            gap: clamp(20px, 4vw, 32px);
         }
 
         .card {
-            background: linear-gradient(135deg, rgba(29, 209, 161, 0.05) 0%, rgba(255, 107, 107, 0.03) 100%);
-            padding: clamp(28px, 5vw, 40px);
+            background: #ffffff;
+            padding: clamp(24px, 4vw, 32px);
             border-radius: 16px;
-            border: 1px solid rgba(29, 209, 161, 0.1);
+            border: 1px solid rgba(29, 209, 161, 0.12);
+            border-left: 4px solid #1DD1A1;
             transition: all 0.3s;
             cursor: pointer;
+            position: relative;
         }
 
         .card:hover {
             transform: translateY(-4px);
-            border-color: rgba(29, 209, 161, 0.3);
-            box-shadow: 0 12px 30px rgba(29, 209, 161, 0.15);
+            border-color: rgba(29, 209, 161, 0.25);
+            border-left-color: #0d4a3f;
+            box-shadow: 0 12px 30px rgba(29, 209, 161, 0.12);
+            background: #f8fffe;
+        }
+
+        .card-icon {
+            font-size: 28px;
+            margin-bottom: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.12) 0%, rgba(13, 74, 63, 0.06) 100%);
+            border-radius: 12px;
         }
 
         .card h3 {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: #0d4a3f;
         }
 
@@ -424,36 +517,61 @@
             color: #555;
         }
 
+        .benefit-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.1), rgba(29, 209, 161, 0.03));
+            border: 1px solid rgba(29, 209, 161, 0.15);
+            border-radius: 8px;
+            padding: 5px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #0d4a3f;
+            margin-top: 14px;
+            letter-spacing: 0.02em;
+        }
+
         /* Process */
         .process {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: clamp(36px, 6vw, 56px);
+            gap: clamp(24px, 4vw, 36px);
+            position: relative;
         }
 
         .step {
             position: relative;
-            padding: 0;
+            padding: clamp(22px, 4vw, 28px);
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid rgba(29, 209, 161, 0.12);
+            transition: all 0.3s;
+        }
+
+        .step:hover {
+            box-shadow: 0 8px 24px rgba(29, 209, 161, 0.1);
+            transform: translateY(-2px);
         }
 
         .step-number {
-            width: 56px;
-            height: 56px;
+            width: 48px;
+            height: 48px;
             background: linear-gradient(135deg, #1DD1A1 0%, #0d9c6b 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             box-shadow: 0 4px 15px rgba(29, 209, 161, 0.3);
         }
 
         .step h3 {
             color: #0d4a3f;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
         .step p {
@@ -464,20 +582,27 @@
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: clamp(16px, 4vw, 24px);
+            gap: clamp(14px, 3vw, 20px);
         }
 
         .faq-item {
-            padding: 28px;
-            background: linear-gradient(135deg, rgba(29, 209, 161, 0.03) 0%, rgba(255, 107, 107, 0.02) 100%);
+            padding: 22px 26px;
+            background: #ffffff;
             border: 1px solid rgba(29, 209, 161, 0.1);
+            border-left: 4px solid #1DD1A1;
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s;
         }
 
         .faq-item:hover {
-            border-color: rgba(29, 209, 161, 0.3);
+            border-color: rgba(29, 209, 161, 0.25);
+            background: #f8fffe;
+        }
+
+        .faq-item.active {
+            border-left-color: #0d4a3f;
+            background: #f0fdf9;
         }
 
         .faq-header {
@@ -509,7 +634,7 @@
 
         .faq-item p {
             display: none;
-            margin-top: 16px;
+            margin-top: 14px;
             font-size: 14px;
             color: #555;
             line-height: 1.8;
@@ -523,24 +648,52 @@
         .cta-section {
             background: linear-gradient(135deg, #0d4a3f 0%, #1DD1A1 100%);
             color: white;
-            padding: clamp(60px, 12vw, 120px);
+            padding: clamp(50px, 10vw, 90px);
             border-radius: 24px;
-            margin: clamp(60px, 12vw, 120px) 0;
+            margin: clamp(40px, 8vw, 70px) 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -15%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
         .cta-section h2 {
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             letter-spacing: 0.05em;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-section > p {
             color: rgba(255, 255, 255, 0.92);
             max-width: 620px;
-            margin: 0 auto 48px;
+            margin: 0 auto 40px;
             font-size: clamp(17px, 4vw, 20px);
             line-height: 1.8;
+            position: relative;
+            z-index: 1;
         }
 
         .email-form {
@@ -550,6 +703,8 @@
             margin: 0 auto;
             flex-wrap: wrap;
             justify-content: center;
+            position: relative;
+            z-index: 1;
         }
 
         .email-form input {
@@ -601,7 +756,7 @@
         /* Footer */
         footer {
             border-top: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 50px 0;
+            padding: 36px 0;
             text-align: center;
             font-size: 13px;
             color: #888;
@@ -670,7 +825,7 @@
     <section class="hero">
         <div class="container">
             <h1>Ads That Scale Your Business. Fast.</h1>
-            <p class="hero-subtext">Done-for-you ad campaigns that fill your pipeline with qualified customers. We handle strategy, creative, targeting, and optimization across Instagram, TikTok, YouTube, and Google Ads.</p>
+            <p class="hero-subtext">Done-for-you ad campaigns that fill your pipeline with <strong class="text-teal">qualified customers</strong>. We handle strategy, creative, targeting, and optimization across <strong>Instagram, TikTok, YouTube, and Google Ads</strong>.</p>
             <div class="hero-cta">
                 <a href="#cta" class="btn btn-primary">Book Free Strategy Call</a>
                 <a href="#services" class="btn btn-secondary">See How We Work</a>
@@ -788,18 +943,21 @@
     </section>
 
     <!-- Stats -->
-    <section>
+    <section class="bg-teal">
         <div class="container">
             <div class="stats">
                 <div class="stat">
+                    <span class="stat-label">Performance</span>
                     <div class="stat-number">4.2x</div>
                     <p>Average ROAS for our campaigns</p>
                 </div>
                 <div class="stat">
+                    <span class="stat-label">Growth</span>
                     <div class="stat-number">340%</div>
                     <p>Average revenue growth in first 6 months</p>
                 </div>
                 <div class="stat">
+                    <span class="stat-label">Reach</span>
                     <div class="stat-number">50M+</div>
                     <p>Impressions delivered annually</p>
                 </div>
@@ -808,77 +966,92 @@
     </section>
 
     <!-- Services -->
-    <section id="services">
+    <section id="services" class="bg-dots">
         <div class="container">
             <div class="section-title">
-                <h2>What We Build For You</h2>
-                <p class="section-subtitle">Done-for-you advertising that scales your business rapidly</p>
+                <div class="section-divider"></div>
+                <h2>What We <span class="text-teal">Build</span> For You</h2>
+                <p class="section-subtitle">Done-for-you advertising that <strong>scales your business</strong> rapidly</p>
             </div>
             <div class="grid">
                 <div class="card">
+                    <span class="card-icon">1</span>
                     <h3>Ad Creative Production</h3>
-                    <p>Professional video and image ads designed to convert. We produce all creative in-house with no freelancer delays.</p>
+                    <p>Professional video and image ads designed to convert. We produce all creative <strong>in-house</strong> with no freelancer delays.</p>
+                    <span class="benefit-highlight">Zero production delays</span>
                 </div>
                 <div class="card">
+                    <span class="card-icon">2</span>
                     <h3>Audience Targeting</h3>
-                    <p>Custom audiences built to match your ideal customer. Laser-focused targeting to reduce waste and maximize conversions.</p>
+                    <p>Custom audiences built to match your <strong>ideal customer</strong>. Laser-focused targeting to reduce waste and maximize conversions.</p>
+                    <span class="benefit-highlight">Precision-matched audiences</span>
                 </div>
                 <div class="card">
+                    <span class="card-icon">3</span>
                     <h3>Campaign Management</h3>
-                    <p>Full-funnel ad strategy across Instagram, TikTok, YouTube, and Google Ads. We launch, monitor, and optimize everything.</p>
+                    <p>Full-funnel ad strategy across <strong>Instagram, TikTok, YouTube, and Google Ads</strong>. We launch, monitor, and optimize everything.</p>
+                    <span class="benefit-highlight">All platforms, one team</span>
                 </div>
                 <div class="card">
+                    <span class="card-icon">4</span>
                     <h3>Performance Analytics</h3>
-                    <p>Real-time dashboards showing every metric that matters. ROAS, CPA, conversion rates — you always know what's working.</p>
+                    <p>Real-time dashboards showing every metric that matters. <strong>ROAS, CPA, conversion rates</strong> — you always know what's working.</p>
+                    <span class="benefit-highlight">Full transparency</span>
                 </div>
                 <div class="card">
+                    <span class="card-icon">5</span>
                     <h3>Conversion Optimization</h3>
-                    <p>Continuous A/B testing on creative, targeting, and landing pages to improve performance and reduce CAC.</p>
+                    <p>Continuous <strong>A/B testing</strong> on creative, targeting, and landing pages to improve performance and reduce CAC.</p>
+                    <span class="benefit-highlight">Always improving</span>
                 </div>
                 <div class="card">
+                    <span class="card-icon">6</span>
                     <h3>Market Expansion</h3>
-                    <p>We research new markets and test campaigns to expand your customer base through rapid iteration.</p>
+                    <p>We research <strong>new markets</strong> and test campaigns to expand your customer base through rapid iteration.</p>
+                    <span class="benefit-highlight">Scale beyond borders</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Process -->
-    <section id="process">
+    <section id="process" class="bg-gradient-subtle">
         <div class="container">
             <div class="section-title">
-                <h2>The ScaleNational System</h2>
-                <p class="section-subtitle">A proven 4-step process to scale your business</p>
+                <div class="section-divider"></div>
+                <h2>The <span class="text-teal">ScaleNational</span> System</h2>
+                <p class="section-subtitle">A proven <strong>4-step process</strong> to scale your business</p>
             </div>
             <div class="process">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Strategy</h3>
-                    <p>We analyze your market and define a custom advertising strategy across all platforms tailored to your goals.</p>
+                    <h3>1 Strategy</h3>
+                    <p>We analyze your market and define a <strong>custom advertising strategy</strong> across all platforms tailored to your goals.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Creative</h3>
-                    <p>Our in-house team produces high-converting video and image ads tailored to your target audience.</p>
+                    <h3>2 Creative</h3>
+                    <p>Our in-house team produces <strong>high-converting video and image ads</strong> tailored to your target audience.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Launch</h3>
-                    <p>We deploy campaigns across Instagram, TikTok, YouTube, and Google Ads with precision targeting and budget allocation.</p>
+                    <h3>3 Launch</h3>
+                    <p>We deploy campaigns across <strong>Instagram, TikTok, YouTube, and Google Ads</strong> with precision targeting.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Optimize</h3>
-                    <p>We monitor daily, A/B test variations, and continuously improve ROAS until campaigns hit profitability targets.</p>
+                    <h3>4 Optimize</h3>
+                    <p>We monitor daily, A/B test variations, and <strong>continuously improve ROAS</strong> until campaigns hit profitability targets.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq">
+    <section id="faq" class="bg-teal">
         <div class="container">
             <div class="section-title">
+                <div class="section-divider"></div>
                 <h2>Questions</h2>
             </div>
             <div class="faq-grid">
@@ -887,28 +1060,28 @@
                         <h4>How quickly will I see results?</h4>
                         <span class="faq-toggle">−</span>
                     </div>
-                    <p>Most campaigns see initial results within 7–14 days. We focus on short-term wins while building long-term profitable customer acquisition channels.</p>
+                    <p>Most campaigns see initial results within <strong>7–14 days</strong>. We focus on short-term wins while building long-term profitable customer acquisition channels.</p>
                 </div>
                 <div class="faq-item">
                     <div class="faq-header">
                         <h4>What platforms do you advertise on?</h4>
                         <span class="faq-toggle">+</span>
                     </div>
-                    <p>Instagram, TikTok, YouTube, and Google Ads. We choose the best platforms based on your audience and goals, managing everything end-to-end.</p>
+                    <p><strong>Instagram, TikTok, YouTube, and Google Ads.</strong> We choose the best platforms based on your audience and goals, managing everything end-to-end.</p>
                 </div>
                 <div class="faq-item">
                     <div class="faq-header">
                         <h4>How much does it cost?</h4>
                         <span class="faq-toggle">+</span>
                     </div>
-                    <p>Pricing depends on your budget, goals, and market. We typically work with monthly budgets of $5K+. Let's discuss your specific needs on a call.</p>
+                    <p>Pricing depends on your budget, goals, and market. We typically work with monthly budgets of <strong>$5K+</strong>. Let's discuss your specific needs on a call.</p>
                 </div>
                 <div class="faq-item">
                     <div class="faq-header">
                         <h4>What if the ads don't work?</h4>
                         <span class="faq-toggle">+</span>
                     </div>
-                    <p>We optimize constantly — testing new creative, audiences, and messaging until we find what converts. If a strategy isn't working, we pivot and test immediately.</p>
+                    <p>We optimize constantly — testing new creative, audiences, and messaging until we find what converts. If a strategy isn't working, <strong>we pivot and test immediately</strong>.</p>
                 </div>
             </div>
         </div>
@@ -918,7 +1091,7 @@
     <section class="cta-section" id="cta">
         <div class="container">
             <h2>Book Your Free Strategy Call</h2>
-            <p>Let's discuss your market, goals, and the exact campaign strategy we'd build to scale your business.</p>
+            <p>Let's discuss your market, goals, and the <strong>exact campaign strategy</strong> we'd build to scale your business.</p>
             <div class="email-form">
                 <input type="email" placeholder="your@company.com" required>
                 <button>Get Started</button>
