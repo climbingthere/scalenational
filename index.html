@@ -399,7 +399,6 @@
         .logos-track {
             display: flex;
             gap: 12px;
-            animation: scroll 60s linear infinite;
             will-change: transform;
         }
 
@@ -1802,10 +1801,38 @@
             counterObserver.observe(el);
         });
 
-        // Logo carousel smooth scroll
+        // Logo carousel - infinite loop without snap
         const carousel = document.querySelector('.logos-track');
         if (carousel) {
             carousel.style.willChange = 'transform';
+            
+            // Clone all items to the end for seamless looping
+            const items = carousel.querySelectorAll('.logo-item');
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                carousel.appendChild(clone);
+            });
+            
+            let scrollPos = 0;
+            const scrollSpeed = 0.5; // pixels per frame
+            const itemWidth = 160; // min-width from CSS
+            const itemGap = 12; // gap from CSS
+            const totalItemWidth = itemWidth + itemGap;
+            const totalWidth = items.length * totalItemWidth;
+            
+            function animate() {
+                scrollPos += scrollSpeed;
+                
+                // Reset to start when we've scrolled one full set
+                if (scrollPos >= totalWidth) {
+                    scrollPos = 0;
+                }
+                
+                carousel.style.transform = `translateX(-${scrollPos}px)`;
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
         }
     </script>
 
