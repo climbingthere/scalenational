@@ -373,27 +373,60 @@
 
         /* Logos Section */
         .logos-section {
-            border-top: 2px solid rgba(29, 209, 161, 0.2);
-            border-bottom: 2px solid rgba(29, 209, 161, 0.2);
-            background: rgba(13, 74, 63, 0.02);
-            padding: clamp(20px, 4vw, 35px) 0;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fffe 50%, #ffffff 100%);
+            padding: clamp(40px, 6vw, 60px) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logos-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(29, 209, 161, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .logos-section::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -5%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(29, 209, 161, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .logos-header {
+            text-align: center;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
         }
 
         .logos-label {
             text-align: center;
-            font-size: 12px;
+            font-size: clamp(14px, 3vw, 18px);
             font-weight: 700;
-            color: #1DD1A1;
+            color: #0d4a3f;
             text-transform: uppercase;
-            letter-spacing: 2.5px;
-            margin-bottom: 24px;
+            letter-spacing: 0.1em;
+            margin-top: 12px;
         }
 
         .logos-carousel {
             position: relative;
             overflow: hidden;
             margin: 0 calc(-1 * clamp(16px, 5vw, 48px));
-            padding: 24px clamp(16px, 5vw, 48px);
+            padding: 32px clamp(16px, 5vw, 48px);
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid rgba(29, 209, 161, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
         }
 
         .logos-track {
@@ -1258,7 +1291,10 @@
     <!-- Logos -->
     <section class="logos-section">
         <div class="container">
-            <p class="logos-label">Our Clients Have Worked With the Best</p>
+            <div class="logos-header">
+                <div class="section-divider"></div>
+                <p class="logos-label">Our Clients Have Worked With the Best</p>
+            </div>
             <div class="logos-carousel">
                 <div class="logos-track">
                     <div class="logo-item">
