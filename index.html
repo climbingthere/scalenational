@@ -455,7 +455,7 @@
             filter: brightness(1.1);
         }
 
-        .logo-name {
+        .logo-name { font-weight: 700;
             font-size: 12px;
             font-weight: 600;
             color: #999;
@@ -850,12 +850,12 @@
         .step-number {
             width: 56px;
             height: 56px;
-            background: #ffffff 0%, #1DD1A1 100%);
+            background: linear-gradient(135deg, #1DD1A1 0%, #0d4a3f 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
             color: white;
             margin: 0 auto 18px;
@@ -863,6 +863,36 @@
             transition: all 0.3s;
             position: relative;
             z-index: 2;
+            overflow: hidden;
+        }
+
+        .step-number::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .step:nth-child(1) .step-number::before {
+            content: '⚙';
+        }
+
+        .step:nth-child(2) .step-number::before {
+            content: '✏';
+        }
+
+        .step:nth-child(3) .step-number::before {
+            content: '▶';
+        }
+
+        .step:nth-child(4) .step-number::before {
+            content: '📈';
         }
 
         .step:hover .step-number {
