@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleNational — DM Scripts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            background: #0f1419;
+            color: #e8e8e8;
+            line-height: 1.6;
+            padding: 20px 16px 60px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 28px 0 24px;
+            border-bottom: 1px solid rgba(29,209,161,0.2);
+            margin-bottom: 28px;
+        }
+
+        header h1 {
+            font-size: 22px;
+            font-weight: 800;
+            color: #1DD1A1;
+            letter-spacing: 0.04em;
+        }
+
+        header p {
+            font-size: 13px;
+            color: #888;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* Sequence tabs */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tab {
+            flex-shrink: 0;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            border: 1.5px solid rgba(29,209,161,0.25);
+            color: #888;
+            background: transparent;
+            transition: all 0.2s;
+        }
+
+        .tab.active {
+            background: #1DD1A1;
+            color: #0f1419;
+            border-color: #1DD1A1;
+        }
+
+        /* Sequence blocks */
+        .sequence { display: none; }
+        .sequence.active { display: block; }
+
+        .sequence-label {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #1DD1A1;
+            margin-bottom: 6px;
+        }
+
+        .sequence-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .sequence-desc {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        /* DM Cards */
+        .dm-card {
+            background: #1a2030;
+            border: 1.5px solid rgba(29,209,161,0.15);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .dm-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .dm-number {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dm-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1DD1A1, #0d9c6b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+            color: #0f1419;
+            flex-shrink: 0;
+        }
+
+        .dm-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .dm-timing {
+            font-size: 11px;
+            color: #555;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .dm-message {
+            background: #0f1419;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.75;
+            position: relative;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .dm-message:hover {
+            border-color: rgba(29,209,161,0.3);
+        }
+
+        .dm-message .placeholder {
+            color: #1DD1A1;
+            font-weight: 700;
+        }
+
+        .copy-btn {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(29,209,161,0.08);
+            border: 1px solid rgba(29,209,161,0.2);
+            border-radius: 10px;
+            color: #1DD1A1;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .copy-btn:hover {
+            background: rgba(29,209,161,0.15);
+        }
+
+        .copy-btn.copied {
+            background: rgba(29,209,161,0.2);
+            color: #6ff7d5;
+        }
+
+        /* Example box */
+        .example-box {
+            margin-top: 10px;
+            padding: 12px 14px;
+            background: rgba(29,209,161,0.05);
+            border-left: 3px solid #1DD1A1;
+            border-radius: 0 8px 8px 0;
+            font-size: 12px;
+            color: #888;
+            line-height: 1.7;
+        }
+
+        .example-box strong {
+            color: #1DD1A1;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Checklist section */
+        .checklist {
+            background: #1a2030;
+            border: 1.5px solid rgba(29,209,161,0.15);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 28px;
+        }
+
+        .checklist h3 {
+            font-size: 14px;
+            font-weight: 800;
+            color: #1DD1A1;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+        }
+
+        .checklist-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .checklist-item:last-child { margin-bottom: 0; }
+
+        .check-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(29,209,161,0.4);
+            flex-shrink: 0;
+            margin-top: 1px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .check-circle.checked {
+            background: #1DD1A1;
+            border-color: #1DD1A1;
+        }
+
+        .check-circle.checked::after {
+            content: '✓';
+            font-size: 11px;
+            color: #0f1419;
+            font-weight: 800;
+        }
+
+        .checklist-item strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        /* Calendly link reminder */
+        .cta-reminder {
+            background: linear-gradient(135deg, rgba(29,209,161,0.1), rgba(13,74,63,0.2));
+            border: 1px solid rgba(29,209,161,0.25);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .cta-reminder a {
+            color: #1DD1A1;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: #1DD1A1;
+            color: #0f1419;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 10px 24px;
+            border-radius: 50px;
+            transition: transform 0.3s ease;
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ScaleNational DM Scripts</h1>
+    <p>Eric Kirtchakov · @kirtoutdoors · scalenational.com</p>
+</header>
+
+<!-- Tabs -->
+<div class="tabs">
+    <button class="tab active" onclick="switchTab(0)">E-Commerce</button>
+    <button class="tab" onclick="switchTab(1)">Adventure Tourism</button>
+    <button class="tab" onclick="switchTab(2)">Outdoor Apps</button>
+    <button class="tab" onclick="switchTab(3)">Cold Text</button>
+</div>
+
+<!-- Sequence A: E-Commerce -->
+<div class="sequence active" id="seq-0">
+    <p class="sequence-label">Sequence A</p>
+    <p class="sequence-title">Outdoor E-Commerce</p>
+    <p class="sequence-desc">YETI-type brands, gear, apparel, hard goods</p>
+
+    <div class="dm-card">
+        <div class="dm-card-header">
+            <div class="dm-number">
+                <div class="dm-badge">1</div>
+                <span class="dm-title">The Opener</span>
+            </div>
+            <span class="dm-timing">Day 1<br>Send cold</span>
+        </div>
+        <div class="dm-message" id="a1">Hey — <span class="placeholder">[SPECIFIC OBSERVATION]</span>. Been following <span class="placeholder">[BRAND]</span> for a bit. You guys making any moves with UGC or paid ads right now?</div>
+        <div class="example-box"><strong>Example</strong>That new colorway drop got way more engagement than your usual product posts. Been following [BRAND] for a bit. You guys making any moves with UGC or paid ads right now?</div>
+        <button class="copy-btn" onclick="copyText('a1', this)">Copy Message</button>
+    </div>
+
+    <div class="dm-card">
+        <div class="dm-card-header">
+            <div class="dm-number">
+                <div class="dm-badge">2</div>
+                <span class="dm-title">Follow-Up</span>
+            </div>
+            <span class="dm-timing">Day 3–4<br>No reply</span>
+        </div>
+        <div class="dm-message" id="a2">Didn't want to lose you in the noise — just a quick follow on my last message. I run a UGC marketplace + paid ads shop called ScaleNational. We focus exclusively on outdoor brands. My own account (@kirtoutdoors) does 25K+ followers across socials and I've seen firsthand what UGC from actual outdoor people does vs. polished studio shoots — the difference in CTR is wild. Worth a quick chat?</div>
+        <button class="copy-btn" onclick="copyText('a2', this)">Copy Message</button>
+    </div>
+
+    <div class="dm-card">
+        <div class="dm-card-header">
+            <div class="dm-number">
+                <div class="dm-badge">3</div>
+                <span class="dm-title">The Closer</span>
+            </div>
+            <span class="dm-timing">Day 7–9<br>Last touch</span>
+        </div>
+        <div class="dm-message" id="a3">Last one from me — I'll keep it short. If you ever want a free 30-min call to break down what's working in outdoor e-comm ads right now (and what's not), I'm happy to do it. No pitch, just a real conversation. You can book here: <span class="placeholder">calendly.com/erickirt</span> — or just reply and we'll figure out a time.</div>
+        <button class="copy-btn" onclick="copyText('a3', this)">Copy Message</button>
+    </div>
+</div>
+
+<!-- Sequence B: Adventure Tourism -->
+<div class="sequence" id="seq-1">
+    <p class="sequence-label">Sequence B</p>
+    <p class="sequence-title">Adventure Tourism</p>
+    <p class="sequence-desc">Guided hikes, hunting outfitters, fly fishing guides, river trips, pack-in camps</p>
+
+    <div class="dm-card">
+        <div class="dm-card-header">
+            <div class="dm-number">
+                <div class="dm-badge">1</div>
+                <span class="dm-title">The Opener</span>
+            </div>
+            <span class="dm-timing">Day 1<br>Send cold</span>
+        </div>
+        <div class="dm-message" id="b1">Hey — <span class="placeholder">[SPECIFIC OBSERVATION]</span>. <span class="placeholder">[BRAND]</span> looks like the real deal. Are you mostly getting bookings through word of mouth, or are you running any paid ads to fill trips?</div>
+        <div class="example-box"><strong>Example</strong>That elk camp footage from last October looked unreal. [BRAND] looks like the real deal. Are you mostly getting bookings through word of mouth, or are you running any paid ads to fill trips?</div>
+        <button class="copy-btn" onclick="copyText('b1', this)">Copy Message</button>
+    </div>
+
+    <div class="dm-card">
+        <div class="dm-card-header">
+            <div class="dm-number">
+                <div class="dm-badge">2</div>
+                <span class="dm-title">Follow-Up</span>
+            </div>
+            <span class="dm-timing">Day 3–4<br>No reply</span>
+        </div>
+        <div class="dm-message" id="b2">Circling back — I work with guided trip operators through my agency ScaleNational. We source UGC from real hunters/anglers/hikers and run the paid campaigns behind it. Most outfitters I talk to are leaving revenue on the table because their content looks like a brochure instead of a real client experience. I came up through outdoor content (@kirtoutdoors, 25K+ across socials) so I know the difference. Open to a quick call?</div>
+        <button class="copy-btn" onclick="copyText('b2', this)">Copy Message</button>
+    </div>
+
+    <div class="dm-card">
+        <div class="dm-card-header">
+            <div class="dm-number">
+                <div class="dm-badge">3</div>
+                <span class="dm-title">The Closer</span>
+            </div>
+            <span class="dm-timing">Day 7–9<br>Last touch</span>
+        </div>
+        <div class="dm-message" id="b3">I'll leave it here after this — if filling more guided trips with less reliance on referrals sounds interesting, grab 30 minutes with me. I'll pull up what's actually converting for outfitters right now and we can see if it's a fit. Book here: <span class="placeholder">calendly.com/erickirt</span> — or just DM me back.</div>
+        <button class="copy-btn" onclick="copyText('b3', this)">Copy Message</button>
+    </div>
+</div>
+
+<!-- Sequence C: Outdoor Apps -->
+<div class="sequence" id="seq-2">
+    <p class="sequence-label">Sequence C</p>
+    <p class="sequence-title">Outdoor Apps</p>
+    <p class="sequence-desc">Hunting maps, fishing apps, trip planners, backcountry route tools</p>
+
+    <div class="dm-card">
+        <div class="dm-card-header">
+            <div class="dm-number">
+                <div class="dm-badge">1</div>
+                <span class="dm-title">The Opener</span>
+            </div>
+            <span class="dm-timing">Day 1<br>Send cold</span>
+        </div>
+        <div class="dm-message" id="c1">Hey — <span class="placeholder">[SPECIFIC OBSERVATION]</span>. I use apps in this space a lot — <span class="placeholder">[BRAND]</span> caught my eye. Are you running paid user acquisition at all, or mostly organic right now?</div>
+        <div class="example-box"><strong>Example</strong>The offline map feature you just pushed looks really clean, especially for the backcountry crowd. I use apps in this space a lot — [BRAND] caught my eye. Are you running paid user acquisition at all, or mostly organic right now?</div>
+        <button class="copy-btn" onclick="copyText('c1', this)">Copy Message</button>
+    </div>
+
+    <div class="dm-card">
+        <div class="dm-card-header">
+            <div class="dm-number">
+                <div class="dm-badge">2</div>
+                <span class="dm-title">Follow-Up</span>
+            </div>
+            <span class="dm-timing">Day 3–4<br>No reply</span>
+        </div>
+        <div class="dm-message" id="c2">Wanted to follow up. I run ScaleNational — we do paid UA and UGC content specifically for outdoor apps. Most apps in this space get wrong is running generic "outdoor lifestyle" creative when what converts is real users showing the app solving a real problem in the field. I live in this niche (@kirtoutdoors, 50M+ views across platforms) so I know what resonates. Open to a quick call?</div>
+        <button class="copy-btn" onclick="copyText('c2', this)">Copy Message</button>
+    </div>
+
+    <div class="dm-card">
+        <div class="dm-card-header">
+            <div class="dm-number">
+                <div class="dm-badge">3</div>
+                <span class="dm-title">The Closer</span>
+            </div>
+            <span class="dm-timing">Day 7–9<br>Last touch</span>
+        </div>
+        <div class="dm-message" id="c3">Last message — promise. If lowering your CPI and getting higher-quality users into <span class="placeholder">[BRAND]</span> is on your radar, I'd love to put 30 minutes on the calendar and show you what we're seeing work right now in outdoor app UA. No obligation. Book here: <span class="placeholder">calendly.com/erickirt</span> — or reply and I'll send times.</div>
+        <button class="copy-btn" onclick="copyText('c3', this)">Copy Message</button>
+    </div>
+</div>
+
+<!-- Sequence D: Cold Text -->
+<div class="sequence" id="seq-3">
+    <p class="sequence-label">Cold Text</p>
+    <p class="sequence-title">SMS / Direct Text</p>
+    <p class="sequence-desc">When you have a number from their website, press page, or LinkedIn</p>
+
+    <div class="dm-card">
+        <div class="dm-card-header">
+            <div class="dm-number">
+                <div class="dm-badge">1</div>
+                <span class="dm-title">Opener</span>
+            </div>
+            <span class="dm-timing">Day 1</span>
+        </div>
+        <div class="dm-message" id="d1">Hey <span class="placeholder">[NAME]</span> — this is Eric Kirtchakov. I run ScaleNational, a performance ad agency focused on outdoor brands. Saw <span class="placeholder">[BRAND]</span> and had a couple ideas worth sharing. Cool if I send them over?</div>
+        <button class="copy-btn" onclick="copyText('d1', this)">Copy Text</button>
+    </div>
+
+    <div class="dm-card">
+        <div class="dm-card-header">
+            <div class="dm-number">
+                <div class="dm-badge">2</div>
+                <span class="dm-title">Follow-Up</span>
+            </div>
+            <span class="dm-timing">Day 3–4<br>No reply</span>
+        </div>
+        <div class="dm-message" id="d2">Hey — just following up on my last text. Short version: we source real UGC creators from the outdoor space and run the paid campaigns behind them. My own audience is 25K+ across socials in the outdoor niche so I know what content actually moves people. Worth a 20-min call?</div>
+        <button class="copy-btn" onclick="copyText('d2', this)">Copy Text</button>
+    </div>
+
+    <div class="dm-card">
+        <div class="dm-card-header">
+            <div class="dm-number">
+                <div class="dm-badge">3</div>
+                <span class="dm-title">The Closer</span>
+            </div>
+            <span class="dm-timing">Day 7–9<br>Last touch</span>
+        </div>
+        <div class="dm-message" id="d3">Last one from me. If you ever want a free strategy call on what's working in outdoor ads right now, grab time here: <span class="placeholder">calendly.com/erickirt</span>. No pressure either way.</div>
+        <button class="copy-btn" onclick="copyText('d3', this)">Copy Text</button>
+    </div>
+</div>
+
+<!-- Pre-Send Checklist -->
+<div class="checklist">
+    <h3>Before You Hit Send</h3>
+    <div class="checklist-item">
+        <div class="check-circle" onclick="this.classList.toggle('checked')"></div>
+        <div><strong>Check their last 9 posts.</strong> Find the one that overperformed. Lead with a specific observation — not a compliment.</div>
+    </div>
+    <div class="checklist-item">
+        <div class="check-circle" onclick="this.classList.toggle('checked')"></div>
+        <div><strong>Check Meta Ad Library.</strong> Are they running paid? If yes — what does the creative look like? If no — that's your angle.</div>
+    </div>
+    <div class="checklist-item">
+        <div class="check-circle" onclick="this.classList.toggle('checked')"></div>
+        <div><strong>Identify one specific gap.</strong> Weak content? No paid distribution? No UGC? Pick one — don't try to solve everything in DM 1.</div>
+    </div>
+    <div class="checklist-item">
+        <div class="check-circle" onclick="this.classList.toggle('checked')"></div>
+        <div><strong>Find their name</strong> in the bio, website, or tagged posts. "Hey [Name]" hits better than "Hey —".</div>
+    </div>
+    <div class="checklist-item">
+        <div class="check-circle" onclick="this.classList.toggle('checked')"></div>
+        <div><strong>Match the platform tone.</strong> TikTok = shorter. Instagram = one extra sentence. Texts = most stripped down.</div>
+    </div>
+</div>
+
+<div class="cta-reminder">
+    Replace <strong style="color:#1DD1A1;">calendly.com/erickirt</strong> with your live booking link before sending.
+</div>
+
+<div class="toast" id="toast">Copied to clipboard</div>
+
+<script>
+    function switchTab(index) {
+        document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', i === index));
+        document.querySelectorAll('.sequence').forEach((s, i) => s.classList.toggle('active', i === index));
+    }
+
+    function copyText(id, btn) {
+        const el = document.getElementById(id);
+        // Get text without the HTML formatting
+        const text = el.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = '✓ Copied!';
+            btn.classList.add('copied');
+            showToast();
+            setTimeout(() => {
+                btn.textContent = 'Copy Message';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    function showToast() {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+</script>
+
+</body>
+</html>
