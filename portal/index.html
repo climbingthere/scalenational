@@ -464,6 +464,7 @@
     <div class="admin-eyebrow">Admin Portal</div>
     <div class="admin-headline">Sign in</div>
     <div class="admin-sub">ScaleNational internal access only.</div>
+    <input class="admin-input" type="text" id="adminUser" placeholder="Username" autocomplete="username">
     <input class="admin-input" type="password" id="adminPass" placeholder="Password" autocomplete="current-password">
     <button class="admin-btn" id="adminSubmit">Sign In →</button>
     <div class="admin-error" id="adminError"></div>
@@ -684,11 +685,12 @@ function adminLogout() {
   const card = document.getElementById('adminCard');
 
   async function attempt() {
+    const user = document.getElementById('adminUser').value.trim();
     const pass = document.getElementById('adminPass').value;
     errorEl.textContent = '';
     submitBtn.textContent = 'Signing in…';
     submitBtn.disabled = true;
-    const hash = await sha256('erickirt:' + pass);
+    const hash = await sha256(user + ':' + pass);
     if (hash === ADMIN_HASH) {
       sessionStorage.setItem(ADMIN_SESSION_KEY, hash);
       document.getElementById('adminOverlay').classList.add('hidden');
@@ -704,6 +706,7 @@ function adminLogout() {
 
   submitBtn.addEventListener('click', attempt);
   document.getElementById('adminPass').addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
+  document.getElementById('adminUser').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('adminPass').focus(); });
 })();
 
 function copyUrl(btn, spanId) {
