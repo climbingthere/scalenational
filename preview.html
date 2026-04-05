@@ -1336,6 +1336,31 @@
             text-decoration: none;
         }
 
+
+        /* Founder section responsive grid */
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(32px, 5vw, 80px);
+            align-items: start;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .founder-photo-col {
+            text-align: center;
+        }
+
+        .founder-text-col {
+            min-width: 0;
+        }
+
+        @media (max-width: 640px) {
+            .founder-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+        }
         /* Mobile */
         @media (max-width: 768px) {
             nav .nav-links {
@@ -1635,36 +1660,36 @@
                 <h2>Built by a <span class="text-teal">Creator</span></h2>
                 <p class="section-subtitle">Not an agency that read about outdoor marketing. Someone who lives it.</p>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px); align-items: center; max-width: 900px; margin: 0 auto;">
-                <div style="text-align: center;">
-                    <img src="eric-profile.jpg" alt="Eric K." style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; object-position: center top; margin: 0 auto 20px; display: block; border: 3px solid #1DD1A1; box-shadow: 0 8px 28px rgba(29,209,161,0.25);">
+            <div class="founder-grid">
+                <div class="founder-photo-col">
+                    <img src="eric-profile.jpg" alt="Eric K." style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: center top; margin: 0 auto 16px; display: block; border: 3px solid #1DD1A1; box-shadow: 0 8px 28px rgba(29,209,161,0.25);">
                     <p style="font-size: 20px; font-weight: 800; color: #0f1419; margin-bottom: 4px;">Eric K.</p>
-                    <p style="font-size: 14px; color: #2fb896; font-weight: 600; letter-spacing: 0.05em;">@kirtoutdoors</p>
-                    <div style="display: flex; gap: 12px; justify-content: center; margin-top: 16px; flex-wrap: wrap;">
+                    <p style="font-size: 14px; color: #2fb896; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 16px;">@kirtoutdoors</p>
+                    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                         <a href="https://www.instagram.com/kirtoutdoors" target="_blank" rel="noopener" style="font-size: 12px; font-weight: 600; color: #1DD1A1; background: transparent; border: 1.5px solid rgba(29,209,161,0.35); padding: 5px 14px; border-radius: 20px; text-decoration: none;">Instagram</a>
                         <a href="https://www.tiktok.com/@kirtoutdoors" target="_blank" rel="noopener" style="font-size: 12px; font-weight: 600; color: #1DD1A1; background: transparent; border: 1.5px solid rgba(29,209,161,0.35); padding: 5px 14px; border-radius: 20px; text-decoration: none;">TikTok</a>
                         <a href="https://www.youtube.com/@KirtOutdoors" target="_blank" rel="noopener" style="font-size: 12px; font-weight: 600; color: #1DD1A1; background: transparent; border: 1.5px solid rgba(29,209,161,0.35); padding: 5px 14px; border-radius: 20px; text-decoration: none;">YouTube</a>
                     </div>
                 </div>
-                <div>
-                    <p style="font-size: clamp(15px, 2vw, 17px); color: #444; line-height: 1.8; margin-bottom: 20px;">I built <strong style="color: #0f1419;">@kirtoutdoors</strong> from zero — summiting peaks, connecting with outdoor communities, and learning exactly what makes people stop scrolling and actually engage. 50M+ views and 25K+ followers across platforms. Real content that hits.</p>
-                    <p style="font-size: clamp(15px, 2vw, 17px); color: #444; line-height: 1.8; margin-bottom: 24px;">That experience is what ScaleNational runs on. I know the outdoor audience because I <em>am</em> the outdoor audience. I know what creative converts because I've built content that already does.</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                        <div style="background: white; border: 1px solid #d1fae5; border-radius: 12px; padding: 16px; text-align: center;">
-                            <div style="font-size: 24px; font-weight: 800; color: #1d7874;">25K+</div>
-                            <div style="font-size: 12px; color: #555; font-weight: 500; margin-top: 2px;">Followers Across Socials</div>
+                <div class="founder-text-col">
+                    <p style="font-size: 15px; color: #444; line-height: 1.8; margin-bottom: 16px;">I built <strong style="color: #0f1419;">@kirtoutdoors</strong> from zero — summiting peaks, connecting with outdoor communities, and learning exactly what makes people stop scrolling and actually engage. 50M+ views and 25K+ followers across platforms. Real content that hits.</p>
+                    <p style="font-size: 15px; color: #444; line-height: 1.8; margin-bottom: 20px;">That experience is what ScaleNational runs on. I know the outdoor audience because I <em>am</em> the outdoor audience. I know what creative converts because I've built content that already does.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div style="background: white; border: 1px solid #d1fae5; border-radius: 12px; padding: 14px; text-align: center;">
+                            <div style="font-size: 22px; font-weight: 800; color: #1d7874;">25K+</div>
+                            <div style="font-size: 11px; color: #555; font-weight: 500; margin-top: 2px;">Followers Across Socials</div>
                         </div>
-                        <div style="background: white; border: 1px solid #d1fae5; border-radius: 12px; padding: 16px; text-align: center;">
-                            <div style="font-size: 24px; font-weight: 800; color: #1d7874;">50M+</div>
-                            <div style="font-size: 12px; color: #555; font-weight: 500; margin-top: 2px;">Total Views All Platforms</div>
+                        <div style="background: white; border: 1px solid #d1fae5; border-radius: 12px; padding: 14px; text-align: center;">
+                            <div style="font-size: 22px; font-weight: 800; color: #1d7874;">50M+</div>
+                            <div style="font-size: 11px; color: #555; font-weight: 500; margin-top: 2px;">Total Views All Platforms</div>
                         </div>
-                        <div style="background: white; border: 1px solid #d1fae5; border-radius: 12px; padding: 16px; text-align: center;">
-                            <div style="font-size: 24px; font-weight: 800; color: #1d7874;">3.5M+</div>
-                            <div style="font-size: 12px; color: #555; font-weight: 500; margin-top: 2px;">Views This Month</div>
+                        <div style="background: white; border: 1px solid #d1fae5; border-radius: 12px; padding: 14px; text-align: center;">
+                            <div style="font-size: 22px; font-weight: 800; color: #1d7874;">3.5M+</div>
+                            <div style="font-size: 11px; color: #555; font-weight: 500; margin-top: 2px;">Views This Month</div>
                         </div>
-                        <div style="background: white; border: 1px solid #d1fae5; border-radius: 12px; padding: 16px; text-align: center;">
-                            <div style="font-size: 24px; font-weight: 800; color: #1d7874;">519</div>
-                            <div style="font-size: 12px; color: #555; font-weight: 500; margin-top: 2px;">Videos Published</div>
+                        <div style="background: white; border: 1px solid #d1fae5; border-radius: 12px; padding: 14px; text-align: center;">
+                            <div style="font-size: 22px; font-weight: 800; color: #1d7874;">519</div>
+                            <div style="font-size: 11px; color: #555; font-weight: 500; margin-top: 2px;">Videos Published</div>
                         </div>
                     </div>
                 </div>
