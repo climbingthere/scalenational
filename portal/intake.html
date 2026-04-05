@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Intake — ScaleNational Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark: #060f0b;
+      --teal: #1DD1A1;
+      --teal-dim: rgba(29,209,161,0.12);
+      --teal-border: rgba(29,209,161,0.25);
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.09);
+      --input-bg: rgba(255,255,255,0.06);
+      --input-border: rgba(255,255,255,0.12);
+      --muted: rgba(255,255,255,0.5);
+      --text-body: rgba(255,255,255,0.85);
+      --yellow: #f9ca24;
+      --yellow-dim: rgba(249,202,36,0.12);
+      --yellow-border: rgba(249,202,36,0.3);
+      --blue: #74b9ff;
+      --blue-dim: rgba(116,185,255,0.12);
+      --blue-border: rgba(116,185,255,0.3);
+      --green: #55efc4;
+      --green-dim: rgba(85,239,196,0.12);
+      --green-border: rgba(85,239,196,0.3);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--dark);
+      color: #fff;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(6,15,11,0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-logo {
+      height: 32px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      flex-shrink: 0;
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 28px;
+      background: var(--card-border);
+      flex-shrink: 0;
+    }
+
+    .header-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .header-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .count-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    /* ── MAIN ── */
+    .main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 36px 32px 80px;
+    }
+
+    @media (max-width: 768px) {
+      .main { padding: 24px 16px 60px; }
+      .header { padding: 0 16px; }
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .page-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+
+    .page-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border: 1px solid var(--teal-border);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--teal);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-ghost:hover {
+      background: var(--teal-dim);
+      border-color: var(--teal);
+    }
+
+    /* ── STATS ROW ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 900px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 20px 22px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .stat-card:hover {
+      border-color: var(--teal-border);
+      background: rgba(29,209,161,0.04);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .stat-value {
+      font-size: 30px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .stat-badge.teal {
+      background: var(--teal-dim);
+      color: var(--teal);
+      border: 1px solid var(--teal-border);
+    }
+
+    .stat-badge.yellow {
+      background: var(--yellow-dim);
+      color: var(--yellow);
+      border: 1px solid var(--yellow-border);
+    }
+
+    /* ── FILTER PILLS ── */
+    .controls-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .filter-pill {
+      padding: 6px 14px;
+      border: 1px solid var(--input-border);
+      border-radius: 100px;
+      background: var(--input-bg);
+      color: var(--muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .filter-pill:hover {
+      border-color: rgba(29,209,161,0.35);
+      color: rgba(255,255,255,0.8);
+    }
+
+    .filter-pill.active {
+      background: var(--teal-dim);
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    /* ── TABLE ── */
+    .table-wrap {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .intake-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .intake-table th {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--card-border);
+      white-space: nowrap;
+    }
+
+    .intake-table td {
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--text-body);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: middle;
+    }
+
+    .intake-table tr:last-child td { border-bottom: none; }
+
+    .intake-table tbody tr {
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .intake-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+    .td-business {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .business-name-text {
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 160px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .status-badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    .status-badge.new {
+      background: var(--teal-dim);
+      color: var(--teal);
+      border: 1px solid var(--teal-border);
+    }
+
+    .status-badge.reviewed {
+      background: var(--yellow-dim);
+      color: var(--yellow);
+      border: 1px solid var(--yellow-border);
+    }
+
+    .status-badge.contacted {
+      background: var(--blue-dim);
+      color: var(--blue);
+      border: 1px solid var(--blue-border);
+    }
+
+    .status-badge.converted {
+      background: var(--green-dim);
+      color: var(--green);
+      border: 1px solid var(--green-border);
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .empty-state.visible { display: block; }
+
+    .empty-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .empty-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--muted);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .empty-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .empty-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .btn-copy-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      border-radius: 8px;
+      color: var(--teal);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-copy-link:hover { background: rgba(29,209,161,0.2); }
+
+    /* ── LOADING ── */
+    .loading-state {
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ── SLIDE-IN PANEL ── */
+    .panel-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 300;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s, visibility 0.25s;
+      backdrop-filter: blur(4px);
+    }
+
+    .panel-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 540px;
+      max-width: 100vw;
+      background: #0b1a12;
+      border-left: 1px solid var(--card-border);
+      z-index: 301;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .panel-overlay.open .panel {
+      transform: translateX(0);
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 24px 24px 20px;
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      background: #0b1a12;
+      z-index: 1;
+    }
+
+    .panel-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--teal-dim);
+      border: 2px solid var(--teal-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .panel-identity { flex: 1; min-width: 0; }
+
+    .panel-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .panel-sub {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    .panel-close {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+
+    .panel-close:hover { background: rgba(255,255,255,0.06); }
+
+    .panel-close svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--muted);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .panel-actions {
+      display: flex;
+      gap: 8px;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--card-border);
+      flex-wrap: wrap;
+    }
+
+    .panel-btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid;
+      transition: opacity 0.18s, background 0.18s;
+    }
+
+    .panel-btn.reviewed {
+      background: var(--yellow-dim);
+      border-color: var(--yellow-border);
+      color: var(--yellow);
+    }
+    .panel-btn.reviewed:hover { background: rgba(249,202,36,0.2); }
+
+    .panel-btn.contacted {
+      background: var(--blue-dim);
+      border-color: var(--blue-border);
+      color: var(--blue);
+    }
+    .panel-btn.contacted:hover { background: rgba(116,185,255,0.2); }
+
+    .panel-btn.converted {
+      background: var(--green-dim);
+      border-color: var(--green-border);
+      color: var(--green);
+    }
+    .panel-btn.converted:hover { background: rgba(85,239,196,0.2); }
+
+    .panel-btn.delete {
+      background: rgba(255,77,77,0.1);
+      border-color: rgba(255,77,77,0.3);
+      color: #ff8080;
+      margin-left: auto;
+    }
+    .panel-btn.delete:hover { background: rgba(255,77,77,0.18); }
+
+    .panel-body {
+      padding: 24px;
+    }
+
+    .panel-section {
+      margin-bottom: 28px;
+    }
+
+    .panel-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .info-item { }
+
+    .info-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .info-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-body);
+      word-break: break-word;
+    }
+
+    .info-value.teal { color: var(--teal); }
+    .info-value.empty { color: rgba(255,255,255,0.25); font-style: italic; font-weight: 400; }
+
+    .info-value a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+    .info-value a:hover { text-decoration: underline; }
+
+    .info-full {
+      grid-column: 1 / -1;
+    }
+
+    .panel-status-bar {
+      padding: 10px 14px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .panel-status-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Admin Auth ── */
+    .admin-overlay { position:fixed;inset:0;z-index:9999;background:#060f0b;display:flex;align-items:center;justify-content:center; }
+    .admin-overlay.hidden { display:none; }
+    .admin-card { background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:20px;padding:48px 40px;width:100%;max-width:400px;text-align:center; }
+    .admin-card img { height:38px;filter:brightness(0) invert(1);margin-bottom:28px; }
+    .admin-eyebrow { font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#1DD1A1;margin-bottom:10px; }
+    .admin-headline { font-size:22px;font-weight:800;color:#fff;margin-bottom:6px; }
+    .admin-sub { font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:28px; }
+    .admin-input { width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:13px 16px;color:#fff;font-size:15px;font-family:inherit;margin-bottom:12px;outline:none;transition:border-color .2s; }
+    .admin-input:focus { border-color:#1DD1A1;box-shadow:0 0 0 3px rgba(29,209,161,0.12); }
+    .admin-btn { width:100%;background:#1DD1A1;color:#060f0b;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:800;font-family:inherit;cursor:pointer;margin-top:4px;transition:opacity .2s; }
+    .admin-btn:hover { opacity:.88; }
+    .admin-error { color:#ff6b6b;font-size:13px;margin-top:12px;min-height:18px; }
+    @keyframes adminShake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-8px)} 40%,80%{transform:translateX(8px)} }
+    .admin-card.shake { animation:adminShake .4s ease; }
+    .btn-logout { background:none;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.5);padding:6px 14px;border-radius:8px;font-size:12px;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s; }
+    .btn-logout:hover { border-color:#ff6b6b;color:#ff6b6b; }
+  </style>
+</head>
+<body>
+
+<!-- Admin Login Overlay -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-card" id="adminCard">
+    <img src="../logo-transparent.png" alt="ScaleNational">
+    <div class="admin-eyebrow">Admin Portal</div>
+    <div class="admin-headline">Sign in</div>
+    <div class="admin-sub">ScaleNational internal access only.</div>
+    <input class="admin-input" type="text" id="adminUser" placeholder="Username" autocomplete="username">
+    <input class="admin-input" type="password" id="adminPass" placeholder="Password" autocomplete="current-password">
+    <button class="admin-btn" id="adminSubmit">Sign In →</button>
+    <div class="admin-error" id="adminError"></div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="index.html">
+    <img src="../logo-transparent.png" alt="ScaleNational" class="header-logo" />
+  </a>
+  <div class="header-divider"></div>
+  <span class="header-label">Client Intake</span>
+  <div class="header-right">
+    <span class="count-badge" id="header-count">0 submissions</span>
+    <button class="btn-logout" onclick="adminLogout()">Sign Out</button>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- PAGE TOP -->
+  <div class="page-top">
+    <div>
+      <p class="page-eyebrow">Internal Portal</p>
+      <h1 class="page-title">Client Intake Submissions</h1>
+    </div>
+    <button class="btn-ghost" onclick="copyIntakeLink(this)">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      Copy Intake Form Link
+    </button>
+  </div>
+
+  <!-- STATS ROW -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">Total Submissions</div>
+      <div class="stat-value" id="stat-total">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">New (Unread)</div>
+      <div class="stat-value" id="stat-new">—</div>
+      <span class="stat-badge teal" id="stat-new-badge" style="display:none;">Needs review</span>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Reviewed</div>
+      <div class="stat-value" id="stat-reviewed">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Converted</div>
+      <div class="stat-value" id="stat-converted">—</div>
+      <span class="stat-badge teal" id="stat-converted-badge" style="display:none;">Clients won</span>
+    </div>
+  </div>
+
+  <!-- FILTER PILLS -->
+  <div class="controls-bar">
+    <span class="filter-label">Status</span>
+    <button class="filter-pill active" data-filter="all"       onclick="setFilter('all',this)">All</button>
+    <button class="filter-pill"        data-filter="new"       onclick="setFilter('new',this)">New</button>
+    <button class="filter-pill"        data-filter="reviewed"  onclick="setFilter('reviewed',this)">Reviewed</button>
+    <button class="filter-pill"        data-filter="contacted" onclick="setFilter('contacted',this)">Contacted</button>
+    <button class="filter-pill"        data-filter="converted" onclick="setFilter('converted',this)">Converted</button>
+  </div>
+
+  <!-- LOADING -->
+  <div class="loading-state" id="loading-state">Loading submissions…</div>
+
+  <!-- EMPTY STATE -->
+  <div class="empty-state" id="empty-state">
+    <div class="empty-icon">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    </div>
+    <h3 class="empty-title">No submissions yet</h3>
+    <p class="empty-sub">Share the intake form link to start collecting client information.</p>
+    <a class="btn-copy-link" href="client-intake.html" target="_blank">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Open Intake Form
+    </a>
+  </div>
+
+  <!-- TABLE -->
+  <div id="table-view" style="display:none;">
+    <div class="table-wrap">
+      <table class="intake-table">
+        <thead>
+          <tr>
+            <th>Business</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Package</th>
+            <th>Ad Spend</th>
+            <th>Submitted</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<!-- SLIDE-IN PANEL -->
+<div class="panel-overlay" id="panel-overlay" onclick="closePanel(event)">
+  <div class="panel" id="detail-panel" onclick="event.stopPropagation()">
+    <div class="panel-header">
+      <div class="panel-avatar" id="panel-avatar">?</div>
+      <div class="panel-identity">
+        <div class="panel-name" id="panel-name">—</div>
+        <div class="panel-sub" id="panel-sub">—</div>
+      </div>
+      <button class="panel-close" onclick="closePanel()">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="panel-actions">
+      <div class="panel-status-bar" style="flex:1;margin-bottom:0;">
+        <span class="panel-status-label">Status:</span>
+        <span id="panel-status-badge">—</span>
+      </div>
+    </div>
+
+    <div class="panel-actions" style="border-top:none;">
+      <button class="panel-btn reviewed"  onclick="updateStatus('reviewed')">Mark Reviewed</button>
+      <button class="panel-btn contacted" onclick="updateStatus('contacted')">Mark Contacted</button>
+      <button class="panel-btn converted" onclick="updateStatus('converted')">Mark Converted</button>
+      <button class="panel-btn delete"    onclick="deleteSubmission()">Delete</button>
+    </div>
+
+    <div class="panel-body" id="panel-body">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+</div>
+
+<script>
+const PORTAL_API_KEY = window.__ADMIN_KEY__ || '';
+
+function adminFetch(url, opts = {}) {
+  return fetch(url, {
+    ...opts,
+    headers: {
+      'Content-Type': 'application/json',
+      ...(opts.headers || {}),
+      ...(PORTAL_API_KEY ? { 'Authorization': `Bearer ${PORTAL_API_KEY}` } : {}),
+    },
+  });
+}
+
+const ADMIN_HASH = 'e97f43b5cff898d80583af2bf6becf35ea2d2980abc932e49586b3e8e03e9f28';
+const ADMIN_SESSION_KEY = 'sn_admin_auth';
+
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function adminLogout() {
+  sessionStorage.removeItem(ADMIN_SESSION_KEY);
+  location.reload();
+}
+
+// ── State ──────────────────────────────────────────────
+let allSubmissions = [];
+let currentFilter = 'all';
+let activeId = null;
+
+// ── Auth ───────────────────────────────────────────────
+(async function initAdminAuth() {
+  const stored = sessionStorage.getItem(ADMIN_SESSION_KEY);
+  if (stored === ADMIN_HASH) {
+    document.getElementById('adminOverlay').classList.add('hidden');
+    init();
+    return;
+  }
+
+  document.getElementById('adminOverlay').classList.remove('hidden');
+
+  const submitBtn = document.getElementById('adminSubmit');
+  const errorEl   = document.getElementById('adminError');
+  const card      = document.getElementById('adminCard');
+
+  async function attempt() {
+    const user = document.getElementById('adminUser').value.trim();
+    const pass = document.getElementById('adminPass').value;
+    errorEl.textContent = '';
+    submitBtn.textContent = 'Signing in…';
+    submitBtn.disabled = true;
+    const hash = await sha256(user + ':' + pass);
+    if (hash === ADMIN_HASH) {
+      sessionStorage.setItem(ADMIN_SESSION_KEY, hash);
+      document.getElementById('adminOverlay').classList.add('hidden');
+      init();
+    } else {
+      card.classList.add('shake');
+      setTimeout(() => card.classList.remove('shake'), 400);
+      errorEl.textContent = 'Incorrect username or password.';
+      submitBtn.textContent = 'Sign In →';
+      submitBtn.disabled = false;
+      document.getElementById('adminPass').value = '';
+    }
+  }
+
+  submitBtn.addEventListener('click', attempt);
+  document.getElementById('adminPass').addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
+  document.getElementById('adminUser').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('adminPass').focus(); });
+})();
+
+// ── Init ───────────────────────────────────────────────
+async function init() {
+  await loadSubmissions();
+}
+
+async function loadSubmissions() {
+  document.getElementById('loading-state').style.display = 'block';
+  document.getElementById('table-view').style.display = 'none';
+  document.getElementById('empty-state').classList.remove('visible');
+
+  try {
+    const res = await adminFetch('/api/intake');
+    if (!res.ok) throw new Error('Failed to load');
+    const data = await res.json();
+    allSubmissions = Array.isArray(data) ? data : [];
+    // Sort newest first
+    allSubmissions.sort((a, b) => new Date(b.submittedAt) - new Date(a.submittedAt));
+    updateStats();
+    renderTable();
+  } catch (err) {
+    document.getElementById('loading-state').textContent = 'Error loading submissions. Check console.';
+    console.error(err);
+  }
+}
+
+function updateStats() {
+  const total     = allSubmissions.length;
+  const newCount  = allSubmissions.filter(s => s.status === 'new').length;
+  const reviewed  = allSubmissions.filter(s => s.status === 'reviewed').length;
+  const converted = allSubmissions.filter(s => s.status === 'converted').length;
+
+  document.getElementById('stat-total').textContent     = total;
+  document.getElementById('stat-new').textContent       = newCount;
+  document.getElementById('stat-reviewed').textContent  = reviewed;
+  document.getElementById('stat-converted').textContent = converted;
+
+  const newBadge = document.getElementById('stat-new-badge');
+  newBadge.style.display = newCount > 0 ? 'inline-flex' : 'none';
+
+  const convBadge = document.getElementById('stat-converted-badge');
+  convBadge.style.display = converted > 0 ? 'inline-flex' : 'none';
+
+  document.getElementById('header-count').textContent =
+    `${total} submission${total !== 1 ? 's' : ''}`;
+}
+
+function renderTable() {
+  document.getElementById('loading-state').style.display = 'none';
+
+  const filtered = currentFilter === 'all'
+    ? allSubmissions
+    : allSubmissions.filter(s => s.status === currentFilter);
+
+  if (filtered.length === 0) {
+    document.getElementById('empty-state').classList.add('visible');
+    document.getElementById('table-view').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('empty-state').classList.remove('visible');
+  document.getElementById('table-view').style.display = 'block';
+
+  const tbody = document.getElementById('table-body');
+  tbody.innerHTML = filtered.map(s => {
+    const initials = (s.businessName || '?').slice(0, 2).toUpperCase();
+    const date = s.submittedAt
+      ? new Date(s.submittedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+      : '—';
+    return `<tr onclick="openPanel('${s.id}')">
+      <td>
+        <div class="td-business">
+          <div class="avatar-circle">${initials}</div>
+          <span class="business-name-text">${esc(s.businessName || '—')}</span>
+        </div>
+      </td>
+      <td>${esc(s.contactName || '—')}</td>
+      <td style="color:var(--teal);">${esc(s.email || '—')}</td>
+      <td>${esc(s.package || '—')}</td>
+      <td>${esc(s.monthlyBudget || '—')}</td>
+      <td style="color:var(--muted);font-size:12px;">${date}</td>
+      <td><span class="status-badge ${s.status || 'new'}">${capitalize(s.status || 'new')}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function setFilter(value, btn) {
+  currentFilter = value;
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  renderTable();
+}
+
+// ── Panel ──────────────────────────────────────────────
+function openPanel(id) {
+  const s = allSubmissions.find(x => x.id === id);
+  if (!s) return;
+  activeId = id;
+
+  const initials = (s.businessName || '?').slice(0, 2).toUpperCase();
+  document.getElementById('panel-avatar').textContent = initials;
+  document.getElementById('panel-name').textContent   = s.businessName || '—';
+  document.getElementById('panel-sub').textContent    = s.email || '—';
+
+  const statusBadgeEl = document.getElementById('panel-status-badge');
+  statusBadgeEl.innerHTML = `<span class="status-badge ${s.status || 'new'}">${capitalize(s.status || 'new')}</span>`;
+
+  const date = s.submittedAt
+    ? new Date(s.submittedAt).toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' })
+    : '—';
+
+  document.getElementById('panel-body').innerHTML = `
+    <div class="panel-section">
+      <div class="panel-section-title">Business Information</div>
+      <div class="info-grid">
+        ${field('Business Name', s.businessName)}
+        ${field('Industry', s.industry)}
+        ${field('Website', s.website, true)}
+        ${field('Store URL', s.storeUrl, true)}
+        ${field('Business Address', s.businessAddress, false, true)}
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-section-title">Contact</div>
+      <div class="info-grid">
+        ${field('Contact Name', s.contactName)}
+        ${field('Email', s.email)}
+        ${field('Phone', s.phone)}
+        ${field('Billing Email', s.billingEmail)}
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-section-title">Campaign Goals & Budget</div>
+      <div class="info-grid">
+        ${field('Monthly Ad Budget', s.monthlyBudget)}
+        ${field('Primary Goal', s.primaryGoal)}
+        ${field('Monthly Revenue', s.monthlyRevenue)}
+        ${field('Target ROAS', s.targetRoas)}
+        ${field('Target CPA', s.targetCpa)}
+        ${field('Sales Channel', s.salesChannel)}
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-section-title">Package & Billing</div>
+      <div class="info-grid">
+        ${field('Selected Package', s.package)}
+        ${field('Referral Source', s.referralSource)}
+        ${field('Invoice Date', s.invoiceDate)}
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-section-title">Meta Ads Access</div>
+      <div class="info-grid">
+        ${field('Business Manager ID', s.metaBmId)}
+        ${field('Ad Account ID', s.metaAdAccountId)}
+        ${field('Facebook Page', s.fbPageUrl, true)}
+        ${field('Instagram Handle', s.igHandle)}
+        ${field('Pixel ID', s.metaPixelId)}
+        ${field('Pixel Installed?', s.pixelInstalled)}
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-section-title">TikTok Ads</div>
+      <div class="info-grid">
+        ${field('Runs TikTok Ads?', s.tiktokAds)}
+        ${field('TikTok Account ID', s.tiktokAccountId)}
+        ${field('TikTok BC ID', s.tiktokBcId)}
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-section-title">Creative & Brand</div>
+      <div class="info-grid">
+        ${field('Brand Voice', s.brandVoice)}
+        ${field('Has UGC?', s.hasUgc)}
+        ${field('Best Performing Ad', s.bestPerformingAd, false, true)}
+        ${field('Competitors', [s.competitor1, s.competitor2, s.competitor3].filter(Boolean).join(', ') || null, false, true)}
+        ${field('Differentiator', s.differentiator, false, true)}
+        ${field('Do Not Show', s.doNotShow, false, true)}
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-section-title">Onboarding Call</div>
+      <div class="info-grid">
+        ${field('Kickoff Days', s.kickoffDays)}
+        ${field('Timezone', s.timezone)}
+        ${field('Anything Else', s.anythingElse, false, true)}
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-section-title">Submission</div>
+      <div class="info-grid">
+        ${field('Submitted At', date)}
+        ${field('Submission ID', s.id)}
+      </div>
+    </div>
+  `;
+
+  document.getElementById('panel-overlay').classList.add('open');
+}
+
+function field(label, value, isLink = false, isFull = false) {
+  const isEmpty = !value || value === '—';
+  const displayVal = isEmpty
+    ? '<span class="info-value empty">—</span>'
+    : isLink
+      ? `<a href="${esc(value)}" target="_blank" class="info-value teal">${esc(value)}</a>`
+      : `<span class="info-value">${esc(String(value))}</span>`;
+  return `<div class="info-item${isFull ? ' info-full' : ''}">
+    <div class="info-label">${label}</div>
+    ${displayVal}
+  </div>`;
+}
+
+function closePanel(e) {
+  if (e && e.target !== document.getElementById('panel-overlay')) return;
+  document.getElementById('panel-overlay').classList.remove('open');
+  activeId = null;
+}
+
+// ── Status Updates ─────────────────────────────────────
+async function updateStatus(newStatus) {
+  if (!activeId) return;
+  try {
+    const res = await adminFetch(`/api/intake?id=${activeId}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ status: newStatus }),
+    });
+    if (!res.ok) throw new Error('Update failed');
+    const data = await res.json();
+    // Update local state
+    const idx = allSubmissions.findIndex(s => s.id === activeId);
+    if (idx !== -1) allSubmissions[idx] = data.submission;
+    updateStats();
+    renderTable();
+    openPanel(activeId); // Re-render panel
+  } catch (err) {
+    alert('Failed to update status: ' + err.message);
+  }
+}
+
+async function deleteSubmission() {
+  if (!activeId) return;
+  const s = allSubmissions.find(x => x.id === activeId);
+  if (!confirm(`Delete intake submission from "${s ? s.businessName : activeId}"? This cannot be undone.`)) return;
+  try {
+    const res = await adminFetch(`/api/intake?id=${activeId}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error('Delete failed');
+    allSubmissions = allSubmissions.filter(s => s.id !== activeId);
+    document.getElementById('panel-overlay').classList.remove('open');
+    activeId = null;
+    updateStats();
+    renderTable();
+  } catch (err) {
+    alert('Failed to delete: ' + err.message);
+  }
+}
+
+// ── Utilities ──────────────────────────────────────────
+function esc(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function capitalize(str) {
+  if (!str) return '';
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function copyIntakeLink(btn) {
+  const url = window.location.origin + window.location.pathname.replace('intake.html', '') + 'client-intake.html';
+  navigator.clipboard.writeText(url).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Intake Form Link`, 2000);
+  }).catch(() => {
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Intake Form Link`, 2000);
+  });
+}
+</script>
+
+</body>
+</html>

@@ -940,6 +940,14 @@
 
   </div><!-- /page-wrap -->
 
+  <!-- ── Submit Section ─────────────────────────────────── -->
+  <div style="max-width:900px;margin:0 auto 60px;padding:0 24px;">
+    <button type="button" id="submit-intake-btn" style="width:100%;padding:18px;background:#1DD1A1;border:none;border-radius:12px;color:#060f0b;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;cursor:pointer;transition:opacity 0.2s;">
+      Submit Intake Form
+    </button>
+    <div id="intake-submit-status" style="margin-top:16px;text-align:center;font-size:14px;color:rgba(255,255,255,0.6);min-height:20px;"></div>
+  </div>
+
   <!-- ── Toast ─────────────────────────────────────────────── -->
   <div id="copy-toast">Copied to clipboard!</div>
 
@@ -1062,6 +1070,104 @@
       toast.classList.add('show');
       setTimeout(function() { toast.classList.remove('show'); }, 2400);
     }
+
+    async function submitIntakeForm() {
+      const btn = document.getElementById('submit-intake-btn');
+      const statusEl = document.getElementById('intake-submit-status');
+
+      // Disable button while submitting
+      btn.disabled = true;
+      btn.style.opacity = '0.6';
+      btn.textContent = 'Submitting…';
+      statusEl.style.color = 'rgba(255,255,255,0.6)';
+      statusEl.textContent = '';
+
+      // Collect standard form fields via FormData
+      const form = document.getElementById('intake-form');
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData);
+
+      // Collect radio button selections (FormData only gets one value per name — already handled)
+      // But collect checkboxes as arrays (FormData only captures checked ones, as individual entries)
+      const checkboxNames = new Set();
+      form.querySelectorAll('input[type="checkbox"]').forEach(cb => checkboxNames.add(cb.name));
+      checkboxNames.forEach(name => {
+        const checked = Array.from(form.querySelectorAll(`input[name="${name}"]:checked`)).map(cb => cb.value);
+        payload[name] = checked.join(', ');
+      });
+
+      // Map form field names to API field names
+      const mapped = {
+        businessName:    payload['brand_name']         || '',
+        contactName:     payload['contact_name']       || '',
+        email:           payload['contact_email']      || '',
+        phone:           payload['contact_phone']      || '',
+        website:         payload['website_url']        || '',
+        industry:        payload['industry']           || '',
+        businessAddress: payload['business_address']   || '',
+        metaBmId:        payload['meta_bm_id']         || '',
+        metaAdAccountId: payload['meta_ad_account_id'] || '',
+        fbPageUrl:       payload['fb_page_url']        || '',
+        igHandle:        payload['ig_handle']          || '',
+        metaPixelId:     payload['meta_pixel_id']      || '',
+        pixelInstalled:  payload['pixel_installed']    || '',
+        tiktokAds:       payload['tiktok_ads']         || '',
+        tiktokAccountId: payload['tiktok_account_id']  || '',
+        tiktokBcId:      payload['tiktok_bc_id']       || '',
+        monthlyBudget:   payload['monthly_budget']     || '',
+        primaryGoal:     payload['primary_goal']       || '',
+        targetRoas:      payload['target_roas']        || '',
+        targetCpa:       payload['target_cpa']         || '',
+        monthlyRevenue:  payload['monthly_revenue']    || '',
+        storeUrl:        payload['store_url']          || '',
+        salesChannel:    payload['sales_channel']      || '',
+        brandVoice:      payload['brand_voice']        || '',
+        bestPerformingAd: payload['best_performing_ad'] || '',
+        competitor1:     payload['competitor_1']       || '',
+        competitor2:     payload['competitor_2']       || '',
+        competitor3:     payload['competitor_3']       || '',
+        differentiator:  payload['differentiator']     || '',
+        doNotShow:       payload['do_not_show']        || '',
+        hasUgc:          payload['has_ugc']            || '',
+        package:         payload['package']            || '',
+        billingEmail:    payload['billing_email']      || '',
+        referralSource:  payload['referral_source']    || '',
+        invoiceDate:     payload['invoice_date']       || '',
+        kickoffDays:     payload['kickoff_days']       || '',
+        timezone:        payload['timezone']           || '',
+        anythingElse:    payload['anything_else']      || '',
+      };
+
+      try {
+        const res = await fetch('/api/intake', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(mapped),
+        });
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          statusEl.style.color = '#1DD1A1';
+          statusEl.textContent = "Form submitted! We'll be in touch within 24 hours.";
+          btn.textContent = 'Submitted!';
+          btn.style.background = 'rgba(29,209,161,0.2)';
+          btn.style.color = '#1DD1A1';
+          btn.style.border = '1px solid rgba(29,209,161,0.4)';
+          btn.style.opacity = '1';
+          // Keep disabled so they can't double-submit
+        } else {
+          throw new Error(data.error || 'Submission failed. Please try again.');
+        }
+      } catch (err) {
+        statusEl.style.color = '#ff6b6b';
+        statusEl.textContent = err.message || 'Something went wrong. Please try again.';
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.textContent = 'Submit Intake Form';
+      }
+    }
+
+    document.getElementById('submit-intake-btn').addEventListener('click', submitIntakeForm);
   </script>
 </body>
 </html>
