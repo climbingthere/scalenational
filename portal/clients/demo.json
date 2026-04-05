@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "clientId": "demo",
+    "clientName": "Momentum Outdoors",
+    "tier": "Growth Plan",
+    "since": "January 2026",
+    "lastUpdated": "April 5, 2026",
+    "accessPasswordHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+    "nextCall": {
+      "date": "April 10, 2026",
+      "time": "2:00 PM EST",
+      "calendarLink": "https://calendly.com/eric-scalenational/strategy-call"
+    }
+  },
+  "kpis": [
+    { "label": "Ad Spend", "value": "$12,450", "delta": "+8%", "positive": true, "icon": "spend" },
+    { "label": "ROAS", "value": "4.2x", "delta": "+0.6x", "positive": true, "icon": "roas" },
+    { "label": "Revenue", "value": "$52,290", "delta": "+22%", "positive": true, "icon": "revenue" },
+    { "label": "Conversions", "value": "847", "delta": "+18%", "positive": true, "icon": "conversions" },
+    { "label": "CTR", "value": "3.8%", "delta": "+0.4%", "positive": true, "icon": "ctr" },
+    { "label": "CPM", "value": "$14.20", "delta": "-$1.80", "positive": true, "icon": "cpm" }
+  ],
+  "chart": [
+    { "date": "Mar 6", "spend": 380, "revenue": 1520 },
+    { "date": "Mar 7", "spend": 395, "revenue": 1680 },
+    { "date": "Mar 8", "spend": 410, "revenue": 1590 },
+    { "date": "Mar 9", "spend": 420, "revenue": 1740 },
+    { "date": "Mar 10", "spend": 390, "revenue": 1620 },
+    { "date": "Mar 11", "spend": 375, "revenue": 1480 },
+    { "date": "Mar 12", "spend": 415, "revenue": 1700 },
+    { "date": "Mar 13", "spend": 440, "revenue": 1850 },
+    { "date": "Mar 14", "spend": 455, "revenue": 1920 },
+    { "date": "Mar 15", "spend": 470, "revenue": 2010 },
+    { "date": "Mar 16", "spend": 480, "revenue": 2080 },
+    { "date": "Mar 17", "spend": 460, "revenue": 1960 },
+    { "date": "Mar 18", "spend": 445, "revenue": 1890 },
+    { "date": "Mar 19", "spend": 490, "revenue": 2150 },
+    { "date": "Mar 20", "spend": 510, "revenue": 2240 },
+    { "date": "Mar 21", "spend": 495, "revenue": 2100 },
+    { "date": "Mar 22", "spend": 520, "revenue": 2310 },
+    { "date": "Mar 23", "spend": 505, "revenue": 2190 },
+    { "date": "Mar 24", "spend": 530, "revenue": 2400 },
+    { "date": "Mar 25", "spend": 545, "revenue": 2480 },
+    { "date": "Mar 26", "spend": 525, "revenue": 2350 },
+    { "date": "Mar 27", "spend": 560, "revenue": 2560 },
+    { "date": "Mar 28", "spend": 575, "revenue": 2620 },
+    { "date": "Mar 29", "spend": 590, "revenue": 2700 },
+    { "date": "Mar 30", "spend": 580, "revenue": 2650 },
+    { "date": "Mar 31", "spend": 610, "revenue": 2810 },
+    { "date": "Apr 1", "spend": 625, "revenue": 2890 },
+    { "date": "Apr 2", "spend": 615, "revenue": 2750 },
+    { "date": "Apr 3", "spend": 640, "revenue": 2960 },
+    { "date": "Apr 4", "spend": 655, "revenue": 3080 }
+  ],
+  "campaigns": [
+    { "name": "Prospecting — Outdoor Enthusiasts", "status": "active", "budget": "$180/day" },
+    { "name": "Retargeting — Cart Abandoners", "status": "active", "budget": "$60/day" },
+    { "name": "Lookalike — Purchasers 2%", "status": "active", "budget": "$120/day" },
+    { "name": "Broad — Spring Collection", "status": "testing", "budget": "$40/day" }
+  ],
+  "creatives": [
+    { "name": "Trail Runner Hook v3", "type": "UGC Video", "roas": "5.1x", "ctr": "4.2%", "status": "Scaling" },
+    { "name": "Gear Drop Static — Blue", "type": "Static Ad", "roas": "3.8x", "ctr": "2.9%", "status": "Scaling" },
+    { "name": "AI Product Showcase", "type": "AI Video", "roas": "4.4x", "ctr": "3.5%", "status": "Scaling" },
+    { "name": "Campfire Story v1", "type": "UGC Video", "roas": "2.1x", "ctr": "1.8%", "status": "Testing" },
+    { "name": "Gear Drop Static — Black", "type": "Static Ad", "roas": "1.4x", "ctr": "1.2%", "status": "Paused" },
+    { "name": "Spring Promo Banner", "type": "Static Ad", "roas": "3.2x", "ctr": "2.6%", "status": "Testing" }
+  ],
+  "activity": [
+    { "date": "Apr 5", "text": "Monthly performance report published" },
+    { "date": "Apr 3", "text": "2 new UGC videos delivered to content library" },
+    { "date": "Apr 1", "text": "Budget increased on Prospecting campaign (+$40/day)" },
+    { "date": "Mar 28", "text": "Spring Promo Banner launched — now in testing" },
+    { "date": "Mar 25", "text": "Strategy call completed — Q2 creative brief approved" }
+  ],
+  "contentLibrary": [
+    { "name": "Trail Runner Hook v3", "type": "UGC Video", "date": "Apr 3, 2026", "aspectRatio": "9:16", "adRoas": "5.1x", "rights": "Full Commercial" },
+    { "name": "Trail Runner Hook v2", "type": "UGC Video", "date": "Mar 18, 2026", "aspectRatio": "9:16", "adRoas": "2.8x", "rights": "Full Commercial" },
+    { "name": "Trail Runner Hook v1", "type": "UGC Video", "date": "Mar 4, 2026", "aspectRatio": "9:16", "adRoas": null, "rights": "Full Commercial" },
+    { "name": "Campfire Story v1", "type": "UGC Video", "date": "Apr 3, 2026", "aspectRatio": "9:16", "adRoas": "2.1x", "rights": "Full Commercial" },
+    { "name": "Gear Drop Static — Blue", "type": "Static Ad", "date": "Mar 20, 2026", "aspectRatio": "1:1", "adRoas": "3.8x", "rights": "Full Commercial" },
+    { "name": "Gear Drop Static — Black", "type": "Static Ad", "date": "Mar 20, 2026", "aspectRatio": "1:1", "adRoas": "1.4x", "rights": "Full Commercial" },
+    { "name": "Spring Promo Banner", "type": "Static Ad", "date": "Mar 28, 2026", "aspectRatio": "16:9", "adRoas": "3.2x", "rights": "Full Commercial" },
+    { "name": "AI Product Showcase v1", "type": "AI Video", "date": "Mar 15, 2026", "aspectRatio": "9:16", "adRoas": "4.4x", "rights": "Full Commercial" },
+    { "name": "AI Product Showcase v2", "type": "AI Video", "date": "Mar 15, 2026", "aspectRatio": "1:1", "adRoas": null, "rights": "Full Commercial" },
+    { "name": "Product Hero Shot 1", "type": "Photo", "date": "Feb 28, 2026", "aspectRatio": "1:1", "adRoas": null, "rights": "Full Commercial" },
+    { "name": "Product Hero Shot 2", "type": "Photo", "date": "Feb 28, 2026", "aspectRatio": "1:1", "adRoas": null, "rights": "Full Commercial" },
+    { "name": "Lifestyle Pack Shot", "type": "Photo", "date": "Feb 28, 2026", "aspectRatio": "16:9", "adRoas": null, "rights": "Full Commercial" }
+  ]
+}

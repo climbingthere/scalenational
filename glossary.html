@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pitch Glossary — ScaleNational</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #060f0b;
+      --bg2:       #0c1a14;
+      --bg3:       #111f17;
+      --border:    #1a2e22;
+      --teal:      #1DD1A1;
+      --teal-dim:  rgba(29, 209, 161, 0.12);
+      --teal-glow: rgba(29, 209, 161, 0.25);
+      --white:     #f0f6f3;
+      --muted:     #7a9a8a;
+      --muted2:    #4d6b5a;
+      --font:      'Plus Jakarta Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 15, 11, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 56px;
+    }
+
+    header .logo-wrap { display: flex; align-items: center; gap: 10px; }
+    header .logo-wrap img { height: 28px; filter: brightness(0) invert(1); }
+
+    header .label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      opacity: 0.9;
+    }
+
+    /* ── SEARCH BAR ── */
+    .search-wrap {
+      padding: 20px 20px 0;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .search-inner {
+      position: relative;
+    }
+
+    .search-inner svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    #searchInput {
+      width: 100%;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 13px 16px 13px 44px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    #searchInput::placeholder { color: var(--muted2); }
+
+    #searchInput:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px var(--teal-dim);
+    }
+
+    .search-count {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      min-height: 18px;
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+    }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: 40px; }
+
+    .section-header {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header.hidden { display: none; }
+
+    /* ── GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 18px 14px;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      user-select: none;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      background: var(--teal-dim);
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      border-color: var(--teal);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 24px rgba(29, 209, 161, 0.08);
+    }
+
+    .card:hover::before { opacity: 1; }
+    .card:active { transform: translateY(0); }
+
+    .card.hidden { display: none; }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .term-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      flex: 1;
+    }
+
+    .abbr-badge {
+      background: var(--teal-dim);
+      border: 1px solid rgba(29, 209, 161, 0.25);
+      color: var(--teal);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .definition {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .how-to-say {
+      margin-top: 4px;
+      background: var(--bg3);
+      border-left: 2px solid var(--teal);
+      border-radius: 0 6px 6px 0;
+      padding: 8px 10px;
+      font-size: 12.5px;
+      color: #a0c8b4;
+      line-height: 1.5;
+    }
+
+    .how-to-say strong {
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* ── COPY ICON HINT ── */
+    .copy-hint {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      opacity: 0;
+      color: var(--muted2);
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+
+    .card:hover .copy-hint { opacity: 1; }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(16px);
+      background: var(--teal);
+      color: #060f0b;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 9px 22px;
+      border-radius: 100px;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      pointer-events: none;
+      z-index: 999;
+      white-space: nowrap;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── NO RESULTS ── */
+    #noResults {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    #noResults span {
+      display: block;
+      font-size: 32px;
+      margin-bottom: 12px;
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-wrap">
+      <img src="logo-transparent.png" alt="ScaleNational" style="height:28px;filter:brightness(0) invert(1)">
+    </div>
+    <div class="label">Pitch Glossary</div>
+  </header>
+
+  <!-- SEARCH -->
+  <div class="search-wrap">
+    <div class="search-inner">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="search" id="searchInput" placeholder="Search terms, definitions…" autocomplete="off" autocorrect="off" spellcheck="false" />
+    </div>
+    <div class="search-count" id="searchCount"></div>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <div id="noResults">
+      <span>🔍</span>
+      No terms matched your search.
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: Ad Performance Metrics            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" data-section>
+      <div class="section-header">Ad Performance Metrics</div>
+      <div class="grid">
+
+        <div class="card" data-term="ROAS Return on Ad Spend revenue dollar spent ads formula" data-copy="ROAS (Return on Ad Spend): Revenue generated per dollar spent on ads. Formula: Revenue ÷ Ad Spend. A 4x ROAS means every $1 spent returns $4 in revenue.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Return on Ad Spend</div>
+            <div class="abbr-badge">ROAS</div>
+          </div>
+          <div class="definition">Revenue generated for every dollar spent on ads. Formula: Revenue ÷ Ad Spend. A 4x ROAS means every $1 in ad spend returns $4 in revenue.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Right now your ROAS is sitting around 1.8x — we want to get you to a consistent 3–4x within 60 days."
+          </div>
+        </div>
+
+        <div class="card" data-term="CPA CAC Cost Per Acquisition Customer Acquisition Cost paying customer" data-copy="CPA/CAC (Cost Per Acquisition / Customer Acquisition Cost): How much it costs in ad spend to acquire one paying customer.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Cost Per Acquisition</div>
+            <div class="abbr-badge">CPA / CAC</div>
+          </div>
+          <div class="definition">How much it costs to get one paying customer. If you spend $500 and get 10 customers, your CPA is $50.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "What's your current CAC? If we know your LTV we can figure out exactly how much we can afford to spend per acquisition."
+          </div>
+        </div>
+
+        <div class="card" data-term="CPM Cost Per Mille impressions thousand people see ad" data-copy="CPM (Cost Per Mille): Cost per 1,000 impressions — what you pay for 1,000 people to see your ad.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Cost Per Mille</div>
+            <div class="abbr-badge">CPM</div>
+          </div>
+          <div class="definition">Cost per 1,000 impressions — what you pay for 1,000 people to see your ad. Lower CPM = cheaper reach.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Your CPM is high right now — that tells me the creative or audience isn't resonating. Better creative directly lowers your CPM."
+          </div>
+        </div>
+
+        <div class="card" data-term="CPC Cost Per Click someone clicks ad" data-copy="CPC (Cost Per Click): The cost each time someone clicks your ad.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Cost Per Click</div>
+            <div class="abbr-badge">CPC</div>
+          </div>
+          <div class="definition">The cost each time someone clicks your ad. A lower CPC means you're sending more traffic to your site for the same budget.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Your CPC is $3.80 — industry benchmark for your niche is closer to $1.50. Stronger creative will bring that down significantly."
+          </div>
+        </div>
+
+        <div class="card" data-term="CTR Click-Through Rate percentage saw ad clicked impressions" data-copy="CTR (Click-Through Rate): Percentage of people who saw the ad and clicked it. Formula: Clicks ÷ Impressions × 100.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Click-Through Rate</div>
+            <div class="abbr-badge">CTR</div>
+          </div>
+          <div class="definition">Percentage of people who saw the ad and clicked it. Formula: Clicks ÷ Impressions × 100. Higher CTR = more compelling ad.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "A 1% CTR on cold traffic is solid — if we can get that to 2–3% with better creative, your whole funnel gets cheaper."
+          </div>
+        </div>
+
+        <div class="card" data-term="CVR CR Conversion Rate visitors desired action buy sign up" data-copy="CVR/CR (Conversion Rate): Percentage of visitors who take the desired action — purchase, sign up, book a call, etc.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Conversion Rate</div>
+            <div class="abbr-badge">CVR / CR</div>
+          </div>
+          <div class="definition">Percentage of visitors who take the desired action — purchase, sign up, book a call, etc. Traffic means nothing if CVR is broken.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Your ads are getting clicks but the CVR on your landing page is under 1% — the bottleneck isn't the ads, it's the page."
+          </div>
+        </div>
+
+        <div class="card" data-term="LTV CLV Lifetime Value Customer Lifetime Value total revenue relationship brand" data-copy="LTV/CLV (Lifetime Value / Customer Lifetime Value): Total revenue a customer brings over their entire relationship with the brand.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Lifetime Value</div>
+            <div class="abbr-badge">LTV / CLV</div>
+          </div>
+          <div class="definition">Total revenue a customer brings over their entire relationship with the brand — not just the first purchase.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "If your LTV is $400, you can actually afford a $60–80 CAC and still profit. That's why knowing your LTV changes everything."
+          </div>
+        </div>
+
+        <div class="card" data-term="MER Marketing Efficiency Ratio total revenue ad spend channels big-picture ROAS" data-copy="MER (Marketing Efficiency Ratio): Total revenue divided by total ad spend across all channels. The big-picture, blended ROAS.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Marketing Efficiency Ratio</div>
+            <div class="abbr-badge">MER</div>
+          </div>
+          <div class="definition">Total revenue divided by total marketing spend across all channels. The big-picture ROAS — it captures everything, not just one campaign.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Platform ROAS looks great but what's your MER? If blended revenue vs. total spend is only 1.5x, we have a profitability problem."
+          </div>
+        </div>
+
+        <div class="card" data-term="Hook Rate percentage watch first 3 seconds video ad strong opener" data-copy="Hook Rate: Percentage of people who watch past the first 3 seconds of a video ad. High hook rate = strong opener.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Hook Rate</div>
+          </div>
+          <div class="definition">Percentage of people who watch past the first 3 seconds of a video ad. High hook rate = your opener is grabbing attention.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Your hook rate is 18% — we want 30%+. The first frame of your video needs to stop the scroll immediately."
+          </div>
+        </div>
+
+        <div class="card" data-term="Frequency average times one person sees ad fatigue" data-copy="Frequency: Average number of times one person sees your ad. Too high means ad fatigue — people tune it out.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Frequency</div>
+          </div>
+          <div class="definition">Average number of times one person sees your ad. Too high causes ad fatigue — performance drops as people stop engaging.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Your frequency is at 6.2 — your audience has seen this ad six times. We need fresh creative before performance craters further."
+          </div>
+        </div>
+
+        <div class="card" data-term="Reach unique people saw your ad different from impressions" data-copy="Reach: Number of unique people who saw your ad. Different from impressions — one person seeing it 5 times is 5 impressions but only 1 reach.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Reach</div>
+          </div>
+          <div class="definition">Number of unique people who saw your ad. Different from impressions — one person seeing your ad five times is 5 impressions but only 1 reach.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "We reached 42,000 unique people this month — but impressions were 180,000, which means frequency is high. Time to expand the audience."
+          </div>
+        </div>
+
+        <div class="card" data-term="Impressions total number times ad displayed same person multiple times" data-copy="Impressions: Total number of times your ad was displayed, including multiple views by the same person.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Impressions</div>
+          </div>
+          <div class="definition">Total number of times your ad was displayed — the same person can count multiple times. High impressions + low reach = high frequency.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "We got 200,000 impressions — but the real question is how many unique people that represents and whether they converted."
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: Campaign Structure                -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" data-section>
+      <div class="section-header">Campaign Structure</div>
+      <div class="grid">
+
+        <div class="card" data-term="Campaign top level Meta ads structure objective traffic conversions" data-copy="Campaign: The top level of a Meta ads structure. It contains ad sets and defines the campaign objective (traffic, conversions, leads, etc.).">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Campaign</div>
+          </div>
+          <div class="definition">The top level of a Meta ads structure. Contains ad sets and defines the objective — traffic, conversions, leads, awareness, etc.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "We'll run two campaigns — one optimizing for purchases, one for retargeting — and let Meta's algorithm allocate spend to what's working."
+          </div>
+        </div>
+
+        <div class="card" data-term="Ad Set middle level audience budget schedule placement" data-copy="Ad Set: Middle level of Meta ads structure. Defines the audience, budget, schedule, and placement. Multiple ad sets can run within one campaign.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Ad Set</div>
+          </div>
+          <div class="definition">Middle level of a Meta campaign. Defines the audience, budget, schedule, and placement. Multiple ad sets can run within one campaign.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "We'll test three ad sets — one broad, one lookalike, one interest-based — and cut anything that doesn't hit our CPA target within a week."
+          </div>
+        </div>
+
+        <div class="card" data-term="Creative Ad Creative actual ad image video copy headline CTA" data-copy="Creative / Ad Creative: The actual ad itself — the image or video, ad copy, headline, and CTA button. Creative is the #1 lever for performance.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Ad Creative</div>
+          </div>
+          <div class="definition">The actual ad — the image or video, body copy, headline, and CTA button. Creative is the single biggest lever for ad performance.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Targeting has gotten harder post-iOS — creative is now the targeting. The right creative self-selects the right audience."
+          </div>
+        </div>
+
+        <div class="card" data-term="A/B Test Split Test two versions ad simultaneously see which performs better" data-copy="A/B Test (Split Test): Running two versions of an ad simultaneously — changing one variable at a time — to see which performs better.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">A/B Test</div>
+            <div class="abbr-badge">Split Test</div>
+          </div>
+          <div class="definition">Running two versions of an ad simultaneously, changing one variable at a time, to determine which performs better with statistical confidence.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "We'll A/B test two hooks — same offer, different opening line — so we know exactly what's driving results, not just guessing."
+          </div>
+        </div>
+
+        <div class="card" data-term="Ad Fatigue audience seen ad too many times engagement drops frequency performance" data-copy="Ad Fatigue: When an audience has seen your ad too many times and engagement drops. Frequency climbs, performance falls.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Ad Fatigue</div>
+          </div>
+          <div class="definition">When an audience has seen your ad so many times that engagement drops. Frequency climbs, CTR falls, and costs increase. Needs fresh creative.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Your ROAS dropped 40% in two weeks — that's textbook ad fatigue. We need 3–5 new creatives in rotation every month to avoid this."
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: Audience & Targeting              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" data-section>
+      <div class="section-header">Audience &amp; Targeting</div>
+      <div class="grid">
+
+        <div class="card" data-term="Cold Traffic Cold Audience never heard brand most expensive convert" data-copy="Cold Traffic / Cold Audience: People who have never heard of your brand. Most expensive to convert because they need awareness first.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Cold Traffic</div>
+          </div>
+          <div class="definition">People who have never heard of your brand. Most expensive to convert — they need awareness and trust before they'll buy.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "For cold traffic we lead with education and social proof — you can't hit a stranger with a hard sell. Warm them up first."
+          </div>
+        </div>
+
+        <div class="card" data-term="Warm Traffic interacted brand visited site watched video engaged" data-copy="Warm Traffic: People who've already interacted with your brand — visited your site, watched a video, engaged with your content.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Warm Traffic</div>
+          </div>
+          <div class="definition">People who've already interacted with your brand — visited the site, watched a video, or engaged with content. They convert at a lower CPA.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Warm audiences are your lowest-hanging fruit. We should always be retargeting them with a specific offer before spending more on cold."
+          </div>
+        </div>
+
+        <div class="card" data-term="Retargeting Remarketing ads people already visited site engaged content" data-copy="Retargeting / Remarketing: Showing ads specifically to people who already visited your site or engaged with your content. Converts at much lower CPA.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Retargeting</div>
+            <div class="abbr-badge">Remarketing</div>
+          </div>
+          <div class="definition">Showing ads specifically to people who already visited your site or engaged with your content. The highest-converting audience segment.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "If you don't have a retargeting campaign running, you're basically letting people walk out the door without ever following up."
+          </div>
+        </div>
+
+        <div class="card" data-term="Lookalike Audience Meta finds new people characteristics existing customers website visitors" data-copy="Lookalike Audience: Meta finds new people who share characteristics with your existing customers or website visitors. Scales cold prospecting efficiently.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Lookalike Audience</div>
+          </div>
+          <div class="definition">Meta finds new people who share characteristics with your existing customers or site visitors. A powerful way to scale cold prospecting.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Once we have 500+ purchase events, we build a 1% lookalike of your buyers — those are your best-chance cold prospects."
+          </div>
+        </div>
+
+        <div class="card" data-term="Custom Audience upload email list website visitors video viewers" data-copy="Custom Audience: A specific audience you build from your own data — email list, website visitors, video viewers, or customer list uploads.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Custom Audience</div>
+          </div>
+          <div class="definition">A specific audience you build from your own data — email lists, website visitors, video viewers, or customer uploads matched to Meta profiles.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Do you have an email list? We can upload it as a custom audience and target your existing customers with an upsell before we even touch cold traffic."
+          </div>
+        </div>
+
+        <div class="card" data-term="Interest Targeting declared interests behaviors Facebook Instagram" data-copy="Interest Targeting: Targeting people based on their declared interests and behaviors on Facebook/Instagram. Good for cold audience testing early on.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Interest Targeting</div>
+          </div>
+          <div class="definition">Targeting people based on their declared interests and behaviors on Facebook/Instagram. Useful for initial testing, less precise than lookalikes.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "We'll start with interest targeting to gather initial data, but the goal is to build enough signals for lookalikes — that's where the real scale is."
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: Funnel                            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" data-section>
+      <div class="section-header">Funnel</div>
+      <div class="grid">
+
+        <div class="card" data-term="Funnel journey customer first seeing brand making purchase" data-copy="Funnel: The journey a customer takes from first seeing your brand to making a purchase. Every stage — awareness, consideration, decision — needs different messaging.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Funnel</div>
+          </div>
+          <div class="definition">The journey a customer takes from first seeing your brand to making a purchase. Each stage needs different messaging and ad creative.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "We build a full-funnel approach — awareness at the top, education in the middle, and a hard offer at the bottom for people ready to buy."
+          </div>
+        </div>
+
+        <div class="card" data-term="TOFU Top of Funnel awareness stage people don't know brand yet" data-copy="TOFU (Top of Funnel): Awareness stage. Targeting people who don't know your brand yet. Goal is to generate interest, not immediate sales.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Top of Funnel</div>
+            <div class="abbr-badge">TOFU</div>
+          </div>
+          <div class="definition">Awareness stage. People who don't know your brand yet. Goal is to generate interest and build an audience to retarget later.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "TOFU is where we build the pipeline — we're not expecting sales here, we're buying attention and building the audience we'll close later."
+          </div>
+        </div>
+
+        <div class="card" data-term="MOFU Middle of Funnel consideration stage shown interest haven't bought" data-copy="MOFU (Middle of Funnel): Consideration stage. People who've shown interest but haven't bought. Nurture with social proof, comparisons, and demos.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Middle of Funnel</div>
+            <div class="abbr-badge">MOFU</div>
+          </div>
+          <div class="definition">Consideration stage. People who've shown interest but haven't bought. Nurture them with social proof, comparisons, testimonials, and demos.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "MOFU is where we overcome objections — testimonials, before/afters, FAQs. We're removing every reason not to buy."
+          </div>
+        </div>
+
+        <div class="card" data-term="BOFU Bottom of Funnel decision stage close to purchasing retargeting" data-copy="BOFU (Bottom of Funnel): Decision stage. People close to purchasing. Retargeting campaigns live here — direct offers, urgency, discounts.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Bottom of Funnel</div>
+            <div class="abbr-badge">BOFU</div>
+          </div>
+          <div class="definition">Decision stage. People close to purchasing — they've visited your site or added to cart. Retargeting campaigns live here with direct offers.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "BOFU is where we close. Cart abandoners, product page visitors — these people are one nudge away from converting and they're cheap to reach."
+          </div>
+        </div>
+
+        <div class="card" data-term="Above the Fold webpage visible without scrolling social proof UGC placement" data-copy="Above the Fold: The part of a webpage visible without scrolling. Critical real estate — social proof and UGC here dramatically improve CVR.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Above the Fold</div>
+          </div>
+          <div class="definition">The part of a webpage visible without scrolling. Critical placement — your headline, hero image, and social proof need to land here.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Your value prop needs to hit above the fold — if a visitor has to scroll to understand what you do, you're losing them before you start."
+          </div>
+        </div>
+
+        <div class="card" data-term="Landing Page specific page someone lands after clicking ad not homepage focused conversion" data-copy="Landing Page: The specific page someone lands on after clicking an ad. Not the homepage — a focused, distraction-free conversion page.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Landing Page</div>
+          </div>
+          <div class="definition">The specific page someone lands on after clicking your ad. Should be focused on one conversion goal — not the homepage with 10 distractions.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Sending ad traffic to your homepage is leaving money on the table. We build dedicated landing pages matched to each offer and audience."
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: Creative Types                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" data-section>
+      <div class="section-header">Creative Types</div>
+      <div class="grid">
+
+        <div class="card" data-term="UGC User Generated Content real people authentic organic paid ads" data-copy="UGC (User Generated Content): Content created by real people (not brands). Looks authentic, performs like organic content — but is used in paid ads.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">User Generated Content</div>
+            <div class="abbr-badge">UGC</div>
+          </div>
+          <div class="definition">Content created by real people, not brands. Looks authentic, feels organic, and blends into the feed — which is why it converts so well in paid ads.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "UGC performs so well because it doesn't look like an ad. It's someone talking about your product like a friend would — that trust is impossible to fake with polished creative."
+          </div>
+        </div>
+
+        <div class="card" data-term="Static Ad still image simple fast produce often outperforms video cost per purchase" data-copy="Static Ad: A still image ad. Simple and fast to produce — and often outperforms video in cost-per-purchase for direct response.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Static Ad</div>
+          </div>
+          <div class="definition">A still image ad. Simple and fast to produce — and often outperforms video in cost-per-purchase for direct-response campaigns.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Don't underestimate statics — a well-designed image with a bold headline and clear offer regularly beats expensive video in direct response."
+          </div>
+        </div>
+
+        <div class="card" data-term="Video Ad moving image higher production storytelling hook-based" data-copy="Video Ad: A moving image ad. Higher production cost but powerful for storytelling, demonstrations, and hook-based content that builds trust.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Video Ad</div>
+          </div>
+          <div class="definition">A moving image ad. Higher production cost but powerful for storytelling, product demos, and hook-based content that builds trust fast.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "For your product, video is going to work really well — it needs a demo to make the value obvious. We'll pair it with strong statics for retargeting."
+          </div>
+        </div>
+
+        <div class="card" data-term="Carousel Ad multiple swipeable images cards" data-copy="Carousel Ad: An ad with multiple swipeable images or cards — great for showcasing product ranges, steps in a process, or multiple benefits.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Carousel Ad</div>
+          </div>
+          <div class="definition">An ad with multiple swipeable images or cards — great for product ranges, step-by-step processes, or showcasing multiple benefits in one ad.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Carousel ads are great for product lines — each card features a different item so one ad can serve multiple customer intents at once."
+          </div>
+        </div>
+
+        <div class="card" data-term="Social Proof reviews testimonials follower counts press mentions trust" data-copy="Social Proof: Reviews, testimonials, follower counts, press mentions — anything that proves other people trust and use your product.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Social Proof</div>
+          </div>
+          <div class="definition">Reviews, testimonials, follower counts, press mentions — anything that proves other people trust your product. One of the highest-leverage elements in any ad.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Your reviews are your best asset — we should be leading with them in every MOFU and BOFU ad. Social proof removes the risk in the buyer's mind."
+          </div>
+        </div>
+
+        <div class="card" data-term="Hook first 1-3 seconds video opening line ad keeps watching" data-copy="Hook: The first 1–3 seconds of a video or the opening line of an ad. The hook determines whether someone stops scrolling or keeps going.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Hook</div>
+          </div>
+          <div class="definition">The first 1–3 seconds of a video or the opening line of copy. The hook is the single most important element — it determines whether anyone sees the rest.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "We test hooks more than anything else — because if you don't stop the scroll in the first two seconds, nothing else in the ad matters."
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: Tracking & Attribution            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" data-section>
+      <div class="section-header">Tracking &amp; Attribution</div>
+      <div class="grid">
+
+        <div class="card" data-term="Meta Pixel code website tracks visitor behavior Meta optimization retargeting" data-copy="Meta Pixel: A small piece of code on your website that tracks visitor behavior and reports back to Meta for ad optimization and retargeting.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Meta Pixel</div>
+          </div>
+          <div class="definition">A small piece of code on your website that tracks visitor behavior and reports back to Meta — essential for optimization, lookalikes, and retargeting.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Before we spend a dollar, we need your pixel installed and firing correctly. Without it, Meta is flying blind and your campaigns will underperform."
+          </div>
+        </div>
+
+        <div class="card" data-term="Events API CAPI server-side pixel reliable tracking iOS privacy" data-copy="Events API (CAPI): Server-side version of the pixel. More reliable tracking that works around iOS privacy changes and browser ad blockers.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Events API</div>
+            <div class="abbr-badge">CAPI</div>
+          </div>
+          <div class="definition">Server-side version of the pixel. More reliable tracking that works around iOS 14+ privacy changes and browser ad blockers.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Post-iOS 14, browser pixels miss a lot of conversions. CAPI sends data directly from your server to Meta — you get cleaner data and better optimization."
+          </div>
+        </div>
+
+        <div class="card" data-term="Attribution Window time period Meta credit sale ad 7-day click 1-day view" data-copy="Attribution Window: The time period Meta uses to credit a sale to an ad. Common windows are 7-day click and 1-day view.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Attribution Window</div>
+          </div>
+          <div class="definition">The time period Meta uses to credit a sale to an ad. 7-day click means if someone buys within 7 days of clicking, Meta claims credit.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Your ROAS looks different on Meta vs. in your Shopify dashboard because of attribution windows — Meta often claims more credit than it actually deserves."
+          </div>
+        </div>
+
+        <div class="card" data-term="UTM Parameters tags URLs track which ad drove visit Google Analytics" data-copy="UTM Parameters: Tags added to URLs to track exactly which ad, campaign, or channel drove a visit — readable in Google Analytics or any analytics tool.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">UTM Parameters</div>
+          </div>
+          <div class="definition">Tags added to URLs to track exactly which ad, campaign, or channel drove a visit — readable in Google Analytics or any analytics platform.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "We tag every ad link with UTMs so you can see in Google Analytics exactly which campaign is driving revenue — platform-agnostic truth."
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION: Business Terms                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="section" data-section>
+      <div class="section-header">Business Terms</div>
+      <div class="grid">
+
+        <div class="card" data-term="KPI Key Performance Indicator specific measurable goal ROAS month" data-copy="KPI (Key Performance Indicator): A specific, measurable goal used to track performance. E.g., 'Our KPI is a 3x ROAS by month 2.'">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Key Performance Indicator</div>
+            <div class="abbr-badge">KPI</div>
+          </div>
+          <div class="definition">A specific, measurable goal used to track progress. Without defined KPIs, you can't tell if a campaign is succeeding or failing.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Before we launch, let's align on KPIs. Is it a target ROAS? A maximum CPA? A revenue goal? We build the whole strategy around that number."
+          </div>
+        </div>
+
+        <div class="card" data-term="DTC Direct to Consumer brand sells directly end customer not retailers" data-copy="DTC (Direct to Consumer): A brand that sells directly to the end customer, not through third-party retailers. Full control over the customer experience.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Direct to Consumer</div>
+            <div class="abbr-badge">DTC</div>
+          </div>
+          <div class="definition">A brand that sells directly to the end customer, cutting out retailers. DTC brands own their customer data, margins, and experience.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "You're DTC, which means paid social is your primary growth channel — you don't have shelf space or retail distribution to rely on."
+          </div>
+        </div>
+
+        <div class="card" data-term="AOV Average Order Value average dollar amount per transaction" data-copy="AOV (Average Order Value): The average dollar amount per transaction. Higher AOV means you can afford a higher CPA and still be profitable.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Average Order Value</div>
+            <div class="abbr-badge">AOV</div>
+          </div>
+          <div class="definition">The average dollar amount per transaction. Higher AOV means you can afford a higher CPA and still hit your margin targets.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "What's your AOV? If it's $40 we have very little room on CPA — but if we can bundle or upsell to $90+, the whole math changes."
+          </div>
+        </div>
+
+        <div class="card" data-term="Churn rate customers stop buying lower churn higher LTV" data-copy="Churn: The rate at which customers stop buying or cancel. Lower churn means higher LTV and more profitable ad spend.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Churn</div>
+          </div>
+          <div class="definition">The rate at which customers stop buying or cancel their subscription. High churn means your LTV is low and your CPA ceiling is low too.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "If churn is high, throwing more ad spend at acquisition just papers over the problem. We'd look at retention first — fix the leaky bucket."
+          </div>
+        </div>
+
+        <div class="card" data-term="Organic content traffic not paid followers SEO word of mouth" data-copy="Organic: Content or traffic that isn't paid for — comes from followers, SEO, word of mouth, or viral sharing.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Organic</div>
+          </div>
+          <div class="definition">Content or traffic that isn't paid for — comes from followers, SEO, word of mouth, or shares. Complements paid but doesn't replace it at scale.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Your organic content is great trust-building, but organic reach on Meta is near zero now. Paid is how you actually get it in front of new people."
+          </div>
+        </div>
+
+        <div class="card" data-term="Paid Social advertising social media platforms Meta TikTok Instagram Facebook" data-copy="Paid Social: Advertising on social media platforms — Meta (Facebook/Instagram), TikTok, Pinterest, etc. The primary growth lever for DTC brands.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Paid Social</div>
+          </div>
+          <div class="definition">Advertising on social media platforms — Meta (Facebook/Instagram), TikTok, Pinterest. The primary scalable growth lever for most DTC brands.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Paid social is where we operate — Meta and TikTok specifically. These platforms let us target the right person with the right message at the right time."
+          </div>
+        </div>
+
+        <div class="card" data-term="Media Buying process purchasing ad placements across platforms" data-copy="Media Buying: The process of purchasing ad placements across platforms — deciding where, when, and how much to spend on advertising.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Media Buying</div>
+          </div>
+          <div class="definition">The process of purchasing ad placements across platforms — deciding where, when, and how much to spend to hit campaign goals efficiently.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Our media buying is performance-focused — we're not just placing ads, we're constantly analyzing data and reallocating spend to what's working."
+          </div>
+        </div>
+
+        <div class="card" data-term="Creative Strategy plan behind ads hooks audiences test" data-copy="Creative Strategy: The plan behind what ads to make — what hooks to test, what angles to run, what audiences to target with which messages.">
+          <div class="copy-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="card-top">
+            <div class="term-name">Creative Strategy</div>
+          </div>
+          <div class="definition">The plan behind what ads to make — what hooks to test, what angles to run, what messages to match to which audiences.</div>
+          <div class="how-to-say">
+            <strong>How to say it</strong>
+            "Creative strategy is where we spend most of our brainpower — because in today's landscape, creative IS the targeting. Bad creative means wasted spend no matter how good the setup is."
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- TOAST -->
+  <div id="toast">Copied</div>
+
+  <script>
+    // ── SEARCH ──
+    const input = document.getElementById('searchInput');
+    const countEl = document.getElementById('searchCount');
+    const noResults = document.getElementById('noResults');
+    const allCards = document.querySelectorAll('.card');
+    const allSections = document.querySelectorAll('[data-section]');
+
+    function updateSearch() {
+      const q = input.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      allCards.forEach(card => {
+        const text = (card.dataset.term + ' ' + card.innerText).toLowerCase();
+        const match = !q || text.includes(q);
+        card.classList.toggle('hidden', !match);
+        if (match) visibleCount++;
+      });
+
+      // Hide section headers with no visible cards
+      allSections.forEach(section => {
+        const grid = section.querySelector('.grid');
+        const header = section.querySelector('.section-header');
+        const visibleCards = grid ? grid.querySelectorAll('.card:not(.hidden)').length : 0;
+        header.classList.toggle('hidden', visibleCards === 0);
+        if (grid) grid.style.display = visibleCards === 0 ? 'none' : '';
+      });
+
+      if (q) {
+        countEl.textContent = visibleCount === 0
+          ? 'No terms found'
+          : `${visibleCount} term${visibleCount !== 1 ? 's' : ''} matched`;
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      } else {
+        countEl.textContent = '';
+        noResults.style.display = 'none';
+        allSections.forEach(section => {
+          const grid = section.querySelector('.grid');
+          if (grid) grid.style.display = '';
+        });
+      }
+    }
+
+    input.addEventListener('input', updateSearch);
+
+    // ── COPY TO CLIPBOARD ──
+    const toast = document.getElementById('toast');
+    let toastTimer;
+
+    function showToast() {
+      clearTimeout(toastTimer);
+      toast.classList.add('show');
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    allCards.forEach(card => {
+      card.addEventListener('click', async () => {
+        const text = card.dataset.copy || card.querySelector('.term-name').textContent + ': ' + card.querySelector('.definition').textContent;
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast();
+        } catch {
+          // Fallback
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showToast();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

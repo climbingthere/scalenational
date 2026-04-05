@@ -20,14 +20,15 @@
 
     :root {
       --teal: #1DD1A1;
-      --teal-light: #e8faf5;
-      --teal-mid: #b2f0e0;
+      --teal-light: rgba(29,209,161,0.12);
+      --teal-mid: rgba(29,209,161,0.35);
+      --teal-border: rgba(29,209,161,0.25);
       --green-dark: #0d4a3f;
-      --ink: #0f1419;
-      --ink-mid: #2d3748;
-      --muted: #536878;
-      --border: #d1ece5;
-      --white: #ffffff;
+      --ink: #ffffff;
+      --ink-mid: rgba(255,255,255,0.82);
+      --muted: rgba(255,255,255,0.45);
+      --border: rgba(255,255,255,0.09);
+      --white: rgba(255,255,255,0.04);
       --radius: 10px;
     }
 
@@ -38,7 +39,7 @@
 
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #f4f7f6;
+      background: #060f0b;
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -50,14 +51,14 @@
       width: 7.5in;          /* letter = 8.5in − 0.5in × 2 margins */
       min-height: 10in;      /* letter = 11in − 0.5in × 2 margins */
       max-height: 10in;
-      background: var(--white);
+      background: #060f0b;
       margin: 0.25in auto;
       padding: 0.36in 0.42in 0.28in;
       display: flex;
       flex-direction: column;
       gap: 0.18in;
       overflow: hidden;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+      box-shadow: 0 4px 60px rgba(0,0,0,0.6);
     }
 
     /* ── Header ── */
@@ -65,7 +66,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 2.5px solid var(--teal);
+      border-bottom: 1px solid rgba(29,209,161,0.3);
       padding-bottom: 0.14in;
     }
 
@@ -73,7 +74,7 @@
       font-size: 24px;
       font-weight: 800;
       letter-spacing: 0.06em;
-      color: var(--green-dark);
+      color: #ffffff;
       line-height: 1;
     }
 
@@ -102,7 +103,7 @@
     }
 
     .header-contact a {
-      color: var(--green-dark);
+      color: var(--teal);
       text-decoration: none;
       font-weight: 600;
     }
@@ -120,7 +121,7 @@
     .section-title {
       font-size: 12.5px;
       font-weight: 800;
-      color: var(--green-dark);
+      color: #ffffff;
       letter-spacing: 0.03em;
       margin-bottom: 7px;
       line-height: 1.3;
@@ -128,8 +129,8 @@
 
     /* ── Cards ── */
     .card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
       border-radius: var(--radius);
       padding: 13px 15px;
     }
@@ -160,7 +161,7 @@
       width: 17px;
       height: 17px;
       fill: none;
-      stroke: var(--green-dark);
+      stroke: var(--teal);
       stroke-width: 1.8;
       stroke-linecap: round;
       stroke-linejoin: round;
@@ -181,7 +182,7 @@
 
     .service-card ul li {
       font-size: 9px;
-      color: var(--ink-mid);
+      color: rgba(255,255,255,0.75);
       font-weight: 600;
       padding: 2px 0 2px 13px;
       position: relative;
@@ -208,10 +209,10 @@
 
     .stat-card {
       text-align: center;
-      background: var(--green-dark);
+      background: rgba(29,209,161,0.08);
+      border: 1px solid rgba(29,209,161,0.2);
       border-radius: var(--radius);
       padding: 12px 8px 10px;
-      border: none;
     }
 
     .stat-card .stat-number {
@@ -247,7 +248,7 @@
       left: 12.5%;
       right: 12.5%;
       height: 2px;
-      background: linear-gradient(to right, var(--teal), var(--teal-mid));
+      background: linear-gradient(to right, var(--teal), rgba(29,209,161,0.3));
       z-index: 0;
     }
 
@@ -277,7 +278,7 @@
     .step-name {
       font-size: 10.5px;
       font-weight: 700;
-      color: var(--green-dark);
+      color: #ffffff;
       letter-spacing: 0.03em;
       margin-bottom: 3px;
     }
@@ -316,7 +317,7 @@
       width: 20px;
       height: 20px;
       fill: none;
-      stroke: var(--green-dark);
+      stroke: var(--teal);
       stroke-width: 1.8;
       stroke-linecap: round;
       stroke-linejoin: round;
@@ -325,7 +326,7 @@
     .client-card .client-name {
       font-size: 9.5px;
       font-weight: 700;
-      color: var(--ink-mid);
+      color: rgba(255,255,255,0.82);
       letter-spacing: 0.02em;
       line-height: 1.4;
     }
@@ -352,7 +353,7 @@
       gap: 7px;
       font-size: 9px;
       font-weight: 600;
-      color: var(--ink-mid);
+      color: rgba(255,255,255,0.8);
       line-height: 1.45;
       padding: 3px 0;
     }
@@ -372,7 +373,7 @@
     .deliverable-item .check svg {
       width: 8px;
       height: 8px;
-      stroke: var(--green-dark);
+      stroke: #060f0b;
       stroke-width: 2.5;
       fill: none;
       stroke-linecap: round;
@@ -404,7 +405,7 @@
     .cta-card .cta-headline {
       font-size: 14.5px;
       font-weight: 800;
-      color: var(--white);
+      color: #ffffff;
       letter-spacing: 0.02em;
       line-height: 1.25;
       margin-bottom: 12px;
@@ -446,7 +447,7 @@
 
     /* ── Footer ── */
     .footer {
-      border-top: 1.5px solid var(--border);
+      border-top: 1px solid rgba(255,255,255,0.09);
       padding-top: 8px;
       display: flex;
       align-items: center;
@@ -463,7 +464,7 @@
     .footer .footer-right {
       font-size: 8px;
       font-weight: 600;
-      color: var(--green-dark);
+      color: var(--teal);
       letter-spacing: 0.06em;
     }
 
@@ -477,7 +478,7 @@
     /* ── Print overrides ── */
     @media print {
       body {
-        background: var(--white);
+        background: #060f0b;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
         color-adjust: exact;
@@ -489,18 +490,15 @@
         max-height: none;
         margin: 0;
         padding: 0;
+        background: #060f0b;
         box-shadow: none;
         gap: 0.17in;
       }
 
-      .stat-card {
+      * {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
-      }
-
-      .cta-card {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        color-adjust: exact;
       }
 
       a {
@@ -514,9 +512,12 @@
 
   <!-- ── HEADER ── -->
   <header class="header">
-    <div class="logo-block">
-      <div class="logo-text">Scale<span>National</span></div>
-      <div class="tagline">Real Creators. Real Ads. Real Growth.</div>
+    <div class="logo-block" style="display:flex;align-items:center;gap:12px;">
+      <img src="logo-transparent.png" alt="ScaleNational" style="height:38px;width:auto;filter:brightness(0) invert(1);">
+      <div>
+        <div class="logo-text">Scale<span>National</span></div>
+        <div class="tagline">Real Creators. Real Ads. Real Growth.</div>
+      </div>
     </div>
     <div class="header-contact">
       <p><a href="mailto:eric@scalenational.com">eric@scalenational.com</a></p>
@@ -536,12 +537,12 @@
           <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         </div>
         <div class="section-title">UGC Creative Production</div>
-        <p>We source real outdoor creators who already live and film in the field — authentic content your audience actually trusts.</p>
+        <p>We source real outdoor creators who already live in the field — authentic content your audience trusts. Production scales with what's winning.</p>
         <ul>
           <li>500+ vetted creators in our network</li>
-          <li>Video + photo deliverables</li>
-          <li>Full commercial usage rights</li>
-          <li>Brief-to-delivery managed for you</li>
+          <li>UGC video, static ads &amp; AI video</li>
+          <li>More of what converts, less of what doesn't</li>
+          <li>Full commercial rights — all content is yours</li>
         </ul>
       </div>
 
@@ -551,12 +552,12 @@
           <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
         <div class="section-title">Paid Ad Management</div>
-        <p>Full-funnel campaign management across every major platform — from first scroll to purchase, built and run by operators who've done it.</p>
+        <p>Full-funnel campaign management — we find what works fast, cut what doesn't, and double down on winners. Your budget works harder every month.</p>
         <ul>
           <li>Meta (Facebook &amp; Instagram)</li>
-          <li>TikTok Ads</li>
-          <li>Google &amp; YouTube</li>
-          <li>Build, launch, test &amp; optimize</li>
+          <li>TikTok Ads &amp; YouTube</li>
+          <li>Budget follows performance, not a schedule</li>
+          <li>Real-time reporting in your private dashboard</li>
         </ul>
       </div>
 
@@ -694,7 +695,20 @@
           <span>Direct Slack / text access</span>
         </div>
 
+        <div class="deliverable-item">
+          <span class="check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>
+          <span>Private client dashboard — live analytics</span>
+        </div>
+
+        <div class="deliverable-item">
+          <span class="check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>
+          <span>Full content library — yours to keep forever</span>
+        </div>
+
       </div>
+      <p style="font-size:7.5px;color:#1DD1A1;margin-top:9px;font-weight:600;letter-spacing:0.03em;line-height:1.5;">
+        All content rights are 100% yours. Even if you stop working with us, your dashboard stays active and every asset is downloadable forever.
+      </p>
     </section>
 
     <div class="cta-card">

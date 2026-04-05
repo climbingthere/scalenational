@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Onboarding — Account Setup Form | ScaleNational</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Variables ─────────────────────────────────────────── */
+    :root {
+      --teal:         #1DD1A1;
+      --teal-mid:     #0fa87e;
+      --teal-dim:     rgba(29,209,161,0.12);
+      --teal-border:  rgba(29,209,161,0.25);
+      --near-black:   #060f0b;
+      --card-bg:      rgba(255,255,255,0.04);
+      --card-border:  rgba(255,255,255,0.09);
+      --input-bg:     rgba(255,255,255,0.06);
+      --input-border: rgba(255,255,255,0.12);
+      --text-body:    rgba(255,255,255,0.85);
+      --text-muted:   rgba(255,255,255,0.5);
+      --text-dim:     rgba(255,255,255,0.6);
+      --radius:       8px;
+      --radius-sm:    5px;
+    }
+
+    /* ─── Page / Base ───────────────────────────────────────── */
+    @page {
+      size: A4;
+      margin: 18mm 18mm 20mm 18mm;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { font-size: 15px; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #060f0b;
+      color: var(--text-body);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .page-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 48px 60px;
+    }
+
+    /* ─── Header ────────────────────────────────────────────── */
+    .doc-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 28px;
+      border-bottom: 2px solid rgba(29,209,161,0.3);
+      margin-bottom: 36px;
+    }
+
+    .doc-header-logo {
+      flex-shrink: 0;
+    }
+
+    .doc-header-logo img {
+      height: 44px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
+
+    .doc-header-text {
+      text-align: right;
+    }
+
+    .doc-header-text h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 6px;
+      letter-spacing: -0.3px;
+      line-height: 1.25;
+    }
+
+    .doc-header-text .subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 0;
+      max-width: 380px;
+      line-height: 1.5;
+    }
+
+    .doc-header-text .subtitle a {
+      color: var(--teal);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* ─── Section ───────────────────────────────────────────── */
+    .form-section {
+      margin-bottom: 44px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: var(--teal);
+      color: var(--near-black);
+      font-size: 0.72rem;
+      font-weight: 800;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.2px;
+      margin: 0;
+      flex: 1;
+    }
+
+    .section-divider {
+      height: 2px;
+      background: rgba(29,209,161,0.3);
+      flex: 1;
+      border-radius: 2px;
+    }
+
+    /* ─── Form Grid ─────────────────────────────────────────── */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 20px;
+    }
+
+    .form-grid .full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    label .req {
+      color: var(--teal);
+      margin-left: 1px;
+    }
+
+    label .hint {
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      margin-left: 6px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="number"],
+    select,
+    textarea {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.875rem;
+      color: #ffffff;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: var(--radius-sm);
+      padding: 9px 12px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231DD1A1' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      padding-right: 28px;
+      cursor: pointer;
+    }
+
+    select option {
+      background: #0d1f18;
+      color: #ffffff;
+    }
+
+    select optgroup {
+      background: #0d1f18;
+      color: var(--teal);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(29,209,161,0.15);
+      background: rgba(255,255,255,0.08);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    /* ─── Radio / Checkbox Pills ────────────────────────────── */
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .pill-group input[type="radio"],
+    .pill-group input[type="checkbox"] {
+      display: none;
+    }
+
+    .pill-group label {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0;
+      text-transform: none;
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+
+    .pill-group label:hover {
+      border-color: var(--teal-border);
+      color: var(--teal);
+      background: var(--teal-dim);
+    }
+
+    .pill-group input:checked + label {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: var(--near-black);
+      font-weight: 700;
+    }
+
+    /* ─── Instruction Boxes ─────────────────────────────────── */
+    .instruction-box {
+      background: var(--teal-dim);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .instruction-box p {
+      margin: 0 0 8px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .instruction-box ol {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .instruction-box ol li {
+      margin-bottom: 3px;
+    }
+
+    .instruction-box code {
+      font-family: 'Menlo', 'Monaco', monospace;
+      background: rgba(29,209,161,0.15);
+      color: var(--teal);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 0.78rem;
+    }
+
+    /* ─── Conditional sub-field ─────────────────────────────── */
+    .conditional-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 5px 0 0 2px;
+    }
+
+    /* ─── Competitor fields ─────────────────────────────────── */
+    .competitor-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    /* ─── What Happens Next ─────────────────────────────────── */
+    .next-steps {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-body);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-top: 48px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+
+    .next-steps h3 {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--teal);
+      margin: 0 0 16px;
+    }
+
+    .next-steps ol {
+      margin: 0 0 20px;
+      padding-left: 20px;
+      font-size: 0.875rem;
+      line-height: 1.8;
+      color: var(--text-dim);
+    }
+
+    .next-steps ol li { margin-bottom: 2px; }
+
+    .next-steps .footer-line {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 16px;
+      margin-top: 4px;
+    }
+
+    .next-steps .footer-line a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    /* ─── Action Buttons ────────────────────────────────────── */
+    .action-bar {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 11px 22px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.1px;
+      transition: all 0.15s;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: var(--near-black);
+      border: none;
+    }
+
+    .btn-primary:hover { background: var(--teal-mid); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--teal);
+      border: 1px solid var(--teal-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--teal-dim);
+      border-color: var(--teal);
+    }
+
+    /* ─── Toast ─────────────────────────────────────────────── */
+    #copy-toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--teal-border);
+      color: var(--teal);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 6px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.2s, transform 0.2s;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    #copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Print Styles ──────────────────────────────────────── */
+    @media print {
+      .action-bar,
+      #copy-toast { display: none !important; }
+
+      body {
+        font-size: 12px;
+        background: #060f0b !important;
+        color: rgba(255,255,255,0.85) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      html { font-size: 13px; }
+
+      .page-wrap {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .next-steps {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: rgba(255,255,255,0.04) !important;
+        border: 1px solid rgba(255,255,255,0.09) !important;
+      }
+
+      .section-number {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="url"],
+      input[type="number"],
+      select,
+      textarea {
+        background: rgba(255,255,255,0.06) !important;
+        border: 1px solid rgba(255,255,255,0.15) !important;
+        border-radius: var(--radius-sm) !important;
+        padding: 6px 10px !important;
+        box-shadow: none !important;
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .pill-group label {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        border-color: rgba(255,255,255,0.12) !important;
+      }
+
+      .pill-group input:checked + label {
+        background: var(--teal) !important;
+        color: #060f0b !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .instruction-box {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: rgba(29,209,161,0.12) !important;
+      }
+
+      .section-divider {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .form-section { page-break-inside: avoid; }
+
+      .doc-header { page-break-after: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrap">
+
+    <!-- ── Header ──────────────────────────────────────────── -->
+    <header class="doc-header">
+      <div class="doc-header-logo">
+        <img src="../logo-transparent.png" alt="ScaleNational" />
+      </div>
+      <div class="doc-header-text">
+        <h1>Client Onboarding — Account Setup Form</h1>
+        <p class="subtitle">Complete this form and return it to <a href="mailto:eric@scalenational.com">eric@scalenational.com</a> — we'll have your dashboard live within 48 hours.</p>
+      </div>
+    </header>
+
+    <form id="intake-form" novalidate>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- 1. Business Information                           -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <section class="form-section">
+        <div class="section-header">
+          <span class="section-number">1</span>
+          <h2 class="section-title">Business Information</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="brand-name">Brand / Company Name <span class="req">*</span></label>
+            <input type="text" id="brand-name" name="brand_name" placeholder="e.g. Acme Co." required />
+          </div>
+
+          <div class="form-field">
+            <label for="website-url">Website URL <span class="req">*</span></label>
+            <input type="url" id="website-url" name="website_url" placeholder="https://yoursite.com" required />
+          </div>
+
+          <div class="form-field">
+            <label for="industry">Industry / Niche <span class="req">*</span></label>
+            <input type="text" id="industry" name="industry" placeholder="e.g. Skincare, Home Goods, SaaS" required />
+          </div>
+
+          <div class="form-field">
+            <label for="contact-name">Primary Contact Name <span class="req">*</span></label>
+            <input type="text" id="contact-name" name="contact_name" required />
+          </div>
+
+          <div class="form-field">
+            <label for="contact-email">Primary Contact Email <span class="req">*</span></label>
+            <input type="email" id="contact-email" name="contact_email" required />
+          </div>
+
+          <div class="form-field">
+            <label for="contact-phone">Primary Contact Phone</label>
+            <input type="tel" id="contact-phone" name="contact_phone" placeholder="+1 (555) 000-0000" />
+          </div>
+
+          <div class="form-field full">
+            <label for="business-address">Business Address <span class="hint">(optional)</span></label>
+            <input type="text" id="business-address" name="business_address" placeholder="Street, City, State, Zip" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- 2. Meta Ads Access                                -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <section class="form-section">
+        <div class="section-header">
+          <span class="section-number">2</span>
+          <h2 class="section-title">Meta Ads Access</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="instruction-box">
+          <p>We need access to your Meta Business Manager to manage your campaigns. Follow the steps below:</p>
+          <ol>
+            <li>Go to <code>business.facebook.com</code> → Settings → People → Add People</li>
+            <li>Enter: <code>eric@scalenational.com</code></li>
+            <li>Set role to: <code>Admin</code></li>
+            <li>Under "Ad Accounts", add access to your ad account</li>
+          </ol>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="meta-bm-id">Meta Business Manager ID <span class="req">*</span></label>
+            <input type="text" id="meta-bm-id" name="meta_bm_id" placeholder="123456789012345" required />
+          </div>
+
+          <div class="form-field">
+            <label for="meta-ad-account-id">Meta Ad Account ID <span class="req">*</span><span class="hint">Starts with 'act_'</span></label>
+            <input type="text" id="meta-ad-account-id" name="meta_ad_account_id" placeholder="act_123456789012345" required />
+          </div>
+
+          <div class="form-field full">
+            <label for="fb-page-url">Facebook Page URL <span class="req">*</span></label>
+            <input type="url" id="fb-page-url" name="fb_page_url" placeholder="https://facebook.com/yourpage" required />
+          </div>
+
+          <div class="form-field">
+            <label for="ig-handle">Instagram Handle</label>
+            <input type="text" id="ig-handle" name="ig_handle" placeholder="@yourbrand" />
+          </div>
+
+          <div class="form-field">
+            <label for="meta-pixel-id">Meta Pixel ID <span class="hint">(if installed)</span></label>
+            <input type="text" id="meta-pixel-id" name="meta_pixel_id" placeholder="123456789012345" />
+          </div>
+
+          <div class="form-field full">
+            <label>Has Meta Pixel installed? <span class="req">*</span></label>
+            <div class="pill-group">
+              <input type="radio" id="pixel-yes" name="pixel_installed" value="Yes" />
+              <label for="pixel-yes">Yes</label>
+
+              <input type="radio" id="pixel-no" name="pixel_installed" value="No" />
+              <label for="pixel-no">No</label>
+
+              <input type="radio" id="pixel-unsure" name="pixel_installed" value="Not sure" />
+              <label for="pixel-unsure">Not sure</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- 3. TikTok Ads Access                              -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <section class="form-section">
+        <div class="section-header">
+          <span class="section-number">3</span>
+          <h2 class="section-title">TikTok Ads Access <span style="font-weight:400; font-size:0.8rem; color:rgba(255,255,255,0.4); text-transform: none; letter-spacing: 0;">(if applicable)</span></h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field full">
+            <label>Do you run TikTok Ads? <span class="req">*</span></label>
+            <div class="pill-group">
+              <input type="radio" id="tiktok-yes" name="tiktok_ads" value="Yes" />
+              <label for="tiktok-yes">Yes</label>
+
+              <input type="radio" id="tiktok-no" name="tiktok_ads" value="No" />
+              <label for="tiktok-no">No</label>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="tiktok-account-id">TikTok Ads Account ID</label>
+            <input type="text" id="tiktok-account-id" name="tiktok_account_id" placeholder="7123456789012345678" />
+          </div>
+
+          <div class="form-field">
+            <label for="tiktok-bc-id">TikTok Business Center ID</label>
+            <input type="text" id="tiktok-bc-id" name="tiktok_bc_id" placeholder="7123456789012345678" />
+          </div>
+        </div>
+
+        <div class="instruction-box" style="margin-top: 14px;">
+          <p>To grant access:</p>
+          <ol>
+            <li>Go to TikTok Ads Manager → Settings → User Management</li>
+            <li>Invite user: <code>eric@scalenational.com</code> as <code>Admin</code></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- 4. Campaign Goals & Budget                        -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <section class="form-section">
+        <div class="section-header">
+          <span class="section-number">4</span>
+          <h2 class="section-title">Campaign Goals &amp; Budget</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="monthly-budget">Monthly Ad Spend Budget <span class="req">*</span></label>
+            <select id="monthly-budget" name="monthly_budget" required>
+              <option value="" disabled selected>Select range…</option>
+              <option value="Under $5k">Under $5k</option>
+              <option value="$5k–$15k">$5k–$15k</option>
+              <option value="$15k–$30k">$15k–$30k</option>
+              <option value="$30k–$60k">$30k–$60k</option>
+              <option value="$60k+">$60k+</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="primary-goal">Primary Goal <span class="req">*</span></label>
+            <select id="primary-goal" name="primary_goal" required>
+              <option value="" disabled selected>Select goal…</option>
+              <option value="Revenue">Revenue</option>
+              <option value="Lead Gen">Lead Gen</option>
+              <option value="App Installs">App Installs</option>
+              <option value="Brand Awareness">Brand Awareness</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="target-roas">Target ROAS <span class="hint">(if known)</span></label>
+            <input type="text" id="target-roas" name="target_roas" placeholder="e.g. 4x" />
+          </div>
+
+          <div class="form-field">
+            <label for="target-cpa">Target CPA / Cost per Conversion <span class="hint">(if known)</span></label>
+            <input type="text" id="target-cpa" name="target_cpa" placeholder="e.g. $35" />
+          </div>
+
+          <div class="form-field">
+            <label for="monthly-revenue">Current Monthly Revenue Range <span class="req">*</span></label>
+            <select id="monthly-revenue" name="monthly_revenue" required>
+              <option value="" disabled selected>Select range…</option>
+              <option value="Under $20k">Under $20k</option>
+              <option value="$20k–$80k">$20k–$80k</option>
+              <option value="$80k–$200k">$80k–$200k</option>
+              <option value="$200k+">$200k+</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="store-url">Store URL <span class="req">*</span></label>
+            <input type="url" id="store-url" name="store_url" placeholder="https://yourstore.com" required />
+          </div>
+
+          <div class="form-field full">
+            <label>Primary Sales Channel <span class="req">*</span></label>
+            <div class="pill-group">
+              <input type="radio" id="channel-shopify" name="sales_channel" value="Shopify" />
+              <label for="channel-shopify">Shopify</label>
+
+              <input type="radio" id="channel-woo" name="sales_channel" value="WooCommerce" />
+              <label for="channel-woo">WooCommerce</label>
+
+              <input type="radio" id="channel-amazon" name="sales_channel" value="Amazon" />
+              <label for="channel-amazon">Amazon</label>
+
+              <input type="radio" id="channel-other" name="sales_channel" value="Other" />
+              <label for="channel-other">Other</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- 5. Creative & Brand                               -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <section class="form-section">
+        <div class="section-header">
+          <span class="section-number">5</span>
+          <h2 class="section-title">Creative &amp; Brand</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="brand-voice">Brand Voice / Tone <span class="req">*</span></label>
+            <select id="brand-voice" name="brand_voice" required>
+              <option value="" disabled selected>Select tone…</option>
+              <option value="Professional">Professional</option>
+              <option value="Casual &amp; Friendly">Casual &amp; Friendly</option>
+              <option value="Adventurous">Adventurous</option>
+              <option value="Luxury">Luxury</option>
+              <option value="Humorous">Humorous</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="best-performing-ad">Best-Performing Ad <span class="hint">(URL or description)</span></label>
+            <input type="text" id="best-performing-ad" name="best_performing_ad" placeholder="Paste URL or briefly describe" />
+          </div>
+
+          <div class="form-field full">
+            <label>Top 3 Competitor Brands</label>
+            <div class="competitor-row">
+              <input type="text" id="competitor-1" name="competitor_1" placeholder="Competitor 1" />
+              <input type="text" id="competitor-2" name="competitor_2" placeholder="Competitor 2" />
+              <input type="text" id="competitor-3" name="competitor_3" placeholder="Competitor 3" />
+            </div>
+          </div>
+
+          <div class="form-field full">
+            <label for="differentiator">What makes your product different? <span class="req">*</span></label>
+            <textarea id="differentiator" name="differentiator" placeholder="Describe your unique value proposition, key differentiators, and why customers choose you…" required></textarea>
+          </div>
+
+          <div class="form-field full">
+            <label for="do-not-show">Do NOT show in ads</label>
+            <textarea id="do-not-show" name="do_not_show" placeholder="e.g. competitor mentions, specific pricing, certain imagery, claims to avoid…"></textarea>
+          </div>
+
+          <div class="form-field full">
+            <label>Any existing UGC or creative assets to share? <span class="req">*</span></label>
+            <div class="pill-group">
+              <input type="radio" id="ugc-yes" name="has_ugc" value="Yes" />
+              <label for="ugc-yes">Yes</label>
+
+              <input type="radio" id="ugc-no" name="has_ugc" value="No" />
+              <label for="ugc-no">No</label>
+            </div>
+            <p class="conditional-note">If yes — we'll send a secure file upload link separately.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- 6. Package & Billing                              -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <section class="form-section">
+        <div class="section-header">
+          <span class="section-number">6</span>
+          <h2 class="section-title">Package &amp; Billing</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field full">
+            <label>Selected Package <span class="req">*</span></label>
+            <div class="pill-group">
+              <input type="radio" id="pkg-starter" name="package" value="Starter $3,500/mo" />
+              <label for="pkg-starter">Starter — $3,500/mo</label>
+
+              <input type="radio" id="pkg-growth" name="package" value="Growth $6,500/mo" />
+              <label for="pkg-growth">Growth — $6,500/mo</label>
+
+              <input type="radio" id="pkg-scale" name="package" value="Scale $10,500/mo" />
+              <label for="pkg-scale">Scale — $10,500/mo</label>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="billing-email">Billing Contact Email <span class="hint">(if different)</span></label>
+            <input type="email" id="billing-email" name="billing_email" placeholder="billing@yourcompany.com" />
+          </div>
+
+          <div class="form-field">
+            <label for="referral-source">How did you hear about us? <span class="req">*</span></label>
+            <select id="referral-source" name="referral_source" required>
+              <option value="" disabled selected>Select source…</option>
+              <option value="Instagram">Instagram</option>
+              <option value="TikTok">TikTok</option>
+              <option value="Referral">Referral</option>
+              <option value="Cold outreach">Cold outreach</option>
+              <option value="Google">Google</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-field full">
+            <label>Preferred Invoice Date <span class="req">*</span></label>
+            <div class="pill-group">
+              <input type="radio" id="invoice-1st" name="invoice_date" value="1st of month" />
+              <label for="invoice-1st">1st of month</label>
+
+              <input type="radio" id="invoice-15th" name="invoice_date" value="15th of month" />
+              <label for="invoice-15th">15th of month</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- 7. Onboarding Call                                -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <section class="form-section">
+        <div class="section-header">
+          <span class="section-number">7</span>
+          <h2 class="section-title">Onboarding Call</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field full">
+            <label>Preferred Day for Kickoff Call <span class="req">*</span></label>
+            <div class="pill-group">
+              <input type="checkbox" id="day-mon" name="kickoff_days" value="Monday" />
+              <label for="day-mon">Mon</label>
+
+              <input type="checkbox" id="day-tue" name="kickoff_days" value="Tuesday" />
+              <label for="day-tue">Tue</label>
+
+              <input type="checkbox" id="day-wed" name="kickoff_days" value="Wednesday" />
+              <label for="day-wed">Wed</label>
+
+              <input type="checkbox" id="day-thu" name="kickoff_days" value="Thursday" />
+              <label for="day-thu">Thu</label>
+
+              <input type="checkbox" id="day-fri" name="kickoff_days" value="Friday" />
+              <label for="day-fri">Fri</label>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="timezone">Preferred Time Zone <span class="req">*</span></label>
+            <select id="timezone" name="timezone" required>
+              <option value="" disabled selected>Select time zone…</option>
+              <optgroup label="United States">
+                <option value="ET (UTC-5)">Eastern (ET)</option>
+                <option value="CT (UTC-6)">Central (CT)</option>
+                <option value="MT (UTC-7)">Mountain (MT)</option>
+                <option value="PT (UTC-8)">Pacific (PT)</option>
+                <option value="AKT (UTC-9)">Alaska (AKT)</option>
+                <option value="HT (UTC-10)">Hawaii (HT)</option>
+              </optgroup>
+              <optgroup label="Other">
+                <option value="GMT (UTC+0)">GMT / UTC</option>
+                <option value="CET (UTC+1)">Central Europe (CET)</option>
+                <option value="IST (UTC+5:30)">India (IST)</option>
+                <option value="AEST (UTC+10)">Australia Eastern (AEST)</option>
+                <option value="Other">Other</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="form-field full">
+            <label for="anything-else">Anything else we should know?</label>
+            <textarea id="anything-else" name="anything_else" placeholder="Special requirements, context, questions for us…" style="min-height: 100px;"></textarea>
+          </div>
+        </div>
+      </section>
+
+    </form>
+
+    <!-- ── What Happens Next ──────────────────────────────── -->
+    <div class="next-steps">
+      <h3>What happens next</h3>
+      <ol>
+        <li>Return this form to <strong>eric@scalenational.com</strong></li>
+        <li>We'll invite ourselves to your ad accounts within 24 hours</li>
+        <li>Your private dashboard will be live within 48 hours</li>
+        <li>Kickoff call scheduled within your first week</li>
+      </ol>
+      <p class="footer-line">ScaleNational &nbsp;·&nbsp; <a href="mailto:eric@scalenational.com">eric@scalenational.com</a> &nbsp;·&nbsp; <a href="https://scalenational.com">scalenational.com</a></p>
+    </div>
+
+    <!-- ── Action Bar ─────────────────────────────────────── -->
+    <div class="action-bar">
+      <button class="btn btn-secondary" onclick="copyAnswers()">Copy all answers as text</button>
+      <button class="btn btn-primary" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+  </div><!-- /page-wrap -->
+
+  <!-- ── Toast ─────────────────────────────────────────────── -->
+  <div id="copy-toast">Copied to clipboard!</div>
+
+  <script>
+    function copyAnswers() {
+      const form = document.getElementById('intake-form');
+      const lines = [];
+
+      lines.push('=== ScaleNational — Client Onboarding Form ===');
+      lines.push('');
+
+      const sectionTitles = [
+        'Business Information',
+        'Meta Ads Access',
+        'TikTok Ads Access',
+        'Campaign Goals & Budget',
+        'Creative & Brand',
+        'Package & Billing',
+        'Onboarding Call'
+      ];
+
+      const sections = form.querySelectorAll('.form-section');
+
+      sections.forEach(function(section, idx) {
+        lines.push('── ' + (sectionTitles[idx] || 'Section ' + (idx + 1)) + ' ──');
+
+        // Text / email / tel / url / number inputs
+        section.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="number"]').forEach(function(input) {
+          const label = getLabelFor(input);
+          if (label && input.value.trim()) {
+            lines.push(label + ': ' + input.value.trim());
+          } else if (label) {
+            lines.push(label + ': —');
+          }
+        });
+
+        // Selects
+        section.querySelectorAll('select').forEach(function(sel) {
+          const label = getLabelFor(sel);
+          lines.push((label || sel.name) + ': ' + (sel.value || '—'));
+        });
+
+        // Radio groups
+        const radioGroups = {};
+        section.querySelectorAll('input[type="radio"]').forEach(function(radio) {
+          if (!radioGroups[radio.name]) radioGroups[radio.name] = null;
+          if (radio.checked) radioGroups[radio.name] = radio.value;
+        });
+        Object.keys(radioGroups).forEach(function(name) {
+          const labelEl = section.querySelector('label[for]');
+          // Find the group label from the containing form-field
+          const radio = section.querySelector('input[name="' + name + '"]');
+          if (radio) {
+            const fieldDiv = radio.closest('.form-field');
+            if (fieldDiv) {
+              const groupLabel = fieldDiv.querySelector('label:not([for])');
+              const displayLabel = groupLabel ? groupLabel.textContent.replace(/[*]/g, '').trim() : name;
+              lines.push(displayLabel + ': ' + (radioGroups[name] || '—'));
+            }
+          }
+        });
+
+        // Checkbox groups
+        const checkGroups = {};
+        section.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+          if (!checkGroups[cb.name]) checkGroups[cb.name] = [];
+          if (cb.checked) checkGroups[cb.name].push(cb.value);
+        });
+        Object.keys(checkGroups).forEach(function(name) {
+          const cb = section.querySelector('input[name="' + name + '"]');
+          if (cb) {
+            const fieldDiv = cb.closest('.form-field');
+            if (fieldDiv) {
+              const groupLabel = fieldDiv.querySelector('label:not([for])');
+              const displayLabel = groupLabel ? groupLabel.textContent.replace(/[*]/g, '').trim() : name;
+              lines.push(displayLabel + ': ' + (checkGroups[name].length ? checkGroups[name].join(', ') : '—'));
+            }
+          }
+        });
+
+        // Textareas
+        section.querySelectorAll('textarea').forEach(function(ta) {
+          const label = getLabelFor(ta);
+          lines.push((label || ta.name) + ': ' + (ta.value.trim() || '—'));
+        });
+
+        lines.push('');
+      });
+
+      const text = lines.join('\n');
+
+      navigator.clipboard.writeText(text).then(function() {
+        showToast('Copied to clipboard!');
+      }).catch(function() {
+        // Fallback
+        const el = document.createElement('textarea');
+        el.value = text;
+        el.style.position = 'fixed';
+        el.style.opacity = '0';
+        document.body.appendChild(el);
+        el.focus();
+        el.select();
+        try { document.execCommand('copy'); showToast('Copied to clipboard!'); }
+        catch(e) { showToast('Copy failed — please copy manually.'); }
+        document.body.removeChild(el);
+      });
+    }
+
+    function getLabelFor(input) {
+      if (input.id) {
+        const lbl = document.querySelector('label[for="' + input.id + '"]');
+        if (lbl) return lbl.textContent.replace(/[*]/g, '').trim();
+      }
+      return input.name || null;
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('copy-toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(function() { toast.classList.remove('show'); }, 2400);
+    }
+  </script>
+</body>
+</html>

@@ -1,568 +1,789 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScaleNational — DM Scripts</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-            background: #0f1419;
-            color: #e8e8e8;
-            line-height: 1.6;
-            padding: 20px 16px 60px;
-            max-width: 680px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            padding: 28px 0 24px;
-            border-bottom: 1px solid rgba(29,209,161,0.2);
-            margin-bottom: 28px;
-        }
-
-        header h1 {
-            font-size: 22px;
-            font-weight: 800;
-            color: #1DD1A1;
-            letter-spacing: 0.04em;
-        }
-
-        header p {
-            font-size: 13px;
-            color: #888;
-            margin-top: 6px;
-            font-weight: 500;
-        }
-
-        /* Sequence tabs */
-        .tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 24px;
-            overflow-x: auto;
-            padding-bottom: 4px;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .tab {
-            flex-shrink: 0;
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            border: 1.5px solid rgba(29,209,161,0.25);
-            color: #888;
-            background: transparent;
-            transition: all 0.2s;
-        }
-
-        .tab.active {
-            background: #1DD1A1;
-            color: #0f1419;
-            border-color: #1DD1A1;
-        }
-
-        /* Sequence blocks */
-        .sequence { display: none; }
-        .sequence.active { display: block; }
-
-        .sequence-label {
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #1DD1A1;
-            margin-bottom: 6px;
-        }
-
-        .sequence-title {
-            font-size: 20px;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-
-        .sequence-desc {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 24px;
-            font-style: italic;
-        }
-
-        /* DM Cards */
-        .dm-card {
-            background: #1a2030;
-            border: 1.5px solid rgba(29,209,161,0.15);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 14px;
-            position: relative;
-        }
-
-        .dm-card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 14px;
-        }
-
-        .dm-number {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .dm-badge {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1DD1A1, #0d9c6b);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-weight: 800;
-            color: #0f1419;
-            flex-shrink: 0;
-        }
-
-        .dm-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .dm-timing {
-            font-size: 11px;
-            color: #555;
-            font-weight: 600;
-            text-align: right;
-        }
-
-        .dm-message {
-            background: #0f1419;
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 12px;
-            padding: 16px;
-            font-size: 14px;
-            color: #ccc;
-            line-height: 1.75;
-            position: relative;
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-
-        .dm-message:hover {
-            border-color: rgba(29,209,161,0.3);
-        }
-
-        .dm-message .placeholder {
-            color: #1DD1A1;
-            font-weight: 700;
-        }
-
-        .copy-btn {
-            display: block;
-            width: 100%;
-            margin-top: 10px;
-            padding: 10px;
-            background: rgba(29,209,161,0.08);
-            border: 1px solid rgba(29,209,161,0.2);
-            border-radius: 10px;
-            color: #1DD1A1;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: inherit;
-        }
-
-        .copy-btn:hover {
-            background: rgba(29,209,161,0.15);
-        }
-
-        .copy-btn.copied {
-            background: rgba(29,209,161,0.2);
-            color: #6ff7d5;
-        }
-
-        /* Example box */
-        .example-box {
-            margin-top: 10px;
-            padding: 12px 14px;
-            background: rgba(29,209,161,0.05);
-            border-left: 3px solid #1DD1A1;
-            border-radius: 0 8px 8px 0;
-            font-size: 12px;
-            color: #888;
-            line-height: 1.7;
-        }
-
-        .example-box strong {
-            color: #1DD1A1;
-            font-size: 10px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        /* Checklist section */
-        .checklist {
-            background: #1a2030;
-            border: 1.5px solid rgba(29,209,161,0.15);
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 28px;
-        }
-
-        .checklist h3 {
-            font-size: 14px;
-            font-weight: 800;
-            color: #1DD1A1;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 16px;
-        }
-
-        .checklist-item {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-            margin-bottom: 12px;
-            font-size: 13px;
-            color: #aaa;
-            line-height: 1.6;
-        }
-
-        .checklist-item:last-child { margin-bottom: 0; }
-
-        .check-circle {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 1.5px solid rgba(29,209,161,0.4);
-            flex-shrink: 0;
-            margin-top: 1px;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .check-circle.checked {
-            background: #1DD1A1;
-            border-color: #1DD1A1;
-        }
-
-        .check-circle.checked::after {
-            content: '✓';
-            font-size: 11px;
-            color: #0f1419;
-            font-weight: 800;
-        }
-
-        .checklist-item strong {
-            color: #fff;
-            font-weight: 700;
-        }
-
-        /* Calendly link reminder */
-        .cta-reminder {
-            background: linear-gradient(135deg, rgba(29,209,161,0.1), rgba(13,74,63,0.2));
-            border: 1px solid rgba(29,209,161,0.25);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 13px;
-            color: #888;
-        }
-
-        .cta-reminder a {
-            color: #1DD1A1;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .toast {
-            position: fixed;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%) translateY(80px);
-            background: #1DD1A1;
-            color: #0f1419;
-            font-size: 13px;
-            font-weight: 800;
-            padding: 10px 24px;
-            border-radius: 50px;
-            transition: transform 0.3s ease;
-            z-index: 999;
-            pointer-events: none;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScaleNational — DM Scripts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--dark:#060f0b;--teal:#1DD1A1;--teal-d:rgba(29,209,161,0.12);--teal-b:rgba(29,209,161,0.25);--muted:rgba(255,255,255,0.48);--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08)}
+    html,body{background:var(--dark);color:white;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
+    .header{position:sticky;top:0;z-index:50;background:rgba(6,15,11,0.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+    .header img{height:28px;filter:brightness(0) invert(1)}
+    .header-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+    .tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--border);padding:0 16px;background:rgba(6,15,11,.7);position:sticky;top:57px;z-index:40}
+    .tabs::-webkit-scrollbar{display:none}
+    .tab{flex-shrink:0;padding:14px 18px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap}
+    .tab.active{color:var(--teal);border-bottom-color:var(--teal)}
+    .content{max-width:680px;margin:0 auto;padding:24px 16px 80px}
+    .panel{display:none}.panel.active{display:block}
+    .section{margin-bottom:32px}
+    .section-title{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:4px}
+    .section-sub{font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.6}
+    .msg-card{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden}
+    .msg-label{display:flex;align-items:center;justify-content:space-between;padding:10px 14px 0}
+    .msg-step{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+    .copy-btn{display:flex;align-items:center;gap:5px;background:var(--teal-d);border:1px solid var(--teal-b);color:var(--teal);font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;font-family:inherit;transition:background .15s}
+    .copy-btn:active,.copy-btn.copied{background:rgba(29,209,161,.25)}
+    .copy-btn svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .msg-text{font-size:15px;line-height:1.7;color:rgba(255,255,255,.88);padding:10px 14px 14px;cursor:pointer;user-select:none}
+    .msg-why{border-top:1px solid var(--border);padding:10px 14px;font-size:12px;color:var(--muted);line-height:1.6}
+    .msg-why strong{color:rgba(255,255,255,.65);font-weight:600}
+    .connector{display:flex;align-items:center;gap:10px;margin:-4px 0 8px 14px}
+    .connector-line{width:2px;height:22px;background:linear-gradient(to bottom,var(--teal-b),transparent);margin-left:8px}
+    .connector-label{font-size:11px;color:var(--muted);font-weight:600}
+    .principle{display:flex;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:10px}
+    .principle-num{width:32px;height:32px;min-width:32px;background:var(--teal-d);border:1px solid var(--teal-b);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--teal)}
+    .principle h4{font-size:14px;font-weight:700;margin-bottom:4px}
+    .principle p{font-size:13px;color:var(--muted);line-height:1.55}
+    .checklist{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .checklist li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.75);line-height:1.5}
+    .check{width:22px;height:22px;min-width:22px;background:var(--teal-d);border:1px solid var(--teal-b);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:background .15s}
+    .check.done{background:rgba(29,209,161,.3);border-color:var(--teal)}
+    .check svg{width:12px;height:12px;stroke:var(--teal);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity .15s}
+    .check.done svg{opacity:1}
+    .stat-row{display:flex;gap:10px;margin-bottom:20px}
+    .stat-pill{flex:1;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center}
+    .stat-pill .n{font-size:20px;font-weight:900;color:var(--teal)}
+    .stat-pill .l{font-size:11px;color:var(--muted);margin-top:2px}
+    .divider{height:1px;background:var(--border);margin:28px 0}
+    .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--teal);color:#060f0b;font-size:13px;font-weight:700;letter-spacing:.04em;padding:10px 22px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s;white-space:nowrap;z-index:200}
+    .toast.show{opacity:1}
+    .note-card{background:var(--teal-d);border:1px solid var(--teal-b);border-radius:14px;padding:14px 16px;margin-bottom:16px;font-size:13px;color:rgba(255,255,255,.75);line-height:1.6}
+    .flow-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;margin-top:4px}
+    .flow-block{margin-bottom:24px}
+    .section-divider{height:1px;background:var(--border);margin:28px 0}
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>ScaleNational DM Scripts</h1>
-    <p>Eric Kirtchakov · @kirtoutdoors · scalenational.com</p>
+<!-- HEADER -->
+<header class="header">
+  <img src="logo-transparent.png" alt="ScaleNational">
+  <span class="header-label">DM Scripts</span>
 </header>
 
-<!-- Tabs -->
-<div class="tabs">
-    <button class="tab active" onclick="switchTab(0)">E-Commerce</button>
-    <button class="tab" onclick="switchTab(1)">Adventure Tourism</button>
-    <button class="tab" onclick="switchTab(2)">Outdoor Apps</button>
-    <button class="tab" onclick="switchTab(3)">Cold Text</button>
-</div>
+<!-- TABS -->
+<nav class="tabs">
+  <div class="tab active" data-tab="openers">Openers</div>
+  <div class="tab" data-tab="sequence">The Sequence</div>
+  <div class="tab" data-tab="warm">Warm Leads</div>
+  <div class="tab" data-tab="replied">They Replied</div>
+  <div class="tab" data-tab="booked">After Booked</div>
+  <div class="tab" data-tab="coldtext">Cold Text</div>
+  <div class="tab" data-tab="presend">Pre-Send</div>
+</nav>
 
-<!-- Sequence A: E-Commerce -->
-<div class="sequence active" id="seq-0">
-    <p class="sequence-label">Sequence A</p>
-    <p class="sequence-title">Outdoor E-Commerce</p>
-    <p class="sequence-desc">YETI-type brands, gear, apparel, hard goods</p>
+<!-- CONTENT -->
+<main class="content">
 
-    <div class="dm-card">
-        <div class="dm-card-header">
-            <div class="dm-number">
-                <div class="dm-badge">1</div>
-                <span class="dm-title">The Opener</span>
-            </div>
-            <span class="dm-timing">Day 1<br>Send cold</span>
+  <!-- TAB 1: OPENERS -->
+  <div class="panel active" id="panel-openers">
+    <div class="section">
+      <div class="section-title">First Touch — Pick One</div>
+      <div class="section-sub">Send only one opener. Test all of them over time and track reply rates.</div>
+
+      <!-- Opener 1 -->
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Opener &middot; Curiosity Gap</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
         </div>
-        <div class="dm-message" id="a1">Hey — <span class="placeholder">[SPECIFIC OBSERVATION]</span>. Been following <span class="placeholder">[BRAND]</span> for a bit. You guys making any moves with UGC or paid ads right now?</div>
-        <div class="example-box"><strong>Example</strong>That new colorway drop got way more engagement than your usual product posts. Been following [BRAND] for a bit. You guys making any moves with UGC or paid ads right now?</div>
-        <button class="copy-btn" onclick="copyText('a1', this)">Copy Message</button>
-    </div>
+        <div class="msg-text" onclick="copyText(this)">"Hey [Name] — I have a list of outdoor brands we're actively looking to place UGC creators with for paid ads. Wanted to see if [Brand] would be a fit before I reach out to someone else in the space."</div>
+        <div class="msg-why"><strong>Why this works:</strong> Creates urgency + scarcity without being salesy. The "someone else" line implies competition and makes them feel like an opportunity — not a target.</div>
+      </div>
 
-    <div class="dm-card">
-        <div class="dm-card-header">
-            <div class="dm-number">
-                <div class="dm-badge">2</div>
-                <span class="dm-title">Follow-Up</span>
-            </div>
-            <span class="dm-timing">Day 3–4<br>No reply</span>
+      <!-- Opener 2 -->
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Opener &middot; Audit Play</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
         </div>
-        <div class="dm-message" id="a2">Didn't want to lose you in the noise — just a quick follow on my last message. I run a UGC marketplace + paid ads shop called ScaleNational. We focus exclusively on outdoor brands. My own account (@kirtoutdoors) does 25K+ followers across socials and I've seen firsthand what UGC from actual outdoor people does vs. polished studio shoots — the difference in CTR is wild. Worth a quick chat?</div>
-        <button class="copy-btn" onclick="copyText('a2', this)">Copy Message</button>
-    </div>
+        <div class="msg-text" onclick="copyText(this)">"Hey [Name] — took a look at [Brand]'s current Meta ads. I have a few ideas that could move your ROAS pretty quickly. Would it be weird if I broke them down for you?"</div>
+        <div class="msg-why"><strong>Why this works:</strong> Shows you did the work before asking for anything. "Would it be weird" is a pattern interrupt — it lowers resistance and gets a yes.</div>
+      </div>
 
-    <div class="dm-card">
-        <div class="dm-card-header">
-            <div class="dm-number">
-                <div class="dm-badge">3</div>
-                <span class="dm-title">The Closer</span>
-            </div>
-            <span class="dm-timing">Day 7–9<br>Last touch</span>
+      <!-- Opener 3 -->
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Opener &middot; Competitor Intel</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
         </div>
-        <div class="dm-message" id="a3">Last one from me — I'll keep it short. If you ever want a free 30-min call to break down what's working in outdoor e-comm ads right now (and what's not), I'm happy to do it. No pitch, just a real conversation. You can book here: <span class="placeholder">calendly.com/erickirt</span> — or just reply and we'll figure out a time.</div>
-        <button class="copy-btn" onclick="copyText('a3', this)">Copy Message</button>
-    </div>
-</div>
+        <div class="msg-text" onclick="copyText(this)">"Hey [Name] — noticed one of your main competitors is killing it with UGC right now on Meta. Wanted to reach out before the window closes — are you running paid ads at all right now?"</div>
+        <div class="msg-why"><strong>Why this works:</strong> Loss aversion. Nobody wants to watch a competitor win. Ends with a low-commitment yes/no question.</div>
+      </div>
 
-<!-- Sequence B: Adventure Tourism -->
-<div class="sequence" id="seq-1">
-    <p class="sequence-label">Sequence B</p>
-    <p class="sequence-title">Adventure Tourism</p>
-    <p class="sequence-desc">Guided hikes, hunting outfitters, fly fishing guides, river trips, pack-in camps</p>
-
-    <div class="dm-card">
-        <div class="dm-card-header">
-            <div class="dm-number">
-                <div class="dm-badge">1</div>
-                <span class="dm-title">The Opener</span>
-            </div>
-            <span class="dm-timing">Day 1<br>Send cold</span>
+      <!-- Opener 4 -->
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Opener &middot; Pattern Interrupt</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
         </div>
-        <div class="dm-message" id="b1">Hey — <span class="placeholder">[SPECIFIC OBSERVATION]</span>. <span class="placeholder">[BRAND]</span> looks like the real deal. Are you mostly getting bookings through word of mouth, or are you running any paid ads to fill trips?</div>
-        <div class="example-box"><strong>Example</strong>That elk camp footage from last October looked unreal. [BRAND] looks like the real deal. Are you mostly getting bookings through word of mouth, or are you running any paid ads to fill trips?</div>
-        <button class="copy-btn" onclick="copyText('b1', this)">Copy Message</button>
-    </div>
+        <div class="msg-text" onclick="copyText(this)">"This is either perfectly timed or completely irrelevant — is [Brand] actively scaling paid ads right now?"</div>
+        <div class="msg-why"><strong>Why this works:</strong> Disarms them immediately by acknowledging it might not be relevant. Honest framing builds trust fast.</div>
+      </div>
 
-    <div class="dm-card">
-        <div class="dm-card-header">
-            <div class="dm-number">
-                <div class="dm-badge">2</div>
-                <span class="dm-title">Follow-Up</span>
-            </div>
-            <span class="dm-timing">Day 3–4<br>No reply</span>
+      <!-- Opener 5 -->
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Opener &middot; Single Question</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
         </div>
-        <div class="dm-message" id="b2">Circling back — I work with guided trip operators through my agency ScaleNational. We source UGC from real hunters/anglers/hikers and run the paid campaigns behind it. Most outfitters I talk to are leaving revenue on the table because their content looks like a brochure instead of a real client experience. I came up through outdoor content (@kirtoutdoors, 25K+ across socials) so I know the difference. Open to a quick call?</div>
-        <button class="copy-btn" onclick="copyText('b2', this)">Copy Message</button>
-    </div>
+        <div class="msg-text" onclick="copyText(this)">"Do you have someone running paid ads for [Brand] right now?"</div>
+        <div class="msg-why"><strong>Why this works:</strong> The simplest opener that exists. One question, no pitch, no pressure. Works because it asks for information not commitment.</div>
+      </div>
 
-    <div class="dm-card">
-        <div class="dm-card-header">
-            <div class="dm-number">
-                <div class="dm-badge">3</div>
-                <span class="dm-title">The Closer</span>
-            </div>
-            <span class="dm-timing">Day 7–9<br>Last touch</span>
+      <!-- Opener 6 -->
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Opener &middot; Creator Angle</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
         </div>
-        <div class="dm-message" id="b3">I'll leave it here after this — if filling more guided trips with less reliance on referrals sounds interesting, grab 30 minutes with me. I'll pull up what's actually converting for outfitters right now and we can see if it's a fit. Book here: <span class="placeholder">calendly.com/erickirt</span> — or just DM me back.</div>
-        <button class="copy-btn" onclick="copyText('b3', this)">Copy Message</button>
+        <div class="msg-text" onclick="copyText(this)">"Hey [Name] — I run @kirtoutdoors (50M+ views in the outdoor space) and also run a performance ad agency that places UGC creators in Meta campaigns. [Brand] caught my eye — do you have a minute to hear what we've been doing?"</div>
+        <div class="msg-why"><strong>Why this works:</strong> Social proof from the creator side establishes instant credibility. You're not a random agency — you're someone who already has proven reach in their exact niche.</div>
+      </div>
     </div>
-</div>
+  </div>
 
-<!-- Sequence C: Outdoor Apps -->
-<div class="sequence" id="seq-2">
-    <p class="sequence-label">Sequence C</p>
-    <p class="sequence-title">Outdoor Apps</p>
-    <p class="sequence-desc">Hunting maps, fishing apps, trip planners, backcountry route tools</p>
+  <!-- TAB 2: THE SEQUENCE -->
+  <div class="panel" id="panel-sequence">
+    <div class="section">
+      <div class="section-title">Full Outreach Flows</div>
+      <div class="section-sub">Choose a play. Send message 1. Wait for reply. Move to next message only if no response.</div>
 
-    <div class="dm-card">
-        <div class="dm-card-header">
-            <div class="dm-number">
-                <div class="dm-badge">1</div>
-                <span class="dm-title">The Opener</span>
-            </div>
-            <span class="dm-timing">Day 1<br>Send cold</span>
+      <!-- Flow A -->
+      <div class="flow-block">
+        <div class="flow-label">Audit Play — 4-Touch Sequence</div>
+
+        <div class="msg-card">
+          <div class="msg-label">
+            <span class="msg-step">Day 1 — Opener</span>
+            <button class="copy-btn" onclick="copyCard(this)">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <div class="msg-text" onclick="copyText(this)">"Hey [Name] — took a look at [Brand]'s current Meta ads. I have a few ideas that could move your ROAS pretty quickly. Would it be weird if I broke them down for you?"</div>
         </div>
-        <div class="dm-message" id="c1">Hey — <span class="placeholder">[SPECIFIC OBSERVATION]</span>. I use apps in this space a lot — <span class="placeholder">[BRAND]</span> caught my eye. Are you running paid user acquisition at all, or mostly organic right now?</div>
-        <div class="example-box"><strong>Example</strong>The offline map feature you just pushed looks really clean, especially for the backcountry crowd. I use apps in this space a lot — [BRAND] caught my eye. Are you running paid user acquisition at all, or mostly organic right now?</div>
-        <button class="copy-btn" onclick="copyText('c1', this)">Copy Message</button>
-    </div>
 
-    <div class="dm-card">
-        <div class="dm-card-header">
-            <div class="dm-number">
-                <div class="dm-badge">2</div>
-                <span class="dm-title">Follow-Up</span>
-            </div>
-            <span class="dm-timing">Day 3–4<br>No reply</span>
+        <div class="connector">
+          <div class="connector-line"></div>
+          <span class="connector-label">Wait 48 hrs — No reply? Send &rarr;</span>
         </div>
-        <div class="dm-message" id="c2">Wanted to follow up. I run ScaleNational — we do paid UA and UGC content specifically for outdoor apps. Most apps in this space get wrong is running generic "outdoor lifestyle" creative when what converts is real users showing the app solving a real problem in the field. I live in this niche (@kirtoutdoors, 50M+ views across platforms) so I know what resonates. Open to a quick call?</div>
-        <button class="copy-btn" onclick="copyText('c2', this)">Copy Message</button>
-    </div>
 
-    <div class="dm-card">
-        <div class="dm-card-header">
-            <div class="dm-number">
-                <div class="dm-badge">3</div>
-                <span class="dm-title">The Closer</span>
-            </div>
-            <span class="dm-timing">Day 7–9<br>Last touch</span>
+        <div class="msg-card">
+          <div class="msg-label">
+            <span class="msg-step">Day 3 — Follow Up</span>
+            <button class="copy-btn" onclick="copyCard(this)">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <div class="msg-text" onclick="copyText(this)">"Wanted to bump this up — I only put together audits for brands I think have real upside. [Brand] has it. 10 minutes on a call would be enough to give you something useful."</div>
         </div>
-        <div class="dm-message" id="c3">Last message — promise. If lowering your CPI and getting higher-quality users into <span class="placeholder">[BRAND]</span> is on your radar, I'd love to put 30 minutes on the calendar and show you what we're seeing work right now in outdoor app UA. No obligation. Book here: <span class="placeholder">calendly.com/erickirt</span> — or reply and I'll send times.</div>
-        <button class="copy-btn" onclick="copyText('c3', this)">Copy Message</button>
-    </div>
-</div>
 
-<!-- Sequence D: Cold Text -->
-<div class="sequence" id="seq-3">
-    <p class="sequence-label">Cold Text</p>
-    <p class="sequence-title">SMS / Direct Text</p>
-    <p class="sequence-desc">When you have a number from their website, press page, or LinkedIn</p>
-
-    <div class="dm-card">
-        <div class="dm-card-header">
-            <div class="dm-number">
-                <div class="dm-badge">1</div>
-                <span class="dm-title">Opener</span>
-            </div>
-            <span class="dm-timing">Day 1</span>
+        <div class="connector">
+          <div class="connector-line"></div>
+          <span class="connector-label">Wait 48 hrs — No reply? Send &rarr;</span>
         </div>
-        <div class="dm-message" id="d1">Hey <span class="placeholder">[NAME]</span> — this is Eric Kirtchakov. I run ScaleNational, a performance ad agency focused on outdoor brands. Saw <span class="placeholder">[BRAND]</span> and had a couple ideas worth sharing. Cool if I send them over?</div>
-        <button class="copy-btn" onclick="copyText('d1', this)">Copy Text</button>
-    </div>
 
-    <div class="dm-card">
-        <div class="dm-card-header">
-            <div class="dm-number">
-                <div class="dm-badge">2</div>
-                <span class="dm-title">Follow-Up</span>
-            </div>
-            <span class="dm-timing">Day 3–4<br>No reply</span>
+        <div class="msg-card">
+          <div class="msg-label">
+            <span class="msg-step">Day 5 — Social Proof</span>
+            <button class="copy-btn" onclick="copyCard(this)">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <div class="msg-text" onclick="copyText(this)">"Just wrapped a similar campaign for an outdoor gear brand — got them from 1.8x to 4.1x ROAS in 6 weeks. Thought of you. Still happy to share what we found in the audit."</div>
         </div>
-        <div class="dm-message" id="d2">Hey — just following up on my last text. Short version: we source real UGC creators from the outdoor space and run the paid campaigns behind them. My own audience is 25K+ across socials in the outdoor niche so I know what content actually moves people. Worth a 20-min call?</div>
-        <button class="copy-btn" onclick="copyText('d2', this)">Copy Text</button>
-    </div>
 
-    <div class="dm-card">
-        <div class="dm-card-header">
-            <div class="dm-number">
-                <div class="dm-badge">3</div>
-                <span class="dm-title">The Closer</span>
-            </div>
-            <span class="dm-timing">Day 7–9<br>Last touch</span>
+        <div class="connector">
+          <div class="connector-line"></div>
+          <span class="connector-label">Wait 72 hrs — No reply? Send &rarr;</span>
         </div>
-        <div class="dm-message" id="d3">Last one from me. If you ever want a free strategy call on what's working in outdoor ads right now, grab time here: <span class="placeholder">calendly.com/erickirt</span>. No pressure either way.</div>
-        <button class="copy-btn" onclick="copyText('d3', this)">Copy Text</button>
-    </div>
-</div>
 
-<!-- Pre-Send Checklist -->
-<div class="checklist">
-    <h3>Before You Hit Send</h3>
-    <div class="checklist-item">
-        <div class="check-circle" onclick="this.classList.toggle('checked')"></div>
-        <div><strong>Check their last 9 posts.</strong> Find the one that overperformed. Lead with a specific observation — not a compliment.</div>
-    </div>
-    <div class="checklist-item">
-        <div class="check-circle" onclick="this.classList.toggle('checked')"></div>
-        <div><strong>Check Meta Ad Library.</strong> Are they running paid? If yes — what does the creative look like? If no — that's your angle.</div>
-    </div>
-    <div class="checklist-item">
-        <div class="check-circle" onclick="this.classList.toggle('checked')"></div>
-        <div><strong>Identify one specific gap.</strong> Weak content? No paid distribution? No UGC? Pick one — don't try to solve everything in DM 1.</div>
-    </div>
-    <div class="checklist-item">
-        <div class="check-circle" onclick="this.classList.toggle('checked')"></div>
-        <div><strong>Find their name</strong> in the bio, website, or tagged posts. "Hey [Name]" hits better than "Hey —".</div>
-    </div>
-    <div class="checklist-item">
-        <div class="check-circle" onclick="this.classList.toggle('checked')"></div>
-        <div><strong>Match the platform tone.</strong> TikTok = shorter. Instagram = one extra sentence. Texts = most stripped down.</div>
-    </div>
-</div>
+        <div class="msg-card">
+          <div class="msg-label">
+            <span class="msg-step">Day 8 — The Close</span>
+            <button class="copy-btn" onclick="copyCard(this)">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <div class="msg-text" onclick="copyText(this)">"Last message from me — I don't want to be that person. If the timing is off or it's not a fit, totally get it. But if you ever want to see what we found, the audit's ready whenever you are."</div>
+          <div class="msg-why"><strong>Why this works:</strong> The final message removes all pressure. Paradoxically this gets the most replies because it signals you respect their time and won't chase.</div>
+        </div>
+      </div>
 
-<div class="cta-reminder">
-    Replace <strong style="color:#1DD1A1;">calendly.com/erickirt</strong> with your live booking link before sending.
-</div>
+      <div class="section-divider"></div>
 
+      <!-- Flow B -->
+      <div class="flow-block">
+        <div class="flow-label">Creator Network Play — 4-Touch Sequence</div>
+
+        <div class="msg-card">
+          <div class="msg-label">
+            <span class="msg-step">Day 1 — Opener</span>
+            <button class="copy-btn" onclick="copyCard(this)">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <div class="msg-text" onclick="copyText(this)">"Hey [Name] — I have a list of outdoor brands we're actively looking to place UGC creators with for paid ads. Wanted to see if [Brand] would be a fit before I reach out to someone else in the space."</div>
+        </div>
+
+        <div class="connector">
+          <div class="connector-line"></div>
+          <span class="connector-label">Wait 48 hrs — No reply? Send &rarr;</span>
+        </div>
+
+        <div class="msg-card">
+          <div class="msg-label">
+            <span class="msg-step">Day 3 — Specificity</span>
+            <button class="copy-btn" onclick="copyCard(this)">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <div class="msg-text" onclick="copyText(this)">"To give you more context — we have a network of 500+ vetted outdoor creators. We match them to brands, handle the brief, and put the content directly into Meta campaigns. You don't manage anything."</div>
+        </div>
+
+        <div class="connector">
+          <div class="connector-line"></div>
+          <span class="connector-label">Wait 48 hrs — No reply? Send &rarr;</span>
+        </div>
+
+        <div class="msg-card">
+          <div class="msg-label">
+            <span class="msg-step">Day 5 — Proof</span>
+            <button class="copy-btn" onclick="copyCard(this)">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <div class="msg-text" onclick="copyText(this)">"One of the brands we placed creators with went from spending $3k/mo on ads to $18k/mo in 3 months — ROAS held above 4x the whole time. Happy to share how we structured that if useful."</div>
+        </div>
+
+        <div class="connector">
+          <div class="connector-line"></div>
+          <span class="connector-label">Wait 72 hrs — No reply? Send &rarr;</span>
+        </div>
+
+        <div class="msg-card">
+          <div class="msg-label">
+            <span class="msg-step">Day 8 — Final</span>
+            <button class="copy-btn" onclick="copyCard(this)">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <div class="msg-text" onclick="copyText(this)">"Going to stop following up after this — just didn't want to move on without giving [Brand] a real shot. If timing ever changes, you know where to find me."</div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- Flow C -->
+      <div class="flow-block">
+        <div class="flow-label">Single Question Play — 3-Touch Sequence</div>
+
+        <div class="msg-card">
+          <div class="msg-label">
+            <span class="msg-step">Day 1 — Opener</span>
+            <button class="copy-btn" onclick="copyCard(this)">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <div class="msg-text" onclick="copyText(this)">"Do you have someone running paid ads for [Brand] right now?"</div>
+        </div>
+
+        <div class="connector">
+          <div class="connector-line"></div>
+          <span class="connector-label">Wait 48 hrs — No reply? Send &rarr;</span>
+        </div>
+
+        <div class="msg-card">
+          <div class="msg-label">
+            <span class="msg-step">Day 3 — Context</span>
+            <button class="copy-btn" onclick="copyCard(this)">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <div class="msg-text" onclick="copyText(this)">"Wanted to follow up — we work specifically with outdoor and lifestyle brands on Meta and TikTok ads. Just curious if it's something [Brand] is actively investing in."</div>
+        </div>
+
+        <div class="connector">
+          <div class="connector-line"></div>
+          <span class="connector-label">Wait 72 hrs — No reply? Send &rarr;</span>
+        </div>
+
+        <div class="msg-card">
+          <div class="msg-label">
+            <span class="msg-step">Day 6 — Final</span>
+            <button class="copy-btn" onclick="copyCard(this)">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <div class="msg-text" onclick="copyText(this)">"Last one from me. If paid ads ever become a priority, we'd love to show you what we do. The results speak for themselves."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: WARM LEADS -->
+  <div class="panel" id="panel-warm">
+    <div class="section">
+      <div class="section-title">They've Engaged Before</div>
+      <div class="section-sub">Someone who liked a post, watched a reel, visited your page, or you have a mutual connection with.</div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Warm &middot; Mutual Connection</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Hey [Name] — noticed we're both connected with [Mutual]. Small world. I run a performance ad agency for outdoor brands — saw [Brand] and thought there might be something worth talking about. Are you the right person for that conversation?"</div>
+        <div class="msg-why"><strong>Why this works:</strong> Borrowed trust. Mutual connections create instant credibility without you having to earn it.</div>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Warm &middot; Content Engagement</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Hey [Name] — you liked one of our posts a while back. Not sure if you looked into what we do, but we specifically work with outdoor brands on paid ads and UGC. Curious if it's something you've been thinking about?"</div>
+        <div class="msg-why"><strong>Why this works:</strong> Low-pressure, transparent, and complimentary. It references the action they took without making it awkward.</div>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Warm &middot; Mutual Follow</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Hey [Name] — been following [Brand] for a bit, love what you're building. We work with outdoor brands on Meta campaigns — wondering if paid ads are on your roadmap at all this year?"</div>
+        <div class="msg-why"><strong>Why this works:</strong> Genuine compliment first, no hard ask, ends on a soft question about intent.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 4: THEY REPLIED -->
+  <div class="panel" id="panel-replied">
+    <div class="section">
+      <div class="section-title">Handling Responses</div>
+      <div class="section-sub">They replied — here's exactly what to say to each type of response.</div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Reply &middot; Who Is This</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Good question — I should've led with more context. I'm Eric, I run ScaleNational — we work with outdoor brands specifically on Meta ads and UGC creator content. Saw [Brand] and thought we might be a fit. What does your paid ad situation look like right now?"</div>
+        <div class="msg-why"><strong>Why this works:</strong> Doesn't get defensive. Acknowledges the fair question, gives context fast, ends with a redirect.</div>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Reply &middot; What Is This About</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Short version — we run paid Meta campaigns for outdoor brands and supply the creative (UGC creators, AI video, static ads). Everything done for you. I reached out because [Brand] looks like a brand we could actually move the needle for. Worth a 10-minute call to see if it makes sense?"</div>
+        <div class="msg-why"><strong>Why this works:</strong> Clear, fast, no fluff. Ends with a low-commitment ask — a call, not a sale.</div>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Reply &middot; Not Interested</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Totally fair — I appreciate the quick reply. Can I ask one thing? Is it the timing, the service, or something else? Just helps me understand so I don't bother you with the wrong thing in the future."</div>
+        <div class="msg-why"><strong>Why this works:</strong> Doesn't close the conversation. Asking why turns a no into information. Often leads to a "actually the timing isn't great, follow up in Q2" which reopens the door.</div>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Reply &middot; Already Have Someone</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Makes sense — good for you for having it sorted. Out of curiosity, are you happy with how it's going? We get a lot of inbounds from brands who have an agency but feel like they're not seeing the ROAS they expected."</div>
+        <div class="msg-why"><strong>Why this works:</strong> Doesn't concede. Plants a seed of doubt without being aggressive. If they're secretly unhappy, this opens the door.</div>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Reply &middot; Send Info</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Happy to — easier if I can just ask you two questions first so I send you the right thing: What platforms are you running ads on right now, and roughly what's your monthly ad spend?"</div>
+        <div class="msg-why"><strong>Why this works:</strong> Never send a generic deck to a "send me info" request. Qualify first. This also moves the conversation forward and builds rapport.</div>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Reply &middot; They're Interested</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Perfect — let's keep it simple. I have a 20-minute slot [DAY] at [TIME] or [DAY] at [TIME] — does either work? I'll send a quick overview beforehand so we're not starting from zero."</div>
+        <div class="msg-why"><strong>Why this works:</strong> Move fast. Don't let interest cool. Two specific times makes it easy to say yes. Sending prep material increases show-up rate.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 5: AFTER BOOKED -->
+  <div class="panel" id="panel-booked">
+    <div class="section">
+      <div class="section-title">Pre-Call Priming</div>
+      <div class="section-sub">Send these after they book a call. Increases show-up rate and warms them up before you pitch.</div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Immediately After Booking</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Confirmed — talk [DAY] at [TIME]. I'll pull together a quick look at what's working in your space right now so we're not wasting time on basics. Looking forward to it."</div>
+        <div class="msg-why"><strong>Why this works:</strong> Sets expectations, signals prep and professionalism, makes them feel like they made the right call.</div>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Day Before Call</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Quick reminder — we're on for tomorrow at [TIME]. I looked at a couple outdoor brands running similar audiences to [Brand] right now. Should have some useful stuff to share. See you then."</div>
+        <div class="msg-why"><strong>Why this works:</strong> Reminds them, increases show-up rate, and builds anticipation by teasing value they'll get on the call.</div>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">1 Hour Before Call</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Headed into our call in about an hour — here's the link if you need it: [LINK]. Just a heads up, I'll be sharing my screen to walk through a few things — takes about 15 minutes then we can talk through your situation."</div>
+        <div class="msg-why"><strong>Why this works:</strong> Reduces no-shows. Framing the call as quick (15 min) lowers their anxiety even if it ends up going longer.</div>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">No-Show &middot; Same Day</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Hey [Name] — looks like we missed each other. Totally happens — want to find another time? I'll keep the notes ready."</div>
+        <div class="msg-why"><strong>Why this works:</strong> Zero aggression. Keeps the door open without making them feel guilty, which would make them less likely to rebook.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 6: COLD TEXT -->
+  <div class="panel" id="panel-coldtext">
+    <div class="section">
+      <div class="section-title">Cold SMS / Text</div>
+      <div class="section-sub">For when you have a phone number. Higher open rate than DM — use sparingly and only when you're confident it's appropriate.</div>
+
+      <div class="note-card">Only use these if you have a legitimate reason to have their number (event, mutual contact, public listing). Never mass-text.</div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Cold Text &middot; Opener</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Hey [Name] — Eric here, I run ScaleNational. We help outdoor brands scale on Meta with UGC. Is paid ads something [Brand] is working on?"</div>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Cold Text &middot; Referral Frame</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Hey [Name] — got your number from [Mutual/Event]. I run a performance ad agency for outdoor brands. Thought there might be a fit — do you have 10 minutes this week?"</div>
+      </div>
+
+      <div class="msg-card">
+        <div class="msg-label">
+          <span class="msg-step">Cold Text &middot; DM Follow Up</span>
+          <button class="copy-btn" onclick="copyCard(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="msg-text" onclick="copyText(this)">"Hey [Name] — sent you a DM a few days ago (might have gotten buried). I work with outdoor brands on Meta ads and UGC — just wanted to make sure you saw it. Worth a quick chat?"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 7: PRE-SEND -->
+  <div class="panel" id="panel-presend">
+    <div class="section">
+      <div class="section-title">Pre-Send Checklist</div>
+      <div class="section-sub">Run through this before every outreach. The difference between a reply and a block.</div>
+
+      <ul class="checklist">
+        <li>
+          <div class="check" onclick="toggleCheck(this)">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Have I personalized the brand name and founder's name?</span>
+        </li>
+        <li>
+          <div class="check" onclick="toggleCheck(this)">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Is this the right person — founder, CMO, or marketing lead?</span>
+        </li>
+        <li>
+          <div class="check" onclick="toggleCheck(this)">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Have I actually looked at their ads / content before sending?</span>
+        </li>
+        <li>
+          <div class="check" onclick="toggleCheck(this)">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Am I sending during business hours (9am–6pm their timezone)?</span>
+        </li>
+        <li>
+          <div class="check" onclick="toggleCheck(this)">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Is my profile / page looking credible if they check it?</span>
+        </li>
+        <li>
+          <div class="check" onclick="toggleCheck(this)">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Did I pick the right opener for this specific lead?</span>
+        </li>
+        <li>
+          <div class="check" onclick="toggleCheck(this)">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Is the message under 3 sentences or clearly structured?</span>
+        </li>
+        <li>
+          <div class="check" onclick="toggleCheck(this)">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Have I removed any generic language or filler words?</span>
+        </li>
+        <li>
+          <div class="check" onclick="toggleCheck(this)">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Does it end with a clear, easy-to-answer question?</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-title">The 7 Psychological Principles</div>
+
+      <div class="principle">
+        <div class="principle-num">1</div>
+        <div>
+          <h4>Curiosity Gap</h4>
+          <p>Open a loop the brain needs to close. Don't give everything upfront.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">2</div>
+        <div>
+          <h4>Yes Ladder</h4>
+          <p>Start with easy yes questions before asking for anything real.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">3</div>
+        <div>
+          <h4>Loss Aversion</h4>
+          <p>People act to avoid loss 2x more than to seek gain. Use it.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">4</div>
+        <div>
+          <h4>Pattern Interrupt</h4>
+          <p>Break their mental script in the first line.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">5</div>
+        <div>
+          <h4>Social Proof</h4>
+          <p>Results and names they recognize do your selling for you.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">6</div>
+        <div>
+          <h4>Reciprocity</h4>
+          <p>Give first (audit, insight, tip) before you ask for anything.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">7</div>
+        <div>
+          <h4>Scarcity / Urgency</h4>
+          <p>Real scarcity ("reaching out to someone else") drives action.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-title">Volume Benchmark</div>
+      <div class="stat-row">
+        <div class="stat-pill">
+          <div class="n">50–100</div>
+          <div class="l">Daily outreach target</div>
+        </div>
+        <div class="stat-pill">
+          <div class="n">8–12%</div>
+          <div class="l">Target reply rate</div>
+        </div>
+        <div class="stat-pill">
+          <div class="n">3–5%</div>
+          <div class="l">Target book rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- TOAST -->
 <div class="toast" id="toast">Copied to clipboard</div>
 
 <script>
-    function switchTab(index) {
-        document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', i === index));
-        document.querySelectorAll('.sequence').forEach((s, i) => s.classList.toggle('active', i === index));
-    }
+  // Tab switching
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
 
-    function copyText(id, btn) {
-        const el = document.getElementById(id);
-        // Get text without the HTML formatting
-        const text = el.innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            btn.textContent = '✓ Copied!';
-            btn.classList.add('copied');
-            showToast();
-            setTimeout(() => {
-                btn.textContent = 'Copy Message';
-                btn.classList.remove('copied');
-            }, 2000);
-        });
-    }
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const panel = document.getElementById('panel-' + target);
+      if (panel) panel.classList.add('active');
+    });
+  });
 
-    function showToast() {
-        const toast = document.getElementById('toast');
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2000);
-    }
+  // Copy helpers
+  let toastTimer;
+  function showToast() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+  }
+
+  function flashBtn(btn) {
+    const span = btn.querySelector('span');
+    const orig = span.textContent;
+    span.textContent = 'COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      span.textContent = orig;
+      btn.classList.remove('copied');
+    }, 2000);
+  }
+
+  function copyCard(btn) {
+    const card = btn.closest('.msg-card');
+    const msgText = card.querySelector('.msg-text');
+    const text = msgText ? msgText.textContent.trim() : '';
+    navigator.clipboard.writeText(text).then(() => {
+      flashBtn(btn);
+      showToast();
+    });
+  }
+
+  function copyText(el) {
+    const text = el.textContent.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const card = el.closest('.msg-card');
+      if (card) {
+        const btn = card.querySelector('.copy-btn');
+        if (btn) flashBtn(btn);
+      }
+      showToast();
+    });
+  }
+
+  // Checklist toggles
+  function toggleCheck(el) {
+    el.classList.toggle('done');
+  }
 </script>
-
 </body>
 </html>

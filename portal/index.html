@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScaleNational — Client Portals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark: #060f0b;
+      --green-deep: #0d2b1e;
+      --green: #0d4a3f;
+      --teal: #1DD1A1;
+      --teal-dim: rgba(29,209,161,0.12);
+      --teal-border: rgba(29,209,161,0.25);
+      --muted: rgba(255,255,255,0.5);
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.09);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--dark);
+      color: #fff;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: rgba(6,15,11,0.9);
+      border-bottom: 1px solid var(--card-border);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-logo {
+      height: 32px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 28px;
+      background: var(--card-border);
+    }
+
+    .header-label {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .header-label strong {
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── MAIN ── */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 40px 80px;
+    }
+
+    /* ── NOTICE BANNER ── */
+    .notice-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      border-radius: 12px;
+      margin-bottom: 40px;
+    }
+
+    .notice-banner svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--teal);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .notice-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .notice-text strong {
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      margin-bottom: 32px;
+    }
+
+    .page-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+
+    .page-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .page-sub {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── CLIENT GRID ── */
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    /* ── CLIENT CARD ── */
+    .client-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .client-card:hover {
+      border-color: var(--teal-border);
+      background: rgba(29,209,161,0.04);
+      transform: translateY(-2px);
+    }
+
+    .client-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .client-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--teal);
+      flex-shrink: 0;
+      letter-spacing: -0.5px;
+    }
+
+    .client-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      margin-top: 6px;
+      box-shadow: 0 0 0 0 rgba(29,209,161,0.4);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(29,209,161,0.4); }
+      70% { box-shadow: 0 0 0 6px rgba(29,209,161,0); }
+      100% { box-shadow: 0 0 0 0 rgba(29,209,161,0); }
+    }
+
+    .client-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    .client-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .client-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .client-meta-row svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--muted);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .client-url-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      margin-bottom: 14px;
+      min-width: 0;
+    }
+
+    .client-url-text {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .copy-btn {
+      padding: 4px 10px;
+      background: transparent;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      color: var(--muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .copy-btn:hover { border-color: var(--teal-border); color: var(--teal); }
+    .copy-btn.copied { border-color: var(--teal-border); color: var(--teal); background: var(--teal-dim); }
+
+    .open-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 11px 16px;
+      background: var(--teal);
+      border: none;
+      border-radius: 10px;
+      color: #060f0b;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .open-btn:hover { opacity: 0.88; }
+
+    .open-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: #060f0b;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── ADD CLIENT CARD ── */
+    .add-client-card {
+      background: transparent;
+      border: 2px dashed var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 220px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      text-decoration: none;
+    }
+
+    .add-client-card:hover {
+      border-color: var(--teal-border);
+      background: var(--teal-dim);
+    }
+
+    .add-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .add-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--muted);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .add-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: flex;
+      gap: 32px;
+      padding: 20px 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      margin-bottom: 32px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .stat-divider {
+      width: 1px;
+      background: var(--card-border);
+      align-self: stretch;
+    }
+
+    @media (max-width: 768px) {
+      .header { padding: 0 20px; }
+      .main { padding: 32px 20px 60px; }
+      .stats-bar { gap: 20px; flex-wrap: wrap; }
+      .stat-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <img src="../logo-transparent.png" alt="ScaleNational" class="header-logo">
+  <div class="header-divider"></div>
+  <span class="header-label">Admin &nbsp;·&nbsp; <strong>Eric's Dashboard</strong></span>
+</header>
+
+<main class="main">
+
+  <!-- Notice banner -->
+  <div class="notice-banner">
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="8" x2="12" y2="12"></line>
+      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+    <div class="notice-text">
+      <strong>Share dashboard links directly with clients.</strong> Each client only needs their unique URL — no login required. Example: <code style="background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:4px;font-size:12px;">dashboard.html?client=CLIENT_ID</code>
+    </div>
+  </div>
+
+  <!-- Page header -->
+  <div class="page-header">
+    <div class="page-eyebrow">Admin View</div>
+    <div class="page-title">Client Portals</div>
+    <div class="page-sub">Each client gets a private, branded dashboard. Manage data by updating their JSON file.</div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-value" id="stat-active">1</div>
+      <div class="stat-label">Active Clients</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Dashboards Live</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-value" style="color:var(--teal);">Apr 5</div>
+      <div class="stat-label">Last Report Date</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-value">12</div>
+      <div class="stat-label">Assets Delivered</div>
+    </div>
+  </div>
+
+  <!-- Client grid -->
+  <div class="client-grid" id="client-grid">
+
+    <!-- Demo client card -->
+    <div class="client-card">
+      <div class="client-card-header">
+        <div class="client-avatar">MO</div>
+        <div class="client-status-dot"></div>
+      </div>
+      <div class="client-name">Momentum Outdoors</div>
+      <div style="margin-bottom:16px;">
+        <span class="tier-badge">Growth Plan</span>
+      </div>
+      <div class="client-meta">
+        <div class="client-meta-row">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Client since January 2026
+        </div>
+        <div class="client-meta-row">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Last updated April 5, 2026
+        </div>
+        <div class="client-meta-row">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          12 assets in content library
+        </div>
+      </div>
+      <div class="client-url-row">
+        <span class="client-url-text" id="demo-url">dashboard.html?client=demo</span>
+        <button class="copy-btn" onclick="copyUrl(this, 'demo-url')">Copy</button>
+      </div>
+      <a class="open-btn" href="dashboard.html?client=demo" target="_blank">
+        Open Dashboard
+        <svg viewBox="0 0 24 24">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Add new client card -->
+    <div class="add-client-card">
+      <div class="add-icon">
+        <svg viewBox="0 0 24 24">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </div>
+      <div class="add-label">Add New Client</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.25);text-align:center;line-height:1.5;">
+        Create a new <code style="background:rgba(255,255,255,0.07);padding:1px 5px;border-radius:4px;">clients/ID.json</code><br>file to onboard a client
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Instructions section -->
+  <div style="margin-top:48px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;">How to Add a New Client</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">
+
+      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:20px;">
+        <div style="width:28px;height:28px;background:var(--teal-dim);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:13px;font-weight:800;color:var(--teal);">1</div>
+        <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;">Duplicate demo.json</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6;">Copy <code style="background:rgba(255,255,255,0.07);padding:1px 5px;border-radius:4px;font-size:11px;">clients/demo.json</code> and rename it to the client's ID (e.g., <code style="background:rgba(255,255,255,0.07);padding:1px 5px;border-radius:4px;font-size:11px;">clients/acme.json</code>).</div>
+      </div>
+
+      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:20px;">
+        <div style="width:28px;height:28px;background:var(--teal-dim);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:13px;font-weight:800;color:var(--teal);">2</div>
+        <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;">Fill in their data</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6;">Update all fields — meta, KPIs, chart data, campaigns, creatives, activity, and content library.</div>
+      </div>
+
+      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:20px;">
+        <div style="width:28px;height:28px;background:var(--teal-dim);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:13px;font-weight:800;color:var(--teal);">3</div>
+        <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;">Share their URL</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6;">Send the client: <code style="background:rgba(255,255,255,0.07);padding:1px 5px;border-radius:4px;font-size:11px;">dashboard.html?client=acme</code> — that's all they need.</div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<script>
+function copyUrl(btn, spanId) {
+  const text = document.getElementById(spanId).textContent;
+  const fullUrl = window.location.origin + window.location.pathname.replace('index.html', '') + text;
+  navigator.clipboard.writeText(fullUrl).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(() => {
+    // Fallback
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+  });
+}
+</script>
+
+</body>
+</html>
