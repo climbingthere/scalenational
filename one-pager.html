@@ -477,11 +477,14 @@
 
     /* ── Print overrides ── */
     @media print {
+      @page { margin: 0.6in; size: letter; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
       body {
-        background: #060f0b;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        color-adjust: exact;
+        background: #ffffff !important;
+        color: #0d1a0f !important;
+        font-family: -apple-system, 'Plus Jakarta Sans', Arial, sans-serif;
+        font-size: 11pt;
       }
 
       .page {
@@ -490,20 +493,32 @@
         max-height: none;
         margin: 0;
         padding: 0;
-        background: #060f0b;
-        box-shadow: none;
-        gap: 0.17in;
+        background: #ffffff !important;
+        box-shadow: none !important;
+        gap: 0.2in;
       }
 
-      * {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        color-adjust: exact;
+      .glass-card {
+        background: #f8fffe !important;
+        border: 1px solid #c8e6d0 !important;
+        box-shadow: none !important;
       }
 
-      a {
-        text-decoration: none;
+      nav, .cta-secondary, .btn, button { display: none !important; }
+
+      h1, h2, h3 { color: #0d2b1e !important; page-break-after: avoid; }
+      p, li, td, span { color: #2d4a38 !important; }
+
+      .text-teal, .teal, [style*="color:#1DD1A1"], [style*="color: #1DD1A1"] {
+        color: #0d9c6b !important;
       }
+
+      .hero-headline, .hero-title { color: #060f0b !important; }
+
+      a { color: #0d9c6b !important; text-decoration: none; }
+
+      h1, h2, h3 { page-break-after: avoid; }
+      section { page-break-inside: avoid; }
     }
   </style>
 </head>

@@ -440,15 +440,16 @@
 
     /* ─── Print Styles ──────────────────────────────────────── */
     @media print {
-      .action-bar,
-      #copy-toast { display: none !important; }
+      @page { margin: 0.6in; size: letter; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+      .action-bar, #copy-toast, header, nav, .sticky-header { display: none !important; }
 
       body {
-        font-size: 12px;
-        background: #060f0b !important;
-        color: rgba(255,255,255,0.85) !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        font-size: 10.5pt;
+        background: #ffffff !important;
+        color: #0d1a0f !important;
+        font-family: -apple-system, 'Plus Jakarta Sans', Arial, sans-serif;
       }
 
       html { font-size: 13px; }
@@ -456,23 +457,23 @@
       .page-wrap {
         max-width: 100%;
         padding: 0;
+        background: #ffffff !important;
       }
 
-      * {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      .next-steps {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        background: rgba(255,255,255,0.04) !important;
-        border: 1px solid rgba(255,255,255,0.09) !important;
+      .form-section, .next-steps {
+        background: #f8fffe !important;
+        border: 1px solid #c8e6d0 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
       }
 
       .section-number {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        background: #0d9c6b !important;
+        color: #ffffff !important;
+      }
+
+      .section-title-text, h1, h2, h3, .field-label label {
+        color: #0d2b1e !important;
       }
 
       input[type="text"],
@@ -482,43 +483,25 @@
       input[type="number"],
       select,
       textarea {
-        background: rgba(255,255,255,0.06) !important;
-        border: 1px solid rgba(255,255,255,0.15) !important;
-        border-radius: var(--radius-sm) !important;
-        padding: 6px 10px !important;
+        background: #ffffff !important;
+        border: 1px solid #9ac4ad !important;
+        border-radius: 4px !important;
+        padding: 5px 9px !important;
         box-shadow: none !important;
-        color: #ffffff !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        color: #0d2b1e !important;
       }
 
-      .pill-group label {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        border-color: rgba(255,255,255,0.12) !important;
+      .pill-option label, .radio-pill label {
+        background: #eef8f3 !important;
+        border: 1px solid #9ac4ad !important;
+        color: #2d4a38 !important;
       }
 
-      .pill-group input:checked + label {
-        background: var(--teal) !important;
-        color: #060f0b !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
+      .field-hint, .muted { color: #6b8f7a !important; }
 
-      .instruction-box {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        background: rgba(29,209,161,0.12) !important;
-      }
+      p, li, span, div { color: #2d4a38; }
 
-      .section-divider {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      .form-section { page-break-inside: avoid; }
-
-      .doc-header { page-break-after: avoid; }
+      h2, h3 { page-break-after: avoid; }
     }
   </style>
 </head>
