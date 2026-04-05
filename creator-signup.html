@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply to ScaleNational's Creator Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark: #060f0b;
+      --teal: #1DD1A1;
+      --teal-dim: rgba(29,209,161,0.12);
+      --teal-border: rgba(29,209,161,0.25);
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.09);
+      --input-bg: rgba(255,255,255,0.06);
+      --input-border: rgba(255,255,255,0.12);
+      --muted: rgba(255,255,255,0.5);
+      --text-body: rgba(255,255,255,0.85);
+      --radius: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--dark);
+      color: #fff;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6,15,11,0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-logo {
+      height: 36px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      flex-shrink: 0;
+    }
+
+    .header-right {
+      margin-left: auto;
+    }
+
+    .network-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 100px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
+    }
+
+    .hero-headline {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+
+    .stat-pills {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    .stat-pill::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* ── FORM CARD ── */
+    .form-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .section-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #060f0b;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* ── FIELDS ── */
+    .field-group {
+      display: grid;
+      gap: 18px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 560px) {
+      .field-row { grid-template-columns: 1fr; }
+      .form-section { padding: 24px 20px; }
+      .main { padding: 36px 16px 80px; }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+
+    .field label .req {
+      color: var(--teal);
+      margin-left: 2px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: var(--radius);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      padding: 11px 14px;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 38px;
+      cursor: pointer;
+    }
+
+    .field select option {
+      background: #0d2018;
+      color: #fff;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(29,209,161,0.15);
+    }
+
+    .field textarea { resize: vertical; }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── RADIO PILLS ── */
+    .radio-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .radio-pill input[type="radio"],
+    .radio-pill input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .radio-pill label {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.18s;
+      user-select: none;
+    }
+
+    .radio-pill input[type="radio"]:checked + label,
+    .radio-pill input[type="checkbox"]:checked + label {
+      background: var(--teal-dim);
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .radio-pill label:hover {
+      border-color: rgba(29,209,161,0.4);
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── CHECKBOX LIST ── */
+    .check-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ── CONDITIONAL FIELDS ── */
+    .conditional-field {
+      display: none;
+      margin-top: 4px;
+    }
+
+    .conditional-field.visible {
+      display: flex;
+    }
+
+    /* ── PLATFORM HANDLES ── */
+    .platform-handles {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .platform-handle-row {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .platform-handle-row.visible {
+      display: flex;
+    }
+
+    .platform-handle-row .platform-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--teal);
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+
+    .platform-handle-row input {
+      flex: 1;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: var(--radius);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .platform-handle-row input:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(29,209,161,0.15);
+    }
+
+    .platform-handle-row input::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── FIELD HINT ── */
+    .field-hint {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ── SUBMIT BUTTON ── */
+    .btn-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 32px;
+      background: var(--teal);
+      border: none;
+      border-radius: 12px;
+      color: #060f0b;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      opacity: 0.88;
+    }
+
+    .btn-submit:active:not(:disabled) {
+      transform: scale(0.99);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* ── ERROR MESSAGE ── */
+    .error-banner {
+      display: none;
+      background: rgba(255,77,77,0.1);
+      border: 1px solid rgba(255,77,77,0.3);
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 14px;
+      color: #ff8080;
+      margin-top: 16px;
+    }
+
+    .error-banner.visible {
+      display: block;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .success-state.visible {
+      display: block;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--teal-dim);
+      border: 2px solid var(--teal-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .success-icon svg {
+      width: 34px;
+      height: 34px;
+      stroke: var(--teal);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .success-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .success-sub {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    #form-wrapper { transition: opacity 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <img src="logo-transparent.png" alt="ScaleNational" class="header-logo" />
+    <div class="header-right">
+      <span class="network-badge">Creator Network</span>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HERO -->
+    <div class="hero">
+      <p class="eyebrow">Join the Network</p>
+      <h1 class="hero-headline">Apply to ScaleNational's<br>Creator Network</h1>
+      <p class="hero-sub">We connect vetted outdoor creators with top brands for paid ad campaigns. Apply below — we review every application.</p>
+      <div class="stat-pills">
+        <span class="stat-pill">500+ Creators</span>
+        <span class="stat-pill">Top Outdoor Brands</span>
+        <span class="stat-pill">Paid Opportunities</span>
+      </div>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="success-state" id="success-state">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h2 class="success-title">Application received!</h2>
+      <p class="success-sub">We review every application and will be in touch within 48 hours.</p>
+    </div>
+
+    <!-- FORM -->
+    <div id="form-wrapper">
+      <form id="creator-form" novalidate>
+
+        <!-- SECTION 1: YOUR BASICS -->
+        <div class="form-section">
+          <div class="section-heading">
+            <div class="section-num">1</div>
+            <span class="section-title">Your Basics</span>
+          </div>
+          <div class="field-group">
+            <div class="field-row">
+              <div class="field">
+                <label for="fullName">Full Name <span class="req">*</span></label>
+                <input type="text" id="fullName" name="fullName" placeholder="Jane Smith" required />
+              </div>
+              <div class="field">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" />
+              </div>
+              <div class="field">
+                <label for="location">Location / City, State <span class="req">*</span></label>
+                <input type="text" id="location" name="location" placeholder="Denver, CO" required />
+              </div>
+            </div>
+            <div class="field" style="max-width: 320px;">
+              <label for="timezone">Time Zone <span class="req">*</span></label>
+              <select id="timezone" name="timezone" required>
+                <option value="" disabled selected>Select time zone</option>
+                <option value="EST">EST — Eastern</option>
+                <option value="CST">CST — Central</option>
+                <option value="MST">MST — Mountain</option>
+                <option value="PST">PST — Pacific</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: YOUR PLATFORMS -->
+        <div class="form-section">
+          <div class="section-heading">
+            <div class="section-num">2</div>
+            <span class="section-title">Your Platforms</span>
+          </div>
+          <div class="field-group">
+            <div class="field">
+              <label>Primary Platform <span class="req">*</span></label>
+              <div class="radio-pills" id="primary-platform-pills">
+                <div class="radio-pill">
+                  <input type="radio" name="primaryPlatform" id="pp-instagram" value="Instagram" required />
+                  <label for="pp-instagram">Instagram</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" name="primaryPlatform" id="pp-tiktok" value="TikTok" />
+                  <label for="pp-tiktok">TikTok</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" name="primaryPlatform" id="pp-youtube" value="YouTube" />
+                  <label for="pp-youtube">YouTube</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" name="primaryPlatform" id="pp-facebook" value="Facebook" />
+                  <label for="pp-facebook">Facebook</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="primaryHandle">Your Primary Handle <span class="req">*</span></label>
+              <input type="text" id="primaryHandle" name="primaryHandle" placeholder="@yourhandle" required />
+            </div>
+
+            <div class="field">
+              <label>Secondary Platforms</label>
+              <div class="check-list" id="secondary-platform-checks">
+                <div class="radio-pill">
+                  <input type="checkbox" name="secondaryPlatforms" id="sp-instagram" value="Instagram" />
+                  <label for="sp-instagram">Instagram</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="checkbox" name="secondaryPlatforms" id="sp-tiktok" value="TikTok" />
+                  <label for="sp-tiktok">TikTok</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="checkbox" name="secondaryPlatforms" id="sp-youtube" value="YouTube" />
+                  <label for="sp-youtube">YouTube</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="checkbox" name="secondaryPlatforms" id="sp-facebook" value="Facebook" />
+                  <label for="sp-facebook">Facebook</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="checkbox" name="secondaryPlatforms" id="sp-pinterest" value="Pinterest" />
+                  <label for="sp-pinterest">Pinterest</label>
+                </div>
+              </div>
+              <div class="platform-handles" id="secondary-handles">
+                <div class="platform-handle-row" id="handle-instagram" data-platform="Instagram">
+                  <span class="platform-label">Instagram</span>
+                  <input type="text" name="handleInstagram" placeholder="@handle" />
+                </div>
+                <div class="platform-handle-row" id="handle-tiktok" data-platform="TikTok">
+                  <span class="platform-label">TikTok</span>
+                  <input type="text" name="handleTikTok" placeholder="@handle" />
+                </div>
+                <div class="platform-handle-row" id="handle-youtube" data-platform="YouTube">
+                  <span class="platform-label">YouTube</span>
+                  <input type="text" name="handleYouTube" placeholder="@handle or channel name" />
+                </div>
+                <div class="platform-handle-row" id="handle-facebook" data-platform="Facebook">
+                  <span class="platform-label">Facebook</span>
+                  <input type="text" name="handleFacebook" placeholder="page name or URL" />
+                </div>
+                <div class="platform-handle-row" id="handle-pinterest" data-platform="Pinterest">
+                  <span class="platform-label">Pinterest</span>
+                  <input type="text" name="handlePinterest" placeholder="@handle" />
+                </div>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="totalFollowing">Total Following <span class="req">*</span></label>
+                <select id="totalFollowing" name="totalFollowing" required>
+                  <option value="" disabled selected>Combined across platforms</option>
+                  <option value="Under 5K">Under 5K</option>
+                  <option value="5K–25K">5K–25K</option>
+                  <option value="25K–100K">25K–100K</option>
+                  <option value="100K–500K">100K–500K</option>
+                  <option value="500K+">500K+</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="avgViews">Average Views per Video <span class="req">*</span></label>
+                <select id="avgViews" name="avgViews" required>
+                  <option value="" disabled selected>Select range</option>
+                  <option value="Under 1K">Under 1K</option>
+                  <option value="1K–10K">1K–10K</option>
+                  <option value="10K–50K">10K–50K</option>
+                  <option value="50K–200K">50K–200K</option>
+                  <option value="200K+">200K+</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 3: YOUR NICHE -->
+        <div class="form-section">
+          <div class="section-heading">
+            <div class="section-num">3</div>
+            <span class="section-title">Your Niche</span>
+          </div>
+          <div class="field-group">
+            <div class="field">
+              <label>Primary Niche <span class="req">*</span></label>
+              <div class="radio-pills" id="niche-pills">
+                <div class="radio-pill">
+                  <input type="radio" name="primaryNiche" id="niche-outdoor" value="Outdoor & Hiking" required />
+                  <label for="niche-outdoor">Outdoor &amp; Hiking</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" name="primaryNiche" id="niche-hunting" value="Hunting & Fishing" />
+                  <label for="niche-hunting">Hunting &amp; Fishing</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" name="primaryNiche" id="niche-camping" value="Camping & Overlanding" />
+                  <label for="niche-camping">Camping &amp; Overlanding</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" name="primaryNiche" id="niche-gear" value="Gear & Tech" />
+                  <label for="niche-gear">Gear &amp; Tech</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" name="primaryNiche" id="niche-lifestyle" value="Lifestyle & Travel" />
+                  <label for="niche-lifestyle">Lifestyle &amp; Travel</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" name="primaryNiche" id="niche-fitness" value="Fitness & Adventure" />
+                  <label for="niche-fitness">Fitness &amp; Adventure</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" name="primaryNiche" id="niche-other" value="Other" />
+                  <label for="niche-other">Other</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="field conditional-field" id="niche-other-field">
+              <label for="nicheOther">Describe your niche</label>
+              <input type="text" id="nicheOther" name="nicheOther" placeholder="Describe your content focus" />
+            </div>
+
+            <div class="field">
+              <label>Content Types you create <span class="req">*</span></label>
+              <div class="check-list" id="content-type-checks">
+                <div class="radio-pill">
+                  <input type="checkbox" name="contentTypes" id="ct-shortform" value="Short-form Video" />
+                  <label for="ct-shortform">Short-form Video</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="checkbox" name="contentTypes" id="ct-longform" value="Long-form Video" />
+                  <label for="ct-longform">Long-form Video</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="checkbox" name="contentTypes" id="ct-photos" value="Photos" />
+                  <label for="ct-photos">Photos</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="checkbox" name="contentTypes" id="ct-reels" value="Reels/Shorts" />
+                  <label for="ct-reels">Reels/Shorts</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="checkbox" name="contentTypes" id="ct-stories" value="Stories" />
+                  <label for="ct-stories">Stories</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="checkbox" name="contentTypes" id="ct-tutorials" value="Tutorials" />
+                  <label for="ct-tutorials">Tutorials</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 4: YOUR CONTENT -->
+        <div class="form-section">
+          <div class="section-heading">
+            <div class="section-num">4</div>
+            <span class="section-title">Your Content</span>
+          </div>
+          <div class="field-group">
+            <div class="field">
+              <label for="bestVideo1">Link to your best video <span class="req">*</span></label>
+              <input type="url" id="bestVideo1" name="bestVideo1" placeholder="https://..." required />
+            </div>
+            <div class="field">
+              <label for="bestVideo2">Link to your second best video</label>
+              <input type="url" id="bestVideo2" name="bestVideo2" placeholder="https://..." />
+            </div>
+            <div class="field">
+              <label for="portfolio">Link to your portfolio or media kit</label>
+              <input type="url" id="portfolio" name="portfolio" placeholder="https://..." />
+            </div>
+            <div class="field">
+              <label for="equipment">Equipment you shoot with</label>
+              <input type="text" id="equipment" name="equipment" placeholder="e.g. iPhone 15 Pro, Sony A7IV" />
+            </div>
+
+            <div class="field">
+              <label>Do you have brand deal experience? <span class="req">*</span></label>
+              <div class="radio-pills">
+                <div class="radio-pill">
+                  <input type="radio" name="brandExperience" id="be-yes" value="Yes" required />
+                  <label for="be-yes">Yes</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" name="brandExperience" id="be-no" value="No" />
+                  <label for="be-no">No</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="field conditional-field" id="brands-worked-field">
+              <label for="brandsWorked">What brands have you worked with?</label>
+              <textarea id="brandsWorked" name="brandsWorked" rows="3" placeholder="e.g. Yeti, Patagonia, Black Diamond..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 5: AVAILABILITY & RATES -->
+        <div class="form-section">
+          <div class="section-heading">
+            <div class="section-num">5</div>
+            <span class="section-title">Availability &amp; Rates</span>
+          </div>
+          <div class="field-group">
+            <div class="field">
+              <label>Available for brand campaigns? <span class="req">*</span></label>
+              <div class="radio-pills">
+                <div class="radio-pill">
+                  <input type="radio" name="availability" id="av-yes" value="Yes, actively looking" required />
+                  <label for="av-yes">Yes, actively looking</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" name="availability" id="av-selective" value="Yes, selectively" />
+                  <label for="av-selective">Yes, selectively</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" name="availability" id="av-no" value="Not right now" />
+                  <label for="av-no">Not right now</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="ratePerVideo">Typical rate per video</label>
+                <select id="ratePerVideo" name="ratePerVideo">
+                  <option value="" disabled selected>Select range</option>
+                  <option value="Under $100">Under $100</option>
+                  <option value="$100–$300">$100–$300</option>
+                  <option value="$300–$750">$300–$750</option>
+                  <option value="$750–$2,000">$750–$2,000</option>
+                  <option value="$2,000+">$2,000+</option>
+                  <option value="Negotiable">Negotiable</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="turnaround">Turnaround time per video</label>
+                <select id="turnaround" name="turnaround">
+                  <option value="" disabled selected>Select timeframe</option>
+                  <option value="3–5 days">3–5 days</option>
+                  <option value="1 week">1 week</option>
+                  <option value="2 weeks">2 weeks</option>
+                  <option value="Depends on project">Depends on project</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field" style="max-width: 360px;">
+              <label for="hearAbout">How did you hear about ScaleNational?</label>
+              <select id="hearAbout" name="hearAbout">
+                <option value="" disabled selected>Select source</option>
+                <option value="Instagram">Instagram</option>
+                <option value="TikTok">TikTok</option>
+                <option value="Referral">Referral</option>
+                <option value="DM from Eric">DM from Eric</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="additionalInfo">Anything else you want us to know?</label>
+              <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Tell us anything that helps your application stand out..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submit-btn">
+          Submit Application →
+        </button>
+
+        <div class="error-banner" id="error-banner">
+          Something went wrong. Please try again.
+        </div>
+
+      </form>
+    </div><!-- /form-wrapper -->
+  </main>
+
+  <script>
+    // ── Secondary platform handle toggling ──
+    const secondaryChecks = document.querySelectorAll('#secondary-platform-checks input[type="checkbox"]');
+    secondaryChecks.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const row = document.getElementById('handle-' + cb.value.toLowerCase());
+        if (row) {
+          row.classList.toggle('visible', cb.checked);
+          const input = row.querySelector('input');
+          if (input) input.required = cb.checked;
+        }
+      });
+    });
+
+    // ── Niche "Other" field ──
+    const nicheRadios = document.querySelectorAll('input[name="primaryNiche"]');
+    const nicheOtherField = document.getElementById('niche-other-field');
+    nicheRadios.forEach(r => {
+      r.addEventListener('change', () => {
+        const show = document.getElementById('niche-other').checked;
+        nicheOtherField.classList.toggle('visible', show);
+      });
+    });
+
+    // ── Brand experience conditional ──
+    const brandRadios = document.querySelectorAll('input[name="brandExperience"]');
+    const brandsWorkedField = document.getElementById('brands-worked-field');
+    brandRadios.forEach(r => {
+      r.addEventListener('change', () => {
+        const show = document.getElementById('be-yes').checked;
+        brandsWorkedField.classList.toggle('visible', show);
+      });
+    });
+
+    // ── Form submission ──
+    const form = document.getElementById('creator-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const errorBanner = document.getElementById('error-banner');
+    const successState = document.getElementById('success-state');
+    const formWrapper = document.getElementById('form-wrapper');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBanner.classList.remove('visible');
+
+      // Custom validation
+      const requiredRadioGroups = ['primaryPlatform', 'primaryNiche', 'brandExperience', 'availability'];
+      let valid = true;
+
+      for (const group of requiredRadioGroups) {
+        const checked = form.querySelector(`input[name="${group}"]:checked`);
+        if (!checked) {
+          valid = false;
+          const firstRadio = form.querySelector(`input[name="${group}"]`);
+          if (firstRadio) firstRadio.closest('.field').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          break;
+        }
+      }
+
+      const contentTypes = form.querySelectorAll('input[name="contentTypes"]:checked');
+      if (contentTypes.length === 0) valid = false;
+
+      if (!form.checkValidity() || !valid) {
+        form.reportValidity();
+        return;
+      }
+
+      // Collect data
+      const data = {
+        status: 'pending',
+        submittedAt: new Date().toISOString(),
+        fullName: form.fullName.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        location: form.location.value.trim(),
+        timezone: form.timezone.value,
+        primaryPlatform: form.querySelector('input[name="primaryPlatform"]:checked')?.value || '',
+        primaryHandle: form.primaryHandle.value.trim(),
+        secondaryPlatforms: [...form.querySelectorAll('input[name="secondaryPlatforms"]:checked')].map(c => c.value),
+        handleInstagram: form.handleInstagram?.value.trim() || '',
+        handleTikTok: form.handleTikTok?.value.trim() || '',
+        handleYouTube: form.handleYouTube?.value.trim() || '',
+        handleFacebook: form.handleFacebook?.value.trim() || '',
+        handlePinterest: form.handlePinterest?.value.trim() || '',
+        totalFollowing: form.totalFollowing.value,
+        avgViews: form.avgViews.value,
+        primaryNiche: form.querySelector('input[name="primaryNiche"]:checked')?.value || '',
+        nicheOther: form.nicheOther.value.trim(),
+        contentTypes: [...contentTypes].map(c => c.value),
+        bestVideo1: form.bestVideo1.value.trim(),
+        bestVideo2: form.bestVideo2.value.trim(),
+        portfolio: form.portfolio.value.trim(),
+        equipment: form.equipment.value.trim(),
+        brandExperience: form.querySelector('input[name="brandExperience"]:checked')?.value || '',
+        brandsWorked: form.brandsWorked.value.trim(),
+        availability: form.querySelector('input[name="availability"]:checked')?.value || '',
+        ratePerVideo: form.ratePerVideo.value,
+        turnaround: form.turnaround.value,
+        hearAbout: form.hearAbout.value,
+        additionalInfo: form.additionalInfo.value.trim(),
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      try {
+        const res = await fetch('/api/creators', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (!res.ok) throw new Error('Server error');
+
+        formWrapper.style.opacity = '0';
+        setTimeout(() => {
+          formWrapper.style.display = 'none';
+          successState.classList.add('visible');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 300);
+
+      } catch (err) {
+        errorBanner.textContent = 'Something went wrong. Please try again.';
+        errorBanner.classList.add('visible');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application →';
+        errorBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  </script>
+</body>
+</html>
