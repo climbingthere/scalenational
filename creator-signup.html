@@ -343,6 +343,14 @@
       flex-shrink: 0;
     }
 
+    .platform-handle-row .handle-input {
+      flex: 2;
+    }
+
+    .platform-handle-row .followers-input {
+      flex: 1;
+    }
+
     .platform-handle-row input {
       flex: 1;
       background: var(--input-bg);
@@ -585,6 +593,11 @@
               <input type="text" id="primaryHandle" name="primaryHandle" placeholder="@yourhandle" required />
             </div>
 
+            <div class="field" style="max-width: 320px;">
+              <label for="primaryFollowers">Follower / Subscriber Count <span class="req">*</span></label>
+              <input type="number" id="primaryFollowers" name="primaryFollowers" placeholder="Your follower/subscriber count" min="0" required />
+            </div>
+
             <div class="field">
               <label>Secondary Platforms</label>
               <div class="check-list" id="secondary-platform-checks">
@@ -612,19 +625,23 @@
               <div class="platform-handles" id="secondary-handles">
                 <div class="platform-handle-row" id="handle-instagram" data-platform="Instagram">
                   <span class="platform-label">Instagram</span>
-                  <input type="text" name="handleInstagram" placeholder="@handle" />
+                  <input type="text" name="handleInstagram" placeholder="@handle" class="handle-input" />
+                  <input type="number" name="handleInstagramFollowers" placeholder="Followers" min="0" class="followers-input" />
                 </div>
                 <div class="platform-handle-row" id="handle-tiktok" data-platform="TikTok">
                   <span class="platform-label">TikTok</span>
-                  <input type="text" name="handleTikTok" placeholder="@handle" />
+                  <input type="text" name="handleTikTok" placeholder="@handle" class="handle-input" />
+                  <input type="number" name="handleTikTokFollowers" placeholder="Followers" min="0" class="followers-input" />
                 </div>
                 <div class="platform-handle-row" id="handle-youtube" data-platform="YouTube">
                   <span class="platform-label">YouTube</span>
-                  <input type="text" name="handleYouTube" placeholder="@handle or channel name" />
+                  <input type="text" name="handleYouTube" placeholder="@handle or channel name" class="handle-input" />
+                  <input type="number" name="handleYouTubeFollowers" placeholder="Followers" min="0" class="followers-input" />
                 </div>
                 <div class="platform-handle-row" id="handle-facebook" data-platform="Facebook">
                   <span class="platform-label">Facebook</span>
-                  <input type="text" name="handleFacebook" placeholder="page name or URL" />
+                  <input type="text" name="handleFacebook" placeholder="page name or URL" class="handle-input" />
+                  <input type="number" name="handleFacebookFollowers" placeholder="Followers" min="0" class="followers-input" />
                 </div>
                 <div class="platform-handle-row" id="handle-pinterest" data-platform="Pinterest">
                   <span class="platform-label">Pinterest</span>
@@ -633,29 +650,16 @@
               </div>
             </div>
 
-            <div class="field-row">
-              <div class="field">
-                <label for="totalFollowing">Total Following <span class="req">*</span></label>
-                <select id="totalFollowing" name="totalFollowing" required>
-                  <option value="" disabled selected>Combined across platforms</option>
-                  <option value="Under 5K">Under 5K</option>
-                  <option value="5K–25K">5K–25K</option>
-                  <option value="25K–100K">25K–100K</option>
-                  <option value="100K–500K">100K–500K</option>
-                  <option value="500K+">500K+</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="avgViews">Average Views per Video <span class="req">*</span></label>
-                <select id="avgViews" name="avgViews" required>
-                  <option value="" disabled selected>Select range</option>
-                  <option value="Under 1K">Under 1K</option>
-                  <option value="1K–10K">1K–10K</option>
-                  <option value="10K–50K">10K–50K</option>
-                  <option value="50K–200K">50K–200K</option>
-                  <option value="200K+">200K+</option>
-                </select>
-              </div>
+            <div class="field" style="max-width: 320px;">
+              <label for="avgViews">Average Views per Video <span class="req">*</span></label>
+              <select id="avgViews" name="avgViews" required>
+                <option value="" disabled selected>Select range</option>
+                <option value="Under 1K">Under 1K</option>
+                <option value="1K–10K">1K–10K</option>
+                <option value="10K–50K">10K–50K</option>
+                <option value="50K–200K">50K–200K</option>
+                <option value="200K+">200K+</option>
+              </select>
             </div>
           </div>
         </div>
@@ -942,13 +946,17 @@
         timezone: form.timezone.value,
         primaryPlatform: form.querySelector('input[name="primaryPlatform"]:checked')?.value || '',
         primaryHandle: form.primaryHandle.value.trim(),
+        primaryFollowers: parseInt(form.primaryFollowers?.value, 10) || 0,
         secondaryPlatforms: [...form.querySelectorAll('input[name="secondaryPlatforms"]:checked')].map(c => c.value),
         handleInstagram: form.handleInstagram?.value.trim() || '',
+        handleInstagramFollowers: parseInt(form.handleInstagramFollowers?.value, 10) || 0,
         handleTikTok: form.handleTikTok?.value.trim() || '',
+        handleTikTokFollowers: parseInt(form.handleTikTokFollowers?.value, 10) || 0,
         handleYouTube: form.handleYouTube?.value.trim() || '',
+        handleYouTubeFollowers: parseInt(form.handleYouTubeFollowers?.value, 10) || 0,
         handleFacebook: form.handleFacebook?.value.trim() || '',
+        handleFacebookFollowers: parseInt(form.handleFacebookFollowers?.value, 10) || 0,
         handlePinterest: form.handlePinterest?.value.trim() || '',
-        totalFollowing: form.totalFollowing.value,
         avgViews: form.avgViews.value,
         primaryNiche: form.querySelector('input[name="primaryNiche"]:checked')?.value || '',
         nicheOther: form.nicheOther.value.trim(),

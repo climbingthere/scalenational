@@ -1040,6 +1040,251 @@
       margin-bottom: 12px;
     }
 
+    /* ── NETWORK STATS BANNER ── */
+    .network-banner {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      background: var(--card-bg);
+      border: 1px solid var(--teal-border);
+      border-radius: 14px;
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+
+    .network-banner-item {
+      flex: 1;
+      padding: 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-right: 1px solid var(--card-border);
+    }
+
+    .network-banner-item:last-child { border-right: none; }
+
+    .network-banner-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+    }
+
+    .network-banner-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--teal);
+      line-height: 1.1;
+    }
+
+    @media (max-width: 600px) {
+      .network-banner { flex-direction: column; }
+      .network-banner-item { border-right: none; border-bottom: 1px solid var(--card-border); }
+      .network-banner-item:last-child { border-bottom: none; }
+    }
+
+    /* ── FOLLOWER FEED ── */
+    .follower-feed-section {
+      margin-top: 36px;
+    }
+
+    .follower-feed-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .follower-feed-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .follower-feed-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: auto;
+    }
+
+    .follower-feed-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .feed-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      transition: border-color 0.18s, background 0.18s;
+    }
+
+    .feed-row:hover {
+      border-color: var(--teal-border);
+      background: rgba(29,209,161,0.03);
+      cursor: pointer;
+    }
+
+    .feed-rank {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      min-width: 24px;
+      text-align: right;
+    }
+
+    .feed-identity {
+      min-width: 0;
+      flex: 1.5;
+    }
+
+    .feed-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .feed-handle {
+      font-size: 12px;
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    .feed-platforms {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 2;
+      flex-wrap: wrap;
+    }
+
+    .feed-platform-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .feed-platform-item .plat-name {
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .feed-platform-item .plat-count {
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    .feed-total {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--teal);
+      min-width: 80px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .feed-status {
+      flex-shrink: 0;
+    }
+
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .feed-total { animation: countUp 0.4s ease both; }
+
+    /* ── PANEL PLATFORM STATS ── */
+    .platform-stats-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .platform-stats-row:last-of-type { margin-bottom: 0; }
+
+    .plat-stat-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--teal);
+      flex-shrink: 0;
+      letter-spacing: -0.03em;
+    }
+
+    .plat-stat-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      min-width: 72px;
+    }
+
+    .plat-stat-handle {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--teal);
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .plat-stat-count {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .plat-total-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .plat-total-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .plat-total-value {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--teal);
+    }
+
     /* ── Admin Auth ── */
     .admin-overlay { position:fixed;inset:0;z-index:9999;background:#060f0b;display:flex;align-items:center;justify-content:center; }
     .admin-overlay.hidden { display:none; }
@@ -1122,6 +1367,22 @@
       <div class="stat-card">
         <div class="stat-label">Avg Following</div>
         <div class="stat-value" id="stat-avg-following">—</div>
+      </div>
+    </div>
+
+    <!-- NETWORK STATS BANNER -->
+    <div class="network-banner" id="network-banner">
+      <div class="network-banner-item">
+        <div class="network-banner-label">Total Network Followers</div>
+        <div class="network-banner-value" id="banner-total-followers">—</div>
+      </div>
+      <div class="network-banner-item">
+        <div class="network-banner-label">Creators Active</div>
+        <div class="network-banner-value" id="banner-active">—</div>
+      </div>
+      <div class="network-banner-item">
+        <div class="network-banner-label">Pending Review</div>
+        <div class="network-banner-value" id="banner-pending">—</div>
       </div>
     </div>
 
@@ -1216,6 +1477,15 @@
       </div>
     </div>
 
+    <!-- FOLLOWER FEED -->
+    <div class="follower-feed-section" id="follower-feed-section" style="display:none;">
+      <div class="follower-feed-header">
+        <div class="follower-feed-title">Follower Feed</div>
+        <div class="follower-feed-subtitle">Sorted by total followers</div>
+      </div>
+      <div class="follower-feed-list" id="follower-feed-list"></div>
+    </div>
+
   </main>
 
   <!-- SLIDE-IN PANEL -->
@@ -1282,17 +1552,28 @@
         document.getElementById('stat-active-badge').style.display = 'inline-flex';
       }
 
-      // Avg following from bucket midpoints
+      // Avg following — prefer real per-platform counts, fall back to bucket midpoints
       const followMidpoints = {
         'Under 5K': 2500, '5K–25K': 15000, '25K–100K': 62500,
         '100K–500K': 300000, '500K+': 750000
       };
       if (total > 0) {
-        const sum = allCreators.reduce((acc, c) => acc + (followMidpoints[c.totalFollowing] || 0), 0);
-        const avg = Math.round(sum / total);
+        const networkTotal = allCreators.reduce((acc, c) => {
+          const real = creatorTotalFollowers(c);
+          return acc + (real > 0 ? real : (followMidpoints[c.totalFollowing] || 0));
+        }, 0);
+        const avg = Math.round(networkTotal / total);
         document.getElementById('stat-avg-following').textContent = formatNum(avg);
+
+        // Network banner
+        document.getElementById('banner-total-followers').textContent = formatNum(networkTotal);
+        document.getElementById('banner-active').textContent = active;
+        document.getElementById('banner-pending').textContent = pending;
       } else {
         document.getElementById('stat-avg-following').textContent = '—';
+        document.getElementById('banner-total-followers').textContent = '—';
+        document.getElementById('banner-active').textContent = '0';
+        document.getElementById('banner-pending').textContent = '0';
       }
 
       const pluralized = total === 1 ? '1 creator' : `${total} creators`;
@@ -1300,9 +1581,18 @@
     }
 
     function formatNum(n) {
+      n = Number(n) || 0;
       if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
-      if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
+      if (n >= 1000) return Math.round(n / 1000) + 'k';
       return n.toString();
+    }
+
+    function creatorTotalFollowers(c) {
+      return (Number(c.primaryFollowers) || 0)
+        + (Number(c.handleInstagramFollowers) || 0)
+        + (Number(c.handleTikTokFollowers) || 0)
+        + (Number(c.handleYouTubeFollowers) || 0)
+        + (Number(c.handleFacebookFollowers) || 0);
     }
 
     // ── Filters ──
@@ -1355,6 +1645,7 @@
 
       renderTable();
       renderCards();
+      renderFollowerFeed();
     }
 
     // ── Initials ──
@@ -1429,8 +1720,8 @@
           </div>
           <div class="card-stats">
             <div class="card-stat-item">
-              <div class="card-stat-label">Following</div>
-              <div class="card-stat-value teal">${esc(c.totalFollowing || '—')}</div>
+              <div class="card-stat-label">Total Followers</div>
+              <div class="card-stat-value teal">${formatNum(creatorTotalFollowers(c)) || '—'}</div>
             </div>
             <div class="card-stat-item">
               <div class="card-stat-label">Avg Views</div>
@@ -1445,6 +1736,7 @@
               <div class="card-stat-value">${esc(c.turnaround || '—')}</div>
             </div>
           </div>
+          ${cardPlatformBreakdown(c)}
           <div class="card-actions" onclick="event.stopPropagation()">
             <button class="action-btn view" onclick="openPanel('${escAttr(c.id || c._id || c.email)}')">View</button>
             ${c.status === 'pending' ? `<button class="action-btn approve" onclick="approveCreator('${escAttr(c.id || c._id || c.email)}', this)">Approve</button>` : ''}
@@ -1457,6 +1749,101 @@
     function nicheShort(niche) {
       if (!niche) return 'Unknown';
       return niche.split(' ')[0];
+    }
+
+    // ── Card platform follower breakdown ──
+    function cardPlatformBreakdown(c) {
+      const items = [];
+      if (c.primaryPlatform && (Number(c.primaryFollowers) > 0)) {
+        items.push(`<span style="font-size:11px;color:var(--muted);">${esc(c.primaryPlatform)}: <strong style="color:var(--teal);">${formatNum(c.primaryFollowers)}</strong></span>`);
+      }
+      if (c.handleInstagram && Number(c.handleInstagramFollowers) > 0) {
+        items.push(`<span style="font-size:11px;color:var(--muted);">IG: <strong style="color:var(--teal);">${formatNum(c.handleInstagramFollowers)}</strong></span>`);
+      }
+      if (c.handleTikTok && Number(c.handleTikTokFollowers) > 0) {
+        items.push(`<span style="font-size:11px;color:var(--muted);">TT: <strong style="color:var(--teal);">${formatNum(c.handleTikTokFollowers)}</strong></span>`);
+      }
+      if (c.handleYouTube && Number(c.handleYouTubeFollowers) > 0) {
+        items.push(`<span style="font-size:11px;color:var(--muted);">YT: <strong style="color:var(--teal);">${formatNum(c.handleYouTubeFollowers)}</strong></span>`);
+      }
+      if (items.length === 0) return '';
+      return `<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;padding-top:10px;border-top:1px solid var(--card-border);">${items.join('')}</div>`;
+    }
+
+    // ── Follower Feed ──
+    function renderFollowerFeed() {
+      const section = document.getElementById('follower-feed-section');
+      const list = document.getElementById('follower-feed-list');
+      if (allCreators.length === 0) {
+        section.style.display = 'none';
+        return;
+      }
+      const sorted = [...allCreators].sort((a, b) => creatorTotalFollowers(b) - creatorTotalFollowers(a));
+      section.style.display = 'block';
+      list.innerHTML = sorted.map((c, i) => {
+        const total = creatorTotalFollowers(c);
+        const id = escAttr(c.id || c._id || c.email);
+        const platformItems = [];
+        if (c.primaryPlatform && Number(c.primaryFollowers) > 0) {
+          platformItems.push(`<span class="feed-platform-item"><span class="plat-name">${esc(c.primaryPlatform)}:</span><span class="plat-count">${formatNum(c.primaryFollowers)}</span></span>`);
+        }
+        if (c.handleInstagram && Number(c.handleInstagramFollowers) > 0) {
+          platformItems.push(`<span class="feed-platform-item"><span class="plat-name">Instagram:</span><span class="plat-count">${formatNum(c.handleInstagramFollowers)}</span></span>`);
+        }
+        if (c.handleTikTok && Number(c.handleTikTokFollowers) > 0) {
+          platformItems.push(`<span class="feed-platform-item"><span class="plat-name">TikTok:</span><span class="plat-count">${formatNum(c.handleTikTokFollowers)}</span></span>`);
+        }
+        if (c.handleYouTube && Number(c.handleYouTubeFollowers) > 0) {
+          platformItems.push(`<span class="feed-platform-item"><span class="plat-name">YouTube:</span><span class="plat-count">${formatNum(c.handleYouTubeFollowers)}</span></span>`);
+        }
+        return `
+          <div class="feed-row" onclick="openPanel('${id}')">
+            <div class="feed-rank">#${i + 1}</div>
+            <div class="feed-identity">
+              <div class="feed-name">${esc(c.fullName || '—')}</div>
+              <div class="feed-handle">${esc(c.primaryHandle || '—')}</div>
+            </div>
+            <div class="feed-platforms">${platformItems.join('') || '<span style="font-size:11px;color:var(--muted);">No data</span>'}</div>
+            <div class="feed-total" style="animation-delay:${i * 0.04}s;">${total > 0 ? formatNum(total) : '—'}</div>
+            <div class="feed-status">${statusBadgeHTML(c.status)}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ── Panel platform stats HTML ──
+    function panelPlatformStats(c) {
+      const rows = [];
+      const addRow = (abbr, name, handle, count) => {
+        if (!handle && !(Number(count) > 0)) return;
+        rows.push(`
+          <div class="platform-stats-row">
+            <div class="plat-stat-icon">${abbr}</div>
+            <div class="plat-stat-name">${name}</div>
+            <div class="plat-stat-handle">${esc(handle || '—')}</div>
+            <div class="plat-stat-count">${Number(count) > 0 ? formatNum(count) : '—'}</div>
+          </div>
+        `);
+      };
+      if (c.primaryPlatform) {
+        addRow(c.primaryPlatform.slice(0, 2).toUpperCase(), c.primaryPlatform, c.primaryHandle, c.primaryFollowers);
+      }
+      addRow('IG', 'Instagram', c.handleInstagram, c.handleInstagramFollowers);
+      addRow('TT', 'TikTok', c.handleTikTok, c.handleTikTokFollowers);
+      addRow('YT', 'YouTube', c.handleYouTube, c.handleYouTubeFollowers);
+
+      if (rows.length === 0) return '';
+      const total = creatorTotalFollowers(c);
+      return `
+        <div class="panel-section">
+          <div class="panel-section-title">Platform Stats</div>
+          ${rows.join('')}
+          <div class="plat-total-row">
+            <div class="plat-total-label">Total Followers</div>
+            <div class="plat-total-value">${total > 0 ? formatNum(total) : '—'}</div>
+          </div>
+        </div>
+      `;
     }
 
     // ── View toggle ──
@@ -1535,8 +1922,8 @@
               <div class="info-value">${esc(platforms || '—')}</div>
             </div>
             <div class="info-item">
-              <div class="info-label">Total Following</div>
-              <div class="info-value teal">${esc(c.totalFollowing || '—')}</div>
+              <div class="info-label">Total Followers</div>
+              <div class="info-value teal">${creatorTotalFollowers(c) > 0 ? formatNum(creatorTotalFollowers(c)) : esc(c.totalFollowing || '—')}</div>
             </div>
             <div class="info-item">
               <div class="info-label">Avg Views/Video</div>
@@ -1544,6 +1931,8 @@
             </div>
           </div>
         </div>
+
+        ${panelPlatformStats(c)}
 
         <div class="panel-section">
           <div class="panel-section-title">Niche & Content</div>
