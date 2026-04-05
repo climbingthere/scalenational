@@ -1513,6 +1513,16 @@
   </div>
 
   <script>
+    // Admin API key — set via Cloudflare Pages environment ADMIN_API_KEY
+    // Injected at build time or via config endpoint
+    const PORTAL_API_KEY = window.__ADMIN_KEY__ || '';
+    function adminFetch(url, opts = {}) {
+      return fetch(url, {
+        ...opts,
+        headers: { 'Content-Type': 'application/json', ...(opts.headers||{}), ...(PORTAL_API_KEY ? {'Authorization': `Bearer ${PORTAL_API_KEY}`} : {}) }
+      });
+    }
+
     // ── State ──
     let allCreators = [];
     let filteredCreators = [];
@@ -1523,7 +1533,7 @@
     // ── Init ──
     async function init() {
       try {
-        const res = await fetch('/api/creators');
+        const res = await adminFetch('/api/creators');
         if (!res.ok) throw new Error('Failed to fetch');
         const data = await res.json();
         allCreators = Array.isArray(data) ? data : (data.creators || []);
@@ -2036,7 +2046,7 @@
       const original = btn ? btn.textContent : '';
       if (btn) { btn.disabled = true; btn.textContent = '...'; }
       try {
-        const res = await fetch(`/api/creators/${encodeURIComponent(id)}`, {
+        const res = await adminFetch(`/api/creators/${encodeURIComponent(id)}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ status: 'active' })
@@ -2053,7 +2063,7 @@
 
     async function changeStatus(id, status) {
       try {
-        const res = await fetch(`/api/creators/${encodeURIComponent(id)}`, {
+        const res = await adminFetch(`/api/creators/${encodeURIComponent(id)}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ status })
@@ -2069,7 +2079,7 @@
     async function removeCreator(id) {
       if (!confirm('Remove this creator from the database?')) return;
       try {
-        const res = await fetch(`/api/creators/${encodeURIComponent(id)}`, {
+        const res = await adminFetch(`/api/creators/${encodeURIComponent(id)}`, {
           method: 'DELETE'
         });
         if (res.ok || res.status === 204) {

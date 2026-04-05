@@ -1501,7 +1501,7 @@ function handleLogout() {
   window.location.reload();
 }
 
-function setupLoginForm(clientId, passwordHash) {
+function setupLoginForm(clientId) {
   showLogin();
 
   const submitBtn = document.getElementById('login-submit');
@@ -1513,20 +1513,34 @@ function setupLoginForm(clientId, passwordHash) {
     const val = passwordInput.value;
     if (!val) return;
 
+    submitBtn.disabled = true;
+    errorEl.classList.remove('show');
+
     const hashed = await hashPassword(val);
 
-    if (hashed === passwordHash) {
-      sessionStorage.setItem('sn_auth_' + clientId, hashed);
-      showDashboard();
-    } else {
+    // Fetch client JSON with password hash as query param
+    try {
+      const res = await fetch(`clients/${clientId}.json?pw=${encodeURIComponent(hashed)}`);
+      if (res.ok) {
+        const data = await res.json();
+        sessionStorage.setItem('sn_auth_' + clientId, hashed);
+        showDashboard();
+        populateDashboardData(data);
+        document.getElementById('loading').classList.add('hidden');
+      } else {
+        // 401 or 403 — wrong password
+        errorEl.classList.add('show');
+        passwordInput.value = '';
+        card.classList.remove('shake');
+        void card.offsetWidth;
+        card.classList.add('shake');
+        card.addEventListener('animationend', () => card.classList.remove('shake'), { once: true });
+      }
+    } catch (e) {
       errorEl.classList.add('show');
-      passwordInput.value = '';
-      card.classList.remove('shake');
-      // Force reflow to restart animation
-      void card.offsetWidth;
-      card.classList.add('shake');
-      card.addEventListener('animationend', () => card.classList.remove('shake'), { once: true });
     }
+
+    submitBtn.disabled = false;
   }
 
   submitBtn.addEventListener('click', attemptLogin);
@@ -1538,6 +1552,17 @@ function setupLoginForm(clientId, passwordHash) {
   });
 }
 
+function populateDashboardData(data) {
+  populateMeta(data.meta);
+  populateKPIs(data.kpis);
+  populateCampaigns(data.campaigns);
+  populateCreatives(data.creatives);
+  populateActivity(data.activity);
+  populateContentLibrary(data.contentLibrary);
+  currentChartData = data.chart;
+  requestAnimationFrame(() => { populateChart(data.chart); });
+}
+
 // ── MAIN LOADER ──
 let currentChartData = null;
 
@@ -1545,62 +1570,30 @@ async function loadDashboard() {
   const params = new URLSearchParams(window.location.search);
   const clientId = params.get('client') || 'demo';
 
-  try {
-    const res = await fetch(`clients/${clientId}.json`);
-    if (!res.ok) throw new Error('Not found');
-    const data = await res.json();
-
-    // ── AUTH CHECK ──
-    const passwordHash = data.meta.accessPasswordHash;
-    if (passwordHash) {
-      const storedToken = sessionStorage.getItem('sn_auth_' + clientId);
-      if (storedToken && storedToken === passwordHash) {
-        // Already authenticated
+  // Check for stored session token first
+  const storedToken = sessionStorage.getItem('sn_auth_' + clientId);
+  if (storedToken) {
+    // Re-fetch with stored hash to validate session and load data
+    try {
+      const res = await fetch(`clients/${clientId}.json?pw=${encodeURIComponent(storedToken)}`);
+      if (res.ok) {
+        const data = await res.json();
         showDashboard();
-      } else {
-        // Need to authenticate — set up login form, populate data in background
-        // Hide loader first
+        populateDashboardData(data);
         document.getElementById('loading').classList.add('hidden');
-        setupLoginForm(clientId, passwordHash);
-
-        // Populate dashboard content (hidden) so it's ready when login succeeds
-        populateMeta(data.meta);
-        populateKPIs(data.kpis);
-        populateCampaigns(data.campaigns);
-        populateCreatives(data.creatives);
-        populateActivity(data.activity);
-        populateContentLibrary(data.contentLibrary);
-        currentChartData = data.chart;
-        requestAnimationFrame(() => { populateChart(data.chart); });
         return;
+      } else {
+        // Stored token no longer valid — clear it
+        sessionStorage.removeItem('sn_auth_' + clientId);
       }
-    } else {
-      // No password protection — show dashboard directly
-      showDashboard();
+    } catch (err) {
+      sessionStorage.removeItem('sn_auth_' + clientId);
     }
-
-    populateMeta(data.meta);
-    populateKPIs(data.kpis);
-    populateCampaigns(data.campaigns);
-    populateCreatives(data.creatives);
-    populateActivity(data.activity);
-    populateContentLibrary(data.contentLibrary);
-
-    currentChartData = data.chart;
-
-    // Chart after DOM settles so we get the correct container width
-    requestAnimationFrame(() => {
-      populateChart(data.chart);
-    });
-
-    // Hide loader
-    document.getElementById('loading').classList.add('hidden');
-
-  } catch (err) {
-    document.getElementById('loading').classList.add('hidden');
-    document.getElementById('error-state').classList.add('show');
-    document.getElementById('header-client-name').textContent = 'Client Not Found';
   }
+
+  // No valid session — show login form
+  document.getElementById('loading').classList.add('hidden');
+  setupLoginForm(clientId);
 }
 
 // Re-render chart on resize

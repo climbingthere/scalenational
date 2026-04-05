@@ -5,9 +5,10 @@
  */
 
 const CORS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, PATCH, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Origin': 'https://scalenational.com',
+  'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Vary': 'Origin',
 };
 
 function json(data, status = 200) {
@@ -17,6 +18,15 @@ function json(data, status = 200) {
   });
 }
 
+function requireAdminKey(request, env) {
+  if (!env.ADMIN_API_KEY) return null; // If not configured, skip check (dev mode)
+  const auth = (request.headers.get('Authorization') || '').replace('Bearer ', '').trim();
+  if (auth !== env.ADMIN_API_KEY) {
+    return json({ error: 'Unauthorized' }, 401);
+  }
+  return null;
+}
+
 // GET /api/creators — list all creators (portal use)
 // GET /api/creators?id=xxx — single creator
 async function handleGet(request, env) {
@@ -24,12 +34,17 @@ async function handleGet(request, env) {
   const id = url.searchParams.get('id');
 
   if (id) {
+    // Single creator by ID — stays open so client dashboard can load its own data
     const creator = await env.CREATORS_KV.get(`creator:${id}`, 'json');
     if (!creator) return json({ error: 'Not found' }, 404);
     return json(creator);
   }
 
-  // List all — KV list with prefix
+  // List all — requires admin key
+  const authErr = requireAdminKey(request, env);
+  if (authErr) return authErr;
+
+  // KV list with prefix
   const list = await env.CREATORS_KV.list({ prefix: 'creator:' });
   const creators = await Promise.all(
     list.keys.map(k => env.CREATORS_KV.get(k.name, 'json'))
@@ -39,6 +54,16 @@ async function handleGet(request, env) {
 
 // POST /api/creators — new creator application
 async function handlePost(request, env) {
+  // Rate limiting
+  const ip = request.headers.get('CF-Connecting-IP') || request.headers.get('X-Forwarded-For') || 'unknown';
+  const hourBucket = Math.floor(Date.now() / 3600000);
+  const rateKey = `rate:${ip}:${hourBucket}`;
+  const rateCount = parseInt(await env.CREATORS_KV.get(rateKey) || '0');
+  if (rateCount >= 5) {
+    return json({ error: 'Too many submissions. Please try again later.' }, 429);
+  }
+  await env.CREATORS_KV.put(rateKey, String(rateCount + 1), { expirationTtl: 3600 });
+
   let body;
   try {
     body = await request.json();
@@ -47,10 +72,25 @@ async function handlePost(request, env) {
   }
 
   // Validate required fields
-  const required = ['fullName', 'email', 'location', 'timezone', 'primaryPlatform', 'primaryHandle', 'totalFollowing', 'avgViews', 'primaryNiche', 'bestVideoLink'];
+  const required = ['fullName', 'email', 'location', 'timezone', 'primaryPlatform', 'primaryHandle', 'primaryNiche'];
   for (const field of required) {
     if (!body[field]) return json({ error: `Missing required field: ${field}` }, 400);
   }
+
+  // Email format
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) {
+    return json({ error: 'Invalid email address' }, 400);
+  }
+  // Prevent oversized payloads
+  const bodyStr = JSON.stringify(body);
+  if (bodyStr.length > 50000) {
+    return json({ error: 'Request too large' }, 413);
+  }
+  // Sanitize text fields — strip HTML tags
+  const sanitize = (s) => typeof s === 'string' ? s.replace(/<[^>]*>/g, '').slice(0, 1000) : s;
+  ['fullName', 'location', 'primaryHandle', 'notes'].forEach(k => {
+    if (body[k]) body[k] = sanitize(body[k]);
+  });
 
   const id = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   const creator = {
@@ -67,6 +107,9 @@ async function handlePost(request, env) {
 
 // PATCH /api/creators?id=xxx — update status or notes
 async function handlePatch(request, env) {
+  const authErr = requireAdminKey(request, env);
+  if (authErr) return authErr;
+
   const url = new URL(request.url);
   const id = url.searchParams.get('id');
   if (!id) return json({ error: 'Missing id' }, 400);
@@ -88,6 +131,9 @@ async function handlePatch(request, env) {
 
 // DELETE /api/creators?id=xxx
 async function handleDelete(request, env) {
+  const authErr = requireAdminKey(request, env);
+  if (authErr) return authErr;
+
   const url = new URL(request.url);
   const id = url.searchParams.get('id');
   if (!id) return json({ error: 'Missing id' }, 400);

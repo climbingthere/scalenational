@@ -608,6 +608,16 @@
 </main>
 
 <script>
+// Admin API key — set via Cloudflare Pages environment ADMIN_API_KEY
+// Injected at build time or via config endpoint
+const PORTAL_API_KEY = window.__ADMIN_KEY__ || '';
+function adminFetch(url, opts = {}) {
+  return fetch(url, {
+    ...opts,
+    headers: { 'Content-Type': 'application/json', ...(opts.headers||{}), ...(PORTAL_API_KEY ? {'Authorization': `Bearer ${PORTAL_API_KEY}`} : {}) }
+  });
+}
+
 const ADMIN_HASH = 'e97f43b5cff898d80583af2bf6becf35ea2d2980abc932e49586b3e8e03e9f28';
 const ADMIN_SESSION_KEY = 'sn_admin_auth';
 
