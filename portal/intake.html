@@ -848,15 +848,17 @@
 </div>
 
 <script>
-const PORTAL_API_KEY = window.__ADMIN_KEY__ || '';
+const ADMIN_TOKEN_KEY = 'sn_admin_token';
+function getPortalApiKey() { return sessionStorage.getItem(ADMIN_TOKEN_KEY) || ''; }
 
 function adminFetch(url, opts = {}) {
+  const key = getPortalApiKey();
   return fetch(url, {
     ...opts,
     headers: {
       'Content-Type': 'application/json',
       ...(opts.headers || {}),
-      ...(PORTAL_API_KEY ? { 'Authorization': `Bearer ${PORTAL_API_KEY}` } : {}),
+      ...(key ? { 'Authorization': `Bearer ${key}` } : {}),
     },
   });
 }
@@ -869,8 +871,23 @@ async function sha256(str) {
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
+async function fetchAdminToken(hash) {
+  try {
+    const res = await fetch('/api/admin-token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ hash }),
+    });
+    if (res.ok) {
+      const { token } = await res.json();
+      if (token) sessionStorage.setItem(ADMIN_TOKEN_KEY, token);
+    }
+  } catch(e) { /* non-critical */ }
+}
+
 function adminLogout() {
   sessionStorage.removeItem(ADMIN_SESSION_KEY);
+  sessionStorage.removeItem(ADMIN_TOKEN_KEY);
   location.reload();
 }
 
@@ -883,6 +900,7 @@ let activeId = null;
 (async function initAdminAuth() {
   const stored = sessionStorage.getItem(ADMIN_SESSION_KEY);
   if (stored === ADMIN_HASH) {
+    if (!sessionStorage.getItem(ADMIN_TOKEN_KEY)) await fetchAdminToken(stored);
     document.getElementById('adminOverlay').classList.add('hidden');
     init();
     return;
@@ -903,6 +921,7 @@ let activeId = null;
     const hash = await sha256(user + ':' + pass);
     if (hash === ADMIN_HASH) {
       sessionStorage.setItem(ADMIN_SESSION_KEY, hash);
+      await fetchAdminToken(hash);
       document.getElementById('adminOverlay').classList.add('hidden');
       init();
     } else {
