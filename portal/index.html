@@ -405,14 +405,77 @@
       .stats-bar { gap: 20px; flex-wrap: wrap; }
       .stat-divider { display: none; }
     }
+
+    /* ── Admin Auth ── */
+    .admin-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #060f0b;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .admin-overlay.hidden { display: none; }
+    .admin-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 20px; padding: 48px 40px;
+      width: 100%; max-width: 400px;
+      text-align: center;
+    }
+    .admin-card img { height: 38px; filter: brightness(0) invert(1); margin-bottom: 28px; }
+    .admin-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+    .admin-headline { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .admin-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+    .admin-input {
+      width: 100%; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 10px;
+      padding: 13px 16px; color: #fff; font-size: 15px;
+      font-family: inherit; margin-bottom: 12px; outline: none;
+      transition: border-color .2s;
+    }
+    .admin-input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(29,209,161,0.12); }
+    .admin-btn {
+      width: 100%; background: var(--teal); color: #060f0b;
+      border: none; border-radius: 10px; padding: 14px;
+      font-size: 15px; font-weight: 800; font-family: inherit;
+      cursor: pointer; margin-top: 4px; transition: opacity .2s;
+    }
+    .admin-btn:hover { opacity: .88; }
+    .admin-error { color: #ff6b6b; font-size: 13px; margin-top: 12px; min-height: 18px; }
+    @keyframes adminShake {
+      0%,100% { transform: translateX(0); }
+      20%,60% { transform: translateX(-8px); }
+      40%,80% { transform: translateX(8px); }
+    }
+    .admin-card.shake { animation: adminShake .4s ease; }
+    .btn-logout {
+      background: none; border: 1px solid rgba(255,255,255,0.12);
+      color: var(--muted); padding: 6px 14px; border-radius: 8px;
+      font-size: 12px; font-weight: 600; font-family: inherit;
+      cursor: pointer; transition: all .2s; margin-left: 8px;
+    }
+    .btn-logout:hover { border-color: #ff6b6b; color: #ff6b6b; }
   </style>
 </head>
 <body>
+
+<!-- Admin Login Overlay -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-card" id="adminCard">
+    <img src="../logo-transparent.png" alt="ScaleNational">
+    <div class="admin-eyebrow">Admin Portal</div>
+    <div class="admin-headline">Sign in</div>
+    <div class="admin-sub">ScaleNational internal access only.</div>
+    <input class="admin-input" type="text" id="adminUser" placeholder="Username" autocomplete="username">
+    <input class="admin-input" type="password" id="adminPass" placeholder="Password" autocomplete="current-password">
+    <button class="admin-btn" id="adminSubmit">Sign In →</button>
+    <div class="admin-error" id="adminError"></div>
+  </div>
+</div>
 
 <header class="header">
   <img src="../logo-transparent.png" alt="ScaleNational" class="header-logo">
   <div class="header-divider"></div>
   <span class="header-label">Admin &nbsp;·&nbsp; <strong>Eric's Dashboard</strong></span>
+  <button class="btn-logout" id="adminLogout" onclick="adminLogout()" style="margin-left:auto;">Sign Out</button>
 </header>
 
 <main class="main">
@@ -545,6 +608,57 @@
 </main>
 
 <script>
+const ADMIN_HASH = 'e97f43b5cff898d80583af2bf6becf35ea2d2980abc932e49586b3e8e03e9f28';
+const ADMIN_SESSION_KEY = 'sn_admin_auth';
+
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+function adminLogout() {
+  sessionStorage.removeItem(ADMIN_SESSION_KEY);
+  location.reload();
+}
+
+(async function initAdminAuth() {
+  const stored = sessionStorage.getItem(ADMIN_SESSION_KEY);
+  if (stored === ADMIN_HASH) {
+    document.getElementById('adminOverlay').classList.add('hidden');
+    return;
+  }
+  // Show overlay, block page
+  document.getElementById('adminOverlay').classList.remove('hidden');
+
+  const submitBtn = document.getElementById('adminSubmit');
+  const errorEl = document.getElementById('adminError');
+  const card = document.getElementById('adminCard');
+
+  async function attempt() {
+    const user = document.getElementById('adminUser').value.trim();
+    const pass = document.getElementById('adminPass').value;
+    errorEl.textContent = '';
+    submitBtn.textContent = 'Signing in…';
+    submitBtn.disabled = true;
+    const hash = await sha256(user + ':' + pass);
+    if (hash === ADMIN_HASH) {
+      sessionStorage.setItem(ADMIN_SESSION_KEY, hash);
+      document.getElementById('adminOverlay').classList.add('hidden');
+    } else {
+      card.classList.add('shake');
+      setTimeout(() => card.classList.remove('shake'), 400);
+      errorEl.textContent = 'Incorrect username or password.';
+      submitBtn.textContent = 'Sign In →';
+      submitBtn.disabled = false;
+      document.getElementById('adminPass').value = '';
+    }
+  }
+
+  submitBtn.addEventListener('click', attempt);
+  document.getElementById('adminPass').addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
+  document.getElementById('adminUser').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('adminPass').focus(); });
+})();
+
 function copyUrl(btn, spanId) {
   const text = document.getElementById(spanId).textContent;
   const fullUrl = window.location.origin + window.location.pathname.replace('index.html', '') + text;
