@@ -58,6 +58,28 @@
 </head>
 <body>
 
+<!-- AUTH OVERLAY -->
+<div id="authOverlay" style="position:fixed;inset:0;background:#060f0b;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px">
+  <div id="authCard" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:20px;padding:40px 36px;width:100%;max-width:380px;text-align:center">
+    <img src="logo-transparent.png" alt="ScaleNational" style="height:36px;filter:brightness(0) invert(1);margin-bottom:24px">
+    <h2 style="font-size:20px;font-weight:800;margin-bottom:6px">DM Scripts</h2>
+    <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:28px;font-weight:600">Internal use only — enter password to continue</p>
+    <input id="authPass" type="password" placeholder="Password" autocomplete="current-password"
+      style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:13px 16px;color:#fff;font-size:15px;font-family:inherit;outline:none;margin-bottom:14px;box-sizing:border-box">
+    <button id="authBtn" onclick="checkAuth()"
+      style="width:100%;background:#1DD1A1;color:#060f0b;border:none;border-radius:10px;padding:14px;font-size:14px;font-weight:800;font-family:inherit;cursor:pointer;letter-spacing:.04em">
+      Enter →
+    </button>
+    <p id="authErr" style="color:#f87171;font-size:12px;font-weight:700;margin-top:12px;min-height:18px"></p>
+  </div>
+</div>
+
+<style>
+  @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+  .shake{animation:shake .35s ease}
+  #authOverlay.hidden{display:none}
+</style>
+
 <!-- HEADER -->
 <header class="header">
   <img src="logo-transparent.png" alt="ScaleNational">
@@ -723,6 +745,44 @@
 <div class="toast" id="toast">Copied to clipboard</div>
 
 <script>
+  // ── Auth ──
+  const SCRIPTS_HASH = 'e97f43b5cff898d80583af2bf6becf35ea2d2980abc932e49586b3e8e03e9f28'; // erickirt:Ey58e54!Struppi?
+  const SCRIPTS_SESSION_KEY = 'sn_scripts_auth';
+
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  async function checkAuth() {
+    const pass = document.getElementById('authPass').value;
+    const btn  = document.getElementById('authBtn');
+    const err  = document.getElementById('authErr');
+    const card = document.getElementById('authCard');
+    btn.textContent = 'Checking…'; btn.disabled = true; err.textContent = '';
+    const hash = await sha256('erickirt:' + pass);
+    if (hash === SCRIPTS_HASH) {
+      sessionStorage.setItem(SCRIPTS_SESSION_KEY, hash);
+      document.getElementById('authOverlay').classList.add('hidden');
+    } else {
+      card.classList.add('shake');
+      setTimeout(() => card.classList.remove('shake'), 400);
+      err.textContent = 'Incorrect password.';
+      btn.textContent = 'Enter →'; btn.disabled = false;
+      document.getElementById('authPass').value = '';
+      document.getElementById('authPass').focus();
+    }
+  }
+
+  document.getElementById('authPass').addEventListener('keydown', e => { if (e.key === 'Enter') checkAuth(); });
+
+  // Check existing session
+  (async function() {
+    if (sessionStorage.getItem(SCRIPTS_SESSION_KEY) === SCRIPTS_HASH) {
+      document.getElementById('authOverlay').classList.add('hidden');
+    }
+  })();
+
   // Tab switching
   const tabs = document.querySelectorAll('.tab');
   const panels = document.querySelectorAll('.panel');
