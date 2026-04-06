@@ -2047,7 +2047,7 @@
       const original = btn ? btn.textContent : '';
       if (btn) { btn.disabled = true; btn.textContent = '...'; }
       try {
-        const res = await adminFetch(`/api/creators/${encodeURIComponent(id)}`, {
+        const res = await adminFetch(`/api/creators?id=${encodeURIComponent(id)}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ status: 'active' })
@@ -2064,7 +2064,7 @@
 
     async function changeStatus(id, status) {
       try {
-        const res = await adminFetch(`/api/creators/${encodeURIComponent(id)}`, {
+        const res = await adminFetch(`/api/creators?id=${encodeURIComponent(id)}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ status })
@@ -2080,7 +2080,7 @@
     async function removeCreator(id) {
       if (!confirm('Remove this creator from the database?')) return;
       try {
-        const res = await adminFetch(`/api/creators/${encodeURIComponent(id)}`, {
+        const res = await adminFetch(`/api/creators?id=${encodeURIComponent(id)}`, {
           method: 'DELETE'
         });
         if (res.ok || res.status === 204) {
