@@ -909,82 +909,87 @@
     const successState = document.getElementById('success-state');
     const formWrapper = document.getElementById('form-wrapper');
 
+    const field = (name) => form.elements[name];
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       errorBanner.classList.remove('visible');
 
-      // Custom validation
+      // Custom validation — check required radio groups
       const requiredRadioGroups = ['primaryPlatform', 'primaryNiche', 'brandExperience', 'availability'];
-      let valid = true;
-
       for (const group of requiredRadioGroups) {
-        const checked = form.querySelector(`input[name="${group}"]:checked`);
-        if (!checked) {
-          valid = false;
+        if (!form.querySelector(`input[name="${group}"]:checked`)) {
           const firstRadio = form.querySelector(`input[name="${group}"]`);
           if (firstRadio) firstRadio.closest('.field').scrollIntoView({ behavior: 'smooth', block: 'center' });
-          break;
+          form.reportValidity();
+          return;
         }
       }
 
+      // Check at least one content type
       const contentTypes = form.querySelectorAll('input[name="contentTypes"]:checked');
-      if (contentTypes.length === 0) valid = false;
-
-      if (!form.checkValidity() || !valid) {
-        form.reportValidity();
+      if (contentTypes.length === 0) {
+        errorBanner.textContent = 'Please select at least one content type.';
+        errorBanner.classList.add('visible');
+        const ctField = form.querySelector('input[name="contentTypes"]');
+        if (ctField) ctField.closest('.field').scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
 
-      // Collect data
-      const data = {
-        status: 'pending',
-        submittedAt: new Date().toISOString(),
-        fullName: form.fullName.value.trim(),
-        email: form.email.value.trim(),
-        phone: form.phone.value.trim(),
-        location: form.location.value.trim(),
-        timezone: form.timezone.value,
-        primaryPlatform: form.querySelector('input[name="primaryPlatform"]:checked')?.value || '',
-        primaryHandle: form.primaryHandle.value.trim(),
-        primaryFollowers: parseInt(form.primaryFollowers?.value, 10) || 0,
-        secondaryPlatforms: [...form.querySelectorAll('input[name="secondaryPlatforms"]:checked')].map(c => c.value),
-        handleInstagram: form.handleInstagram?.value.trim() || '',
-        handleInstagramFollowers: parseInt(form.handleInstagramFollowers?.value, 10) || 0,
-        handleTikTok: form.handleTikTok?.value.trim() || '',
-        handleTikTokFollowers: parseInt(form.handleTikTokFollowers?.value, 10) || 0,
-        handleYouTube: form.handleYouTube?.value.trim() || '',
-        handleYouTubeFollowers: parseInt(form.handleYouTubeFollowers?.value, 10) || 0,
-        handleFacebook: form.handleFacebook?.value.trim() || '',
-        handleFacebookFollowers: parseInt(form.handleFacebookFollowers?.value, 10) || 0,
-        handlePinterest: form.handlePinterest?.value.trim() || '',
-        avgViews: form.avgViews.value,
-        primaryNiche: form.querySelector('input[name="primaryNiche"]:checked')?.value || '',
-        nicheOther: form.nicheOther.value.trim(),
-        contentTypes: [...contentTypes].map(c => c.value),
-        bestVideo1: form.bestVideo1.value.trim(),
-        bestVideo2: form.bestVideo2.value.trim(),
-        portfolio: form.portfolio.value.trim(),
-        equipment: form.equipment.value.trim(),
-        brandExperience: form.querySelector('input[name="brandExperience"]:checked')?.value || '',
-        brandsWorked: form.brandsWorked.value.trim(),
-        availability: form.querySelector('input[name="availability"]:checked')?.value || '',
-        ratePerVideo: form.ratePerVideo.value,
-        turnaround: form.turnaround.value,
-        hearAbout: form.hearAbout.value,
-        additionalInfo: form.additionalInfo.value.trim(),
-      };
+      // Native HTML5 validation
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Submitting...';
 
       try {
+        const data = {
+          fullName:               field('fullName')?.value.trim() || '',
+          email:                  field('email')?.value.trim() || '',
+          phone:                  field('phone')?.value.trim() || '',
+          location:               field('location')?.value.trim() || '',
+          timezone:               field('timezone')?.value || '',
+          primaryPlatform:        form.querySelector('input[name="primaryPlatform"]:checked')?.value || '',
+          primaryHandle:          field('primaryHandle')?.value.trim() || '',
+          primaryFollowers:       parseInt(field('primaryFollowers')?.value, 10) || 0,
+          secondaryPlatforms:     [...form.querySelectorAll('input[name="secondaryPlatforms"]:checked')].map(c => c.value),
+          handleInstagram:        field('handleInstagram')?.value.trim() || '',
+          handleInstagramFollowers: parseInt(field('handleInstagramFollowers')?.value, 10) || 0,
+          handleTikTok:           field('handleTikTok')?.value.trim() || '',
+          handleTikTokFollowers:  parseInt(field('handleTikTokFollowers')?.value, 10) || 0,
+          handleYouTube:          field('handleYouTube')?.value.trim() || '',
+          handleYouTubeFollowers: parseInt(field('handleYouTubeFollowers')?.value, 10) || 0,
+          handleFacebook:         field('handleFacebook')?.value.trim() || '',
+          handleFacebookFollowers: parseInt(field('handleFacebookFollowers')?.value, 10) || 0,
+          handlePinterest:        field('handlePinterest')?.value.trim() || '',
+          avgViews:               field('avgViews')?.value || '',
+          primaryNiche:           form.querySelector('input[name="primaryNiche"]:checked')?.value || '',
+          nicheOther:             field('nicheOther')?.value.trim() || '',
+          contentTypes:           [...contentTypes].map(c => c.value),
+          bestVideo1:             field('bestVideo1')?.value.trim() || '',
+          bestVideo2:             field('bestVideo2')?.value.trim() || '',
+          portfolio:              field('portfolio')?.value.trim() || '',
+          equipment:              field('equipment')?.value.trim() || '',
+          brandExperience:        form.querySelector('input[name="brandExperience"]:checked')?.value || '',
+          brandsWorked:           field('brandsWorked')?.value.trim() || '',
+          availability:           form.querySelector('input[name="availability"]:checked')?.value || '',
+          ratePerVideo:           field('ratePerVideo')?.value || '',
+          turnaround:             field('turnaround')?.value || '',
+          hearAbout:              field('hearAbout')?.value || '',
+          additionalInfo:         field('additionalInfo')?.value.trim() || '',
+        };
+
         const res = await fetch('/api/creators', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
         });
 
-        if (!res.ok) throw new Error('Server error');
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error || 'Server error');
 
         formWrapper.style.opacity = '0';
         setTimeout(() => {
@@ -994,7 +999,7 @@
         }, 300);
 
       } catch (err) {
-        errorBanner.textContent = 'Something went wrong. Please try again.';
+        errorBanner.textContent = err.message || 'Something went wrong. Please try again.';
         errorBanner.classList.add('visible');
         submitBtn.disabled = false;
         submitBtn.textContent = 'Submit Application →';
