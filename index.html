@@ -583,6 +583,145 @@
             font-weight: 500;
         }
 
+        /* One Metric Section */
+        .one-metric-section {
+            background: #060f0b;
+            padding: clamp(64px, 10vw, 120px) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .one-metric-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(29,209,161,0.05) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .one-metric-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 40px);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .one-metric-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #1DD1A1;
+            background: rgba(29,209,161,0.08);
+            border: 1px solid rgba(29,209,161,0.2);
+            padding: 7px 16px;
+            border-radius: 50px;
+            margin-bottom: 28px;
+        }
+        .one-metric-eyebrow svg {
+            width: 13px; height: 13px;
+            stroke: #1DD1A1; fill: none;
+            stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .one-metric-headline {
+            font-size: clamp(38px, 7vw, 72px);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+        .one-metric-headline .metric-highlight {
+            background: linear-gradient(135deg, #1DD1A1 0%, #6ff7d5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .one-metric-body {
+            font-size: clamp(16px, 2.2vw, 20px);
+            color: rgba(255,255,255,0.55);
+            line-height: 1.75;
+            max-width: 640px;
+            margin: 0 auto 52px;
+            font-weight: 500;
+        }
+        .one-metric-body strong {
+            color: rgba(255,255,255,0.9);
+            font-weight: 700;
+        }
+        .one-metric-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+        @media (max-width: 640px) {
+            .one-metric-cards { grid-template-columns: 1fr; }
+        }
+        .metric-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 28px 22px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .metric-card:hover {
+            background: rgba(29,209,161,0.05);
+            border-color: rgba(29,209,161,0.25);
+            transform: translateY(-3px);
+        }
+        .metric-card-x {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1DD1A1 0%, #6ff7d5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+        .metric-card-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 6px;
+        }
+        .metric-card-sub {
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        .one-metric-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+        .one-metric-divider::before,
+        .one-metric-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.07);
+        }
+        .one-metric-divider span {
+            font-size: 12px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
         /* Sections */
         .section-title {
             text-align: center;
@@ -1518,6 +1657,43 @@
                 </div>
             </div>
             </div>
+        </div>
+    </section>
+
+    <!-- One Metric In Mind -->
+    <section class="one-metric-section">
+        <div class="one-metric-inner">
+            <div class="one-metric-eyebrow">
+                <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                Our Philosophy
+            </div>
+            <h2 class="one-metric-headline">One Metric<br><span class="metric-highlight">In Mind</span></h2>
+            <p class="one-metric-body">
+                Our goal is not to obsess over vanity metrics that just look pretty.<br>
+                <strong>Our one and only goal is to make you multiple times more money than what you spent with us</strong> — that's it.
+            </p>
+
+            <div class="one-metric-cards">
+                <div class="metric-card">
+                    <div class="metric-card-x">2×</div>
+                    <div class="metric-card-label">Minimum Target</div>
+                    <div class="metric-card-sub">Every dollar you put in, we aim to return at least two</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-card-x">ROAS</div>
+                    <div class="metric-card-label">The Only Number</div>
+                    <div class="metric-card-sub">Not followers. Not impressions. Return on ad spend — full stop</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-card-x">↑</div>
+                    <div class="metric-card-label">Always Scaling</div>
+                    <div class="metric-card-sub">When it works, we pour fuel on it. When it doesn't, we cut fast</div>
+                </div>
+            </div>
+
+            <div class="one-metric-divider"><span>No fluff. No vanity. Just returns.</span></div>
+
+            <a href="https://calendly.com/erickirt/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Strategy Call →</a>
         </div>
     </section>
 
