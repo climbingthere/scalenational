@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Are You a Fit? — ScaleNational</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: #060f0b;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .funnel-wrap {
+      width: 100%;
+      max-width: 520px;
+      position: relative;
+    }
+
+    /* ── States ── */
+    .state {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .state.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .state.fade-in {
+      animation: fadeIn 0.35s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Logo ── */
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    /* ── Eyebrow ── */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #1DD1A1;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    /* ── Headline ── */
+    .headline {
+      font-size: clamp(28px, 7vw, 38px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    /* ── Subtext ── */
+    .subtext {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 36px;
+    }
+
+    /* ── Progress Bar ── */
+    .progress-wrap {
+      margin-bottom: 40px;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .progress-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.35);
+      text-transform: uppercase;
+    }
+
+    .progress-count {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #1DD1A1;
+      border-radius: 99px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 0 12px rgba(29, 209, 161, 0.4);
+    }
+
+    /* ── Buttons ── */
+    .btn-teal {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      background: #1DD1A1;
+      color: #060f0b;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      letter-spacing: -0.01em;
+      text-align: center;
+    }
+
+    .btn-teal:hover {
+      background: #19bD92;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(29, 209, 161, 0.3);
+    }
+
+    .btn-teal:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .btn-ghost {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.75);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+      letter-spacing: -0.01em;
+      text-align: center;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .btn-pair {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (min-width: 400px) {
+      .btn-pair {
+        flex-direction: row;
+      }
+
+      .btn-pair .btn-teal,
+      .btn-pair .btn-ghost {
+        flex: 1;
+      }
+    }
+
+    .btn-back {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      font-size: 13px;
+      margin-top: 16px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 4px 0;
+      display: inline-block;
+      transition: color 0.2s ease;
+    }
+
+    .btn-back:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* ── Card (question states) ── */
+    .q-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 16px;
+      padding: 32px 28px 28px;
+    }
+
+    /* ── Win state ── */
+    .icon-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+
+    .icon-circle-check {
+      width: 64px;
+      height: 64px;
+    }
+
+    .icon-circle-x {
+      width: 64px;
+      height: 64px;
+    }
+
+    .divider-teal {
+      width: 40px;
+      height: 2px;
+      background: #1DD1A1;
+      border-radius: 99px;
+      margin: 28px 0;
+      box-shadow: 0 0 10px rgba(29, 209, 161, 0.35);
+    }
+
+    .trust-row {
+      display: flex;
+      gap: 0;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .trust-pill {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      padding: 5px 12px;
+      letter-spacing: 0.01em;
+    }
+
+    .no-commitment {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.35);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    .fail-link {
+      color: #1DD1A1;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: opacity 0.2s ease;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    .fail-link:hover {
+      opacity: 0.8;
+    }
+
+    .fail-secondary {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    /* ── Intro spacing ── */
+    #state-intro {
+      text-align: left;
+    }
+
+    #state-intro .logo-wrap {
+      justify-content: flex-start;
+      margin-bottom: 48px;
+    }
+
+    /* ── Scrollable on small screens ── */
+    @media (max-height: 640px) {
+      body {
+        align-items: flex-start;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="funnel-wrap">
+
+  <!-- ══════════════════════════════════════
+       STATE 1 — INTRO
+  ══════════════════════════════════════ -->
+  <div id="state-intro" class="state active fade-in">
+    <div class="logo-wrap">
+      <img src="logo-transparent.png" style="height:250px;filter:brightness(0) invert(1);display:block;margin:0 auto;" alt="ScaleNational">
+    </div>
+    <p class="eyebrow">Before We Talk</p>
+    <h1 class="headline">Are you the<br>right fit?</h1>
+    <p class="subtext">We only work with brands that can answer three questions. Takes 60 seconds.</p>
+    <button class="btn-teal" onclick="goTo('state-q1')">Find Out →</button>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       STATE 2 — QUESTION 01
+  ══════════════════════════════════════ -->
+  <div id="state-q1" class="state">
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span class="progress-label">Your fit check</span>
+        <span class="progress-count">1 of 3</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="bar-q1" style="width: 33%;"></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <p class="eyebrow">Question 01</p>
+      <h2 class="headline">Do you sell to a specific person?</h2>
+      <p class="subtext">Not "everyone who wants this" — a defined buyer with real, specific characteristics.</p>
+      <div class="btn-pair">
+        <button class="btn-teal" onclick="goTo('state-q2')">Yes, absolutely</button>
+        <button class="btn-ghost" onclick="goTo('state-fail')">Not really</button>
+      </div>
+      <button class="btn-back" onclick="goTo('state-intro')">← Back</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       STATE 3 — QUESTION 02
+  ══════════════════════════════════════ -->
+  <div id="state-q2" class="state">
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span class="progress-label">Your fit check</span>
+        <span class="progress-count">2 of 3</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="bar-q2" style="width: 66%;"></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <p class="eyebrow">Question 02</p>
+      <h2 class="headline">Do you solve a specific problem?</h2>
+      <p class="subtext">One clear pain point your offer addresses — not a general solution for many different issues.</p>
+      <div class="btn-pair">
+        <button class="btn-teal" onclick="goTo('state-q3')">Yes, clearly</button>
+        <button class="btn-ghost" onclick="goTo('state-fail')">It's broad</button>
+      </div>
+      <button class="btn-back" onclick="goTo('state-q1')">← Back</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       STATE 4 — QUESTION 03
+  ══════════════════════════════════════ -->
+  <div id="state-q3" class="state">
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span class="progress-label">Your fit check</span>
+        <span class="progress-count">3 of 3</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="bar-q3" style="width: 100%;"></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <p class="eyebrow">Question 03</p>
+      <h2 class="headline">Are you ready to invest in a real system?</h2>
+      <p class="subtext">Ads require testing, budget, and time. Our clients start at $3,500/mo. Results compound — but not overnight.</p>
+      <div class="btn-pair">
+        <button class="btn-teal" onclick="goTo('state-win')">Yes, I'm ready</button>
+        <button class="btn-ghost" onclick="goTo('state-fail')">Not right now</button>
+      </div>
+      <button class="btn-back" onclick="goTo('state-q2')">← Back</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       STATE_WIN — YOU QUALIFY
+  ══════════════════════════════════════ -->
+  <div id="state-win" class="state">
+    <div class="icon-wrap">
+      <svg class="icon-circle-check" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" stroke="#1DD1A1" stroke-width="2.5" fill="rgba(29,209,161,0.08)"/>
+        <polyline points="20,33 28,41 44,24" stroke="#1DD1A1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <p class="eyebrow">You're a Fit</p>
+    <h2 class="headline">Let's see what's possible.</h2>
+    <p class="subtext">Book a free 30-minute strategy call. Eric will review your intake, research your brand, and come with actual ideas — not a generic pitch.</p>
+    <a href="https://calendly.com/erickirt/30min" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+      <button class="btn-teal">Book Your Strategy Call →</button>
+    </a>
+    <p class="no-commitment">No commitment. No sales pressure. Just a real conversation.</p>
+    <div class="divider-teal"></div>
+    <div class="trust-row">
+      <span class="trust-pill">Free 30-min call</span>
+      <span class="trust-pill">No contracts to start</span>
+      <span class="trust-pill">Results-focused</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       STATE_FAIL — NOT THE RIGHT FIT
+  ══════════════════════════════════════ -->
+  <div id="state-fail" class="state">
+    <div class="icon-wrap">
+      <svg class="icon-circle-x" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" stroke="rgba(255,255,255,0.2)" stroke-width="2.5" fill="rgba(255,255,255,0.06)"/>
+        <line x1="22" y1="22" x2="42" y2="42" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="42" y1="22" x2="22" y2="42" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="eyebrow">Not Quite Yet</p>
+    <h2 class="headline">We might not be the right fit.</h2>
+    <p class="subtext">That's okay — we'd rather be honest upfront. ScaleNational works best with brands that have a clear offer, a defined audience, and are ready to commit to a real growth system.</p>
+    <p class="fail-secondary">Still want to explore?</p>
+    <a href="mailto:eric@scalenational.com" class="fail-link">Send us a message →</a>
+    <br>
+    <button class="btn-back" onclick="goTo('state-intro')">← Start over</button>
+  </div>
+
+</div>
+
+<script>
+  function goTo(nextId) {
+    const states = document.querySelectorAll('.state');
+    const next = document.getElementById(nextId);
+
+    if (!next) return;
+
+    states.forEach(function(s) {
+      s.classList.remove('active', 'fade-in');
+      s.style.display = 'none';
+    });
+
+    next.style.display = 'block';
+    // Force reflow before adding animation class
+    next.getBoundingClientRect();
+    next.classList.add('active', 'fade-in');
+
+    // Scroll to top on mobile
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

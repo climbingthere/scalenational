@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pre-Call Form — ScaleNational</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #060f0b;
+      --accent: #1DD1A1;
+      --accent-dim: rgba(29, 209, 161, 0.12);
+      --accent-border: rgba(29, 209, 161, 0.3);
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(255, 255, 255, 0.09);
+      --input-bg: rgba(255, 255, 255, 0.06);
+      --input-border: rgba(255, 255, 255, 0.12);
+      --white: #ffffff;
+      --muted: rgba(255, 255, 255, 0.45);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .header img {
+      height: 38px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .header p {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 400px;
+      line-height: 1.6;
+    }
+
+    form {
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    input, select, textarea {
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      padding: 13px 16px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: rgba(255,255,255,0.25);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,0.4)' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    select option {
+      background: #0d1f17;
+      color: var(--white);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 88px;
+      line-height: 1.5;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--card-border);
+      margin: 6px 0;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .radio-option {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.6);
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .radio-option input[type="radio"] { display: none; }
+
+    .radio-option.selected {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    .submit-btn {
+      background: var(--accent);
+      color: #060f0b;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 15px;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: opacity 0.2s;
+      letter-spacing: 0.01em;
+    }
+
+    .submit-btn:hover { opacity: 0.88; }
+
+    /* Confirmation */
+    .confirm {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      max-width: 420px;
+      padding-top: 40px;
+    }
+
+    .confirm-ring {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .confirm-ring svg { color: var(--accent); }
+
+    .confirm h2 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .confirm p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="logo-transparent.png" alt="ScaleNational" />
+    <h1>Before Your Call</h1>
+    <p>Takes 2 minutes. This helps us come prepared and make the most of your time.</p>
+  </div>
+
+  <form id="intake-form" onsubmit="handleSubmit(event)">
+
+    <div class="row">
+      <div class="field">
+        <label>Business Name</label>
+        <input type="text" placeholder="Acme Co." required />
+      </div>
+      <div class="field">
+        <label>Website</label>
+        <input type="url" placeholder="yoursite.com" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Instagram</label>
+        <input type="text" placeholder="@yourbrand" />
+      </div>
+      <div class="field">
+        <label>Industry / Niche</label>
+        <input type="text" placeholder="e.g. Outdoor apparel" required />
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="field">
+      <label>Are you currently running paid ads?</label>
+      <div class="radio-group">
+        <label class="radio-option" id="ads-yes">
+          <input type="radio" name="running_ads" value="yes" onchange="selectRadio('ads-yes','ads-no')" /> Yes
+        </label>
+        <label class="radio-option" id="ads-no">
+          <input type="radio" name="running_ads" value="no" onchange="selectRadio('ads-no','ads-yes')" /> No
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Current Monthly Ad Spend</label>
+        <select>
+          <option value="" disabled selected>Select range</option>
+          <option>Not currently running</option>
+          <option>Under $1,000</option>
+          <option>$1,000 – $5,000</option>
+          <option>$5,000 – $10,000</option>
+          <option>$10,000+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Budget for Ads + Management</label>
+        <select required>
+          <option value="" disabled selected>Select range</option>
+          <option>Under $2,000 / mo</option>
+          <option>$2,000 – $5,000 / mo</option>
+          <option>$5,000 – $10,000 / mo</option>
+          <option>$10,000 – $20,000 / mo</option>
+          <option>$20,000+ / mo</option>
+        </select>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="field">
+      <label>What's your #1 goal from this call?</label>
+      <textarea placeholder="e.g. We want to drive more online sales, we're spending on ads but not seeing a return..."></textarea>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Your Name</label>
+        <input type="text" placeholder="First Last" required />
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" placeholder="you@company.com" required />
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit — See You on the Call</button>
+
+  </form>
+
+  <div class="confirm" id="confirm">
+    <div class="confirm-ring">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h2>You're all set.</h2>
+    <p>Eric will review this before your call and come prepared with ideas specific to your business.</p>
+  </div>
+
+  <script>
+    function selectRadio(selectedId, otherId) {
+      document.getElementById(selectedId).classList.add('selected');
+      document.getElementById(otherId).classList.remove('selected');
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('intake-form').style.display = 'none';
+      const confirm = document.getElementById('confirm');
+      confirm.style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>

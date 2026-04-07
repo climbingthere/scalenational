@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScaleNational — Operations Playbook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--dark:#060f0b;--teal:#1DD1A1;--teal-d:rgba(29,209,161,0.12);--teal-b:rgba(29,209,161,0.25);--muted:rgba(255,255,255,0.48);--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.09)}
+    html,body{background:var(--dark);color:white;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
+
+    /* HEADER */
+    .header{position:sticky;top:0;z-index:50;background:rgba(6,15,11,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+    .header img{height:36px;filter:brightness(0) invert(1)}
+    .header-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+
+    /* TABS */
+    .tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--border);padding:0 16px;background:rgba(6,15,11,.82);position:sticky;top:65px;z-index:40;gap:2px}
+    .tabs::-webkit-scrollbar{display:none}
+    .tab{flex-shrink:0;padding:14px 18px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
+    .tab:hover{color:rgba(255,255,255,.7)}
+    .tab.active{color:var(--teal);border-bottom-color:var(--teal)}
+
+    /* CONTENT */
+    .content{max-width:760px;margin:0 auto;padding:28px 20px 100px}
+    .panel{display:none}.panel.active{display:block}
+
+    /* SECTION */
+    .section{margin-bottom:36px}
+    .eyebrow{font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+    .section-title{font-size:18px;font-weight:800;margin-bottom:4px;line-height:1.3}
+    .section-sub{font-size:13px;color:var(--muted);margin-bottom:18px;line-height:1.65}
+    .divider{height:1px;background:var(--border);margin:30px 0}
+
+    /* WEEK BLOCKS */
+    .week-block{margin-bottom:28px}
+    .week-label{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px}
+    .week-badge{background:var(--teal-d);border:1px solid var(--teal-b);color:var(--teal);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;border-radius:6px}
+    .week-title{font-size:14px;font-weight:700;color:rgba(255,255,255,.85)}
+
+    /* CHECKLIST */
+    .checklist{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:4px}
+    .checklist li{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+    .checklist li.done .item-text{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(255,255,255,.25)}
+    .check{width:22px;height:22px;min-width:22px;background:var(--teal-d);border:1px solid var(--teal-b);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:background .15s,border-color .15s;flex-shrink:0}
+    .check.done{background:rgba(29,209,161,.28);border-color:var(--teal)}
+    .check svg{width:12px;height:12px;stroke:var(--teal);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity .15s}
+    .check.done svg{opacity:1}
+    .item-text{font-size:14px;color:rgba(255,255,255,.82);line-height:1.55;transition:color .15s}
+
+    /* CARD */
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:12px}
+    .card-title{font-size:13px;font-weight:700;margin-bottom:10px;color:rgba(255,255,255,.9)}
+    .card ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+    .card ul li{font-size:13px;color:var(--muted);padding-left:14px;position:relative;line-height:1.55}
+    .card ul li::before{content:'—';position:absolute;left:0;color:var(--teal);font-size:11px;top:2px}
+
+    /* INCLUDED CARD */
+    .included{background:var(--teal-d);border:1px solid var(--teal-b);border-radius:14px;padding:18px 20px;margin-bottom:24px}
+    .included .inc-title{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+    .included ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+    .included ul li{font-size:13px;color:rgba(255,255,255,.8);padding-left:18px;position:relative;line-height:1.55}
+    .included ul li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-size:12px;font-weight:700}
+
+    /* PRICING BADGE */
+    .pkg-header{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+    .price-badge{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:13px;font-weight:800;color:var(--teal)}
+
+    /* ALERT CARD */
+    .alert-card{background:rgba(29,209,161,.07);border:1px solid var(--teal-b);border-radius:14px;padding:16px 18px;margin-bottom:12px}
+    .alert-card .alert-label{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+    .alert-card .alert-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .alert-card .alert-list li{font-size:13px;color:rgba(255,255,255,.8);line-height:1.55;padding-left:16px;position:relative}
+    .alert-card .alert-list li::before{content:'→';position:absolute;left:0;color:var(--teal);font-weight:700}
+
+    /* OPS TIME BLOCKS */
+    .ops-block{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:16px;overflow:hidden}
+    .ops-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border)}
+    .ops-header-left{display:flex;align-items:center;gap:12px}
+    .ops-freq{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+    .ops-time{font-size:12px;color:var(--muted);font-weight:600}
+    .ops-body{padding:14px 18px}
+
+    /* CODE / TEMPLATE BLOCKS */
+    .template-card{background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:14px;margin-bottom:16px;overflow:hidden}
+    .template-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border)}
+    .template-label{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+    .copy-btn{display:flex;align-items:center;gap:5px;background:var(--teal-d);border:1px solid var(--teal-b);color:var(--teal);font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;font-family:inherit;transition:background .15s}
+    .copy-btn:active,.copy-btn.copied{background:rgba(29,209,161,.3)}
+    .copy-btn svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .template-body{padding:16px;font-family:'Courier New',Courier,monospace;font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.78);white-space:pre-wrap;word-break:break-word}
+
+    /* NOTE */
+    .note{background:var(--teal-d);border:1px solid var(--teal-b);border-radius:10px;padding:12px 16px;font-size:13px;color:rgba(255,255,255,.72);line-height:1.6;margin-bottom:16px}
+
+    /* TOAST */
+    .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--teal);color:#060f0b;font-size:13px;font-weight:700;letter-spacing:.04em;padding:10px 24px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s;white-space:nowrap;z-index:200}
+    .toast.show{opacity:1}
+
+    /* PHASE LABELS */
+    .phase{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);background:var(--teal-d);border:1px solid var(--teal-b);border-radius:6px;padding:3px 9px;margin-bottom:14px}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <img src="logo-transparent.png" alt="ScaleNational">
+  <span class="header-label">Internal — Operations Playbook</span>
+</header>
+
+<!-- TABS -->
+<nav class="tabs">
+  <div class="tab active" data-tab="onboarding">Onboarding</div>
+  <div class="tab" data-tab="starter">Starter Package</div>
+  <div class="tab" data-tab="growth">Growth Package</div>
+  <div class="tab" data-tab="scale">Scale Package</div>
+  <div class="tab" data-tab="daily">Daily Ops</div>
+  <div class="tab" data-tab="templates">Templates</div>
+</nav>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- ─── TAB 1: ONBOARDING ─── -->
+  <div class="panel active" id="panel-onboarding">
+
+    <div class="section">
+      <div class="eyebrow">Every Client — Every Package</div>
+      <div class="section-title">Onboarding Checklist</div>
+      <div class="section-sub">Run through this regardless of tier. Don't skip Week 0 research — it's what makes the kick-off call worth something.</div>
+    </div>
+
+    <!-- WEEK 0 -->
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 0</span>
+        <span class="week-title">Before Kick-off Call</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Review client intake form</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Research their brand: website, Instagram, current ads (check Ad Library), competitors</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Identify 2–3 angles for first creative brief</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Prepare package recommendation (if not already confirmed)</span></li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- KICK-OFF CALL -->
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Kick-off Call</span>
+        <span class="week-title">Agenda</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Confirm goals and KPIs — ROAS target, CPP target, monthly revenue goal</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Get access: Meta Business Manager (they add ScaleNational as Partner), Instagram, website analytics</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Confirm ad spend budget is separate from management fee</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Agree on communication cadence</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Contract signed + first invoice collected</span></li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- WEEK 1 -->
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 1</span>
+        <span class="week-title">Discovery &amp; Setup</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Meta Pixel installed and firing correctly</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Conversions API connected</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">UTM parameters set up</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Facebook/Instagram pages linked to Ad Account</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Business Manager access confirmed</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Baseline audit: existing campaigns, audiences, pixel history</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Brand voice doc created — tone, what to avoid, visual guidelines</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Audience research doc — who buys, demographics, interests, competitor audiences</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">First creative brief written and sent to client for approval</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ─── TAB 2: STARTER ─── -->
+  <div class="panel" id="panel-starter">
+
+    <div class="section">
+      <div class="pkg-header">
+        <div class="eyebrow">Starter Package</div>
+        <span class="price-badge">$3,500/mo</span>
+      </div>
+      <div class="section-sub">Meta only. Bi-weekly calls. Good for brands new to paid ads or testing the channel.</div>
+    </div>
+
+    <div class="included">
+      <div class="inc-title">What's Included</div>
+      <ul>
+        <li>Full Meta campaign management</li>
+        <li>2 UGC videos/month OR 2 AI videos/month</li>
+        <li>4 static ad designs/month</li>
+        <li>Bi-weekly strategy calls</li>
+        <li>Client dashboard access</li>
+        <li>Monthly performance report</li>
+      </ul>
+    </div>
+
+    <!-- MONTH 1 -->
+    <div class="phase">Month 1 — Build &amp; Test</div>
+
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 1</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Complete onboarding checklist</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Set up campaign structure: 1 TOF campaign, broad + 2 interest audiences</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Launch with 2 static ads + 1 video creative</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Set daily budget: client's ad spend ÷ 30</span></li>
+      </ul>
+    </div>
+
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 2</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Monitor daily: CTR, CPM, hook rate, landing page CVR</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Cut anything with CTR below 0.8% after 3 days</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Note winning angles for next creative brief</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Bi-weekly call: review early data, align on creative direction</span></li>
+      </ul>
+    </div>
+
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 3</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">First optimization: kill underperformers, reallocate budget to winners</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">New UGC or AI video brief submitted based on winning angles</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Begin building retargeting audience (website visitors, video viewers)</span></li>
+      </ul>
+    </div>
+
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 4</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Launch retargeting campaign if audience size is 1,000+ people</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Finalize month 1 report</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Monthly report sent to client — spend, ROAS, CTR, CPP, top creative</span></li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- MONTH 2 -->
+    <div class="phase">Month 2 — Optimize</div>
+    <ul class="checklist" style="margin-bottom:28px">
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">New creatives based on month 1 data</span></li>
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Scale winning ad sets by 20% budget increase</span></li>
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Test new audience: lookalike from pixel purchasers (if enough data)</span></li>
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Bi-weekly calls continue</span></li>
+    </ul>
+
+    <!-- MONTH 3 -->
+    <div class="phase">Month 3 — Scale</div>
+    <ul class="checklist">
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Proven creative library established</span></li>
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Scale winning campaigns</span></li>
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Pitch renewal or upgrade to Growth package</span></li>
+    </ul>
+
+  </div>
+
+  <!-- ─── TAB 3: GROWTH ─── -->
+  <div class="panel" id="panel-growth">
+
+    <div class="section">
+      <div class="pkg-header">
+        <div class="eyebrow">Growth Package</div>
+        <span class="price-badge">$6,500/mo</span>
+      </div>
+      <div class="section-sub">Meta + TikTok full-funnel. Weekly calls. Higher creative volume and cross-platform retargeting.</div>
+    </div>
+
+    <div class="included">
+      <div class="inc-title">What's Included</div>
+      <ul>
+        <li>Meta + TikTok full-funnel management</li>
+        <li>4 UGC videos/month</li>
+        <li>6 static ad designs/month</li>
+        <li>AI videos as needed for testing</li>
+        <li>Weekly strategy calls</li>
+        <li>Retargeting buildout + lookalike audiences</li>
+        <li>Weekly performance report</li>
+      </ul>
+    </div>
+
+    <div class="phase">Month 1 — Build &amp; Test</div>
+
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 1</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Complete onboarding checklist</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Meta: same structure as Starter but with larger audience testing</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">TikTok: set up TikTok Business account, Pixel, campaign structure</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Launch Meta first (faster data) — TikTok launches Week 2</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">2 static + 1 UGC + 1 AI video at launch</span></li>
+      </ul>
+    </div>
+
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 2</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">TikTok launch: 1 campaign, broad targeting, 2 ad groups</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Meta optimization: cut losers, identify winners</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Weekly call: full platform breakdown</span></li>
+      </ul>
+    </div>
+
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 3</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Meta retargeting campaign live</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">TikTok first optimization</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">New creative brief for UGC based on winning hooks</span></li>
+      </ul>
+    </div>
+
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 4</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Full funnel review: TOF → retargeting → conversions</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Month 1 report: both platforms, combined ROAS</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Creative pipeline for month 2 locked in</span></li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="phase">Month 2</div>
+    <ul class="checklist" style="margin-bottom:28px">
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Lookalike audiences from Meta purchasers</span></li>
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">TikTok Spark Ads if organic content exists</span></li>
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Increase creative volume on winning formats</span></li>
+    </ul>
+
+    <div class="phase">Month 3</div>
+    <ul class="checklist">
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Full cross-platform scaling</span></li>
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Pitch renewal or upgrade to Scale package</span></li>
+    </ul>
+
+  </div>
+
+  <!-- ─── TAB 4: SCALE ─── -->
+  <div class="panel" id="panel-scale">
+
+    <div class="section">
+      <div class="pkg-header">
+        <div class="eyebrow">Scale Package</div>
+        <span class="price-badge">$10,500/mo</span>
+      </div>
+      <div class="section-sub">All three platforms. Unlimited creative cycles. Full funnel from prospecting through retention. Onboarding fee waived.</div>
+    </div>
+
+    <div class="included">
+      <div class="inc-title">What's Included</div>
+      <ul>
+        <li>Meta + TikTok + YouTube — all channels</li>
+        <li>Unlimited creative cycles (production follows data)</li>
+        <li>Priority creator access</li>
+        <li>Full-funnel: prospecting → retargeting → retention</li>
+        <li>On-demand calls</li>
+        <li>Onboarding fee waived</li>
+        <li>Weekly reports</li>
+      </ul>
+    </div>
+
+    <div class="phase">Month 1</div>
+
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 1</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Complete onboarding — expedited 3-day turnaround on all access</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Meta + TikTok launch simultaneously</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">YouTube: set up Google Ads account, connect Analytics</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">3 static + 2 UGC + 1 AI video at launch across platforms</span></li>
+      </ul>
+    </div>
+
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 2</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">YouTube campaign: TOF awareness with video ads</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Meta + TikTok first data review</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Creator outreach for 2 additional UGC creators</span></li>
+      </ul>
+    </div>
+
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 3</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">First full optimization across all 3 platforms</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Retargeting live on Meta and TikTok</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">YouTube: adjust targeting based on view rates</span></li>
+      </ul>
+    </div>
+
+    <div class="week-block">
+      <div class="week-label">
+        <span class="week-badge">Week 4</span>
+      </div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Full-funnel audit across all platforms</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Month 1 report: all platforms, blended ROAS</span></li>
+        <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Month 2 creative pipeline: more volume, more angles</span></li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="phase">Month 2–3</div>
+    <ul class="checklist">
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Cross-platform remarketing — pixel audiences across Meta + TikTok</span></li>
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">YouTube retargeting list from video viewers</span></li>
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Lookalikes on all platforms</span></li>
+      <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Monthly recurring retention campaign — email list integration if available</span></li>
+    </ul>
+
+  </div>
+
+  <!-- ─── TAB 5: DAILY OPS ─── -->
+  <div class="panel" id="panel-daily">
+
+    <div class="section">
+      <div class="eyebrow">Ongoing Operations</div>
+      <div class="section-title">Daily, Weekly &amp; Monthly</div>
+      <div class="section-sub">Run through these on a repeating basis. The daily check takes 15 minutes — don't skip it.</div>
+    </div>
+
+    <!-- DAILY -->
+    <div class="ops-block">
+      <div class="ops-header">
+        <div class="ops-header-left">
+          <span class="ops-freq">Daily</span>
+          <span class="ops-time">~15 min</span>
+        </div>
+      </div>
+      <div class="ops-body">
+        <ul class="checklist">
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Check all active campaigns: any ad account flags or rejections?</span></li>
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Check spend pacing — on track for monthly budget?</span></li>
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Any dramatic CPM spikes or drops? (Could indicate audience fatigue or algorithm shift)</span></li>
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Check any ads in review — approve or fix</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WEEKLY -->
+    <div class="ops-block">
+      <div class="ops-header">
+        <div class="ops-header-left">
+          <span class="ops-freq">Weekly</span>
+          <span class="ops-time">~1 hr per client</span>
+        </div>
+      </div>
+      <div class="ops-body">
+        <ul class="checklist">
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Pull weekly numbers: spend, ROAS, CTR, CPP, CPC</span></li>
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Compare to previous week — trending up or down?</span></li>
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Identify top 1–2 creatives by ROAS</span></li>
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Flag any ad sets running 2+ weeks with no conversions — kill or test new creative</span></li>
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Prep weekly call talking points</span></li>
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Update client dashboard</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BI-WEEKLY / MONTHLY -->
+    <div class="ops-block">
+      <div class="ops-header">
+        <div class="ops-header-left">
+          <span class="ops-freq">Bi-weekly / Monthly</span>
+        </div>
+      </div>
+      <div class="ops-body">
+        <ul class="checklist">
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Write new creative brief based on winning data</span></li>
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Source new UGC creator or generate AI video</span></li>
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Audience refresh — are current audiences fatiguing?</span></li>
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Competitor ad check — what's new in the Ad Library for their niche?</span></li>
+          <li onclick="toggle(this)"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="item-text">Monthly report: PDF or dashboard link sent to client</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- WATCH FOR -->
+    <div class="section">
+      <div class="eyebrow">Signs to Watch For</div>
+      <div class="alert-card">
+        <div class="alert-label">Performance Red Flags</div>
+        <ul class="alert-list">
+          <li>CTR drops below 0.8% on a previously winning ad → creative fatigue, refresh needed</li>
+          <li>CPM spikes 30%+ → audience saturation or increased competition — broaden or change audiences</li>
+          <li>ROAS drops 2 weeks in a row → escalate, review full funnel (ad → landing page → offer)</li>
+          <li>Ad account flags → fix immediately, document what triggered it</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ─── TAB 6: TEMPLATES ─── -->
+  <div class="panel" id="panel-templates">
+
+    <div class="section">
+      <div class="eyebrow">Copy &amp; Use</div>
+      <div class="section-title">Templates</div>
+      <div class="section-sub">Creative briefs, weekly reports, and outreach. Copy the block and fill in the brackets.</div>
+    </div>
+
+    <!-- CREATIVE BRIEF -->
+    <div class="template-card">
+      <div class="template-header">
+        <span class="template-label">Creative Brief</span>
+        <button class="copy-btn" onclick="copyTemplate(this)">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          <span>Copy</span>
+        </button>
+      </div>
+      <div class="template-body">CLIENT: [Name]
+DATE: [Date]
+BRIEF #: [Number]
+
+OBJECTIVE: [What action do we want? Purchase / Sign-up / Lead]
+
+TARGET AUDIENCE:
+- Who they are: [demographics]
+- Pain point: [what problem they have]
+- Desire: [what they want]
+
+HOOK OPTIONS (pick one per video):
+1. [Hook idea 1]
+2. [Hook idea 2]
+3. [Hook idea 3]
+
+MESSAGING POINTS:
+- [Key point 1]
+- [Key point 2]
+- [Key point 3]
+
+CTA: [Exact call to action]
+
+FORMAT: [UGC talking head / B-roll / Static / AI video]
+LENGTH: [15s / 30s / 60s]
+
+DO NOT: [Brand restrictions — colors to avoid, claims not to make, competitors not to mention]
+
+EXAMPLES/INSPIRATION: [Links to reference ads]</div>
+    </div>
+
+    <!-- WEEKLY REPORT -->
+    <div class="template-card">
+      <div class="template-header">
+        <span class="template-label">Weekly Report</span>
+        <button class="copy-btn" onclick="copyTemplate(this)">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          <span>Copy</span>
+        </button>
+      </div>
+      <div class="template-body">[CLIENT NAME] — Weekly Report
+Week of [Date]
+
+PLATFORM SUMMARY
+Meta:
+- Spend: $
+- ROAS: x
+- CTR: %
+- CPP: $
+- Top creative: [Ad name]
+
+TikTok (if applicable):
+- Spend: $
+- ROAS: x
+- CTR: %
+- CPP: $
+
+WHAT'S WORKING:
+- [Top performing ad/audience]
+- [Observation]
+
+WHAT WE'RE CHANGING:
+- [Optimization made or planned]
+
+NEXT WEEK:
+- [Action 1]
+- [Action 2]</div>
+    </div>
+
+    <!-- COLD OUTREACH EMAIL -->
+    <div class="template-card">
+      <div class="template-header">
+        <span class="template-label">Cold Outreach Email</span>
+        <button class="copy-btn" onclick="copyTemplate(this)">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          <span>Copy</span>
+        </button>
+      </div>
+      <div class="template-body">Subject: [Brand Name] — quick thought on your ads
+
+Hey [Name],
+
+Came across [Brand Name] — [genuine observation about their brand/product].
+
+Quick question: are you running paid ads right now?
+
+I run ScaleNational — we handle Meta ads and UGC content for outdoor brands. We don't take on everyone, but when we see a brand with a strong product and a clear audience, we reach out.
+
+If you're open to it, I'd love to show you what we'd do differently in a 20-minute call.
+
+No pitch deck, no pressure — just a real conversation.
+
+Eric
+ScaleNational
+eric@scalenational.com
+scalenational.com</div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Copied to clipboard</div>
+
+<script>
+  // Tab switching
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + target).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Checklist toggle
+  function toggle(li) {
+    const check = li.querySelector('.check');
+    const isDone = li.classList.toggle('done');
+    check.classList.toggle('done', isDone);
+  }
+
+  // Copy template text
+  function copyTemplate(btn) {
+    const body = btn.closest('.template-card').querySelector('.template-body');
+    navigator.clipboard.writeText(body.textContent.trim()).then(() => {
+      btn.classList.add('copied');
+      btn.querySelector('span').textContent = 'Copied!';
+      showToast('Copied to clipboard');
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.querySelector('span').textContent = 'Copy';
+      }, 2000);
+    });
+  }
+
+  // Toast
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+  }
+</script>
+
+</body>
+</html>
