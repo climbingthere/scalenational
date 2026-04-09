@@ -897,8 +897,6 @@
   <button id="prevBtn" onclick="changeSlide(-1)" disabled>&#8592;</button>
   <span class="slide-counter" id="counter">1 / 12</span>
   <button id="nextBtn" onclick="changeSlide(1)">&#8594;</button>
-  <button onclick="openPresenter()" title="Presenter Notes (P)" style="margin-left:12px;font-size:14px;width:auto;padding:0 16px;border-radius:10px;letter-spacing:0.04em;font-weight:700;">📋 Notes</button>
-  <button onclick="launchPresentation()" title="Launch Clean Presentation Window" style="margin-left:8px;font-size:14px;width:auto;padding:0 16px;border-radius:10px;letter-spacing:0.04em;font-weight:700;background:rgba(29,209,161,0.15);border-color:rgba(29,209,161,0.4);color:#1DD1A1;">⛶ Present</button>
 </div>
 
 <!-- Dot indicators -->
@@ -908,130 +906,6 @@
   const slides = document.querySelectorAll('.slide');
   const total = slides.length;
   let current = 0;
-  let presenterWin = null;
-
-  const NOTES = [
-    {
-      title: "Cover",
-      points: [
-        "Welcome Misha — thank him for the time.",
-        "Set the agenda: 'I'll walk through how we think about scaling apps like TrybeUP — then we'll dig into your specific situation.'",
-        "Keep it 30 min. You drive.",
-        "DON'T open with your pitch — ask: 'Before I jump in, what's the #1 thing you want out of ads right now?'"
-      ],
-      watch: "If he's rushed, skip to slide 2 fast. Energy check."
-    },
-    {
-      title: "The 3 Questions",
-      points: [
-        "These are your qualifying questions — ask them out loud.",
-        "'Do you sell to a specific person?' → For TrybeUP: health-conscious 25-35, busy schedules, want accountability.",
-        "'Do you solve a specific problem?' → Meal tracking that doesn't feel like a chore? Fitness without a gym?",
-        "'Do you do it in a specific way?' → The AI angle. Lead with that."
-      ],
-      watch: "Listen for how clearly he can answer. Vague = opportunity for you to define it with him."
-    },
-    {
-      title: "How Meta Works",
-      points: [
-        "Keep this simple: Meta is a signal machine. It rewards purchase signals.",
-        "'The algorithm doesn't care about your app — it cares about who buys. Your job is to give it proof fast.'",
-        "Early stage = testing phase. Small budget, many creatives, find the winner.",
-        "Don't over-explain. Ask: 'Does this match what you've seen so far with your ads?'"
-      ],
-      watch: "He mentioned running ads 4 days. They probably have no data yet. That's fine — expected."
-    },
-    {
-      title: "Why UGC + Static",
-      points: [
-        "Static = scroll stopper. Fast, cheap, high volume. Test 6-8 variants.",
-        "UGC = trust builder. Real person using TrybeUP = social proof.",
-        "'Static gets the click. UGC gets the conversion.' Simple framing.",
-        "For an app: UGC showing transformation (before/after habit change) crushes feature-demo ads."
-      ],
-      watch: "His current ads are feature-dump statics. This slide directly addresses their problem — land it hard."
-    },
-    {
-      title: "Step 1 — Discovery",
-      points: [
-        "This is where we do our homework before spending a dollar.",
-        "ICP deep dive, competitor ad audit, offer angle, hook framework.",
-        "'We don't guess. We build a creative brief based on what's actually working in your category.'",
-        "Timeline: 1 week. Deliverable: Creative brief + ad strategy doc."
-      ],
-      watch: "Emphasize: we audit competitors. Misha will like knowing you're studying the space."
-    },
-    {
-      title: "Step 2 — Build",
-      points: [
-        "We handle production. UGC sourcing, scripting, static design.",
-        "'You approve everything before it goes live. No surprises.'",
-        "For TrybeUP: 4-6 UGC clips (transformation/journey angle) + 6-8 statics.",
-        "AI video for hook variations — keeps CPM low on testing phase."
-      ],
-      watch: "Ask: 'Do you have any existing content or customers who've had results we could use?'"
-    },
-    {
-      title: "Step 3 — Launch",
-      points: [
-        "Structure: Testing campaign first. $20-30/day per ad set. Let Meta find buyers.",
-        "We run 3-5 ad sets simultaneously — audience, creative, angle variations.",
-        "'We don't scale what we like. We scale what the data says works.'",
-        "Timeline: 2 weeks testing → identify winners → scale budget."
-      ],
-      watch: "If he asks about budget: testing phase is low spend. Scaling phase is where you need $50+/day."
-    },
-    {
-      title: "Step 4 — Optimize & Scale",
-      points: [
-        "Weekly reports. Creative refresh every 3-4 weeks (fatigue kills performance).",
-        "CPA goes down as Meta learns. Scale what converts, kill what doesn't.",
-        "'Most agencies set it and forget it. We're in the account every week.'",
-        "KPIs for TrybeUP: Cost per install, trial start rate, 7-day retention."
-      ],
-      watch: "This is where you differentiate from a freelancer. You're systematic, not reactive."
-    },
-    {
-      title: "What's Included",
-      points: [
-        "Walk through the deliverables list.",
-        "Ask: 'Which of these feels most valuable to you right now?'",
-        "Let him tell you what matters — then lean into that in your close.",
-        "Don't rush this slide. Let him absorb the value."
-      ],
-      watch: "If he asks 'can we do just X?' — that's a buying signal. Explore it."
-    },
-    {
-      title: "Pricing",
-      points: [
-        "Present the number. Then stop talking.",
-        "'Our starting engagement is $X/month. That covers everything you just saw.'",
-        "Don't apologize. Don't discount before he asks.",
-        "If he hesitates: 'What's your current monthly ad spend?' — anchor to ROI."
-      ],
-      watch: "Early stage founder = budget sensitive. Have a 'launch package' option ready if needed."
-    },
-    {
-      title: "Track Record",
-      points: [
-        "Social proof. Real results.",
-        "'The brands that move fastest in the first 90 days are the ones that win the category.'",
-        "Ask: 'What would a 3x return on ad spend mean for TrybeUP's next 6 months?'",
-        "Let him visualize the win."
-      ],
-      watch: "If you don't have fitness app case studies yet, lead with the methodology, not past clients."
-    },
-    {
-      title: "Close / CTA",
-      points: [
-        "Recap: 'Based on everything you told me — here's what I'd recommend as a first step...'",
-        "Either close: 'Are you ready to move forward?' or set next step: 'Let's do a paid audit first.'",
-        "Send follow-up email same day. Strike while it's warm.",
-        "If not ready: 'What would you need to feel confident moving forward?' — unblock the objection."
-      ],
-      watch: "He's early stage and scrappy. A $500-1000 audit or starter package may be a better first step than full retainer."
-    }
-  ];
 
   // Build dots
   const dotsEl = document.getElementById('dots');
@@ -1041,8 +915,6 @@
     d.onclick = () => goTo(i);
     dotsEl.appendChild(d);
   }
-
-  const bc = new BroadcastChannel('sn_presenter');
 
   function goTo(idx) {
     slides[current].classList.remove('active');
@@ -1054,80 +926,13 @@
     document.getElementById('prevBtn').disabled = current === 0;
     document.getElementById('nextBtn').disabled = current === total - 1;
     document.getElementById('progressBar').style.width = ((current + 1) / total * 100) + '%';
-    bc.postMessage({ slide: current, total: total, notes: NOTES[current] });
   }
 
   function changeSlide(dir) { goTo(current + dir); }
 
-  function openPresenter() {
-    const html = `<!DOCTYPE html><html><head><meta charset="UTF-8">
-    <title>Presenter Notes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-      *{box-sizing:border-box;margin:0;padding:0}
-      body{background:#060f0b;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;padding:32px;min-height:100vh;}
-      #slidenum{font-size:12px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:#1DD1A1;margin-bottom:8px;}
-      #title{font-size:28px;font-weight:800;color:#fff;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.1);}
-      #points{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:28px;}
-      #points li{display:flex;gap:14px;font-size:17px;line-height:1.55;color:rgba(255,255,255,0.88);}
-      #points li::before{content:'→';color:#1DD1A1;font-weight:800;flex-shrink:0;margin-top:1px;}
-      #watch-label{font-size:11px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:#f39c12;margin-bottom:8px;}
-      #watch{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.6;padding:14px 18px;background:rgba(243,156,18,0.08);border:1px solid rgba(243,156,18,0.2);border-radius:10px;}
-      #progress{margin-bottom:24px;height:3px;background:rgba(255,255,255,0.1);border-radius:2px;}
-      #progress-fill{height:3px;background:#1DD1A1;border-radius:2px;transition:width 0.4s ease;}
-      #next-label{font-size:11px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:28px;margin-bottom:6px;}
-      #next-title{font-size:14px;color:rgba(255,255,255,0.4);}
-    </style></head><body>
-    <div id="slidenum">Slide 1 of 12</div>
-    <div id="title">Loading...</div>
-    <div id="progress"><div id="progress-fill" style="width:8%"></div></div>
-    <ul id="points"></ul>
-    <div id="watch-label">⚠ Watch For</div>
-    <div id="watch"></div>
-    <div id="next-label">Up Next</div>
-    <div id="next-title">—</div>
-    <script>
-      const bc = new BroadcastChannel('sn_presenter');
-      bc.onmessage = (e) => {
-        const d = e.data;
-        document.getElementById('slidenum').textContent = 'Slide ' + (d.slide+1) + ' of ' + d.total;
-        document.getElementById('title').textContent = d.notes.title;
-        document.getElementById('progress-fill').style.width = ((d.slide+1)/d.total*100)+'%';
-        const ul = document.getElementById('points');
-        ul.innerHTML = '';
-        d.notes.points.forEach(p => { const li = document.createElement('li'); li.textContent = p; ul.appendChild(li); });
-        document.getElementById('watch').textContent = d.notes.watch || '';
-        document.getElementById('next-title').textContent = d.slide + 1 < d.total ? 'Next: ' + (d.slide+2) : 'Last slide';
-      };
-    <\/script></body></html>`;
-
-    presenterWin = window.open('', 'PresenterNotes', 'width=700,height=700,left=100,top=50');
-    presenterWin.document.write(html);
-    presenterWin.document.close();
-    // Send current slide immediately
-    bc.postMessage({ slide: current, total: total, notes: NOTES[current] });
-  }
-
-  function launchPresentation() {
-    const w = screen.availWidth;
-    const h = screen.availHeight;
-    const win = window.open(
-      window.location.href + '?present=1',
-      'ScaleNationalPresent',
-      'toolbar=0,menubar=0,scrollbars=0,resizable=1,status=0,location=0,width=' + w + ',height=' + h + ',left=0,top=0'
-    );
-    if (win) win.focus();
-  }
-
-  // Hide Present button if already in popup presentation window
-  if (new URLSearchParams(window.location.search).get('present') === '1') {
-    document.querySelector('[onclick="launchPresentation()"]').style.display = 'none';
-  }
-
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') changeSlide(1);
     if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                     changeSlide(-1);
-    if (e.key === 'p' || e.key === 'P') openPresenter();
   });
 </script>
 </body>
