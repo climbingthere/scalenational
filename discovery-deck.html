@@ -898,6 +898,7 @@
   <span class="slide-counter" id="counter">1 / 12</span>
   <button id="nextBtn" onclick="changeSlide(1)">&#8594;</button>
   <button onclick="openPresenter()" title="Presenter Notes (P)" style="margin-left:12px;font-size:14px;width:auto;padding:0 16px;border-radius:10px;letter-spacing:0.04em;font-weight:700;">📋 Notes</button>
+  <button onclick="launchPresentation()" title="Launch Clean Presentation Window" style="margin-left:8px;font-size:14px;width:auto;padding:0 16px;border-radius:10px;letter-spacing:0.04em;font-weight:700;background:rgba(29,209,161,0.15);border-color:rgba(29,209,161,0.4);color:#1DD1A1;">⛶ Present</button>
 </div>
 
 <!-- Dot indicators -->
@@ -1105,6 +1106,22 @@
     presenterWin.document.close();
     // Send current slide immediately
     bc.postMessage({ slide: current, total: total, notes: NOTES[current] });
+  }
+
+  function launchPresentation() {
+    const w = screen.availWidth;
+    const h = screen.availHeight;
+    const win = window.open(
+      window.location.href + '?present=1',
+      'ScaleNationalPresent',
+      'toolbar=0,menubar=0,scrollbars=0,resizable=1,status=0,location=0,width=' + w + ',height=' + h + ',left=0,top=0'
+    );
+    if (win) win.focus();
+  }
+
+  // Hide Present button if already in popup presentation window
+  if (new URLSearchParams(window.location.search).get('present') === '1') {
+    document.querySelector('[onclick="launchPresentation()"]').style.display = 'none';
   }
 
   document.addEventListener('keydown', e => {
