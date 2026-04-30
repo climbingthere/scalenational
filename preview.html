@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScaleNational — Performance Ads & UGC for Active Lifestyle Brands</title>
-    <meta name="description" content="We build and run performance ad campaigns for active lifestyle, wellness, and DTC brands. Real UGC creators. Meta, TikTok, Google, and YouTube. Built by a creator who lives it.">
+    <title>ScaleNational — Meta Ads & UGC Agency for Active Lifestyle Brands</title>
+    <meta name="description" content="Scale National is a performance marketing agency running Meta ad campaigns and UGC content for active lifestyle, wellness, and DTC brands. Real creators. Real results.">
     <meta name="keywords" content="scale business, national advertising, ad campaigns, B2B ads, lead generation, growth marketing, digital advertising agency, scale with ads, business growth strategy, advertising solutions">
     <meta name="author" content="ScaleNational">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="ScaleNational — Ads to Scale Your Business. Fast.">
+    <meta property="og:title" content="ScaleNational — Meta Ads & UGC Agency for Active Lifestyle Brands">
     <meta property="og:description" content="Done-for-you ad campaigns that fill your sales pipeline with high-quality leads. Scale nationally with professional advertising.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://scalenational.com">
@@ -237,7 +237,64 @@
 
         /* Navigation */
         nav {
-            display: none;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(6,15,11,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            padding: 0 clamp(16px, 5vw, 48px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        nav .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        nav .logo-img {
+            height: 32px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+        nav .logo-wrapper span {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.02em;
+        }
+        nav .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        nav .nav-links a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s;
+            letter-spacing: 0.02em;
+        }
+        nav .nav-links a:hover {
+            color: #1DD1A1;
+        }
+        nav .nav-links .btn {
+            padding: 10px 22px;
+            font-size: 14px;
+            min-height: auto;
+        }
+        @media (max-width: 768px) {
+            nav .nav-links a:not(.btn) { display: none; }
         }
 
         /* Buttons */
@@ -1433,11 +1490,11 @@
                 <span>ScaleNational</span>
             </a>
             <div class="nav-links">
-                <a href="#about">About</a>
                 <a href="#services">Services</a>
-                <a href="#process">Process</a>
+                <a href="#process">How It Works</a>
+                <a href="#about">About</a>
                 <a href="#faq">FAQ</a>
-                <a href="#cta" class="btn btn-primary">Work With Us</a>
+                <a href="#booking" class="btn btn-primary">Book A Call</a>
             </div>
         </div>
     </nav>
@@ -1452,11 +1509,11 @@
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <h1><span class="headline-gradient">Real Creators. Real Ads.</span> <span class="headline-fast">Real Growth.</span></h1>
-            <p class="hero-subtext">We run <strong class="text-teal">performance ad campaigns</strong> for active lifestyle, wellness, and performance brands. UGC sourced from our <strong>15M+ follower creator network</strong>. Managed across <strong>Meta, TikTok, Google, and YouTube</strong>.</p>
+            <h1><span class="headline-gradient">Meta Ads & UGC</span> <span class="headline-fast">for Active Lifestyle Brands.</span></h1>
+            <p class="hero-subtext">We run <strong class="text-teal">performance ad campaigns</strong> for active lifestyle, wellness, and performance brands. UGC sourced from our <strong>15M+ follower creator network</strong>. Managed on <strong>Meta (Facebook & Instagram)</strong>.</p>
             <div class="hero-cta">
-                <a href="#cta" class="btn btn-primary">Work With Us</a>
-                <a href="#about" class="btn btn-secondary">Meet the Founder</a>
+                <a href="#booking" class="btn btn-primary">Book A Free Call</a>
+                <a href="#process" class="btn btn-secondary">How We Work</a>
             </div>
         </div>
     </section>
@@ -1697,39 +1754,34 @@
         </div>
     </section>
 
-    <!-- About / Founder -->
+    <!-- About -->
     <section id="about" style="background: #0d2b1e;">
         <div class="container">
             <div class="section-title">
                 <div class="section-divider"></div>
-                <h2>Built by a <span class="text-teal">Creator</span></h2>
-                <p class="section-subtitle">Not an agency that guesses what works. Someone who's built audiences and knows what converts.</p>
+                <h2>Not an Agency. A <span class="text-teal">Growth Partner.</span></h2>
+                <p class="section-subtitle">We don't guess what works — we've built audiences and know what makes people stop scrolling and buy.</p>
             </div>
             <div class="founder-grid">
-                <div class="founder-photo-col">
-                    <img src="eric-profile.jpg" alt="Eric K." style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: center top; margin: 0 auto 16px; display: block; border: 3px solid #1DD1A1; box-shadow: 0 8px 28px rgba(29,209,161,0.25);">
-                    <p style="font-size: 20px; font-weight: 800; color: #ffffff; margin-bottom: 4px;">Eric K.</p>
-                    <p style="font-size: 14px; color: #2fb896; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 16px;">@kirtoutdoors</p>
-                    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://www.instagram.com/kirtoutdoors" target="_blank" rel="noopener" style="font-size: 12px; font-weight: 600; color: #1DD1A1; background: transparent; border: 1.5px solid rgba(29,209,161,0.35); padding: 5px 14px; border-radius: 20px; text-decoration: none;">Instagram</a>
-                        <a href="https://www.tiktok.com/@kirtoutdoors" target="_blank" rel="noopener" style="font-size: 12px; font-weight: 600; color: #1DD1A1; background: transparent; border: 1.5px solid rgba(29,209,161,0.35); padding: 5px 14px; border-radius: 20px; text-decoration: none;">TikTok</a>
-                        <a href="https://www.youtube.com/@KirtOutdoors" target="_blank" rel="noopener" style="font-size: 12px; font-weight: 600; color: #1DD1A1; background: transparent; border: 1.5px solid rgba(29,209,161,0.35); padding: 5px 14px; border-radius: 20px; text-decoration: none;">YouTube</a>
-                    </div>
-                </div>
-                <div class="founder-text-col">
-                    <p style="font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 16px;">I built <strong style="color: #ffffff;">@kirtoutdoors</strong> from scratch — 25K+ followers, 50M+ views, 519 videos. I know what stops the scroll because I've done it.</p>
-                    <p style="font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 20px;">ScaleNational is built on that same instinct. I bring the network. We run the ads. You get the growth.</p>
-
-                    <!-- Network Stats -->
-                    <div style="font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1DD1A1; margin-bottom: 10px;">Our Creator Network</div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                        <div style="background: linear-gradient(135deg, #0d4a3f, #0d6b52); border-radius: 12px; padding: 14px; text-align: center;">
-                            <div style="font-size: 22px; font-weight: 800; color: #1DD1A1;">15M+</div>
-                            <div style="font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 2px;">Combined Followers</div>
+                <div class="founder-text-col" style="max-width:600px; margin: 0 auto;">
+                    <p style="font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.85; margin-bottom: 20px;">Scale National was built by creators who scaled to <strong style="color:#ffffff;">50M+ views</strong> before ever running a paid ad. We understand what moves an audience because we've done it — and we bring that same instinct to every campaign we run.</p>
+                    <p style="font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.85; margin-bottom: 28px;">We combine a <strong style="color:#ffffff;">500+ creator network</strong> with performance-focused Meta ad management. You get real UGC that converts, not agency stock footage.</p>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+                        <div style="background: linear-gradient(135deg, #0d4a3f, #0d6b52); border-radius: 12px; padding: 16px; text-align: center;">
+                            <div style="font-size: 22px; font-weight: 800; color: #1DD1A1;">500+</div>
+                            <div style="font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 4px;">UGC Creators</div>
                         </div>
-                        <div style="background: linear-gradient(135deg, #0d4a3f, #0d6b52); border-radius: 12px; padding: 14px; text-align: center;">
+                        <div style="background: linear-gradient(135deg, #0d4a3f, #0d6b52); border-radius: 12px; padding: 16px; text-align: center;">
+                            <div style="font-size: 22px; font-weight: 800; color: #1DD1A1;">15M+</div>
+                            <div style="font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 4px;">Network Followers</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #0d4a3f, #0d6b52); border-radius: 12px; padding: 16px; text-align: center;">
                             <div style="font-size: 22px; font-weight: 800; color: #1DD1A1;">2B+</div>
-                            <div style="font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 2px;">Views Across Platforms</div>
+                            <div style="font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 4px;">Content Views</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #0d4a3f, #0d6b52); border-radius: 12px; padding: 16px; text-align: center;">
+                            <div style="font-size: 22px; font-weight: 800; color: #1DD1A1;">Meta</div>
+                            <div style="font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 4px;">Only Platform</div>
                         </div>
                     </div>
                 </div>
@@ -1755,13 +1807,13 @@
                 <div class="card">
                     <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
                     <h3>Paid Ad Campaigns</h3>
-                    <p>Full campaign management on Meta, TikTok, Google, and YouTube — we build, launch, and optimize.</p>
-                    <span class="benefit-highlight">All platforms, one team</span>
+                    <p>Full campaign management on Meta (Facebook & Instagram) — we build, launch, and optimize.</p>
+                    <span class="benefit-highlight">Meta specialists</span>
                 </div>
                 <div class="card">
                     <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></span>
                     <h3>Creative Strategy</h3>
-                    <p>Static ads, video ads, and UGC — scripted, produced, and tested across Meta and TikTok until we find what converts.</p>
+                    <p>Static ads, video ads, and UGC — scripted, produced, and tested on Meta until we find what converts.</p>
                     <span class="benefit-highlight">Static, video & UGC</span>
                 </div>
                 <div class="card">
@@ -1810,7 +1862,7 @@
                 <div class="card">
                     <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
                     <h3>Wellness Apps & Digital Products</h3>
-                    <p>Health, fitness, and wellness apps that need paid distribution — we make them grow on TikTok and Meta.</p>
+                    <p>Health, fitness, and wellness apps that need paid distribution — we make them grow on Meta.</p>
                     <span class="benefit-highlight">App growth engine</span>
                 </div>
             </div>
@@ -1848,7 +1900,7 @@
                         <div class="step-number">3</div>
                         <span class="step-label">Week 3</span>
                         <h3>Launch</h3>
-                        <p>Campaigns go live across Meta, TikTok, Google, and YouTube with precision targeting.</p>
+                        <p>Campaigns go live on Meta with precision targeting and multiple creative formats.</p>
                     </div>
                     <div class="step-arrow">→</div>
                     <div class="step">
@@ -1876,7 +1928,7 @@
                         <h4>1. What makes ScaleNational different from other agencies?</h4>
                         <span class="faq-toggle">+</span>
                     </div>
-                    <p>Our founder built @kirtoutdoors to 50M+ views — we don't just run ads, we understand what makes an audience stop scrolling and buy. Most agencies guess. We've already done it.</p>
+                    <p>Our team built audiences to 50M+ views before ever running a paid ad — we don't just manage campaigns, we understand what makes people stop scrolling and buy. Most agencies guess. We've already done it.</p>
                 </div>
                 <div class="faq-item">
                     <div class="faq-header">
@@ -1890,7 +1942,7 @@
                         <h4>3. What platforms do you run campaigns on?</h4>
                         <span class="faq-toggle">+</span>
                     </div>
-                    <p>Meta, TikTok, YouTube, and Google Ads — we choose the right mix based on your audience. Most DTC and lifestyle brands see the strongest early performance on Meta and TikTok.</p>
+                    <p>We focus exclusively on Meta (Facebook & Instagram) — the highest-converting platform for active lifestyle and DTC brands. One platform, mastered completely.</p>
                 </div>
                 <div class="faq-item">
                     <div class="faq-header">
@@ -1903,26 +1955,32 @@
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section" id="cta">
+    <!-- Booking -->
+    <section class="cta-section" id="booking" style="scroll-margin-top:64px;">
         <div class="cta-dots"></div>
         <div class="container cta-inner">
             <span class="cta-eyebrow">Free Strategy Call</span>
             <h2>Ready to <span class="cta-highlight">Scale?</span></h2>
-            <p class="cta-subtext">Free 30-minute strategy call. We'll map out exactly which platforms and creators will work for your brand.</p>
-            <div class="cta-btn-wrap">
-                <a href="https://calendly.com/erickirt" class="cta-mega-btn" target="_blank" rel="noopener">
-                    Book Your Free Call <span class="btn-arrow">→</span>
-                </a>
-                <p class="cta-trust-line"><span>✓</span> No commitment &nbsp;·&nbsp; <span>✓</span> 30 min &nbsp;·&nbsp; <span>✓</span> Custom strategy</p>
+            <p class="cta-subtext">Book a free 30-minute strategy call. We'll audit your current setup and map out exactly what it'll take to scale your brand on Meta.</p>
+            <!-- GHL Calendar Embed -->
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <iframe src="https://app.scalenational.com/widget/bookings/discovery-call" style="width:100%; height:600px; border:none; overflow:hidden;" scrolling="no" id="discovery-call_iframe"></iframe>
             </div>
+            <p class="cta-trust-line" style="margin-top:20px;"><span>✓</span> No commitment &nbsp;·&nbsp; <span>✓</span> 30 min &nbsp;·&nbsp; <span>✓</span> Custom strategy</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 ScaleNational. We scale your business through advertising.</p>
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+                <p>&copy; 2026 ScaleNational — Meta Ads & UGC Agency</p>
+                <div style="display:flex; gap:20px;">
+                    <a href="mailto:eric@scalenational.com" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">eric@scalenational.com</a>
+                    <a href="/privacy.html" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">Privacy</a>
+                    <a href="/terms.html" style="color:rgba(255,255,255,0.4); text-decoration:none; font-size:13px;">Terms</a>
+                </div>
+            </div>
         </div>
     </footer>
 
