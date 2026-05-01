@@ -3,2094 +3,1156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScaleNational — Performance Ads & UGC for Active Lifestyle Brands</title>
-    <meta name="description" content="We build and run performance ad campaigns for active lifestyle, wellness, and DTC brands. Real UGC creators. Meta ads managed end-to-end. Built by a creator who lives it.">
-    <meta name="keywords" content="scale business, national advertising, ad campaigns, B2B ads, lead generation, growth marketing, digital advertising agency, scale with ads, business growth strategy, advertising solutions">
-    <meta name="author" content="ScaleNational">
+    <title>Scale National — Meta Ads & UGC for DTC Brands</title>
+    <meta name="description" content="We scale DTC brands in active lifestyle, wellness, and performance with Meta ads and UGC content that actually converts. 500+ creators. 50M+ views.">
+    <meta name="author" content="Scale National">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="ScaleNational — Ads to Scale Your Business. Fast.">
-    <meta property="og:description" content="Done-for-you ad campaigns that fill your sales pipeline with high-quality leads. Scale nationally with professional advertising.">
+    <meta property="og:title" content="Scale National — Meta Ads & UGC for DTC Brands">
+    <meta property="og:description" content="High-performance Meta ads and UGC for active lifestyle, wellness, and DTC brands. Built by a creator who lives it.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://scalenational.com">
-    <meta property="og:image" content="https://scalenational.com/og-preview.jpg">
-    <meta property="og:image:width" content="800">
-    <meta property="og:image:height" content="453">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ScaleNational — Ads to Scale Your Business">
-    <meta name="twitter:description" content="Done-for-you ad campaigns to scale your business nationally.">
-    <meta name="twitter:image" content="https://scalenational.com/og-preview.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- JSON-LD Schema for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "ScaleNational",
-      "url": "https://scalenational.com",
-      "description": "Done-for-you ad campaigns to scale your business nationally with high-quality leads",
-      "sameAs": ["https://linkedin.com/company/scalenational"],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Sales",
-        "email": "hello@scalenational.com"
-      }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "B2B Ad Campaigns",
-      "description": "Professional advertising services to scale your business with qualified leads",
-      "provider": {
-        "@type": "Organization",
-        "name": "ScaleNational"
-      },
-      "areaServed": "US",
-      "serviceType": "Digital Advertising"
-    }
-    </script>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #080808;
+            --text: #ffffff;
+            --text-muted: #a0a0a0;
+            --accent: #FF4D00;
+            --card-bg: #111111;
+            --card-border: #1a1a1a;
+            --section-padding: 120px 0;
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(-4px); }
-            50% { transform: translateY(4px); }
-            100% { transform: translateY(-4px); }
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(29, 209, 161, 0); }
-            50% { box-shadow: 0 0 30px rgba(29, 209, 161, 0.3); }
-        }
-
-        @keyframes tilt {
-            0%, 100% { transform: rotateZ(-2deg); }
-            50% { transform: rotateZ(2deg); }
-        }
-
-        @keyframes expandDown {
-            from {
-                opacity: 0;
-                max-height: 0;
-                overflow: hidden;
-            }
-            to {
-                opacity: 1;
-                max-height: 500px;
-                overflow: visible;
-            }
-        }
-
-        @keyframes collapseUp {
-            from {
-                opacity: 1;
-                max-height: 500px;
-                overflow: hidden;
-            }
-            to {
-                opacity: 0;
-                max-height: 0;
-                overflow: hidden;
-            }
-        }
-
         body {
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #060f0b;
-            color: #ffffff;
-            line-height: 1.7;
-            padding-top: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
         }
 
-        h1 {
-            font-size: clamp(36px, 8vw, 68px);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: 0.06em;
-        }
-
-        h2 {
-            font-size: clamp(30px, 6vw, 52px);
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: 0.05em;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-
-        h3 {
-            font-size: 19px;
-            font-weight: 700;
-            margin-bottom: 14px;
-            letter-spacing: 0.02em;
-            line-height: 1.4;
-        }
-
-        p {
-            font-size: 16px;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.75;
-            letter-spacing: 0.01em;
-            font-weight: 500;
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 clamp(16px, 5vw, 48px);
+            padding: 0 24px;
         }
 
-        section {
-            padding: clamp(30px, 6vw, 50px) 0;
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
-        /* Section Backgrounds - unified */
-        .bg-teal {
-            background: #060f0b;
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .bg-dots {
-            background: #060f0b;
+        /* Nav */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: background 0.3s ease, padding 0.3s ease;
         }
 
-        .bg-gradient-subtle {
-            background: #060f0b;
+        .nav.scrolled {
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 14px 0;
+            border-bottom: 1px solid var(--card-border);
         }
 
-        /* Section Divider */
-        .section-divider {
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, #1DD1A1, #0d4a3f);
-            border-radius: 2px;
-            margin: 0 auto 14px;
+        .nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        /* Text accent classes */
-        .text-teal {
-            color: #1DD1A1;
+        .nav-wordmark {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .text-dark-green {
-            color: #1DD1A1;
+        .nav-cta {
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        /* Navigation */
-        nav {
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(255, 77, 0, 0.3);
+        }
+
+        .hamburger {
             display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-flex;
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg);
+            z-index: 999;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: clamp(14px, 2.5vw, 18px) clamp(28px, 4vw, 40px);
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
+            gap: 32px;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
             border: none;
-            transition: all 0.3s ease;
-            min-height: 48px;
-            white-space: nowrap;
-            letter-spacing: 0.03em;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #1DD1A1 0%, #0d9c6b 100%);
-            color: #060f0b;
-            box-shadow: 0 4px 15px rgba(29, 209, 161, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(29, 209, 161, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #1DD1A1;
-            border: 2px solid #1DD1A1;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(29, 209, 161, 0.05);
-        }
-
-        /* Hero Logo */
-        .hero-logo {
-            text-align: center;
-            margin-bottom: 4px;
-            padding-top: 4px;
-            padding-bottom: 12px;
-            overflow: visible;
-        }
-
-        .hero-logo img {
-            width: 280px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            filter: brightness(0) invert(1);
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         /* Hero */
         .hero {
-            padding: clamp(50px, 8vw, 100px);
-            background: radial-gradient(ellipse 55% 45% at 50% 35%, rgba(13,156,107,0.15) 0%, transparent 65%), #060f0b;
-            border-radius: 0;
-            margin-top: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before { display: none; }
-        .hero::after  { display: none; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(255, 77, 0, 0.03) 0%, transparent 50%),
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 60px 60px, 60px 60px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+        }
 
         .hero h1 {
-            max-width: 800px;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.05;
             margin-bottom: 24px;
-            position: relative;
-            z-index: 1;
-            font-size: clamp(40px, 9vw, 76px);
+            letter-spacing: -1.5px;
         }
 
-        .hero h1 .headline-gradient {
-            background: linear-gradient(110deg, #ffffff 0%, #ffffff 35%, #1DD1A1 70%, #0d9c6b 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 2px 20px rgba(29, 209, 161, 0.4));
-            animation: heroHeadlineIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
-            display: inline;
+        .hero h1 span {
+            color: var(--accent);
         }
 
-        .hero h1 .headline-fast {
-            background: linear-gradient(110deg, #1DD1A1 0%, #6ff7d5 50%, #0d9c6b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 900;
-            font-style: italic;
-            filter: drop-shadow(0 2px 25px rgba(29, 209, 161, 0.5));
-            animation: heroHeadlineIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
-            display: inline;
-        }
-
-        .hero-subtext {
-            max-width: 660px;
-            font-size: clamp(17px, 4vw, 20px);
-            color: rgba(255,255,255,0.5);
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 560px;
             margin-bottom: 40px;
-            line-height: 1.8;
-            letter-spacing: 0.01em;
-            position: relative;
-            z-index: 1;
+            font-weight: 300;
+            line-height: 1.7;
         }
 
-        .hero-cta {
+        .hero-buttons {
             display: flex;
-            gap: 12px;
+            gap: 16px;
             flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
         }
 
-        /* Logos Section */
-        .logos-section {
-            background: #060f0b;
-            padding: clamp(40px, 6vw, 60px) 0;
-            position: relative;
-            overflow: hidden;
-            border-top: 1px solid rgba(255,255,255,0.06);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
         }
 
-        .logos-section::before { display: none; }
-        .logos-section::after  { display: none; }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(255, 77, 0, 0.3);
+        }
 
-        .logos-header {
+        .btn-secondary {
+            color: var(--text-muted);
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 1rem;
+            border: 1px solid var(--card-border);
+            transition: border-color 0.2s ease, color 0.2s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: #444;
+            color: #fff;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 60px 0;
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .social-proof-label {
             text-align: center;
-            margin-bottom: 32px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .logos-label {
-            text-align: center;
-            font-size: clamp(14px, 3vw, 18px);
-            font-weight: 700;
-            color: #ffffff;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-top: 12px;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-weight: 500;
         }
 
-        .logos-carousel {
-            position: relative;
-            overflow: hidden;
-            margin: 0 calc(-1 * clamp(16px, 5vw, 48px));
-            padding: 32px clamp(16px, 5vw, 48px);
-            background: rgba(255,255,255,0.04);
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.09);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        .logos-track {
+        .pills {
             display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 12px;
-            will-change: transform;
         }
 
-        @keyframes heroHeadlineIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.92);
-                filter: blur(4px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-                filter: blur(0);
-            }
+        .pill {
+            padding: 10px 24px;
+            border: 1px solid var(--card-border);
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-muted);
         }
 
-        @keyframes scroll {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+        /* Problem Section */
+        .problem {
+            padding: var(--section-padding);
         }
 
-        .logos-track:hover {
-            animation-play-state: paused;
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 16px;
         }
 
-        .logo-item {
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 60px;
+            letter-spacing: -0.5px;
+            max-width: 600px;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .problem-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 40px 32px;
+        }
+
+        .problem-card .number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--card-border);
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        .problem-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Different Section */
+        .different {
+            padding: var(--section-padding);
+        }
+
+        .different-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .different-points {
+            list-style: none;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            flex-shrink: 0;
-            min-width: 160px;
+            gap: 28px;
         }
 
-        .logo-box {
-            width: 150px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            border: none;
-            border-radius: 12px;
-            overflow: hidden;
-            padding: 12px;
+        .different-points li {
+            padding-left: 24px;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-muted);
         }
 
-        .logo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: all 0.3s;
-            border-radius: 12px;
+        .different-points li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
         }
 
-        .logo-item:hover .logo-box img {
-            filter: brightness(1.2) saturate(1.1);
-        }
-
-        .logo-name { font-weight: 700;
-            font-size: 12px;
+        .different-points li strong {
+            color: #fff;
             font-weight: 600;
-            color: rgba(255,255,255,0.5);
-            text-align: center;
-            letter-spacing: 0.04em;
         }
 
-        /* Stats */
-        .stats-section-wrap {
-            background: rgba(255,255,255,0.04);
-            border-radius: 20px;
-            padding: clamp(32px, 5vw, 48px) clamp(20px, 4vw, 40px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stats-section-wrap::before { display: none; }
-        .stats-section-wrap::after  { display: none; }
-
-        .stats {
+        .stats-block {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: clamp(16px, 3vw, 24px);
-            background: transparent;
-            padding: 0;
-            border-radius: 12px;
-            border: none;
-            position: relative;
-            z-index: 1;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
         }
 
         .stat {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 36px 28px;
             text-align: center;
-            padding: clamp(28px, 4vw, 40px) clamp(20px, 3vw, 28px);
-            border-radius: 16px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.09);
-            position: relative;
-            overflow: visible;
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-        }
-
-        .stat:hover {
-            background: rgba(29,209,161,0.06);
-            border-color: rgba(29, 209, 161, 0.4);
-            box-shadow: 0 12px 40px rgba(29, 209, 161, 0.12), 0 4px 12px rgba(0,0,0,0.4);
-            transform: translateY(-4px);
-        }
-
-        .stat::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: rgba(255,255,255,0.07);
-        }
-
-        .stat-icon {
-            width: 52px;
-            height: 52px;
-            margin: 0 auto 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.06);
-            border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .stat:hover .stat-icon {
-            background: rgba(255,255,255,0.09);
-            transform: scale(1.06);
-            border-color: rgba(255,255,255,0.15);
-        }
-
-        .stat-icon svg {
-            width: 26px;
-            height: 26px;
-            color: #ffffff;
-            stroke: #ffffff;
-            fill: none;
-        }
-
-        .stat-label {
-            display: inline-block;
-            background: rgba(29, 209, 161, 0.12);
-            color: #1DD1A1;
-            font-size: 8px;
-            font-weight: 800;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            padding: 5px 14px;
-            border-radius: 50px;
-            margin-bottom: 16px;
         }
 
         .stat-number {
-            font-size: clamp(36px, 6vw, 60px);
+            font-size: 2.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #1DD1A1 0%, #6ff7d5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent);
             margin-bottom: 8px;
-            letter-spacing: 0.02em;
-            line-height: 1.1;
-            filter: drop-shadow(0 0 20px rgba(29, 209, 161, 0.2));
         }
 
-        .stat p {
-            font-size: 14px;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.6;
-            font-weight: 500;
-        }
-
-        /* One Metric Section */
-        .one-metric-section {
-            background: #060f0b;
-            padding: clamp(64px, 10vw, 120px) 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .one-metric-section::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 900px;
-            height: 900px;
-            background: radial-gradient(circle, rgba(29,209,161,0.05) 0%, transparent 65%);
-            pointer-events: none;
-        }
-        .one-metric-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 clamp(20px, 5vw, 40px);
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        .one-metric-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 0.16em;
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
             text-transform: uppercase;
-            color: #1DD1A1;
-            background: rgba(29,209,161,0.08);
-            border: 1px solid rgba(29,209,161,0.2);
-            padding: 7px 16px;
-            border-radius: 50px;
-            margin-bottom: 28px;
-        }
-        .one-metric-eyebrow svg {
-            width: 13px; height: 13px;
-            stroke: #1DD1A1; fill: none;
-            stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
-        }
-        .one-metric-headline {
-            font-size: clamp(38px, 7vw, 72px);
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 24px;
-        }
-        .one-metric-headline .metric-highlight {
-            background: linear-gradient(135deg, #1DD1A1 0%, #6ff7d5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .one-metric-body {
-            font-size: clamp(16px, 2.2vw, 20px);
-            color: rgba(255,255,255,0.55);
-            line-height: 1.75;
-            max-width: 640px;
-            margin: 0 auto 52px;
+            letter-spacing: 1px;
             font-weight: 500;
         }
-        .one-metric-body strong {
-            color: rgba(255,255,255,0.9);
-            font-weight: 700;
+
+        /* Packages */
+        .packages {
+            padding: var(--section-padding);
         }
-        .one-metric-cards {
+
+        .packages-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 48px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            align-items: stretch;
         }
-        @media (max-width: 640px) {
-            .one-metric-cards { grid-template-columns: 1fr; }
-        }
-        .metric-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
+
+        .package-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
             border-radius: 16px;
-            padding: 28px 22px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        .metric-card:hover {
-            background: rgba(29,209,161,0.05);
-            border-color: rgba(29,209,161,0.25);
-            transform: translateY(-3px);
-        }
-        .metric-card-x {
-            font-size: 48px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #1DD1A1 0%, #6ff7d5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            margin-bottom: 8px;
-            letter-spacing: -0.02em;
-        }
-        .metric-card-label {
-            font-size: 13px;
-            font-weight: 700;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 6px;
-        }
-        .metric-card-sub {
-            font-size: 12px;
-            color: rgba(255,255,255,0.4);
-            font-weight: 500;
-            line-height: 1.5;
-        }
-        .one-metric-divider {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 48px;
-        }
-        .one-metric-divider::before,
-        .one-metric-divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(255,255,255,0.07);
-        }
-        .one-metric-divider span {
-            font-size: 12px;
-            font-weight: 700;
-            color: rgba(255,255,255,0.25);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        /* Sections */
-        .section-title {
-            text-align: center;
-            margin-bottom: clamp(20px, 4vw, 32px);
-        }
-
-        .section-title h2 {
-            margin-bottom: 12px;
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            color: rgba(255,255,255,0.5);
-            max-width: 580px;
-            margin: 0 auto;
-            line-height: 1.7;
-            letter-spacing: 0.01em;
-        }
-
-        /* Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: clamp(16px, 3vw, 24px);
-        }
-
-        .card {
-            background: rgba(255,255,255,0.04);
-            padding: clamp(32px, 3vw, 40px);
-            border-radius: 20px;
-            border: 1.5px solid rgba(255,255,255,0.09);
-            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            min-height: 300px;
+            padding: 48px 36px;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: var(--card-accent, rgba(29,209,161,0.5));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--card-glow, radial-gradient(circle at 30% 20%, rgba(29, 209, 161, 0.06) 0%, transparent 60%));
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card:hover::after {
-            opacity: 1;
-        }
-
-        .card:nth-child(n) {
-            --card-accent: rgba(29,209,161,0.5);
-            --card-icon-bg: rgba(255,255,255,0.06);
-            --card-glow: radial-gradient(circle at 30% 20%, rgba(29,209,161,0.05) 0%, transparent 60%);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(29, 209, 161, 0.35);
-            box-shadow: 0 24px 72px rgba(29, 209, 161, 0.2), 0 8px 24px rgba(0,0,0,0.4);
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card-icon {
-            font-size: 0;
-            margin-bottom: 18px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 52px;
-            height: 52px;
-            background: rgba(255,255,255,0.06);
-            border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
             position: relative;
+            transition: transform 0.3s ease;
         }
 
-        .card-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: #ffffff;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+        .package-card:hover {
+            transform: translateY(-4px);
         }
 
-        .card:hover .card-icon {
-            background: rgba(29,209,161,0.12);
-            border-color: rgba(29,209,161,0.25);
-        }
-        .card:hover .card-icon svg {
-            stroke: #1DD1A1;
+        .package-card.popular {
+            border-color: var(--accent);
+            box-shadow: 0 0 60px rgba(255, 77, 0, 0.08);
         }
 
-        .card h3 {
-            margin-bottom: 12px;
-            color: #ffffff;
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: -0.01em;
-        }
-
-        .card p {
-            font-size: 14px;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.5);
-            flex-grow: 1;
-        }
-
-        .benefit-highlight {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 10px;
-            padding: 10px 16px;
-            font-size: 13px;
+        .package-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 100px;
+            font-size: 0.75rem;
             font-weight: 700;
-            color: rgba(255,255,255,0.75);
-            margin-top: 20px;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .benefit-highlight::before {
-            content: '✓';
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 20px;
-            height: 20px;
-            background: #1DD1A1;
-            color: #060f0b;
-            border-radius: 50%;
-            font-size: 11px;
-            font-weight: 900;
-            flex-shrink: 0;
+        .package-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .card:hover .benefit-highlight {
-            background: rgba(29,209,161,0.08);
-            border-color: rgba(29,209,161,0.2);
-            color: rgba(255,255,255,0.9);
-        }
-
-        /* Process */
-        .process-wrapper {
-            position: relative;
-        }
-
-        .process-connector {
-            display: none;
-        }
-
-        @media (min-width: 769px) {
-            .process-connector {
-                display: block;
-                position: absolute;
-                top: 48px;
-                left: calc(12.5% + 36px);
-                right: calc(12.5% + 36px);
-                height: 1px;
-                background: rgba(255,255,255,0.12);
-                z-index: 0;
-                border-radius: 1px;
-            }
-
-            .process-connector::before,
-            .process-connector::after { display: none; }
-        }
-
-        .process {
-            display: flex;
-            flex-wrap: wrap;
-            gap: clamp(20px, 3vw, 32px);
-            position: relative;
-            z-index: 1;
-            align-items: stretch;
-            justify-content: space-between;
-        }
-
-        .step-arrow {
-            display: none;
-            color: #1DD1A1;
-            font-size: 32px;
-            font-weight: 700;
-            align-self: center;
-            animation: arrowFloat 2s ease-in-out infinite;
-        }
-
-        @keyframes arrowFloat {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(4px); }
-        }
-
-        @media (min-width: 900px) {
-            .step-arrow {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .process {
-                flex-wrap: nowrap;
-            }
-        }
-
-        .step {
-            position: relative;
-            padding: clamp(32px, 5vw, 44px);
-            background: rgba(255,255,255,0.04);
-            border-radius: 20px;
-            border: 2px solid rgba(255,255,255,0.09);
-            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            text-align: center;
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
-            flex: 1;
-        }
-
-        .step::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #1DD1A1, transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-            border-radius: 0 0 20px 20px;
-        }
-
-        .step:hover {
-            box-shadow: 0 24px 72px rgba(29, 209, 161, 0.2), 0 8px 24px rgba(0,0,0,0.4);
-            transform: translateY(-8px);
-            border-color: rgba(29, 209, 161, 0.35);
-        }
-
-        .step:hover::after {
-            opacity: 1;
-        }
-
-        .step-number-bg {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, rgba(29, 209, 161, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .step-number {
-            width: 72px;
-            height: 72px;
-            background: #060f0b;
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            font-weight: 900;
-            color: #ffffff;
-            margin: 0 auto 24px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            position: relative;
-            z-index: 2;
-        }
-
-        .step:hover .step-number {
-            transform: scale(1.08);
-            border-color: rgba(29,209,161,0.4);
-            box-shadow: 0 8px 28px rgba(0,0,0,0.5);
-        }
-
-        .step-metric {
-            margin-top: 20px;
-            padding: 16px;
-            background: rgba(255,255,255,0.04);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.08);
-            text-align: center;
-        }
-
-        .metric-value {
-            display: block;
-            font-size: 24px;
+        .package-price {
+            font-size: 2.8rem;
             font-weight: 800;
-            color: #1DD1A1;
             margin-bottom: 4px;
         }
 
-        .metric-label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            color: rgba(255,255,255,0.5);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .package-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
         }
 
-        .step-number::before {
-            content: '';
+        .package-onboarding {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .package-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+
+        .package-features li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .package-features li::before {
+            content: '✓';
             position: absolute;
-            width: 100%;
-            height: 100%;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .package-btn {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid var(--card-border);
+            transition: all 0.2s ease;
+        }
+
+        .package-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .package-card.popular .package-btn {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .package-card.popular .package-btn:hover {
+            box-shadow: 0 8px 24px rgba(255, 77, 0, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Founder */
+        .founder {
+            padding: var(--section-padding);
+            border-top: 1px solid var(--card-border);
+        }
+
+        .founder-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .founder-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--accent);
+            flex-shrink: 0;
         }
 
-        .step:nth-child(1) .step-number::before {
-            content: '';
-        }
-
-        .step:nth-child(2) .step-number::before {
-            content: '';
-        }
-
-        .step:nth-child(3) .step-number::before {
-            content: '';
-        }
-
-        .step:nth-child(4) .step-number::before {
-            content: '';
-        }
-
-        .step:hover .step-number {
-            box-shadow: 0 6px 24px rgba(29, 209, 161, 0.4), 0 0 0 6px rgba(29, 209, 161, 0.15);
-            transform: scale(1.08);
-        }
-
-        .step-label {
-            display: inline-block;
-            background: rgba(255,255,255,0.06);
-            color: rgba(255,255,255,0.6);
-            font-size: 11px;
+        .founder-info h3 {
+            font-size: 1.5rem;
             font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            padding: 5px 14px;
-            border-radius: 50px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 4px;
         }
 
-        .step h3 {
-            color: #ffffff;
-            margin-bottom: 14px;
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -0.01em;
-        }
-        
-        .step p {
-            color: rgba(255,255,255,0.5);
-            font-size: 15px;
-            line-height: 1.7;
+        .founder-handle {
+            color: var(--accent);
             font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .founder-stats {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .founder-bio {
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 520px;
         }
 
         /* FAQ */
-        .faq-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: clamp(10px, 2vw, 14px);
-            max-width: 700px;
+        .faq {
+            padding: var(--section-padding);
+        }
+
+        .faq-list {
+            max-width: 720px;
             margin: 0 auto;
         }
 
         .faq-item {
-            padding: 16px 20px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.09);
-            border-left: 4px solid #1DD1A1;
-            border-radius: 10px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #fff;
+            padding: 28px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: left;
             cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .faq-item:hover {
-            border-color: rgba(29, 209, 161, 0.25);
-            background: rgba(29,209,161,0.06);
-        }
-
-        .faq-item.active {
-            border-left-color: #1DD1A1;
-            background: rgba(29,209,161,0.08);
-        }
-
-        .faq-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
         }
 
-        .faq-header h4 {
-            font-size: 15px;
-            font-weight: 700;
-            color: #ffffff;
-            margin: 0;
-            line-height: 1.4;
-            letter-spacing: 0.02em;
+        .faq-question:hover {
+            color: var(--accent);
         }
 
         .faq-toggle {
-            font-size: 20px;
-            flex-shrink: 0;
-            transition: transform 0.3s;
-            color: #1DD1A1;
-            font-weight: 700;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .faq-item p {
-            max-height: 0;
-            opacity: 0;
-            margin-top: 10px;
-            font-size: 13px;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.7;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .faq-item.active p {
-            max-height: 500px;
-            opacity: 1;
-            margin-top: 10px;
-        }
-
-        /* CTA */
-        @keyframes ctaPulse {
-            0%, 100% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(29, 209, 161, 0.4); }
-            50% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 0 30px 8px rgba(29, 209, 161, 0.2); }
-        }
-
-        @keyframes ctaOrbFloat {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -20px) scale(1.1); }
-            66% { transform: translate(-20px, 15px) scale(0.95); }
-        }
-
-        @keyframes ctaShimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .cta-section {
-            background: rgba(255,255,255,0.03);
-            color: #ffffff;
-            padding: clamp(40px, 6vw, 64px) clamp(30px, 6vw, 56px);
-            border-radius: 20px;
-            margin: clamp(24px, 4vw, 40px) 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.09);
-        }
-
-        .cta-section::before { display: none; }
-        .cta-section::after  { display: none; }
-
-        .cta-dots {
-            position: absolute;
-            inset: 0;
-            background-image: none;
-            background-size: 32px 32px;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .cta-inner {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-eyebrow {
-            display: inline-block;
-            background: rgba(29, 209, 161, 0.1);
-            border: 1px solid rgba(29, 209, 161, 0.2);
-            color: #1DD1A1;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 5px 16px;
-            border-radius: 50px;
-            margin-bottom: 16px;
-        }
-
-        .cta-section h2 {
-            color: #ffffff;
-            font-size: clamp(28px, 6vw, 44px);
-            font-weight: 800;
-            margin-bottom: 16px;
-            letter-spacing: 0.04em;
-            line-height: 1.2;
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-highlight {
-            color: #1DD1A1;
-            font-weight: 900;
-        }
-
-        .cta-subtext {
-            color: rgba(255,255,255,0.5) !important;
-            max-width: 500px;
-            margin: 0 auto 32px !important;
-            font-size: clamp(15px, 2.5vw, 17px) !important;
-            line-height: 1.7;
-            position: relative;
-            z-index: 2;
-            font-weight: 500;
-        }
-
-        .cta-btn-wrap {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .cta-mega-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 18px 52px;
-            background: linear-gradient(135deg, #1DD1A1, #0d9c6b);
-            color: #ffffff;
-            border: 2px solid #1DD1A1;
-            border-radius: 14px;
-            font-size: clamp(16px, 2.8vw, 19px);
-            font-weight: 800;
-            cursor: pointer;
-            text-decoration: none;
-            letter-spacing: 0.03em;
-            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-            animation: none;
-            min-height: 52px;
-            font-family: inherit;
-            box-shadow: 0 8px 24px rgba(29, 209, 161, 0.35), 0 0 0 0 rgba(29, 209, 161, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-mega-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .cta-mega-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(29, 209, 161, 0.45), 0 0 20px rgba(29, 209, 161, 0.2);
-            background: linear-gradient(135deg, #0d9c6b, #1DD1A1);
-        }
-
-        .cta-mega-btn:hover::before {
-            left: 100%;
-        }
-
-        .cta-mega-btn:active {
-            transform: translateY(-1px) scale(1.02);
-        }
-
-        .cta-mega-btn .btn-arrow {
-            font-size: 20px;
+            font-size: 1.5rem;
+            font-weight: 300;
             transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
         }
 
-        .cta-mega-btn:hover .btn-arrow {
-            transform: translateX(4px);
+        .faq-item.open .faq-toggle {
+            transform: rotate(45deg);
         }
 
-        .cta-trust-line {
-            color: rgba(255,255,255,0.5);
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.06em;
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
         }
 
-        .cta-trust-line span {
-            color: #1DD1A1;
+        .faq-answer p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            padding-bottom: 28px;
+            font-size: 0.95rem;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 140px 0;
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .final-cta p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+            font-weight: 300;
         }
 
         /* Footer */
-        footer {
-            background: #060f0b;
-            border-top: 1px solid rgba(255,255,255,0.09);
-            padding: 8px 0;
-            text-align: center;
-            font-size: 8px;
-            color: rgba(255,255,255,0.5);
-            letter-spacing: 0.02em;
+        .footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--card-border);
         }
 
-        footer a {
-            color: #1DD1A1;
-            text-decoration: none;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
         }
 
-
-        /* Founder section responsive grid */
-        .founder-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(32px, 5vw, 80px);
-            align-items: start;
-            max-width: 900px;
-            margin: 0 auto;
+        .footer-brand .footer-wordmark {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
-        .founder-photo-col {
-            text-align: center;
+        .footer-brand .footer-tagline {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        .founder-text-col {
-            min-width: 0;
+        .footer-links {
+            display: flex;
+            gap: 24px;
         }
 
-        @media (max-width: 640px) {
-            .founder-grid {
-                grid-template-columns: 1fr;
-                gap: 28px;
-            }
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
         }
-        /* Mobile */
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .footer-email {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-email:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            nav .nav-links {
+            :root {
+                --section-padding: 80px 0;
+            }
+
+            .nav-cta {
                 display: none;
             }
 
-            .hero-cta {
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            .hero-buttons {
                 flex-direction: column;
             }
 
-            .btn {
-                width: 100%;
+            .hero-buttons a {
+                text-align: center;
             }
 
-            .cta-mega-btn {
-                width: 100%;
-                padding: 18px 32px;
-            }
-
-            .faq-grid {
+            .different-grid {
                 grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .stats-block {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .founder-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 32px;
+            }
+
+            .founder-bio {
+                max-width: 100%;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pills {
+                gap: 8px;
+            }
+
+            .pill {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .package-card {
+                padding: 36px 28px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
+
+    <!-- Nav -->
+    <nav class="nav" id="nav">
         <div class="container">
-            <a href="/" class="logo-wrapper">
-                <img class="logo-img" src="logo-transparent.png" alt="ScaleNational">
-                <span>ScaleNational</span>
-            </a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#process">Process</a>
-                <a href="#faq">FAQ</a>
-                <a href="#cta" class="btn btn-primary">Work With Us</a>
-            </div>
+            <a href="#" class="nav-wordmark">SCALE NATIONAL</a>
+            <a href="https://calendly.com/erickirt/30min" class="nav-cta">Book a Call</a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Logo -->
-    <div class="hero-logo">
-        <div class="container">
-            <img src="logo-transparent.png" alt="ScaleNational Logo">
-        </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+        <a href="#work" onclick="closeMobile()">Our Approach</a>
+        <a href="#packages" onclick="closeMobile()">Packages</a>
+        <a href="#faq" onclick="closeMobile()">FAQ</a>
+        <a href="https://calendly.com/erickirt/30min" class="btn-primary">Book a Call</a>
     </div>
 
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <h1><span class="headline-gradient">Real Creators. Real Ads.</span> <span class="headline-fast">Real Growth.</span></h1>
-            <p class="hero-subtext">We run <strong class="text-teal">performance ad campaigns</strong> for active lifestyle, wellness, and performance brands. UGC sourced from our <strong>15M+ follower creator network</strong>. Managed on <strong>Meta (Facebook & Instagram)</strong>.</p>
-            <div class="hero-cta">
-                <a href="#cta" class="btn btn-primary">Work With Us</a>
-                <a href="#about" class="btn btn-secondary">Meet the Founder</a>
+            <div class="hero-content fade-up">
+                <h1>We Scale DTC Brands With Meta Ads That <span>Actually Convert</span></h1>
+                <p>Performance creative and paid media for active lifestyle, wellness, and DTC brands doing $1M+ in revenue. No fluff. No vanity metrics. Just profitable growth.</p>
+                <div class="hero-buttons">
+                    <a href="https://calendly.com/erickirt/30min" class="btn-primary">Book Your Strategy Call</a>
+                    <a href="#work" class="btn-secondary">See Our Approach</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Logos -->
-    <section class="logos-section">
+    <!-- Social Proof Bar -->
+    <section class="social-proof">
+        <div class="container fade-up">
+            <p class="social-proof-label">Trusted by brands in</p>
+            <div class="pills">
+                <span class="pill">Supplements</span>
+                <span class="pill">Outdoor Gear</span>
+                <span class="pill">Fitness</span>
+                <span class="pill">Apparel</span>
+                <span class="pill">Wellness</span>
+                <span class="pill">Nutrition</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="problem">
         <div class="container">
-            <div class="logos-header">
-                <div class="section-divider"></div>
-                <p class="logos-label">Our Clients Work With the Best</p>
+            <div class="fade-up">
+                <p class="section-label">The Problem</p>
+                <h2 class="section-title">You've probably already tried an agency. Here's why it didn't work.</h2>
             </div>
-            <div class="logos-carousel">
-                <div class="logos-track">
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/rei.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="REI"></div>
-                        <span class="logo-name">REI</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/yeti.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="YETI"></div>
-                        <span class="logo-name">YETI</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/patagonia.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Patagonia"></div>
-                        <span class="logo-name">Patagonia</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/alltrails.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="AllTrails"></div>
-                        <span class="logo-name">AllTrails</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/strava.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Strava"></div>
-                        <span class="logo-name">Strava</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/gopro.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="GoPro"></div>
-                        <span class="logo-name">GoPro</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/garmin.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Garmin"></div>
-                        <span class="logo-name">Garmin</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/thenorthface.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="The North Face"></div>
-                        <span class="logo-name">The North Face</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/columbia.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Columbia"></div>
-                        <span class="logo-name">Columbia</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/hydroflask.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Hydro Flask"></div>
-                        <span class="logo-name">Hydro Flask</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/merrell.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Merrell"></div>
-                        <span class="logo-name">Merrell</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/blackdiamondequipment.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Black Diamond"></div>
-                        <span class="logo-name">Black Diamond</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/salomon.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Salomon"></div>
-                        <span class="logo-name">Salomon</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/arcteryx.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Arc'teryx"></div>
-                        <span class="logo-name">Arc'teryx</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/outsideonline.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Outside"></div>
-                        <span class="logo-name">Outside</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/shopify.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Shopify"></div>
-                        <span class="logo-name">Shopify</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/cabelas.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Cabela's"></div>
-                        <span class="logo-name">Cabela's</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/basspro.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Bass Pro"></div>
-                        <span class="logo-name">Bass Pro</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/onxmaps.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="onX Maps"></div>
-                        <span class="logo-name">onX Maps</span>
-                    </div>
-                    <!-- Duplicate for seamless infinite scroll -->
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/rei.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="REI"></div>
-                        <span class="logo-name">REI</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/yeti.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="YETI"></div>
-                        <span class="logo-name">YETI</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/patagonia.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Patagonia"></div>
-                        <span class="logo-name">Patagonia</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/alltrails.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="AllTrails"></div>
-                        <span class="logo-name">AllTrails</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/strava.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Strava"></div>
-                        <span class="logo-name">Strava</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/gopro.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="GoPro"></div>
-                        <span class="logo-name">GoPro</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/garmin.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Garmin"></div>
-                        <span class="logo-name">Garmin</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/thenorthface.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="The North Face"></div>
-                        <span class="logo-name">The North Face</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/columbia.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Columbia"></div>
-                        <span class="logo-name">Columbia</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/hydroflask.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Hydro Flask"></div>
-                        <span class="logo-name">Hydro Flask</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/merrell.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Merrell"></div>
-                        <span class="logo-name">Merrell</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/blackdiamondequipment.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Black Diamond"></div>
-                        <span class="logo-name">Black Diamond</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/salomon.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Salomon"></div>
-                        <span class="logo-name">Salomon</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/arcteryx.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Arc'teryx"></div>
-                        <span class="logo-name">Arc'teryx</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/outsideonline.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Outside"></div>
-                        <span class="logo-name">Outside</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/shopify.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Shopify"></div>
-                        <span class="logo-name">Shopify</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/cabelas.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Cabela's"></div>
-                        <span class="logo-name">Cabela's</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/basspro.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="Bass Pro"></div>
-                        <span class="logo-name">Bass Pro</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="https://img.logo.dev/onxmaps.com?token=pk_CPa-8gn5Sdiby_liBlGwEQ&size=200&format=png" alt="onX Maps"></div>
-                        <span class="logo-name">onX Maps</span>
-                    </div>
+            <div class="problem-grid">
+                <div class="problem-card fade-up">
+                    <div class="number">01</div>
+                    <h3>They don't understand your customer</h3>
+                    <p>Generic agencies treat your outdoor brand like a SaaS company. They've never worn the product, used it in the field, or understood why your customers buy.</p>
+                </div>
+                <div class="problem-card fade-up">
+                    <div class="number">02</div>
+                    <h3>Creative that looks like everyone else's</h3>
+                    <p>Cookie-cutter UGC and templated ads that blend into the feed. Your audience scrolls right past because nothing feels authentic to the lifestyle.</p>
+                </div>
+                <div class="problem-card fade-up">
+                    <div class="number">03</div>
+                    <h3>Ad spend with no clear ROI</h3>
+                    <p>Thousands spent per month with reporting that hides behind impressions and reach. You need revenue, not vanity dashboards.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats -->
-    <section style="background: #060f0b;">
+    <!-- How We're Different -->
+    <section class="different" id="work">
         <div class="container">
-            <div class="stats-section-wrap">
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
-                    <span class="stat-label">Founder's Views</span>
-                    <div class="stat-number" data-target="50" data-suffix="M+">50M+</div>
-                    <p>Founder's Views</p>
-                </div>
-                <div class="stat">
-                    <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                    <span class="stat-label">Combined Followers</span>
-                    <div class="stat-number" data-target="15" data-suffix="M+">15M+</div>
-                    <p>Combined Followers</p>
-                </div>
-                <div class="stat">
-                    <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-                    <span class="stat-label">Creators in Network</span>
-                    <div class="stat-number" data-target="500" data-suffix="+">500+</div>
-                    <p>Creators in Network</p>
-                </div>
-                <div class="stat">
-                    <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                    <span class="stat-label">Network Views</span>
-                    <div class="stat-number" data-target="2" data-suffix="B+">2B+</div>
-                    <p>Network Views</p>
-                </div>
+            <div class="fade-up">
+                <p class="section-label">How We're Different</p>
+                <h2 class="section-title">Built by a creator. Run like a performance shop.</h2>
             </div>
+            <div class="different-grid">
+                <ul class="different-points fade-up">
+                    <li><strong>Creator network of 500+</strong> — we match your brand with creators who actually use products like yours, not random influencers reading scripts.</li>
+                    <li><strong>Meta-only focus</strong> — we don't dilute attention across six platforms. We go deep on the one that drives the most revenue for DTC brands.</li>
+                    <li><strong>Eric personally creates for Scale tier clients</strong> — 50M+ views across outdoor and active lifestyle content. Your founder becomes your creative director.</li>
+                    <li><strong>Performance-first, not vanity metrics</strong> — we optimize for ROAS and CPA, not likes. Every decision is backed by data from millions in managed spend.</li>
+                </ul>
+                <div class="stats-block fade-up">
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Creators</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50M+</div>
+                        <div class="stat-label">Views Generated</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">Meta</div>
+                        <div class="stat-label">Only Focus</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">$1M+</div>
+                        <div class="stat-label">Min. Client Revenue</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- One Metric In Mind -->
-    <section class="one-metric-section">
-        <div class="one-metric-inner">
-            <div class="one-metric-eyebrow">
-                <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-                Our Philosophy
-            </div>
-            <h2 class="one-metric-headline">One Metric<br><span class="metric-highlight">In Mind</span></h2>
-            <p class="one-metric-body">
-                Our goal is not to obsess over vanity metrics that just look pretty.<br>
-                <strong>Our one and only goal is to make you multiple times more money than what you spent with us</strong> — that's it.
-            </p>
-
-            <div class="one-metric-cards">
-                <div class="metric-card">
-                    <div class="metric-card-x">2×</div>
-                    <div class="metric-card-label">Minimum Target</div>
-                    <div class="metric-card-sub">Every dollar you put in, we aim to return at least two</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-card-x">ROAS</div>
-                    <div class="metric-card-label">The Only Number</div>
-                    <div class="metric-card-sub">Not followers. Not impressions. Return on ad spend — full stop</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-card-x">↑</div>
-                    <div class="metric-card-label">Always Scaling</div>
-                    <div class="metric-card-sub">When it works, we pour fuel on it. When it doesn't, we cut fast</div>
-                </div>
-            </div>
-
-            <div class="one-metric-divider"><span>No fluff. No vanity. Just returns.</span></div>
-        </div>
-    </section>
-
-    <!-- About / Founder -->
-    <section id="about" style="background: #0d2b1e;">
+    <!-- Packages -->
+    <section class="packages" id="packages">
         <div class="container">
-            <div class="section-title">
-                <div class="section-divider"></div>
-                <h2>Built by a <span class="text-teal">Creator</span></h2>
-                <p class="section-subtitle">Not an agency that guesses what works. Someone who's built audiences and knows what converts.</p>
+            <div class="fade-up">
+                <p class="section-label">Packages</p>
+                <h2 class="section-title">Simple pricing. No hidden fees. Real results.</h2>
             </div>
-            <div class="founder-grid">
-                <div class="founder-photo-col">
-                    <img src="eric-profile.jpg" alt="Eric K." style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: center top; margin: 0 auto 16px; display: block; border: 3px solid #1DD1A1; box-shadow: 0 8px 28px rgba(29,209,161,0.25);">
-                    <p style="font-size: 20px; font-weight: 800; color: #ffffff; margin-bottom: 4px;">Eric K.</p>
-                    <p style="font-size: 14px; color: #2fb896; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 16px;">@kirtoutdoors</p>
-                    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://www.instagram.com/kirtoutdoors" target="_blank" rel="noopener" style="font-size: 12px; font-weight: 600; color: #1DD1A1; background: transparent; border: 1.5px solid rgba(29,209,161,0.35); padding: 5px 14px; border-radius: 20px; text-decoration: none;">Instagram</a>
-                        <a href="https://www.tiktok.com/@kirtoutdoors" target="_blank" rel="noopener" style="font-size: 12px; font-weight: 600; color: #1DD1A1; background: transparent; border: 1.5px solid rgba(29,209,161,0.35); padding: 5px 14px; border-radius: 20px; text-decoration: none;">TikTok</a>
-                        <a href="https://www.youtube.com/@KirtOutdoors" target="_blank" rel="noopener" style="font-size: 12px; font-weight: 600; color: #1DD1A1; background: transparent; border: 1.5px solid rgba(29,209,161,0.35); padding: 5px 14px; border-radius: 20px; text-decoration: none;">YouTube</a>
-                    </div>
+            <div class="packages-grid">
+                <div class="package-card fade-up">
+                    <p class="package-name">Starter</p>
+                    <p class="package-price">$3,500<span>/mo</span></p>
+                    <p class="package-onboarding">$750 onboarding fee</p>
+                    <ul class="package-features">
+                        <li>Full Meta ads management</li>
+                        <li>5 UGC creatives per month</li>
+                        <li>Bi-weekly performance reports</li>
+                        <li>Ad copywriting and testing</li>
+                        <li>Dedicated account manager</li>
+                    </ul>
+                    <a href="https://calendly.com/erickirt/30min" class="package-btn">Get Started</a>
                 </div>
-                <div class="founder-text-col">
-                    <p style="font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 16px;">I built <strong style="color: #ffffff;">@kirtoutdoors</strong> from scratch — 25K+ followers, 50M+ views, 519 videos. I know what stops the scroll because I've done it.</p>
-                    <p style="font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 20px;">ScaleNational is built on that same instinct. I bring the network. We run the ads. You get the growth.</p>
-
-                    <!-- Network Stats -->
-                    <div style="font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1DD1A1; margin-bottom: 10px;">Our Creator Network</div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                        <div style="background: linear-gradient(135deg, #0d4a3f, #0d6b52); border-radius: 12px; padding: 14px; text-align: center;">
-                            <div style="font-size: 22px; font-weight: 800; color: #1DD1A1;">15M+</div>
-                            <div style="font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 2px;">Combined Followers</div>
-                        </div>
-                        <div style="background: linear-gradient(135deg, #0d4a3f, #0d6b52); border-radius: 12px; padding: 14px; text-align: center;">
-                            <div style="font-size: 22px; font-weight: 800; color: #1DD1A1;">2B+</div>
-                            <div style="font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 2px;">Views Across Platforms</div>
-                        </div>
-                    </div>
+                <div class="package-card popular fade-up">
+                    <span class="package-badge">Most Popular</span>
+                    <p class="package-name">Growth</p>
+                    <p class="package-price">$6,500<span>/mo</span></p>
+                    <p class="package-onboarding">$750 onboarding fee</p>
+                    <ul class="package-features">
+                        <li>Everything in Starter</li>
+                        <li>12 UGC creatives per month</li>
+                        <li>Creator matching from our network</li>
+                        <li>Weekly strategy calls</li>
+                        <li>Landing page recommendations</li>
+                    </ul>
+                    <a href="https://calendly.com/erickirt/30min" class="package-btn">Get Started</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="bg-dots">
-        <div class="container">
-            <div class="section-title">
-                <div class="section-divider"></div>
-                <h2>What We <span class="text-teal">Do</span> For You</h2>
-                <p class="section-subtitle">Full-stack performance marketing — from <strong>UGC production to paid campaigns</strong></p>
-            </div>
-            <div class="grid">
-                <div class="card">
-                    <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
-                    <h3>UGC Creator Sourcing</h3>
-                    <p>500+ vetted creators in the active lifestyle and wellness space — ready to produce content your audience actually trusts.</p>
-                    <span class="benefit-highlight">Authentic by design</span>
-                </div>
-                <div class="card">
-                    <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-                    <h3>Paid Ad Campaigns</h3>
-                    <p>Full campaign management on Meta (Facebook & Instagram) — we build, launch, and optimize.</p>
-                    <span class="benefit-highlight">Meta specialists</span>
-                </div>
-                <div class="card">
-                    <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></span>
-                    <h3>Creative Strategy</h3>
-                    <p>Static ads, video ads, and UGC — scripted, produced, and tested on Meta until we find what converts.</p>
-                    <span class="benefit-highlight">Static, video & UGC</span>
-                </div>
-                <div class="card">
-                    <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
-                    <h3>Performance Analytics</h3>
-                    <p>Real-time ROAS, CPL, and CAC tracking — full transparency, no vanity metrics.</p>
-                    <span class="benefit-highlight">Data you can act on</span>
-                </div>
-                <div class="card">
-                    <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
-                    <h3>Audience Targeting</h3>
-                    <p>Custom and lookalike audiences built around buyers most likely to convert — no spray and pray.</p>
-                    <span class="benefit-highlight">Precision targeting</span>
-                </div>
-                <div class="card">
-                    <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
-                    <h3>Conversion Optimization</h3>
-                    <p>We test and iterate until your campaigns hit profitability — then we scale.</p>
-                    <span class="benefit-highlight">Always improving</span>
+                <div class="package-card fade-up">
+                    <p class="package-name">Scale</p>
+                    <p class="package-price">$10,500<span>/mo</span></p>
+                    <p class="package-onboarding">Onboarding fee waived</p>
+                    <ul class="package-features">
+                        <li>Everything in Growth</li>
+                        <li>20+ UGC creatives per month</li>
+                        <li>Eric creates content personally</li>
+                        <li>Full creative strategy ownership</li>
+                        <li>Priority support and Slack access</li>
+                    </ul>
+                    <a href="https://calendly.com/erickirt/30min" class="package-btn">Get Started</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Who We Work With -->
-    <section style="background: #060f0b;">
+    <!-- Founder -->
+    <section class="founder">
         <div class="container">
-            <div class="section-title">
-                <div class="section-divider"></div>
-                <h2>Who We <span class="text-teal">Work With</span></h2>
-                <p class="section-subtitle">We specialize in three verticals where authentic creative wins</p>
-            </div>
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-                <div class="card">
-                    <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-                    <h3>Active Lifestyle & Performance Brands</h3>
-                    <p>Activewear, outdoor gear, sports nutrition, supplements — brands built for people who move. We know this audience.</p>
-                    <span class="benefit-highlight">Our core niche</span>
-                </div>
-                <div class="card">
-                    <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span>
-                    <h3>DTC E-Commerce Brands</h3>
-                    <p>Direct-to-consumer brands that need UGC-driven paid social to break through crowded feeds and scale profitably.</p>
-                    <span class="benefit-highlight">DTC growth specialists</span>
-                </div>
-                <div class="card">
-                    <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
-                    <h3>Wellness Apps & Digital Products</h3>
-                    <p>Health, fitness, and wellness apps that need paid distribution — we make them grow on Meta.</p>
-                    <span class="benefit-highlight">App growth engine</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process -->
-    <section id="process" class="bg-gradient-subtle">
-        <div class="container">
-            <div class="section-title">
-                <div class="section-divider"></div>
-                <h2>The <span class="text-teal">ScaleNational</span> System</h2>
-                <p class="section-subtitle">A proven <strong>4-step process</strong> to scale your business</p>
-            </div>
-            <div class="process-wrapper">
-                <div class="process">
-                    <div class="step">
-                        <div class="step-number-bg"></div>
-                        <div class="step-number">1</div>
-                        <span class="step-label">Week 1</span>
-                        <h3>Strategy</h3>
-                        <p>We audit your market and build a custom ad strategy tailored to your goals.</p>
-                    </div>
-                    <div class="step-arrow">→</div>
-                    <div class="step">
-                        <div class="step-number-bg"></div>
-                        <div class="step-number">2</div>
-                        <span class="step-label">Week 2</span>
-                        <h3>Creative</h3>
-                        <p>We source UGC creators from our network and produce scroll-stopping content for your brand.</p>
-                    </div>
-                    <div class="step-arrow">→</div>
-                    <div class="step">
-                        <div class="step-number-bg"></div>
-                        <div class="step-number">3</div>
-                        <span class="step-label">Week 3</span>
-                        <h3>Launch</h3>
-                        <p>Campaigns go live on Meta with precision targeting and multiple creative formats.</p>
-                    </div>
-                    <div class="step-arrow">→</div>
-                    <div class="step">
-                        <div class="step-number-bg"></div>
-                        <div class="step-number">4</div>
-                        <span class="step-label">Ongoing</span>
-                        <h3>Optimize</h3>
-                        <p>Daily monitoring, A/B testing, and optimization until ROAS hits target — then we scale.</p>
-                    </div>
+            <div class="founder-content fade-up">
+                <div class="founder-avatar">EK</div>
+                <div class="founder-info">
+                    <h3>Eric Kirtchakov</h3>
+                    <p class="founder-handle">@kirtoutdoors</p>
+                    <p class="founder-stats">25K+ followers · 50M+ views</p>
+                    <p class="founder-bio">I built Scale National because I couldn't find an agency that actually understood the active lifestyle space. As a creator with 50M+ views in outdoor and adventure content, I know what performs — and I know what your audience wants to see. This isn't a media buying shop that treats your brand like a spreadsheet. It's a performance creative agency built from the inside out.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="bg-teal">
+    <section class="faq" id="faq">
         <div class="container">
-            <div class="section-title">
-                <div class="section-divider"></div>
-                <h2>Questions</h2>
+            <div class="fade-up">
+                <p class="section-label">FAQ</p>
+                <h2 class="section-title">Questions we hear a lot.</h2>
             </div>
-            <div class="faq-grid">
+            <div class="faq-list fade-up">
                 <div class="faq-item">
-                    <div class="faq-header">
-                        <h4>1. What makes ScaleNational different from other agencies?</h4>
+                    <button class="faq-question">
+                        Do you work with brands outside the US?
                         <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. We work with DTC brands selling primarily to English-speaking markets — US, Canada, UK, and Australia. As long as you're running Meta ads to those audiences, we can help you scale.</p>
                     </div>
-                    <p>Our founder built @kirtoutdoors to 50M+ views — we don't just run ads, we understand what makes an audience stop scrolling and buy. Most agencies guess. We've already done it.</p>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-header">
-                        <h4>2. Do you work with brands that don't have existing content?</h4>
+                    <button class="faq-question">
+                        What's the minimum ad spend?
                         <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We recommend a minimum of $10,000/month in ad spend to see meaningful results. Our best-performing clients typically invest $30K–$100K+ monthly. We'll advise on the right budget for your goals during our call.</p>
                     </div>
-                    <p>Yes — we source UGC creators from our network, brief them, and turn their content into paid ads. You don't need a single piece of existing creative.</p>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-header">
-                        <h4>3. What platforms do you run campaigns on?</h4>
+                    <button class="faq-question">
+                        How long until we see results?
                         <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most clients see measurable improvements within 30 days. Full optimization of creative and audiences typically takes 60–90 days. We're transparent about timelines — this isn't overnight magic, it's systematic scaling.</p>
                     </div>
-                    <p>We focus exclusively on Meta (Facebook & Instagram) — the highest-converting platform for active lifestyle and DTC brands. One platform, mastered completely.</p>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-header">
-                        <h4>4. How quickly can we get started?</h4>
+                    <button class="faq-question">
+                        Do you require long-term contracts?
                         <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We ask for a 3-month minimum commitment because that's the honest timeline to build, test, and optimize a creative system that scales. After that, it's month-to-month. We keep clients because we perform, not because of paperwork.</p>
                     </div>
-                    <p>Strategy call → onboarding → first creative live within 2 weeks. Most campaigns have initial data within 30 days.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What makes you different from other agencies?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We live in the space we serve. Our founder is an active lifestyle creator with 50M+ views. Our creative network understands your audience because they are your audience. We focus exclusively on Meta, so your budget gets our full attention — not spread across platforms we don't specialize in.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section" id="cta">
-        <div class="cta-dots"></div>
-        <div class="container cta-inner">
-            <span class="cta-eyebrow">Free Strategy Call</span>
-            <h2>Ready to <span class="cta-highlight">Scale?</span></h2>
-            <p class="cta-subtext">Free 30-minute strategy call. We'll map out exactly which platforms and creators will work for your brand.</p>
-            <div class="cta-btn-wrap">
-                <a href="https://calendly.com/erickirt" class="cta-mega-btn" target="_blank" rel="noopener">
-                    Book Your Free Call <span class="btn-arrow">→</span>
-                </a>
-                <p class="cta-trust-line"><span>✓</span> No commitment &nbsp;·&nbsp; <span>✓</span> 30 min &nbsp;·&nbsp; <span>✓</span> Custom strategy</p>
-            </div>
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container fade-up">
+            <h2>Ready to Scale?</h2>
+            <p>Book a 30-minute strategy call. No pitch deck, no pressure — just an honest conversation about your growth.</p>
+            <a href="https://calendly.com/erickirt/30min" class="btn-primary">Book Your Call</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 ScaleNational. We scale your business through advertising.</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <p class="footer-wordmark">SCALE NATIONAL</p>
+                    <p class="footer-tagline">Meta Ads & UGC for DTC Brands</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://instagram.com/kirtoutdoors" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://tiktok.com/@kirtoutdoors" target="_blank" rel="noopener">TikTok</a>
+                    <a href="https://youtube.com/@kirtoutdoors" target="_blank" rel="noopener">YouTube</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Scale National. All rights reserved.</p>
+                <a href="mailto:eric@scalenational.com" class="footer-email">eric@scalenational.com</a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Scroll animations with stagger
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -80px 0px'
-        };
+        // Nav scroll behavior
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
 
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+
+        mobileClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        function closeMobile() {
+            mobileMenu.classList.remove('open');
+        }
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const wasOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!wasOpen) {
+                    item.classList.add('open');
+                }
+            });
+        });
+
+        // Scroll animations with IntersectionObserver
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const delay = el.dataset.delay || '0';
-                    el.style.animation = `fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s forwards`;
-                    observer.unobserve(el);
+                    entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
 
-        // Animate sections on scroll
-        document.querySelectorAll('section').forEach(el => {
-            el.style.opacity = '0';
+        document.querySelectorAll('.fade-up').forEach(el => {
             observer.observe(el);
         });
-
-        // Stagger children: cards, stats, steps, faq items
-        document.querySelectorAll('.card, .stat, .step, .faq-item').forEach((el) => {
-            const parent = el.parentElement;
-            const className = el.classList[0];
-            const siblings = Array.from(parent.children).filter(c => c.classList.contains(className));
-            const idx = siblings.indexOf(el);
-            el.style.opacity = '0';
-            el.dataset.delay = (idx * 0.1).toFixed(1);
-            observer.observe(el);
-        });
-
-        // Hero text stagger animation
-        const heroH1 = document.querySelector('.hero h1');
-        const heroSub = document.querySelector('.hero-subtext');
-        const heroCta = document.querySelector('.hero-cta');
-        if (heroH1) { heroH1.style.opacity = '1'; }
-        if (heroSub) { heroSub.style.opacity = '0'; heroSub.style.animation = 'fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards'; }
-        if (heroCta) { heroCta.style.opacity = '0'; heroCta.style.animation = 'fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards'; }
-
-        // Logo floating animation
-        document.querySelectorAll('.hero-logo img, .hero-logo svg').forEach(logo => {
-            logo.style.animation = 'float 3s ease-in-out infinite';
-        });
-
-        // Button hover animations
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px)';
-            });
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Card hover is handled purely via CSS for smoother transitions
-
-        // FAQ animations
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const wasActive = item.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(i => {
-                    i.classList.remove('active');
-                    i.querySelector('.faq-toggle').textContent = '+';
-                });
-                if (!wasActive) {
-                    item.classList.add('active');
-                    item.querySelector('.faq-toggle').textContent = '−';
-                }
-            });
-        });
-
-        // CTA button click tracking
-        const ctaBtn = document.querySelector('.cta-mega-btn');
-        if (ctaBtn) {
-            ctaBtn.addEventListener('click', () => {
-                console.log('CTA clicked — Book Your Free Call');
-            });
-        }
-
-        // Animated counter for stats
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = parseFloat(el.dataset.target);
-                    const suffix = el.dataset.suffix || '';
-                    const isDecimal = target % 1 !== 0;
-                    const duration = 1800;
-                    const start = performance.now();
-                    
-                    const animate = (now) => {
-                        const elapsed = now - start;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const eased = 1 - Math.pow(1 - progress, 3);
-                        const current = target * eased;
-                        el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
-                        if (progress < 1) requestAnimationFrame(animate);
-                    };
-                    requestAnimationFrame(animate);
-                    counterObserver.unobserve(el);
-                }
-            });
-        }, { threshold: 0.3 });
-
-        document.querySelectorAll('.stat-number[data-target]').forEach(el => {
-            el.textContent = '0' + (el.dataset.suffix || '');
-            counterObserver.observe(el);
-        });
-
-        // Logo carousel - infinite loop without snap
-        const carousel = document.querySelector('.logos-track');
-        if (carousel) {
-            carousel.style.willChange = 'transform';
-            
-            // Clone all items to the end for seamless looping
-            const items = carousel.querySelectorAll('.logo-item');
-            items.forEach(item => {
-                const clone = item.cloneNode(true);
-                carousel.appendChild(clone);
-            });
-            
-            let scrollPos = 0;
-            const scrollSpeed = 0.5; // pixels per frame
-            const itemWidth = 160; // min-width from CSS
-            const itemGap = 12; // gap from CSS
-            const totalItemWidth = itemWidth + itemGap;
-            const totalWidth = items.length * totalItemWidth;
-            
-            function animate() {
-                scrollPos += scrollSpeed;
-                
-                // Reset to start when we've scrolled one full set
-                if (scrollPos >= totalWidth) {
-                    scrollPos = 0;
-                }
-                
-                carousel.style.transform = `translateX(-${scrollPos}px)`;
-                requestAnimationFrame(animate);
-            }
-            
-            animate();
-        }
     </script>
-
-    <style>
-        /* Additional animation styles */
-        .card, .stat, .step, .faq-item, section {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn {
-            transition: all 0.3s ease;
-        }
-
-        .hero-logo img, .hero-logo svg {
-            transition: filter 0.3s ease;
-        }
-
-        .hero-logo img:hover, .hero-logo svg:hover {
-            filter: brightness(0) invert(1) brightness(1.15);
-        }
-    </style>
 </body>
 </html>
