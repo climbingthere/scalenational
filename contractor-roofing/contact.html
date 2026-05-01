@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Summit Roofing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 3L2 13h3v10h7v-7h4v7h7V13h3L14 3z" fill="#1F6AE1"/></svg>
+      Summit Roofing
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="tel:5559876543" class="nav-phone">(555) 987-6543</a>
+      <a href="contact.html" class="btn btn-yellow">Get a Quote</a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="tel:5559876543">(555) 987-6543</a>
+    <a href="contact.html" class="btn btn-yellow">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <h1>Get in Touch</h1>
+    <p class="breadcrumb"><a href="index.html">Home</a> &gt; Contact</p>
+  </div>
+</section>
+
+<!-- CONTACT SPLIT -->
+<section class="contact-split section">
+  <div class="container">
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <strong>Address</strong>
+          <span>245 Summit Drive, Suite 100, Springfield, CA 90210</span>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <strong>Phone</strong>
+          <span><a href="tel:5559876543" style="color:var(--blue);">(555) 987-6543</a></span>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <strong>Email</strong>
+          <span><a href="mailto:info@summitroofing.com" style="color:var(--blue);">info@summitroofing.com</a></span>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <strong>Hours</strong>
+          <span>Monday &ndash; Friday: 7:00 AM &ndash; 6:00 PM<br>Saturday: 8:00 AM &ndash; 4:00 PM<br>Sunday: Closed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <p>Fill out the form below and our team will contact you as soon as possible.</p>
+      <form onsubmit="event.preventDefault(); alert('Thank you! We will be in touch shortly.');">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="service">Service Needed</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="replacement">Roof Replacement</option>
+            <option value="repair">Roof Repair</option>
+            <option value="storm">Storm Damage</option>
+            <option value="gutter">Gutter Installation</option>
+            <option value="inspection">Roof Inspection</option>
+            <option value="commercial">Commercial Roofing</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your project..." rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-yellow" style="width:100%;">Submit Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq section">
+  <div class="container">
+    <div class="section-header">
+      <p class="label">FAQ</p>
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <p class="section-subtext" style="margin:0 auto;">Everything you need to know before getting started.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          How long does a roof replacement take?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Most residential roof replacements are completed in 1-3 days, depending on the size of your roof and the materials chosen. We'll give you a specific timeline during your free estimate so there are no surprises.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Do you offer free estimates?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. We provide free, no-obligation estimates for all roofing services. Our estimator will visit your property, inspect the roof, and provide a detailed written quote with no pressure to commit.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Are you licensed and insured?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, Summit Roofing is fully licensed, bonded, and insured. We carry comprehensive general liability and workers' compensation insurance to protect you and our crew on every project.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Do you help with insurance claims?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, we have extensive experience working with insurance companies on storm damage claims. We'll document all damage, provide detailed estimates, and work directly with your adjuster to make the process as smooth as possible.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          What types of roofing materials do you work with?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We work with all major roofing materials including asphalt shingles, metal roofing, tile, slate, and flat roofing systems (TPO, EPDM). We'll help you choose the best option for your home, climate, and budget.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Do you handle emergency repairs?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, we offer emergency roofing services for urgent situations like active leaks and storm damage. Call us at (555) 987-6543 and we'll respond as quickly as possible, typically within 2-4 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 3L2 13h3v10h7v-7h4v7h7V13h3L14 3z" fill="#FFCC28"/></svg>
+          Summit Roofing
+        </a>
+        <p>Professional roofing services built on trust, quality materials, and guaranteed satisfaction for every homeowner.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="footer-contact-item">245 Summit Drive, Suite 100, Springfield, CA 90210</div>
+        <div class="footer-contact-item">(555) 987-6543</div>
+        <div class="footer-contact-item">info@summitroofing.com</div>
+        <div class="footer-contact-item">Mon-Fri 7AM-6PM | Sat 8AM-4PM</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Summit Roofing. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- CHAT WIDGET -->
+<button class="chat-btn" aria-label="Chat">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+</button>
+<div class="chat-panel">
+  <div class="chat-header">
+    Summit Roofing Chat
+    <button class="chat-close">&times;</button>
+  </div>
+  <div class="chat-body">
+    <div class="chat-msg bot">Hi! Welcome to Summit Roofing. How can we help you today?</div>
+  </div>
+  <div class="chat-chips">
+    <span class="chat-chip">Get a Quote</span>
+    <span class="chat-chip">Services</span>
+    <span class="chat-chip">Emergency Repair</span>
+  </div>
+  <div class="chat-input-wrap">
+    <input type="text" class="chat-input" placeholder="Type your message...">
+    <button class="chat-send">Send</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
