@@ -2412,7 +2412,7 @@ html {
     var lastName = nameParts.slice(1).join(' ') || '';
 
     // Submit to worker (handles GHL contact + SMS + alerts)
-    fetch('https://api.scalenational.com/chat', {
+    fetch('/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
