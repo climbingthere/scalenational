@@ -11,7 +11,7 @@
     <meta property="og:title" content="Scale National - Websites, CRM & Growth Systems Built For Contractors">
     <meta property="og:description" content="Real systems for real businesses. We build the websites and automation contractors actually need to grow.">
     <meta property="og:type" content="website">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700;800;900&family=Barlow+Condensed:wght@700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
@@ -45,6 +45,12 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
+        }
+
+        h1, h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.5px;
         }
 
         /* ========== BUTTONS ========== */
@@ -300,7 +306,7 @@
             background: rgba(255, 90, 31, 0.15);
             color: #FF5A1F;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 700;
             padding: 8px 20px;
             border-radius: 50px;
             margin-bottom: 32px;
@@ -308,8 +314,8 @@
         }
 
         .hero h1 {
-            font-size: clamp(48px, 6vw, 80px);
-            font-weight: 700;
+            font-size: clamp(56px, 10vw, 96px);
+            font-weight: 900;
             line-height: 1.05;
             margin-bottom: 24px;
             max-width: 900px;
@@ -325,11 +331,12 @@
         }
 
         .hero .sub {
-            font-size: 18px;
+            font-size: clamp(18px, 2.5vw, 22px);
             color: rgba(255,255,255,0.6);
             max-width: 640px;
             margin: 0 auto 40px;
             font-weight: 400;
+            line-height: 1.7;
             animation: heroFadeIn 0.8s ease 0.4s forwards;
             opacity: 0;
         }
@@ -430,7 +437,7 @@
 
         .section-header h2 {
             font-size: 40px;
-            font-weight: 700;
+            font-weight: 900;
             color: #0d0d0d;
             margin-bottom: 12px;
         }
@@ -629,7 +636,7 @@
 
         /* ========== PARTNERS ========== */
         .partners {
-            background: #f7f7f7;
+            background: #ffffff;
             padding: 80px 0;
             text-align: center;
         }
@@ -650,10 +657,7 @@
         }
 
         .partner-logo {
-            font-size: 18px;
-            font-weight: 700;
-            color: #0d0d0d;
-            opacity: 0.6;
+            opacity: 0.5;
             transition: opacity 0.3s ease;
             cursor: default;
         }
@@ -662,64 +666,9 @@
             opacity: 1;
         }
 
-        /* ========== OUR TEAM ========== */
-        .our-team {
-            background: #ffffff;
-            padding: 100px 0;
-        }
-
-        .team-grid {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            flex-wrap: wrap;
-        }
-
-        .team-card {
-            background: #ffffff;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            padding: 40px 32px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            max-width: 340px;
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .team-card img {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            border: 3px solid #FF5A1F;
-            object-fit: cover;
-            object-position: center top;
-            margin-bottom: 20px;
-        }
-
-        .team-card h3 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #0d0d0d;
-            margin-bottom: 4px;
-        }
-
-        .team-card .role {
-            font-size: 14px;
-            color: #FF5A1F;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .team-card p {
-            font-size: 15px;
-            color: #666666;
-            line-height: 1.6;
-        }
-
         /* ========== HOW IT WORKS ========== */
         .how-it-works {
-            background: #ffffff;
+            background: #f7f7f7;
             padding: 100px 0;
         }
 
@@ -836,7 +785,7 @@
 
         .final-cta h2 {
             font-size: 40px;
-            font-weight: 700;
+            font-weight: 900;
             color: #0d0d0d;
             margin-bottom: 16px;
         }
@@ -995,11 +944,6 @@
             .footer-links {
                 justify-content: center;
             }
-
-            .team-grid {
-                flex-direction: column;
-                align-items: center;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1034,7 +978,7 @@
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#" class="nav-logo">
-                <img src="logo-white.jpg" alt="Scale National">
+                <img src="logo.png" alt="Scale National">
             </a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
@@ -1075,7 +1019,7 @@
                 Contractor Growth Systems
             </div>
             <h1>Stop Losing Leads.<br><span class="orange">Start Scaling.</span></h1>
-            <p class="sub">Real systems for real businesses. We build the websites, CRM, and automation contractors actually need to grow, all done in 48 hours.</p>
+            <p class="sub">Real systems for real businesses. We build the websites, CRM, and automation contractors actually need to grow -- all done for you in days.</p>
 
             <div class="hero-ctas">
                 <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-orange">Schedule a Free Call</a>
@@ -1101,20 +1045,20 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">48hr</div>
-                    <div class="stat-label">Website Delivery</div>
+                    <div class="stat-number">Done For You</div>
+                    <div class="stat-label">Zero tech skills needed</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">5 Tools</div>
-                    <div class="stat-label">Fully Integrated</div>
+                    <div class="stat-number">No Contracts</div>
+                    <div class="stat-label">Cancel anytime</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">1 Call</div>
-                    <div class="stat-label">To Get Started</div>
+                    <div class="stat-number">5 Star</div>
+                    <div class="stat-label">Rated on Google</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">0 Contracts</div>
-                    <div class="stat-label">Cancel Anytime</div>
+                    <div class="stat-number">Fast Delivery</div>
+                    <div class="stat-label">Up and running in days</div>
                 </div>
             </div>
         </div>
@@ -1125,7 +1069,7 @@
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2>Services built to drive impact</h2>
-                <p>Website, CRM, automations, and SEO, all done in 48 hours while you focus on running your business.</p>
+                <p>Website, CRM, automations, and SEO -- all done for you while you focus on running your business.</p>
             </div>
             <div class="services-grid">
 
@@ -1134,7 +1078,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                     </div>
                     <h3>Done-For-You Website</h3>
-                    <p>Built custom, mobile-first, live in 48 hours. Optimized for search rankings and blazing-fast speed. A site that converts visitors into calls.</p>
+                    <p>Built custom, mobile-first, live in days. Optimized for search rankings and blazing-fast speed. A site that converts visitors into calls.</p>
                     <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                 </div>
 
@@ -1198,38 +1142,6 @@
                 <video id="intro-video" controls playsinline poster="" style="width:100%;border-radius:12px;display:block;">
                     <source src="intro.mp4" type="video/mp4">
                 </video>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMPARISON SECTION -->
-    <section class="comparison">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>We know choosing the right agency is hard</h2>
-                <p>Few truly deliver. Here is how we compare to what you usually get in the market.</p>
-            </div>
-            <div class="comparison-grid" data-aos="fade-up" data-aos-delay="100">
-                <div class="comparison-col">
-                    <h3>Other Agencies</h3>
-                    <ul>
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Slow, unclear timelines</li>
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Extra charges for changes</li>
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> No clear process</li>
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Designs break in dev</li>
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Complex, hard builds</li>
-                    </ul>
-                </div>
-                <div class="comparison-col highlight">
-                    <h3>Scale National</h3>
-                    <ul>
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5A1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Clear updates</li>
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5A1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Transparent pricing</li>
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5A1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Documented workflow</li>
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5A1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Working automations</li>
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5A1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Clean, scalable builds</li>
-                    </ul>
-                </div>
             </div>
         </div>
     </section>
@@ -1304,12 +1216,11 @@
         <div class="container">
             <h3>Powered by the same tools the big agencies use</h3>
             <div class="partners-row">
-                <span class="partner-logo">Twilio</span>
-                <span class="partner-logo">Google Business</span>
-                <span class="partner-logo">GoHighLevel</span>
-                <span class="partner-logo">Stripe</span>
-                <span class="partner-logo">Mailgun</span>
-                <span class="partner-logo">OpenAI</span>
+                <span class="partner-logo"><svg viewBox="0 0 100 30" width="120"><text x="0" y="24" font-family="Arial Black,sans-serif" font-weight="900" font-size="26" fill="#F22F46">twilio</text></svg></span>
+                <span class="partner-logo"><svg viewBox="0 0 120 30" width="130"><text x="0" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="24" fill="#4285F4">G</text><text x="18" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="24" fill="#EA4335">o</text><text x="32" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="24" fill="#FBBC05">o</text><text x="46" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="24" fill="#4285F4">g</text><text x="60" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="24" fill="#34A853">l</text><text x="70" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="24" fill="#EA4335">e</text></svg></span>
+                <span class="partner-logo"><svg viewBox="0 0 80 30" width="90"><text x="0" y="24" font-family="Arial Black,sans-serif" font-weight="900" font-size="26" fill="#635BFF">stripe</text></svg></span>
+                <span class="partner-logo"><svg viewBox="0 0 110 30" width="120"><text x="0" y="24" font-family="Arial Black,sans-serif" font-weight="900" font-size="24" fill="#C9273C">Mailgun</text></svg></span>
+                <span class="partner-logo"><svg viewBox="0 0 90 30" width="100"><text x="0" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="24" fill="#D97757">Claude</text></svg></span>
             </div>
         </div>
     </section>
@@ -1330,35 +1241,12 @@
                 <div class="step" data-aos="fade-up" data-aos-delay="200">
                     <div class="step-number">2</div>
                     <h3>We build everything</h3>
-                    <p>Website, CRM, automations, and SEO. All live in 48 hours while you focus on running your business.</p>
+                    <p>Website, CRM, automations, and SEO. All live in days while you focus on running your business.</p>
                 </div>
                 <div class="step" data-aos="fade-up" data-aos-delay="300">
                     <div class="step-number">3</div>
                     <h3>Your phone rings</h3>
                     <p>Leads come in on autopilot. You close. We keep it running and scaling.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- OUR TEAM -->
-    <section class="our-team">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Our Team</h2>
-            </div>
-            <div class="team-grid">
-                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="eric.jpg" alt="Eric Kirtchakov">
-                    <h3>Eric Kirtchakov</h3>
-                    <div class="role">Co-Founder</div>
-                    <p>Digital marketer and creator with 25K+ followers and 50M+ views.</p>
-                </div>
-                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="tim.jpg" alt="Tim">
-                    <h3>Tim</h3>
-                    <div class="role">Co-Founder</div>
-                    <p>Systems builder focused on contractor growth automation.</p>
                 </div>
             </div>
         </div>
@@ -1385,7 +1273,7 @@
                         What do I actually get?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">Full website design, Google Review automation, SEO, mobile responsive layout, missed call text-back, ongoing web hosting, and CRM, all delivered in 48 hours. You just provide info about your business and images.</div>
+                    <div class="faq-answer">Full website design, Google Review automation, SEO, mobile responsive layout, missed call text-back, ongoing web hosting, and CRM -- all delivered in days. You just provide info about your business and images.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
@@ -1401,7 +1289,7 @@
                         How long until everything is up and running?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">48 hours after our kickoff call. We do not mess around with timelines. You will have a live, professional site with all automations active before the week is out.</div>
+                    <div class="faq-answer">Days after our kickoff call. We do not mess around with timelines. You will have a live, professional site with all automations active before the week is out.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
@@ -1440,7 +1328,7 @@
             <div class="footer-inner">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="logo-white.jpg" alt="Scale National">
+                        <img src="logo.png" alt="Scale National">
                     </div>
                     <div class="tagline">Websites, CRM & growth systems for contractors nationwide</div>
                 </div>
