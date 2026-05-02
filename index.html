@@ -2405,15 +2405,83 @@ html {
     var name = document.getElementById('snNameInput').value.trim();
     var phone = document.getElementById('snPhoneInput').value.trim();
     var msg = document.getElementById('snMsgInput').value.trim();
-    if (!name || !msg) return;
+    if (!name || !msg) {
+      document.getElementById('snNameInput').style.borderColor = !name ? '#FF5A1F' : '';
+      document.getElementById('snMsgInput').style.borderColor = !msg ? '#FF5A1F' : '';
+      return;
+    }
 
-    addMsg(name + ': ' + msg, 'out');
+    // Show user's message
+    addMsg(msg, 'out');
     form.style.display = 'none';
 
+    // Typing indicator
     setTimeout(function() { showTyping(); }, 400);
+
+    // Parse first/last name
+    var nameParts = name.split(' ');
+    var firstName = nameParts[0];
+    var lastName = nameParts.slice(1).join(' ') || '';
+
+    // Submit to GHL
+    fetch('https://services.leadconnectorhq.com/contacts/', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer pit-78da4d2d-b177-4112-ad8c-15a2a9ac8c36',
+        'Version': '2021-07-28',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        locationId: 'bxAx2g1z6Dd09kSdJZYt',
+        firstName: firstName,
+        lastName: lastName,
+        phone: phone || '',
+        tags: ['website-chat'],
+        customFields: [],
+        source: 'scalenational.com chat widget'
+      })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      // Also add a note with their message if contact was created
+      if (data && data.contact && data.contact.id) {
+        fetch('https://services.leadconnectorhq.com/contacts/' + data.contact.id + '/notes', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer pit-78da4d2d-b177-4112-ad8c-15a2a9ac8c36',
+            'Version': '2021-07-28',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            userId: '',
+            body: 'Chat widget message: ' + msg
+          })
+        });
+      }
+    })
+    .catch(function(e) { console.log('GHL submit error:', e); });
+
     setTimeout(function() {
       hideTyping();
-      addMsg('Thanks ' + name + '! Eric or Tim will reach out shortly. In the meantime, you can also book a call directly.', 'in');
+      addMsg('Thanks ' + firstName + '! We got your message and will reach out shortly. You can also book a call directly below.', 'in');
+
+      // Show booking link
+      setTimeout(function() {
+        var bookMsg = document.createElement('div');
+        bookMsg.className = 'sn-msg sn-msg-in';
+        bookMsg.innerHTML = '<a href="https://calendar.app.google/XPiWCwELdEtymrVS6" target="_blank" style="color:#FF5A1F;font-weight:700;text-decoration:none;">Book a free call →</a>';
+        bookMsg.style.opacity = '0';
+        bookMsg.style.transform = 'translateY(8px)';
+        bookMsg.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        messages.appendChild(bookMsg);
+        messages.scrollTop = messages.scrollHeight;
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            bookMsg.style.opacity = '1';
+            bookMsg.style.transform = 'translateY(0)';
+          });
+        });
+      }, 600);
     }, 2000);
   });
 
