@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scale National — Websites, CRM & Growth Systems Built For Contractors</title>
+    <title>Scale National - Websites, CRM & Growth Systems Built For Contractors</title>
     <meta name="description" content="Websites, CRM, and growth systems built for contractors. Capture more leads, get more reviews, and rank higher on Google with one all-in-one platform.">
     <meta name="keywords" content="contractor website, trade business website, Google Business Profile, review generation, contractor marketing, digital presence for contractors">
     <meta name="author" content="Scale National">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Scale National — Websites, CRM & Growth Systems Built For Contractors">
+    <meta property="og:title" content="Scale National - Websites, CRM & Growth Systems Built For Contractors">
     <meta property="og:description" content="Real systems for real businesses. We build the websites and automation contractors actually need to grow.">
     <meta property="og:type" content="website">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -45,26 +45,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
-        }
-
-        /* ========== INLINE SVG ICONS ========== */
-        .svg-icon {
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .svg-star {
-            display: inline-block;
-            width: 22px;
-            height: 22px;
-            vertical-align: middle;
-        }
-
-        .svg-star-small {
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            vertical-align: middle;
         }
 
         /* ========== BUTTONS ========== */
@@ -141,9 +121,14 @@
             50% { transform: translateY(-20px); }
         }
 
-        @keyframes playPulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 90, 31, 0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 0 30px 10px rgba(255, 90, 31, 0.2); }
+        @keyframes scrollLeft {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        @keyframes scrollRight {
+            from { transform: translateX(-50%); }
+            to { transform: translateX(0); }
         }
 
         /* ========== STICKY NAV ========== */
@@ -381,17 +366,12 @@
             height: 64px;
             border-radius: 50%;
             border: 3px solid #FF5A1F;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 18px;
-            color: #ffffff;
-            background: #1a1a1a;
+            object-fit: cover;
+            object-position: center top;
         }
 
         .avatar-circle + .avatar-circle {
-            margin-left: -16px;
+            margin-left: -12px;
         }
 
         .avatar-cta-text {
@@ -404,20 +384,6 @@
             color: #ffffff;
             display: block;
             font-size: 16px;
-        }
-
-        /* ========== SOCIAL PROOF ROW ========== */
-        .social-proof-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-
-        .star-text {
-            font-size: 14px;
-            color: rgba(255,255,255,0.6);
         }
 
         /* ========== STATS BAR ========== */
@@ -547,42 +513,6 @@
         .video-wrapper {
             max-width: 800px;
             margin: 0 auto;
-            aspect-ratio: 16/9;
-            background: #1a1a1a;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 40px rgba(255, 90, 31, 0.3);
-        }
-
-        .video-wrapper video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-        }
-
-        .play-btn {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: #FF5A1F;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            cursor: pointer;
-            animation: playPulse 2s ease-in-out infinite;
-        }
-
-        .play-btn svg {
-            width: 28px;
-            height: 28px;
-            fill: #ffffff;
-            margin-left: 4px;
         }
 
         /* ========== COMPARISON ========== */
@@ -647,36 +577,144 @@
             border-bottom: none;
         }
 
-        /* ========== TRADES ========== */
+        /* ========== TRADES TICKER ========== */
         .trades {
-            background: #f7f7f7;
+            background: #0d0d0d;
             padding: 100px 0;
             text-align: center;
+            overflow: hidden;
         }
 
-        .trades-grid {
+        .trades .section-header h2 {
+            color: #ffffff;
+        }
+
+        .ticker-row {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            width: max-content;
             gap: 12px;
-            max-width: 900px;
-            margin: 0 auto;
+            margin-bottom: 12px;
+        }
+
+        .ticker-row.left {
+            animation: scrollLeft 30s linear infinite;
+        }
+
+        .ticker-row.right {
+            animation: scrollRight 30s linear infinite;
+        }
+
+        .ticker-wrap {
+            overflow: hidden;
+            width: 100%;
         }
 
         .trade-pill {
-            background: #0d0d0d;
+            background: transparent;
             color: #ffffff;
             font-size: 14px;
             font-weight: 500;
-            padding: 12px 24px;
+            padding: 10px 24px;
             border-radius: 50px;
-            transition: all 0.3s ease;
+            border: 1px solid #333;
+            white-space: nowrap;
             cursor: default;
+            transition: all 0.3s ease;
         }
 
         .trade-pill:hover {
-            background: #FF5A1F;
-            transform: translateY(-3px);
+            border-color: #FF5A1F;
+            color: #FF5A1F;
+        }
+
+        /* ========== PARTNERS ========== */
+        .partners {
+            background: #f7f7f7;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .partners h3 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #666666;
+            margin-bottom: 40px;
+        }
+
+        .partners-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0d0d0d;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+            cursor: default;
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+        }
+
+        /* ========== OUR TEAM ========== */
+        .our-team {
+            background: #ffffff;
+            padding: 100px 0;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .team-card {
+            background: #ffffff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            max-width: 340px;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .team-card img {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            border: 3px solid #FF5A1F;
+            object-fit: cover;
+            object-position: center top;
+            margin-bottom: 20px;
+        }
+
+        .team-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0d0d0d;
+            margin-bottom: 4px;
+        }
+
+        .team-card .role {
+            font-size: 14px;
+            color: #FF5A1F;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .team-card p {
+            font-size: 15px;
+            color: #666666;
+            line-height: 1.6;
         }
 
         /* ========== HOW IT WORKS ========== */
@@ -731,77 +769,6 @@
             font-size: 15px;
             color: #666666;
             line-height: 1.7;
-        }
-
-        /* ========== TESTIMONIALS ========== */
-        .testimonials {
-            background: #0d0d0d;
-            padding: 100px 0;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .testimonial-card {
-            background: #1a1a1a;
-            border-radius: 12px;
-            padding: 32px 28px;
-            border-top: 4px solid #FF5A1F;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-        }
-
-        .testimonial-stars {
-            color: #FF5A1F;
-            font-size: 18px;
-            margin-bottom: 16px;
-            display: flex;
-            gap: 2px;
-        }
-
-        .testimonial-quote {
-            color: rgba(255,255,255,0.7);
-            font-size: 15px;
-            line-height: 1.7;
-            font-style: italic;
-            margin-bottom: 24px;
-        }
-
-        .testimonial-footer {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .testimonial-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: #FF5A1F;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .testimonial-name {
-            font-weight: 700;
-            color: #ffffff;
-            font-size: 15px;
-        }
-
-        .testimonial-trade {
-            color: rgba(255,255,255,0.5);
-            font-size: 13px;
         }
 
         /* ========== FAQ ========== */
@@ -992,10 +959,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-
             .steps {
                 flex-direction: column;
                 gap: 40px;
@@ -1013,7 +976,6 @@
             .avatar-circle {
                 width: 56px;
                 height: 56px;
-                font-size: 14px;
             }
 
             .stat-item .stat-number {
@@ -1032,6 +994,11 @@
 
             .footer-links {
                 justify-content: center;
+            }
+
+            .team-grid {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -1108,7 +1075,7 @@
                 Contractor Growth Systems
             </div>
             <h1>Stop Losing Leads.<br><span class="orange">Start Scaling.</span></h1>
-            <p class="sub">Real systems for real businesses. We build the websites, CRM, and automation contractors actually need to grow — all done in 48 hours.</p>
+            <p class="sub">Real systems for real businesses. We build the websites, CRM, and automation contractors actually need to grow, all done in 48 hours.</p>
 
             <div class="hero-ctas">
                 <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-orange">Schedule a Free Call</a>
@@ -1118,45 +1085,36 @@
             <!-- Avatar circles + Book a call CTA -->
             <div class="avatar-cta-row" data-aos="fade-up" data-aos-delay="200">
                 <div class="avatar-pair">
-                    <div class="avatar-circle">EK</div>
-                    <div class="avatar-circle">TM</div>
+                    <img class="avatar-circle" src="eric.jpg" alt="Eric">
+                    <img class="avatar-circle" src="tim.jpg" alt="Tim">
                 </div>
                 <div class="avatar-cta-text">
-                    <strong>Book a call with our team</strong>
+                    <strong>Book a call with Eric & Tim</strong>
                     No pressure, just a thoughtful chat.
                 </div>
             </div>
-
-            <div class="social-proof-row">
-                <svg class="svg-star" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg class="svg-star" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg class="svg-star" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg class="svg-star" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg class="svg-star" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <p class="star-text">5.0 rating across Google & Facebook</p>
         </div>
     </section>
 
     <!-- STATS BAR -->
     <section class="stats-bar">
         <div class="container">
-            <div class="stats-grid" id="stats">
+            <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number" data-target="200">0</div>
-                    <div class="stat-label">Contractors Served</div>
+                    <div class="stat-number">48hr</div>
+                    <div class="stat-label">Website Delivery</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-target="40">0</div>
-                    <div class="stat-label">States</div>
+                    <div class="stat-number">5 Tools</div>
+                    <div class="stat-label">Fully Integrated</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-target="4.9" data-decimal="true">0</div>
-                    <div class="stat-label">Avg Rating</div>
+                    <div class="stat-number">1 Call</div>
+                    <div class="stat-label">To Get Started</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-target="48">0</div>
-                    <div class="stat-label">Hour Delivery</div>
+                    <div class="stat-number">0 Contracts</div>
+                    <div class="stat-label">Cancel Anytime</div>
                 </div>
             </div>
         </div>
@@ -1167,7 +1125,7 @@
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2>Services built to drive impact</h2>
-                <p>Website, CRM, automations, and SEO — all done in 48 hours while you focus on running your business.</p>
+                <p>Website, CRM, automations, and SEO, all done in 48 hours while you focus on running your business.</p>
             </div>
             <div class="services-grid">
 
@@ -1185,7 +1143,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                     </div>
                     <h3>Missed Call Text-Back</h3>
-                    <p>Instant text fires when you miss a call. They hear from you first — before they call the next guy. Never lose a lead again.</p>
+                    <p>Instant text fires when you miss a call. They hear from you first, before they call the next guy. Never lose a lead again.</p>
                     <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                 </div>
 
@@ -1194,7 +1152,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
                     </div>
                     <h3>Google Business Profile SEO</h3>
-                    <p>Dominate local search for your trade. We optimize your GBP so you show up in the map pack — where the money is.</p>
+                    <p>Dominate local search for your trade. We optimize your GBP so you show up in the map pack, where the money is.</p>
                     <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                 </div>
 
@@ -1237,10 +1195,9 @@
                 <p>Watch how contractors across the country are booking more jobs without lifting a finger</p>
             </div>
             <div class="video-wrapper" data-aos="fade-up" data-aos-delay="200">
-                <video id="intro-video" style="width:100%;border-radius:12px;"><!-- Add your video src here --></video>
-                <div class="play-btn" onclick="playVideo()">
-                    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-                </div>
+                <video id="intro-video" controls playsinline poster="" style="width:100%;border-radius:12px;display:block;">
+                    <source src="intro.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </section>
@@ -1250,7 +1207,7 @@
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2>We know choosing the right agency is hard</h2>
-                <p>Few truly deliver. Here's how we compare to what you usually get in the market.</p>
+                <p>Few truly deliver. Here is how we compare to what you usually get in the market.</p>
             </div>
             <div class="comparison-grid" data-aos="fade-up" data-aos-delay="100">
                 <div class="comparison-col">
@@ -1277,37 +1234,82 @@
         </div>
     </section>
 
-    <!-- TRADES WE SERVE -->
+    <!-- TRADES TICKER -->
     <section class="trades" id="trades">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2>Built for every trade</h2>
             </div>
-            <div class="trades-grid">
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="50">Roofing</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="75">HVAC</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="100">Plumbing</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="125">Electrical</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="150">Painting</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="175">Landscaping</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="200">General Contractor</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="225">Flooring</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="250">Concrete</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="275">Fencing</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="300">Pest Control</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="325">Pool &amp; Spa</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="350">Garage Doors</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="375">Gutters</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="400">Siding</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="425">Windows &amp; Doors</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="450">Pressure Washing</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="475">Tree Service</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="500">Masonry</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="525">Remodeling</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="550">Solar</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="575">Insulation</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="600">Drywall</span>
-                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="625">Handyman</span>
+        </div>
+        <div class="ticker-wrap">
+            <div class="ticker-row left">
+                <span class="trade-pill">Roofing</span>
+                <span class="trade-pill">HVAC</span>
+                <span class="trade-pill">Plumbing</span>
+                <span class="trade-pill">Electrical</span>
+                <span class="trade-pill">Painting</span>
+                <span class="trade-pill">Landscaping</span>
+                <span class="trade-pill">General Contractor</span>
+                <span class="trade-pill">Flooring</span>
+                <span class="trade-pill">Concrete</span>
+                <span class="trade-pill">Fencing</span>
+                <span class="trade-pill">Pest Control</span>
+                <span class="trade-pill">Pool & Spa</span>
+                <span class="trade-pill">Roofing</span>
+                <span class="trade-pill">HVAC</span>
+                <span class="trade-pill">Plumbing</span>
+                <span class="trade-pill">Electrical</span>
+                <span class="trade-pill">Painting</span>
+                <span class="trade-pill">Landscaping</span>
+                <span class="trade-pill">General Contractor</span>
+                <span class="trade-pill">Flooring</span>
+                <span class="trade-pill">Concrete</span>
+                <span class="trade-pill">Fencing</span>
+                <span class="trade-pill">Pest Control</span>
+                <span class="trade-pill">Pool & Spa</span>
+            </div>
+        </div>
+        <div class="ticker-wrap">
+            <div class="ticker-row right">
+                <span class="trade-pill">Garage Doors</span>
+                <span class="trade-pill">Gutters</span>
+                <span class="trade-pill">Siding</span>
+                <span class="trade-pill">Windows & Doors</span>
+                <span class="trade-pill">Pressure Washing</span>
+                <span class="trade-pill">Tree Service</span>
+                <span class="trade-pill">Masonry</span>
+                <span class="trade-pill">Remodeling</span>
+                <span class="trade-pill">Solar</span>
+                <span class="trade-pill">Insulation</span>
+                <span class="trade-pill">Drywall</span>
+                <span class="trade-pill">Handyman</span>
+                <span class="trade-pill">Garage Doors</span>
+                <span class="trade-pill">Gutters</span>
+                <span class="trade-pill">Siding</span>
+                <span class="trade-pill">Windows & Doors</span>
+                <span class="trade-pill">Pressure Washing</span>
+                <span class="trade-pill">Tree Service</span>
+                <span class="trade-pill">Masonry</span>
+                <span class="trade-pill">Remodeling</span>
+                <span class="trade-pill">Solar</span>
+                <span class="trade-pill">Insulation</span>
+                <span class="trade-pill">Drywall</span>
+                <span class="trade-pill">Handyman</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="partners">
+        <div class="container">
+            <h3>Powered by the same tools the big agencies use</h3>
+            <div class="partners-row">
+                <span class="partner-logo">Twilio</span>
+                <span class="partner-logo">Google Business</span>
+                <span class="partner-logo">GoHighLevel</span>
+                <span class="partner-logo">Stripe</span>
+                <span class="partner-logo">Mailgun</span>
+                <span class="partner-logo">OpenAI</span>
             </div>
         </div>
     </section>
@@ -1339,68 +1341,25 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="testimonials">
+    <!-- OUR TEAM -->
+    <section class="our-team">
         <div class="container">
-            <div class="section-header dark" data-aos="fade-up">
-                <h2>What contractors are saying</h2>
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Team</h2>
             </div>
-            <div class="testimonial-grid">
-
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-stars">
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    </div>
-                    <p class="testimonial-quote">"Within 2 weeks we had 11 new Google reviews and my phone hasn't stopped. Best decision I made for my business."</p>
-                    <div class="testimonial-footer">
-                        <div class="testimonial-avatar">JD</div>
-                        <div>
-                            <div class="testimonial-name">Jake D.</div>
-                            <div class="testimonial-trade">Roofing</div>
-                        </div>
-                    </div>
+            <div class="team-grid">
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="eric.jpg" alt="Eric Kirtchakov">
+                    <h3>Eric Kirtchakov</h3>
+                    <div class="role">Co-Founder</div>
+                    <p>Digital marketer and creator with 25K+ followers and 50M+ views.</p>
                 </div>
-
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-stars">
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    </div>
-                    <p class="testimonial-quote">"I was skeptical but the missed call text back alone paid for everything. Saved at least 3 jobs the first month."</p>
-                    <div class="testimonial-footer">
-                        <div class="testimonial-avatar">MR</div>
-                        <div>
-                            <div class="testimonial-name">Marcus R.</div>
-                            <div class="testimonial-trade">HVAC</div>
-                        </div>
-                    </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="tim.jpg" alt="Tim">
+                    <h3>Tim</h3>
+                    <div class="role">Co-Founder</div>
+                    <p>Systems builder focused on contractor growth automation.</p>
                 </div>
-
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="testimonial-stars">
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg class="svg-star-small" viewBox="0 0 24 24" fill="#FF5A1F"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    </div>
-                    <p class="testimonial-quote">"My website used to be embarrassing. Now I send people to it. The reviews system is insane — we went from 8 to 47 reviews in 6 weeks."</p>
-                    <div class="testimonial-footer">
-                        <div class="testimonial-avatar">TK</div>
-                        <div>
-                            <div class="testimonial-name">Tony K.</div>
-                            <div class="testimonial-trade">Plumbing</div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -1409,7 +1368,7 @@
     <section class="faq" id="faq">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Got questions? We've got answers.</h2>
+                <h2>Got questions? We have answers.</h2>
             </div>
             <div class="faq-list">
 
@@ -1418,7 +1377,7 @@
                         Who do you work with?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">Contractors and home service companies — roofers, HVAC techs, plumbers, electricians, painters, landscapers, and more. If you're in the trades and want more leads, we're built for you.</div>
+                    <div class="faq-answer">Contractors and home service companies, including roofers, HVAC techs, plumbers, electricians, painters, landscapers, and more. If you are in the trades and want more leads, we are built for you.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
@@ -1426,7 +1385,7 @@
                         What do I actually get?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">Full website design, Google Review automation, SEO, mobile responsive layout, missed call text-back, ongoing web hosting, and CRM — all delivered in 48 hours. You just provide info about your business and images.</div>
+                    <div class="faq-answer">Full website design, Google Review automation, SEO, mobile responsive layout, missed call text-back, ongoing web hosting, and CRM, all delivered in 48 hours. You just provide info about your business and images.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
@@ -1442,7 +1401,7 @@
                         How long until everything is up and running?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">48 hours after our kickoff call. We don't mess around with timelines — you'll have a live, professional site with all automations active before the week is out.</div>
+                    <div class="faq-answer">48 hours after our kickoff call. We do not mess around with timelines. You will have a live, professional site with all automations active before the week is out.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
@@ -1450,7 +1409,7 @@
                         Do I need to be tech savvy to use it?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">Not at all. We handle everything — design, copy, setup, launch. You stay on the job site. If you can answer a phone call, you can use our system.</div>
+                    <div class="faq-answer">Not at all. We handle everything: design, copy, setup, launch. You stay on the job site. If you can answer a phone call, you can use our system.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
@@ -1458,7 +1417,7 @@
                         I already have a website. Do I need a new one?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">If your current site isn't generating calls and ranking on Google, then yes. We'll build you something that actually converts — optimized for speed, SEO, and mobile. No templates, no page builders.</div>
+                    <div class="faq-answer">If your current site is not generating calls and ranking on Google, then yes. We will build you something that actually converts, optimized for speed, SEO, and mobile. No templates, no page builders.</div>
                 </div>
 
             </div>
@@ -1469,7 +1428,7 @@
     <section class="final-cta">
         <div class="container" data-aos="fade-up">
             <h2>Let's Scale Your Business</h2>
-            <p>Schedule a free call. No pitch. No pressure. Just clarity on what's possible for your business.</p>
+            <p>Schedule a free call. No pitch. No pressure. Just clarity on what is possible for your business.</p>
             <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-dark">Schedule a Free Call</a>
             <p class="phone-cta">Or call us: <a href="tel:8887744290" style="color:#0d0d0d; text-decoration:underline;">888-774-4290</a></p>
         </div>
@@ -1534,59 +1493,6 @@
             });
             item.classList.toggle('open');
         }
-
-        // Video play
-        function playVideo() {
-            const video = document.getElementById('intro-video');
-            const btn = document.querySelector('.play-btn');
-            if (video.src || video.querySelector('source')) {
-                btn.style.display = 'none';
-                video.play();
-            }
-        }
-
-        // Counter animation
-        const statsSection = document.getElementById('stats');
-        let counted = false;
-
-        function animateCounters() {
-            if (counted) return;
-            counted = true;
-
-            document.querySelectorAll('.stat-number').forEach(counter => {
-                const target = parseFloat(counter.getAttribute('data-target'));
-                const isDecimal = counter.getAttribute('data-decimal') === 'true';
-                const duration = 2000;
-                const steps = 60;
-                const increment = target / steps;
-                let current = 0;
-                let step = 0;
-
-                const timer = setInterval(() => {
-                    step++;
-                    current += increment;
-                    if (step >= steps) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    if (isDecimal) {
-                        counter.innerHTML = current.toFixed(1) + ' <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
-                    } else {
-                        counter.textContent = Math.floor(current) + '+';
-                    }
-                }, duration / steps);
-            });
-        }
-
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                }
-            });
-        }, { threshold: 0.3 });
-
-        statsObserver.observe(statsSection);
     </script>
 
 </body>
