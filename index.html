@@ -842,32 +842,146 @@
         }
 
         /* ========== FINAL CTA ========== */
-        .final-cta {
-            background: #FF5A1F;
-            padding: 100px 0;
-            text-align: center;
+        @keyframes availPulse {
+            0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+            70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
+            100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
         }
 
-        .final-cta h2 {
-            font-size: 40px;
-            font-weight: 900;
-            color: #0d0d0d;
+        .final-cta {
+            background: #0d0d0d;
+            padding: 80px 24px;
+        }
+
+        .final-cta-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #161616 0%, #1a1a1a 50%, #0f0f0f 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+            padding: 64px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse at top right, rgba(255,90,31,0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .final-cta-inner {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta-left {
+            flex: 1;
+        }
+
+        .final-cta-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+        }
+
+        .final-cta-photos {
+            display: flex;
+            align-items: center;
             margin-bottom: 16px;
         }
 
+        .final-cta-photos img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 3px solid #FF5A1F;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .final-cta-photos img:nth-child(2) {
+            margin-left: -16px;
+            z-index: -1;
+            position: relative;
+        }
+
+        .avail-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .avail-dot {
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: availPulse 2s infinite;
+        }
+
+        .avail-text {
+            color: #22c55e;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .final-cta h2 {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
         .final-cta p {
-            color: #0d0d0d;
+            color: rgba(255,255,255,0.7);
             font-size: 17px;
             max-width: 600px;
-            margin: 0 auto 32px;
-            opacity: 0.85;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .final-cta .btn-cta {
+            display: inline-block;
+            background: #FF5A1F;
+            color: #fff;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(255,90,31,0.3);
+        }
+
+        .final-cta .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255,90,31,0.4);
         }
 
         .final-cta .phone-cta {
-            color: #0d0d0d;
-            font-weight: 600;
-            font-size: 16px;
-            margin-top: 16px;
+            color: rgba(255,255,255,0.5);
+            font-size: 15px;
+            margin-top: 12px;
+        }
+
+        .final-cta .phone-cta a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: underline;
         }
 
         /* ========== FOOTER ========== */
@@ -996,8 +1110,35 @@
                 font-size: 36px;
             }
 
+            .final-cta-card {
+                padding: 40px 24px;
+            }
+
+            .final-cta-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .final-cta-left {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .final-cta-photos {
+                justify-content: center;
+            }
+
+            .avail-badge {
+                justify-content: center;
+            }
+
             .final-cta h2 {
-                font-size: 28px;
+                font-size: 32px;
+            }
+
+            .final-cta p {
+                text-align: center;
             }
 
             .footer-inner {
@@ -1493,11 +1634,25 @@
 
     <!-- FINAL CTA -->
     <section class="final-cta">
-        <div class="container" data-aos="fade-up">
-            <h2>Let's Scale Your Business</h2>
-            <p>Schedule a free call. No pitch. No pressure. Just clarity on what is possible for your business.</p>
-            <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-dark">Schedule a Free Call</a>
-            <p class="phone-cta">Or call us: <a href="tel:8887744290" style="color:#0d0d0d; text-decoration:underline;">888-774-4290</a></p>
+        <div class="final-cta-card" data-aos="fade-up">
+            <div class="final-cta-inner">
+                <div class="final-cta-left">
+                    <div class="final-cta-photos">
+                        <img src="eric.jpg" alt="Eric">
+                        <img src="tim.jpg" alt="Tim">
+                    </div>
+                    <div class="avail-badge">
+                        <span class="avail-dot"></span>
+                        <span class="avail-text">Available now</span>
+                    </div>
+                    <h2>Ready to Scale Your Business?</h2>
+                    <p>Book a free 15-minute call with Eric or Tim. No pitch, no pressure — just a straight conversation about what's possible for your business.</p>
+                </div>
+                <div class="final-cta-right">
+                    <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-cta">Book a Free Call</a>
+                    <p class="phone-cta">or call <a href="tel:8887744290">888-774-4290</a></p>
+                </div>
+            </div>
         </div>
     </section>
 
