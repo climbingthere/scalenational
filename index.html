@@ -151,15 +151,9 @@ html {
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 16px 0;
-            transition: all 0.3s ease;
-            background: transparent;
-        }
-
-        .nav.scrolled {
-            background: #0d0d0d;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
             padding: 12px 0;
+            background: #0d0d0d;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.07);
         }
 
         .nav-inner {
@@ -1483,7 +1477,7 @@ html {
             <p class="sub">Your competitors are showing up on Google, getting called back first, and collecting reviews while you're on the job site. We fix that.</p>
 
             <div class="hero-ctas">
-                <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-orange">Get Your Free Growth Plan</a>
+                <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-orange">Schedule a Free Call</a>
                 <a href="tel:8887744290" class="btn-ghost" style="color:#ffffff; border-color: rgba(255,255,255,0.3);">Call 888-774-4290</a>
             </div>
 
@@ -2001,12 +1995,12 @@ html {
                             <span class="avail-dot"></span>
                             <span class="avail-text">Available now</span>
                         </div>
-                        <h2>Ready to Scale Your Business?</h2>
-                        <p>Book a free 15-minute call with Eric or Tim. No pitch, no pressure — just a straight conversation about what's possible for your business.</p>
+                        <h2>Ready to scale your business?</h2>
+                        <p>Book a free 15-minute call with Eric or Tim. No pitch — just a real conversation about growing your business.</p>
                     </div>
                     <div class="final-cta-right cta-actions">
-                        <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-cta">Talk to Eric or Tim Directly</a>
-                        <p class="phone-cta cta-phone-link">or call <a href="tel:8887744290">888-774-4290</a></p>
+                        <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-cta">Book a Free Call</a>
+                        <p class="phone-cta cta-phone-link">For support: <a href="tel:8887744290">888-774-4290</a></p>
                     </div>
                 </div>
             </div>
@@ -2049,15 +2043,6 @@ html {
             once: true
         });
 
-        // Sticky nav
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 60) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
 
         // Mobile menu
         function toggleMenu() {
