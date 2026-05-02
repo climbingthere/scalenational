@@ -11,7 +11,8 @@
     <meta property="og:title" content="Scale National — Website & Marketing Systems Built For Contractors">
     <meta property="og:description" content="Done-for-you websites, Google Business Profiles, and review systems for contractors nationwide.">
     <meta property="og:type" content="website">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         * {
@@ -25,9 +26,9 @@
         }
 
         body {
-            font-family: 'Sora', sans-serif;
-            color: #ffffff;
-            background: #1f2236;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #0d0d0d;
+            background: #ffffff;
             line-height: 1.6;
         }
 
@@ -46,16 +47,83 @@
             padding: 0 24px;
         }
 
-        /* Fade-in animation */
-        .fade-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
+        /* ========== BUTTONS ========== */
+        .btn-orange {
+            display: inline-block;
+            background: #FF5A1F;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulseGlow 2s infinite;
         }
 
-        .fade-section.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .btn-orange:hover {
+            background: #e04a10;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 90, 31, 0.4);
+        }
+
+        .btn-ghost {
+            display: inline-block;
+            border: 2px solid #FF5A1F;
+            color: #FF5A1F;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 90, 31, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .btn-dark {
+            display: inline-block;
+            background: #0d0d0d;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-dark:hover {
+            background: #222222;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 90, 31, 0.4); }
+            50% { box-shadow: 0 0 20px 4px rgba(255, 90, 31, 0.2); }
+        }
+
+        @keyframes heroFadeIn {
+            0% { opacity: 0; transform: scale(0.95) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes playPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 90, 31, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px 10px rgba(255, 90, 31, 0.2); }
         }
 
         /* ========== STICKY NAV ========== */
@@ -66,13 +134,14 @@
             right: 0;
             z-index: 1000;
             padding: 16px 0;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             background: transparent;
         }
 
         .nav.scrolled {
-            background: #1f2236;
+            background: #0d0d0d;
             box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            padding: 12px 0;
         }
 
         .nav-inner {
@@ -84,11 +153,10 @@
             padding: 0 24px;
         }
 
-        .nav-wordmark {
-            font-size: 20px;
-            font-weight: 900;
-            color: #ffffff;
-            letter-spacing: 1px;
+        .nav-logo img {
+            height: 36px;
+            filter: invert(1) brightness(2);
+            transition: filter 0.3s ease;
         }
 
         .nav-links {
@@ -100,13 +168,13 @@
 
         .nav-links a {
             color: #ffffff;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 500;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: #e8a743;
+            color: #FF5A1F;
         }
 
         .nav-right {
@@ -116,62 +184,24 @@
         }
 
         .nav-phone {
-            color: #e8a743;
-            font-weight: 700;
-            font-size: 14px;
+            color: #FF5A1F;
+            font-weight: 600;
+            font-size: 15px;
         }
 
-        .btn-gold {
+        .nav-btn {
             display: inline-block;
-            background: #e8a743;
-            color: #1f2236;
-            font-weight: 700;
-            font-size: 14px;
-            padding: 12px 24px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .btn-gold:hover {
-            background: #c88318;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            display: inline-block;
-            border: 2px solid #e8a743;
-            color: #e8a743;
-            font-weight: 700;
-            font-size: 14px;
-            padding: 12px 24px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.2s;
-            background: transparent;
-        }
-
-        .btn-outline:hover {
-            background: rgba(232, 167, 67, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .btn-dark {
-            display: inline-block;
-            background: #1f2236;
+            background: #FF5A1F;
             color: #ffffff;
-            font-weight: 700;
-            font-size: 16px;
-            padding: 16px 32px;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px 20px;
             border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.2s;
+            transition: all 0.3s ease;
         }
 
-        .btn-dark:hover {
-            background: #2a2d44;
+        .nav-btn:hover {
+            background: #e04a10;
             transform: translateY(-2px);
         }
 
@@ -198,7 +228,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: #1f2236;
+            background: #0d0d0d;
             z-index: 999;
             flex-direction: column;
             align-items: center;
@@ -213,76 +243,86 @@
         .mobile-menu a {
             color: #ffffff;
             font-size: 20px;
-            font-weight: 700;
+            font-weight: 600;
         }
 
         .mobile-menu a:hover {
-            color: #e8a743;
+            color: #FF5A1F;
         }
 
         /* ========== HERO ========== */
         .hero {
-            background: #1f2236;
-            padding: 160px 0 100px;
+            background: #0d0d0d;
+            padding: 160px 0 120px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 90, 31, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 90, 31, 0.15);
+            color: #FF5A1F;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 32px;
+            animation: heroFadeIn 0.8s ease forwards;
         }
 
         .hero h1 {
-            font-size: 56px;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            max-width: 800px;
+            font-size: clamp(48px, 6vw, 80px);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
+            color: #ffffff;
+            animation: heroFadeIn 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero h1 .orange {
+            color: #FF5A1F;
         }
 
         .hero .sub {
             font-size: 18px;
-            color: #c4c6cd;
-            max-width: 600px;
+            color: rgba(255,255,255,0.6);
+            max-width: 640px;
             margin: 0 auto 40px;
             font-weight: 400;
-        }
-
-        .avatar-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .avatar-circle {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            border: 3px solid #e8a743;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 20px;
-            color: #e8a743;
-            background: rgba(232, 167, 67, 0.08);
-        }
-
-        .avatar-label {
-            font-size: 14px;
-            color: #c4c6cd;
-            margin-bottom: 8px;
-        }
-
-        .star-rating {
-            color: #e8a743;
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-
-        .star-text {
-            font-size: 14px;
-            color: #c4c6cd;
-            margin-bottom: 36px;
+            animation: heroFadeIn 0.8s ease 0.4s forwards;
+            opacity: 0;
         }
 
         .hero-ctas {
@@ -291,170 +331,221 @@
             justify-content: center;
             gap: 16px;
             flex-wrap: wrap;
+            margin-bottom: 48px;
+            animation: heroFadeIn 0.8s ease 0.6s forwards;
+            opacity: 0;
         }
 
-        /* ========== SOCIAL PROOF BAR ========== */
-        .social-proof {
-            background: #f1f1f1;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .proof-row {
+        .avatar-row {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
+            gap: -8px;
             margin-bottom: 12px;
         }
 
-        .proof-item {
-            color: #1f2236;
+        .avatar-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #FF5A1F;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 18px;
+            color: #ffffff;
+            background: #1a1a1a;
+            margin-left: -8px;
         }
 
-        .proof-item .stars {
-            color: #e8a743;
+        .avatar-circle:first-child {
+            margin-left: 0;
         }
 
-        .proof-sub {
-            color: #555;
+        .avatar-label {
             font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 12px;
         }
 
-        /* ========== FEATURES ========== */
-        .features {
-            background: #1f2236;
+        .star-rating {
+            color: #FF5A1F;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .star-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ========== STATS BAR ========== */
+        .stats-bar {
+            background: #FF5A1F;
+            padding: 48px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        .stat-item .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-item .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.85);
+            font-weight: 400;
+        }
+
+        /* ========== SERVICES ========== */
+        .services {
+            background: #ffffff;
             padding: 100px 0;
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
-            font-size: 40px;
-            font-weight: 900;
             margin-bottom: 60px;
         }
 
-        .section-title-dark {
-            color: #1f2236;
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #0d0d0d;
+            margin-bottom: 12px;
         }
 
-        .features-grid {
+        .section-header.dark h2 {
+            color: #ffffff;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #666666;
+        }
+
+        .section-header.dark p {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
 
-        .feature-card {
-            background: #282b3f;
-            border: 1px solid #424453;
-            border-radius: 10px;
+        .services-grid .service-card:nth-child(4),
+        .services-grid .service-card:nth-child(5) {
+            grid-column: span 1;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #eee;
+            border-radius: 12px;
             padding: 36px 28px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 28px rgba(0,0,0,.14);
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
         }
 
-        .feature-card .icon {
+        .service-card .icon {
             width: 48px;
             height: 48px;
             margin-bottom: 20px;
-            color: #e8a743;
+            color: #FF5A1F;
         }
 
-        .feature-card h3 {
-            font-size: 18px;
-            font-weight: 800;
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 700;
             margin-bottom: 12px;
-            color: #ffffff;
+            color: #0d0d0d;
         }
 
-        .feature-card p {
-            font-size: 14px;
-            color: #c4c6cd;
+        .service-card p {
+            font-size: 15px;
+            color: #666666;
             line-height: 1.7;
             margin-bottom: 16px;
         }
 
-        .feature-card .learn-more {
-            color: #e8a743;
-            font-weight: 700;
+        .service-card .learn-more {
+            color: #FF5A1F;
+            font-weight: 600;
             font-size: 14px;
             transition: color 0.2s;
         }
 
-        .feature-card .learn-more:hover {
-            color: #c88318;
+        .service-card .learn-more:hover {
+            color: #e04a10;
         }
 
         /* ========== VIDEO ========== */
         .video-section {
-            background: #1f2236;
+            background: #0d0d0d;
             padding: 100px 0;
             text-align: center;
-        }
-
-        .video-section .sub {
-            color: #c4c6cd;
-            font-size: 16px;
-            max-width: 600px;
-            margin: 0 auto 40px;
         }
 
         .video-wrapper {
             max-width: 800px;
             margin: 0 auto;
             aspect-ratio: 16/9;
-            background: #282b3f;
-            border: 1px solid #424453;
-            border-radius: 10px;
+            background: #1a1a1a;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 0 40px rgba(255, 90, 31, 0.3);
         }
 
         .video-wrapper video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 12px;
         }
 
         .play-btn {
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: #e8a743;
+            background: #FF5A1F;
             display: flex;
             align-items: center;
             justify-content: center;
             position: absolute;
             cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .play-btn:hover {
-            transform: scale(1.1);
+            animation: playPulse 2s ease-in-out infinite;
         }
 
         .play-btn svg {
             width: 28px;
             height: 28px;
-            fill: #1f2236;
+            fill: #ffffff;
             margin-left: 4px;
         }
 
         /* ========== TRADES ========== */
         .trades {
-            background: #f1f1f1;
+            background: #f7f7f7;
             padding: 100px 0;
             text-align: center;
         }
@@ -469,22 +560,24 @@
         }
 
         .trade-pill {
-            background: #1f2236;
-            color: #e8a743;
+            background: #0d0d0d;
+            color: #ffffff;
             font-size: 14px;
-            font-weight: 700;
-            padding: 10px 20px;
+            font-weight: 500;
+            padding: 12px 24px;
             border-radius: 50px;
-            transition: transform 0.2s;
+            transition: all 0.3s ease;
+            cursor: default;
         }
 
         .trade-pill:hover {
-            transform: translateY(-2px);
+            background: #FF5A1F;
+            transform: translateY(-3px);
         }
 
         /* ========== HOW IT WORKS ========== */
         .how-it-works {
-            background: #1f2236;
+            background: #ffffff;
             padding: 100px 0;
         }
 
@@ -492,54 +585,53 @@
             display: flex;
             align-items: flex-start;
             justify-content: center;
-            gap: 40px;
+            gap: 60px;
             max-width: 1000px;
             margin: 0 auto;
             position: relative;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 20%;
+            right: 20%;
+            height: 2px;
+            border-top: 2px dashed #FF5A1F;
         }
 
         .step {
             flex: 1;
             text-align: center;
             position: relative;
+            z-index: 1;
         }
 
         .step-number {
             font-size: 64px;
-            font-weight: 900;
-            color: #e8a743;
+            font-weight: 700;
+            color: #FF5A1F;
             line-height: 1;
             margin-bottom: 16px;
         }
 
         .step h3 {
             font-size: 20px;
-            font-weight: 800;
+            font-weight: 700;
             margin-bottom: 12px;
+            color: #0d0d0d;
         }
 
         .step p {
-            font-size: 14px;
-            color: #c4c6cd;
+            font-size: 15px;
+            color: #666666;
             line-height: 1.7;
-        }
-
-        .step-connector {
-            position: absolute;
-            top: 36px;
-            left: calc(33.33% + 20px);
-            width: calc(33.33% - 40px);
-            height: 2px;
-            background: #424453;
-        }
-
-        .step-connector-2 {
-            left: calc(66.66% + 20px);
         }
 
         /* ========== TESTIMONIALS ========== */
         .testimonials {
-            background: #f1f1f1;
+            background: #0d0d0d;
             padding: 100px 0;
         }
 
@@ -550,64 +642,65 @@
         }
 
         .testimonial-card {
-            background: #ffffff;
-            border-radius: 10px;
+            background: #1a1a1a;
+            border-radius: 12px;
             padding: 32px 28px;
-            box-shadow: 0 2px 5px rgba(0,0,0,.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #FF5A1F;
+            transition: all 0.3s ease;
         }
 
         .testimonial-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 28px rgba(0,0,0,.14);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
         }
 
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .testimonial-stars {
+            color: #FF5A1F;
+            font-size: 18px;
             margin-bottom: 16px;
         }
 
+        .testimonial-quote {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         .testimonial-avatar {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background: #1f2236;
+            background: #FF5A1F;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #e8a743;
+            color: #ffffff;
             font-weight: 700;
             font-size: 14px;
         }
 
         .testimonial-name {
-            font-weight: 800;
-            color: #1f2236;
+            font-weight: 700;
+            color: #ffffff;
             font-size: 15px;
         }
 
         .testimonial-trade {
-            color: #666;
+            color: rgba(255,255,255,0.5);
             font-size: 13px;
-        }
-
-        .testimonial-stars {
-            color: #e8a743;
-            margin-bottom: 12px;
-        }
-
-        .testimonial-quote {
-            color: #333;
-            font-size: 14px;
-            line-height: 1.7;
-            font-style: italic;
         }
 
         /* ========== FAQ ========== */
         .faq {
-            background: #1f2236;
+            background: #ffffff;
             padding: 100px 0;
         }
 
@@ -617,7 +710,7 @@
         }
 
         .faq-item {
-            border-bottom: 1px solid #424453;
+            border-bottom: 1px solid #eee;
         }
 
         .faq-question {
@@ -626,20 +719,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 700;
-            font-size: 16px;
-            color: #ffffff;
+            font-weight: 600;
+            font-size: 17px;
+            color: #0d0d0d;
             transition: color 0.2s;
         }
 
         .faq-question:hover {
-            color: #e8a743;
+            color: #FF5A1F;
         }
 
         .faq-question .icon {
             font-size: 24px;
-            color: #e8a743;
+            color: #FF5A1F;
             transition: transform 0.3s;
+            font-weight: 300;
         }
 
         .faq-item.open .faq-question .icon {
@@ -649,8 +743,8 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            color: #c4c6cd;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: #666666;
             font-size: 15px;
             line-height: 1.7;
         }
@@ -662,38 +756,37 @@
 
         /* ========== FINAL CTA ========== */
         .final-cta {
-            background: #e8a743;
+            background: #FF5A1F;
             padding: 100px 0;
             text-align: center;
         }
 
         .final-cta h2 {
             font-size: 40px;
-            font-weight: 900;
-            color: #1f2236;
+            font-weight: 700;
+            color: #0d0d0d;
             margin-bottom: 16px;
         }
 
         .final-cta p {
-            color: #1f2236;
-            font-size: 16px;
+            color: #0d0d0d;
+            font-size: 17px;
             max-width: 600px;
             margin: 0 auto 32px;
             opacity: 0.85;
         }
 
         .final-cta .phone-cta {
-            color: #1f2236;
-            font-weight: 700;
+            color: #0d0d0d;
+            font-weight: 600;
             font-size: 16px;
             margin-top: 16px;
         }
 
         /* ========== FOOTER ========== */
         .footer {
-            background: #1f2236;
+            background: #0d0d0d;
             padding: 60px 0 32px;
-            border-top: 1px solid #424453;
         }
 
         .footer-inner {
@@ -705,31 +798,30 @@
             margin-bottom: 40px;
         }
 
-        .footer-brand .wordmark {
-            font-size: 20px;
-            font-weight: 900;
-            color: #ffffff;
-            margin-bottom: 8px;
+        .footer-brand .footer-logo img {
+            height: 32px;
+            filter: invert(1) brightness(2);
+            margin-bottom: 12px;
         }
 
         .footer-brand .tagline {
-            color: #c4c6cd;
+            color: rgba(255,255,255,0.6);
             font-size: 14px;
         }
 
         .footer-contact {
-            color: #c4c6cd;
+            color: rgba(255,255,255,0.6);
             font-size: 14px;
             line-height: 2;
         }
 
         .footer-contact a {
-            color: #e8a743;
+            color: #FF5A1F;
             transition: color 0.2s;
         }
 
         .footer-contact a:hover {
-            color: #c88318;
+            color: #e04a10;
         }
 
         .footer-links {
@@ -739,41 +831,32 @@
         }
 
         .footer-links a {
-            color: #c4c6cd;
+            color: rgba(255,255,255,0.6);
             font-size: 14px;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: #e8a743;
+            color: #FF5A1F;
         }
 
         .footer-bottom {
             text-align: center;
-            color: #c4c6cd;
+            color: rgba(255,255,255,0.4);
             font-size: 13px;
             padding-top: 24px;
-            border-top: 1px solid #424453;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         /* ========== RESPONSIVE ========== */
-        @media (max-width: 900px) {
-            .features-grid {
+        @media (max-width: 1024px) {
+            .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .steps {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .step-connector,
-            .step-connector-2 {
-                display: none;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
             }
         }
 
@@ -788,30 +871,42 @@
             }
 
             .hero h1 {
-                font-size: 36px;
+                font-size: clamp(36px, 8vw, 56px);
             }
 
-            .section-title {
+            .section-header h2 {
                 font-size: 28px;
             }
 
-            .features-grid {
+            .services-grid {
                 grid-template-columns: 1fr;
             }
 
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .steps::before {
+                display: none;
+            }
+
             .avatar-row {
-                gap: 8px;
+                gap: 0;
             }
 
             .avatar-circle {
-                width: 64px;
-                height: 64px;
-                font-size: 16px;
+                width: 56px;
+                height: 56px;
+                font-size: 14px;
             }
 
-            .proof-row {
-                flex-direction: column;
-                gap: 16px;
+            .stat-item .stat-number {
+                font-size: 36px;
             }
 
             .final-cta h2 {
@@ -828,6 +923,31 @@
                 justify-content: center;
             }
         }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 140px 0 80px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-ctas .btn-orange,
+            .hero-ctas .btn-ghost {
+                text-align: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .stat-item .stat-number {
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -835,16 +955,18 @@
     <!-- STICKY NAV -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <div class="nav-wordmark">SCALE NATIONAL</div>
+            <a href="#" class="nav-logo">
+                <img src="logo.jpg" alt="Scale National" style="filter: invert(1) brightness(2);">
+            </a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#trades">Trades We Serve</a></li>
+                <li><a href="#trades">Trades</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
             <div class="nav-right">
                 <a href="tel:8887744290" class="nav-phone">888-774-4290</a>
-                <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-gold">Book a Call</a>
+                <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="nav-btn">Book a Call</a>
             </div>
             <div class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span>
@@ -858,102 +980,112 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#services" onclick="toggleMenu()">Services</a>
         <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
-        <a href="#trades" onclick="toggleMenu()">Trades We Serve</a>
+        <a href="#trades" onclick="toggleMenu()">Trades</a>
         <a href="#faq" onclick="toggleMenu()">FAQ</a>
-        <a href="tel:8887744290" style="color:#e8a743">888-774-4290</a>
-        <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-gold">Book a Call</a>
+        <a href="tel:8887744290" style="color:#FF5A1F">888-774-4290</a>
+        <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-orange">Book a Call</a>
     </div>
 
     <!-- HERO -->
     <section class="hero">
-        <div class="container fade-section">
-            <h1>Website & Marketing Systems Built For Contractors</h1>
-            <p class="sub">Your competitor down the street is getting calls you should be getting. We fix that.</p>
+        <div class="container">
+            <div class="hero-badge">&#9889; Contractor Growth Systems</div>
+            <h1>Your Competitors Are Stealing Your Calls.<br><span class="orange">We Fix That.</span></h1>
+            <p class="sub">Done-for-you websites, automated reviews, and AI systems that keep your phone ringing — even when you're on the job site.</p>
 
-            <div class="avatar-row">
+            <div class="hero-ctas">
+                <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-orange">Book a Free Call</a>
+                <a href="tel:8887744290" class="btn-ghost" style="color:#ffffff; border-color: rgba(255,255,255,0.3);">Call 888-774-4290</a>
+            </div>
+
+            <div class="avatar-row" data-aos="fade-up" data-aos-delay="200">
                 <div class="avatar-circle">JD</div>
                 <div class="avatar-circle">MR</div>
                 <div class="avatar-circle">TK</div>
                 <div class="avatar-circle">SR</div>
                 <div class="avatar-circle">BL</div>
             </div>
-            <p class="avatar-label">Real contractors. Real results.</p>
+            <p class="avatar-label">Join 200+ contractors growing with Scale National</p>
             <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="star-text">5.0 across 200+ contractor clients</p>
-
-            <div class="hero-ctas">
-                <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-gold">Book a Call</a>
-                <a href="tel:8887744290" class="btn-outline">Call Us: 888-774-4290</a>
-            </div>
+            <p class="star-text">5.0 rating across Google & Facebook</p>
         </div>
     </section>
 
-    <!-- SOCIAL PROOF BAR -->
-    <section class="social-proof fade-section">
+    <!-- STATS BAR -->
+    <section class="stats-bar">
         <div class="container">
-            <div class="proof-row">
-                <div class="proof-item">Google <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0</div>
-                <div class="proof-item">Facebook <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0</div>
-                <div class="proof-item">BBB A+ Rating</div>
+            <div class="stats-grid" id="stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="200">0</div>
+                    <div class="stat-label">Contractors Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="40">0</div>
+                    <div class="stat-label">States</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="4.9" data-decimal="true">0</div>
+                    <div class="stat-label">Avg Rating</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="72">0</div>
+                    <div class="stat-label">Hour Website Delivery</div>
+                </div>
             </div>
-            <p class="proof-sub">Trusted by contractors in 40+ states</p>
         </div>
     </section>
 
-    <!-- FEATURES / SERVICES -->
-    <section class="features" id="services">
-        <div class="container fade-section">
-            <h2 class="section-title">Simple systems that actually work</h2>
-            <div class="features-grid">
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Everything you need. Nothing you don't.</h2>
+            </div>
+            <div class="services-grid">
 
-                <!-- Card 1 -->
-                <div class="feature-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                     </div>
                     <h3>Done-For-You Website</h3>
-                    <p>Custom built, mobile-first, live in 72 hours. No templates, no page builders. A site that looks like you run a real business — because you do.</p>
-                    <a href="#" class="learn-more">Learn More &rarr;</a>
+                    <p>Built custom, mobile-first, live in 72 hours. No templates, no page builders. A site that converts visitors into calls.</p>
+                    <a href="#" class="learn-more">Learn more &rarr;</a>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="feature-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                     </div>
                     <h3>Missed Call Auto Text Back</h3>
-                    <p>Every missed call gets an instant text. Never lose a lead to voicemail again. They hear from you before they call the next guy.</p>
-                    <a href="#" class="learn-more">Learn More &rarr;</a>
+                    <p>Instant text fires when you miss a call. They hear from you first — before they call the next guy.</p>
+                    <a href="#" class="learn-more">Learn more &rarr;</a>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="feature-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
                     </div>
                     <h3>Google Business Profile SEO</h3>
-                    <p>Get found when locals search for your trade. We optimize and manage your GBP so you show up in the map pack — where the money is.</p>
-                    <a href="#" class="learn-more">Learn More &rarr;</a>
+                    <p>Dominate local search for your trade. We optimize your GBP so you show up in the map pack — where the money is.</p>
+                    <a href="#" class="learn-more">Learn more &rarr;</a>
                 </div>
 
-                <!-- Card 4 -->
-                <div class="feature-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
                     <h3>Automated Review Generation</h3>
-                    <p>We text your past customers for you. 5-star reviews on autopilot. You wake up to new reviews without lifting a finger.</p>
-                    <a href="#" class="learn-more">Learn More &rarr;</a>
+                    <p>We text your past customers. 5-stars roll in on autopilot. You wake up to new reviews without lifting a finger.</p>
+                    <a href="#" class="learn-more">Learn more &rarr;</a>
                 </div>
 
-                <!-- Card 5 -->
-                <div class="feature-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
                     </div>
                     <h3>AI Chat Widget</h3>
-                    <p>24/7 AI on your website qualifies leads and books jobs while you're on site. It never sleeps, never forgets, never misses a lead.</p>
-                    <a href="#" class="learn-more">Learn More &rarr;</a>
+                    <p>24/7 lead qualification and booking on your website. It never sleeps, never forgets, never misses a lead.</p>
+                    <a href="#" class="learn-more">Learn more &rarr;</a>
                 </div>
 
             </div>
@@ -962,11 +1094,13 @@
 
     <!-- VIDEO SECTION -->
     <section class="video-section">
-        <div class="container fade-section">
-            <h2 class="section-title">See How It Works</h2>
-            <p class="sub">Watch how contractors in your area are booking more jobs without lifting a finger.</p>
-            <div class="video-wrapper">
-                <video id="intro-video" poster=""><!-- Replace src with your video URL when ready --></video>
+        <div class="container">
+            <div class="section-header dark" data-aos="fade-up">
+                <h2>See How It Works</h2>
+                <p>Watch how contractors across the country are booking more jobs without lifting a finger</p>
+            </div>
+            <div class="video-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <video id="intro-video" style="width:100%;border-radius:12px;"><!-- Add your video src here --></video>
                 <div class="play-btn" onclick="playVideo()">
                     <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
                 </div>
@@ -976,103 +1110,107 @@
 
     <!-- TRADES WE SERVE -->
     <section class="trades" id="trades">
-        <div class="container fade-section">
-            <h2 class="section-title section-title-dark">Built for every trade</h2>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Built for every trade</h2>
+            </div>
             <div class="trades-grid">
-                <span class="trade-pill">Roofing</span>
-                <span class="trade-pill">HVAC</span>
-                <span class="trade-pill">Plumbing</span>
-                <span class="trade-pill">Electrical</span>
-                <span class="trade-pill">Painting</span>
-                <span class="trade-pill">Landscaping</span>
-                <span class="trade-pill">General Contractor</span>
-                <span class="trade-pill">Flooring</span>
-                <span class="trade-pill">Concrete</span>
-                <span class="trade-pill">Fencing</span>
-                <span class="trade-pill">Pest Control</span>
-                <span class="trade-pill">Pool &amp; Spa</span>
-                <span class="trade-pill">Garage Doors</span>
-                <span class="trade-pill">Gutters</span>
-                <span class="trade-pill">Siding</span>
-                <span class="trade-pill">Windows &amp; Doors</span>
-                <span class="trade-pill">Pressure Washing</span>
-                <span class="trade-pill">Tree Service</span>
-                <span class="trade-pill">Masonry</span>
-                <span class="trade-pill">Remodeling</span>
-                <span class="trade-pill">Solar</span>
-                <span class="trade-pill">Insulation</span>
-                <span class="trade-pill">Drywall</span>
-                <span class="trade-pill">Handyman</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="50">Roofing</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="75">HVAC</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="100">Plumbing</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="125">Electrical</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="150">Painting</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="175">Landscaping</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="200">General Contractor</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="225">Flooring</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="250">Concrete</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="275">Fencing</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="300">Pest Control</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="325">Pool &amp; Spa</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="350">Garage Doors</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="375">Gutters</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="400">Siding</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="425">Windows &amp; Doors</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="450">Pressure Washing</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="475">Tree Service</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="500">Masonry</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="525">Remodeling</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="550">Solar</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="575">Insulation</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="600">Drywall</span>
+                <span class="trade-pill" data-aos="zoom-in" data-aos-delay="625">Handyman</span>
             </div>
         </div>
     </section>
 
     <!-- HOW IT WORKS -->
     <section class="how-it-works" id="how-it-works">
-        <div class="container fade-section">
-            <h2 class="section-title">How it works</h2>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Up and running in days, not months</h2>
+            </div>
             <div class="steps">
-                <div class="step">
+                <div class="step" data-aos="fade-up" data-aos-delay="100">
                     <div class="step-number">1</div>
                     <h3>Book a 15-min call</h3>
-                    <p>We learn about your business and your market. No pitch, no pressure — just questions.</p>
+                    <p>Tell us about your business. We do the rest.</p>
                 </div>
-                <div class="step">
+                <div class="step" data-aos="fade-up" data-aos-delay="200">
                     <div class="step-number">2</div>
                     <h3>We build your system</h3>
-                    <p>Website, GBP, reviews, chat — all set up in days, not weeks. You don't lift a finger.</p>
+                    <p>Website, GBP, reviews, AI chat. All live in days.</p>
                 </div>
-                <div class="step">
+                <div class="step" data-aos="fade-up" data-aos-delay="300">
                     <div class="step-number">3</div>
                     <h3>Your phone starts ringing</h3>
-                    <p>Leads come in. You answer. We handle the rest. That's the whole deal.</p>
+                    <p>Leads come in. You close. We keep it running.</p>
                 </div>
-                <div class="step-connector"></div>
-                <div class="step-connector step-connector-2"></div>
             </div>
         </div>
     </section>
 
     <!-- TESTIMONIALS -->
     <section class="testimonials">
-        <div class="container fade-section">
-            <h2 class="section-title section-title-dark">What contractors are saying</h2>
+        <div class="container">
+            <div class="section-header dark" data-aos="fade-up">
+                <h2>What contractors are saying</h2>
+            </div>
             <div class="testimonial-grid">
 
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-quote">"Within 2 weeks we had 11 new Google reviews and my phone hasn't stopped. Best decision I made for my business."</p>
+                    <div class="testimonial-footer">
                         <div class="testimonial-avatar">JD</div>
                         <div>
                             <div class="testimonial-name">Jake D.</div>
-                            <div class="testimonial-trade">Roofing Contractor</div>
+                            <div class="testimonial-trade">Roofing</div>
                         </div>
                     </div>
-                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="testimonial-quote">"My phone started ringing the first week. I went from maybe 2 calls a week to 10+. The website they built actually looks professional — my customers mention it all the time."</p>
                 </div>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-quote">"I was skeptical but the missed call text back alone paid for everything. Saved at least 3 jobs the first month."</p>
+                    <div class="testimonial-footer">
                         <div class="testimonial-avatar">MR</div>
                         <div>
                             <div class="testimonial-name">Marcus R.</div>
                             <div class="testimonial-trade">HVAC</div>
                         </div>
                     </div>
-                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="testimonial-quote">"I went from 12 Google reviews to 87 in three months. Didn't have to ask a single customer myself. The automated system just handles it."</p>
                 </div>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-quote">"My website used to be embarrassing. Now I send people to it. The reviews system is insane — we went from 8 to 47 reviews in 6 weeks."</p>
+                    <div class="testimonial-footer">
                         <div class="testimonial-avatar">TK</div>
                         <div>
                             <div class="testimonial-name">Tony K.</div>
                             <div class="testimonial-trade">Plumbing</div>
                         </div>
                     </div>
-                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="testimonial-quote">"I used to miss calls on jobs all the time. Now the auto text fires off instantly and people actually wait for me to call back. Game changer for a one-man crew."</p>
                 </div>
 
             </div>
@@ -1081,11 +1219,13 @@
 
     <!-- FAQ -->
     <section class="faq" id="faq">
-        <div class="container fade-section">
-            <h2 class="section-title">Frequently asked questions</h2>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Frequently asked questions</h2>
+            </div>
             <div class="faq-list">
 
-                <div class="faq-item">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         How fast will my website be live?
                         <span class="icon">+</span>
@@ -1093,7 +1233,7 @@
                     <div class="faq-answer">72 hours after our kickoff call. We don't mess around with timelines — you'll have a live, professional site before the week is out.</div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         Do I need to do anything?
                         <span class="icon">+</span>
@@ -1101,7 +1241,7 @@
                     <div class="faq-answer">Just show up to a 15-minute call. We handle everything else — design, copy, setup, launch. You stay on the job site.</div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         What if I miss a call at 2am?
                         <span class="icon">+</span>
@@ -1109,7 +1249,7 @@
                     <div class="faq-answer">Our auto text back fires in seconds. They hear from you before they call anyone else. You follow up in the morning when you're ready.</div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         How do the automated reviews work?
                         <span class="icon">+</span>
@@ -1117,7 +1257,7 @@
                     <div class="faq-answer">We send a text to your past customers asking for a review. Most say yes. You wake up to new 5-stars without awkward conversations or follow-ups.</div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         Is there a contract?
                         <span class="icon">+</span>
@@ -1130,12 +1270,12 @@
     </section>
 
     <!-- FINAL CTA -->
-    <section class="final-cta fade-section">
-        <div class="container">
-            <h2>Ready to start getting more calls?</h2>
-            <p>Book a free 15-minute call. No pitch, no pressure. Just a look at what's possible for your business.</p>
+    <section class="final-cta">
+        <div class="container" data-aos="fade-up">
+            <h2>Ready to stop losing jobs to your competitors?</h2>
+            <p>Book a free 15-minute call. No pitch. No pressure. Just clarity on what's possible.</p>
             <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-dark">Book Your Free Call</a>
-            <p class="phone-cta">Or call us: <a href="tel:8887744290" style="color:#1f2236; text-decoration:underline;">888-774-4290</a></p>
+            <p class="phone-cta">Or call us: <a href="tel:8887744290" style="color:#0d0d0d; text-decoration:underline;">888-774-4290</a></p>
         </div>
     </section>
 
@@ -1144,7 +1284,9 @@
         <div class="container">
             <div class="footer-inner">
                 <div class="footer-brand">
-                    <div class="wordmark">SCALE NATIONAL</div>
+                    <div class="footer-logo">
+                        <img src="logo.jpg" alt="Scale National">
+                    </div>
                     <div class="tagline">Digital presence for contractors & trades nationwide</div>
                 </div>
                 <div class="footer-contact">
@@ -1154,7 +1296,7 @@
                 <div class="footer-links">
                     <a href="#services">Services</a>
                     <a href="#how-it-works">How It Works</a>
-                    <a href="#trades">Trades We Serve</a>
+                    <a href="#trades">Trades</a>
                     <a href="#faq">FAQ</a>
                     <a href="https://calendar.app.google/XPiWCwELdEtymrVS6">Book a Call</a>
                 </div>
@@ -1165,7 +1307,14 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
         // Sticky nav
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
@@ -1184,6 +1333,10 @@
         // FAQ accordion
         function toggleFaq(el) {
             const item = el.parentElement;
+            // Close others
+            document.querySelectorAll('.faq-item.open').forEach(i => {
+                if (i !== item) i.classList.remove('open');
+            });
             item.classList.toggle('open');
         }
 
@@ -1197,18 +1350,49 @@
             }
         }
 
-        // IntersectionObserver fade-in
-        const observer = new IntersectionObserver((entries) => {
+        // Counter animation
+        const statsSection = document.getElementById('stats');
+        let counted = false;
+
+        function animateCounters() {
+            if (counted) return;
+            counted = true;
+
+            document.querySelectorAll('.stat-number').forEach(counter => {
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const isDecimal = counter.getAttribute('data-decimal') === 'true';
+                const suffix = counter.textContent.includes('+') ? '+' : '';
+                const duration = 2000;
+                const steps = 60;
+                const increment = target / steps;
+                let current = 0;
+                let step = 0;
+
+                const timer = setInterval(() => {
+                    step++;
+                    current += increment;
+                    if (step >= steps) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    if (isDecimal) {
+                        counter.textContent = current.toFixed(1) + '★';
+                    } else {
+                        counter.textContent = Math.floor(current) + '+';
+                    }
+                }, duration / steps);
+            });
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    animateCounters();
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.3 });
 
-        document.querySelectorAll('.fade-section').forEach(section => {
-            observer.observe(section);
-        });
+        statsObserver.observe(statsSection);
     </script>
 
 </body>
