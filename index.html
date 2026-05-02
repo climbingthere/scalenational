@@ -2411,43 +2411,19 @@ html {
     var firstName = nameParts[0];
     var lastName = nameParts.slice(1).join(' ') || '';
 
-    // Submit to GHL
-    fetch('https://services.leadconnectorhq.com/contacts/', {
+    // Submit to worker (handles GHL contact + SMS + alerts)
+    fetch('https://api.scalenational.com/chat', {
       method: 'POST',
-      headers: {
-        'Authorization': 'Bearer pit-78da4d2d-b177-4112-ad8c-15a2a9ac8c36',
-        'Version': '2021-07-28',
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        locationId: 'bxAx2g1z6Dd09kSdJZYt',
         firstName: firstName,
         lastName: lastName,
-        phone: phone || '',
-        tags: ['website-chat'],
-        customFields: [],
-        source: 'scalenational.com chat widget'
+        phone: phone,
+        message: msg
       })
     })
     .then(function(r) { return r.json(); })
-    .then(function(data) {
-      // Also add a note with their message if contact was created
-      if (data && data.contact && data.contact.id) {
-        fetch('https://services.leadconnectorhq.com/contacts/' + data.contact.id + '/notes', {
-          method: 'POST',
-          headers: {
-            'Authorization': 'Bearer pit-78da4d2d-b177-4112-ad8c-15a2a9ac8c36',
-            'Version': '2021-07-28',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            userId: '',
-            body: 'Chat widget message: ' + msg
-          })
-        });
-      }
-    })
-    .catch(function(e) { console.log('GHL submit error:', e); });
+    .catch(function(e) { console.log('Chat submit error:', e); });
 
     setTimeout(function() {
       hideTyping();

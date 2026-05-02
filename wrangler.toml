@@ -1,0 +1,11 @@
+name = "scalenational-chat"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+account_id = "2dad56fed54a3d0d86f733cf825dbb07"
+
+[vars]
+LOCATION_ID = "bxAx2g1z6Dd09kSdJZYt"
+
+routes = [
+  { pattern = "api.scalenational.com/chat*", zone_id = "209ab30874eb3c5e07d11cc28aae7cef" }
+]
