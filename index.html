@@ -389,32 +389,56 @@
 
         /* ========== STATS BAR ========== */
         .stats-bar {
-            background: #FF5A1F;
-            padding: 48px 0;
+            background: #111111;
+            padding: 0;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
+            gap: 0;
             text-align: center;
         }
 
+        .stat-item {
+            padding: 40px 24px;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: rgba(255,255,255,0.07);
+        }
+
+        .stat-item .stat-icon {
+            margin-bottom: 12px;
+        }
+
+        .stat-item .stat-icon svg {
+            width: 24px;
+            height: 24px;
+            color: #FF5A1F;
+        }
+
         .stat-item .stat-number {
-            font-size: 48px;
-            font-weight: 700;
+            font-size: 42px;
+            font-weight: 900;
             color: #ffffff;
             line-height: 1;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
+            margin-bottom: 6px;
+            font-family: 'Urbanist', sans-serif;
         }
 
         .stat-item .stat-label {
-            font-size: 14px;
-            color: rgba(255,255,255,0.85);
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
             font-weight: 400;
         }
 
@@ -422,6 +446,227 @@
         .services {
             background: #ffffff;
             padding: 100px 0;
+        }
+
+        .services-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .service-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .service-row:last-child {
+            border-bottom: none;
+        }
+
+        .service-row.reverse .service-content {
+            order: 2;
+        }
+
+        .service-row.reverse .service-feature-card {
+            order: 1;
+        }
+
+        .service-content .icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 20px;
+            color: #FF5A1F;
+        }
+
+        .service-content h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 14px;
+            color: #0d0d0d;
+        }
+
+        .service-content p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .service-content .learn-more {
+            color: #FF5A1F;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .service-content .learn-more:hover {
+            color: #e04a10;
+        }
+
+        .service-feature-card {
+            background: #111;
+            border-radius: 16px;
+            padding: 40px 32px;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .service-feature-card .mini-browser {
+            width: 100%;
+            max-width: 260px;
+        }
+
+        .service-feature-card .mini-browser .browser-bar {
+            display: flex;
+            gap: 5px;
+            padding: 10px 12px;
+            background: #1a1a1a;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .service-feature-card .mini-browser .browser-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #333;
+        }
+
+        .service-feature-card .mini-browser .browser-content {
+            background: #1a1a1a;
+            padding: 16px;
+            border-radius: 0 0 8px 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .service-feature-card .mini-browser .browser-line {
+            height: 8px;
+            background: #2a2a2a;
+            border-radius: 4px;
+        }
+
+        .service-feature-card .mini-browser .browser-line.short {
+            width: 60%;
+        }
+
+        .service-feature-card .mini-browser .browser-line.med {
+            width: 80%;
+        }
+
+        .service-feature-card .phone-notif {
+            position: relative;
+            width: 180px;
+        }
+
+        .service-feature-card .phone-outline {
+            width: 180px;
+            height: 260px;
+            border: 2px solid #333;
+            border-radius: 24px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 12px;
+        }
+
+        .service-feature-card .text-bubble {
+            background: #FF5A1F;
+            color: #fff;
+            font-size: 12px;
+            padding: 12px 14px;
+            border-radius: 12px 12px 12px 4px;
+            line-height: 1.4;
+            max-width: 150px;
+        }
+
+        .service-feature-card .stars-display {
+            text-align: center;
+        }
+
+        .service-feature-card .stars-row {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+
+        .service-feature-card .stars-row svg {
+            width: 28px;
+            height: 28px;
+            fill: #FF5A1F;
+        }
+
+        .service-feature-card .reviews-count {
+            font-size: 32px;
+            font-weight: 900;
+            color: #FF5A1F;
+            font-family: 'Urbanist', sans-serif;
+        }
+
+        .service-feature-card .flow-diagram {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .service-feature-card .flow-step {
+            background: #1a1a1a;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+        }
+
+        .service-feature-card .flow-arrow {
+            color: #FF5A1F;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .service-feature-card .chat-ui {
+            width: 100%;
+            max-width: 260px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-feature-card .chat-bubble {
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.4;
+            max-width: 85%;
+        }
+
+        .service-feature-card .chat-bubble.incoming {
+            background: #1a1a1a;
+            color: rgba(255,255,255,0.8);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .service-feature-card .chat-bubble.outgoing {
+            background: #FF5A1F;
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
         }
 
         .section-header {
@@ -449,60 +694,7 @@
             color: rgba(255,255,255,0.6);
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .service-card {
-            background: #ffffff;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            padding: 36px 28px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-        }
-
-        .service-card .icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 20px;
-            color: #FF5A1F;
-        }
-
-        .service-card h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #0d0d0d;
-        }
-
-        .service-card p {
-            font-size: 15px;
-            color: #666666;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .service-card .learn-more {
-            color: #FF5A1F;
-            font-weight: 600;
-            font-size: 14px;
-            transition: color 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .service-card .learn-more:hover {
-            color: #e04a10;
-        }
+        /* legacy service-card styles removed — using service-row layout */
 
         /* ========== VIDEO ========== */
         .video-section {
@@ -1052,13 +1244,26 @@
 
         /* ========== RESPONSIVE ========== */
         @media (max-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .service-row {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .service-row.reverse .service-content {
+                order: 1;
+            }
+
+            .service-row.reverse .service-feature-card {
+                order: 2;
             }
 
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 32px;
+                gap: 0;
+            }
+
+            .stat-item:nth-child(2)::after {
+                display: none;
             }
 
             .comparison-grid {
@@ -1084,7 +1289,7 @@
                 font-size: 28px;
             }
 
-            .services-grid {
+            .service-row {
                 grid-template-columns: 1fr;
             }
 
@@ -1108,7 +1313,11 @@
             }
 
             .stat-item .stat-number {
-                font-size: 36px;
+                font-size: 32px;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
             }
 
             .final-cta-card {
@@ -1170,11 +1379,15 @@
 
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
+                gap: 0;
             }
 
             .stat-item .stat-number {
                 font-size: 28px;
+            }
+
+            .stat-item {
+                padding: 28px 16px;
             }
         }
     </style>
@@ -1252,20 +1465,24 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">Done For You</div>
-                    <div class="stat-label">Zero tech skills needed</div>
+                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+                    <div class="stat-number">3 min</div>
+                    <div class="stat-label">Avg response time on missed calls</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">No Contracts</div>
-                    <div class="stat-label">Cancel anytime</div>
+                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                    <div class="stat-number">47+</div>
+                    <div class="stat-label">Google reviews generated per client</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">5 Star</div>
-                    <div class="stat-label">Rated on Google</div>
+                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+                    <div class="stat-number">Days</div>
+                    <div class="stat-label">From zero to live website</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">Fast Delivery</div>
-                    <div class="stat-label">Up and running in days</div>
+                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Long-term contracts required</div>
                 </div>
             </div>
         </div>
@@ -1275,63 +1492,121 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Services built to drive impact</h2>
-                <p>Website, CRM, automations, and SEO -- all done for you while you focus on running your business.</p>
+                <h2>Stop losing jobs to contractors with better marketing</h2>
+                <p>We build the digital foundation that keeps your phone ringing — done for you, no tech skills needed.</p>
             </div>
-            <div class="services-grid">
+            <div class="services-features">
 
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <!-- Service 1: Website -->
+                <div class="service-row" data-aos="fade-up">
+                    <div class="service-content">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
+                        <h3>Done-For-You Website</h3>
+                        <p>Your website is your 24/7 salesperson. We build it fast, make it rank on Google, and make sure it converts visitors into calls. You get a site that looks like you spent $10K on it.</p>
+                        <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                     </div>
-                    <h3>Done-For-You Website</h3>
-                    <p>Built custom, mobile-first, live in days. Optimized for search rankings and blazing-fast speed. A site that converts visitors into calls.</p>
-                    <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                    <div class="service-feature-card">
+                        <div class="mini-browser">
+                            <div class="browser-bar">
+                                <span class="browser-dot"></span>
+                                <span class="browser-dot"></span>
+                                <span class="browser-dot"></span>
+                            </div>
+                            <div class="browser-content">
+                                <div class="browser-line"></div>
+                                <div class="browser-line short"></div>
+                                <div class="browser-line med"></div>
+                                <div class="browser-line"></div>
+                                <div class="browser-line short"></div>
+                                <div class="browser-line med"></div>
+                                <div class="browser-line"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                <!-- Service 2: Missed Call -->
+                <div class="service-row reverse" data-aos="fade-up">
+                    <div class="service-content">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <h3>Missed Call Auto Text Back</h3>
+                        <p>A roofer missed a call on a job site. That lead called 3 other roofers. The first one to respond got the job. Our system texts back in under 3 minutes — automatically.</p>
+                        <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                     </div>
-                    <h3>Missed Call Text-Back</h3>
-                    <p>Instant text fires when you miss a call. They hear from you first, before they call the next guy. Never lose a lead again.</p>
-                    <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                    <div class="service-feature-card">
+                        <div class="phone-notif">
+                            <div class="phone-outline">
+                                <div class="text-bubble">Hey! Just saw your missed call, still need help?</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                <!-- Service 3: Google Reviews -->
+                <div class="service-row" data-aos="fade-up">
+                    <div class="service-content">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                        </div>
+                        <h3>Google Business Profile SEO</h3>
+                        <p>When a homeowner searches 'plumber near me' your profile needs to show up in the top 3. We optimize and manage your GBP so you own your local market.</p>
+                        <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                     </div>
-                    <h3>Google Business Profile SEO</h3>
-                    <p>Dominate local search for your trade. We optimize your GBP so you show up in the map pack, where the money is.</p>
-                    <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                    <div class="service-feature-card">
+                        <div class="stars-display">
+                            <div class="stars-row">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <div class="reviews-count">+47 reviews</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <!-- Service 4: Review Automation -->
+                <div class="service-row reverse" data-aos="fade-up">
+                    <div class="service-content">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <h3>Automated Review Generation</h3>
+                        <p>Reviews are the #1 factor homeowners use to choose a contractor. We send automated review requests to every customer — most say yes. Watch your Google rating climb on autopilot.</p>
+                        <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                     </div>
-                    <h3>Automated Review Generation</h3>
-                    <p>We text your past customers. 5-stars roll in on autopilot. Saturate your reviews without awkward conversations or follow-ups.</p>
-                    <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                    <div class="service-feature-card">
+                        <div class="flow-diagram">
+                            <div class="flow-step">Customer texts</div>
+                            <span class="flow-arrow">&rarr;</span>
+                            <div class="flow-step">Review request sent</div>
+                            <span class="flow-arrow">&rarr;</span>
+                            <div class="flow-step">5 star posted</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                <!-- Service 5: AI Chat -->
+                <div class="service-row" data-aos="fade-up">
+                    <div class="service-content">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                        </div>
+                        <h3>AI Chat Widget</h3>
+                        <p>Homeowners browse at night. Your AI chat answers instantly, qualifies the lead, and books them in — while you sleep. Never miss a late-night inquiry again.</p>
+                        <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                     </div>
-                    <h3>CRM & Automations</h3>
-                    <p>Leads on autopilot. Your CRM captures, nurtures, and follows up so you can focus on closing jobs, not chasing people.</p>
-                    <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                    <div class="service-feature-card">
+                        <div class="chat-ui">
+                            <div class="chat-bubble incoming">Do you offer free estimates?</div>
+                            <div class="chat-bubble outgoing">Yes! Want to book one now?</div>
+                        </div>
                     </div>
-                    <h3>SEO & Performance</h3>
-                    <p>Optimized for search rankings and blazing-fast speed. Clean, scalable builds that rank higher on Google month after month.</p>
-                    <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                 </div>
 
             </div>
