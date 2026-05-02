@@ -12,7 +12,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   const { firstName, lastName, phone, message } = body;
-  const GHL_TOKEN = 'pit-78da4d2d-b177-4112-ad8c-15a2a9ac8c36';
+  const GHL_TOKEN = 'pit-99d7b12e-693a-4577-b431-32fbbaf40ac1';
   const LOCATION_ID = 'bxAx2g1z6Dd09kSdJZYt';
   const RESEND_KEY = 're_JknkKC6j_13yygp1KZtRXqxyeqrfMEJGu';
 
