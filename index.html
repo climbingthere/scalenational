@@ -1390,6 +1390,33 @@
                 padding: 28px 16px;
             }
         }
+        /* CTA Section Animations */
+        .cta-avatar-group,
+        .avail-row,
+        .cta-card h2,
+        .cta-card p,
+        .cta-actions,
+        .cta-phone-link {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .cta-card.animated .cta-avatar-group { opacity: 1; transform: translateY(0); transition-delay: 0s; }
+        .cta-card.animated .avail-row       { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+        .cta-card.animated h2               { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+        .cta-card.animated p                { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+        .cta-card.animated .cta-actions     { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+        .cta-card.animated .cta-phone-link  { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+
+        .cta-section .cta-card-wrap {
+            opacity: 0;
+            transform: scale(0.96) translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .cta-section.animated .cta-card-wrap {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -1908,24 +1935,26 @@
     </section>
 
     <!-- FINAL CTA -->
-    <section class="final-cta">
-        <div class="final-cta-card" data-aos="fade-up">
-            <div class="final-cta-inner">
-                <div class="final-cta-left">
-                    <div class="final-cta-photos">
-                        <img src="eric.jpg" alt="Eric">
-                        <img src="tim.jpg" alt="Tim">
+    <section class="final-cta cta-section">
+        <div class="cta-card-wrap">
+            <div class="final-cta-card cta-card">
+                <div class="final-cta-inner">
+                    <div class="final-cta-left">
+                        <div class="final-cta-photos cta-avatar-group">
+                            <img src="eric.jpg" alt="Eric">
+                            <img src="tim.jpg" alt="Tim">
+                        </div>
+                        <div class="avail-badge avail-row">
+                            <span class="avail-dot"></span>
+                            <span class="avail-text">Available now</span>
+                        </div>
+                        <h2>Ready to Scale Your Business?</h2>
+                        <p>Book a free 15-minute call with Eric or Tim. No pitch, no pressure — just a straight conversation about what's possible for your business.</p>
                     </div>
-                    <div class="avail-badge">
-                        <span class="avail-dot"></span>
-                        <span class="avail-text">Available now</span>
+                    <div class="final-cta-right cta-actions">
+                        <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-cta">Talk to Eric or Tim Directly</a>
+                        <p class="phone-cta cta-phone-link">or call <a href="tel:8887744290">888-774-4290</a></p>
                     </div>
-                    <h2>Ready to Scale Your Business?</h2>
-                    <p>Book a free 15-minute call with Eric or Tim. No pitch, no pressure — just a straight conversation about what's possible for your business.</p>
-                </div>
-                <div class="final-cta-right">
-                    <a href="https://calendar.app.google/XPiWCwELdEtymrVS6" class="btn-cta">Talk to Eric or Tim Directly</a>
-                    <p class="phone-cta">or call <a href="tel:8887744290">888-774-4290</a></p>
                 </div>
             </div>
         </div>
@@ -1997,6 +2026,27 @@
             if (!track) return;
             var items = track.innerHTML;
             track.innerHTML = items + items; // exact clone = translateX(-50%) always works
+        })();
+
+        // CTA section slide-in animation
+        (function() {
+            var ctaSection = document.querySelector('.cta-section');
+            var ctaCard = document.querySelector('.cta-card');
+            if (!ctaSection || !ctaCard) return;
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        ctaSection.classList.add('animated');
+                        setTimeout(function() {
+                            ctaCard.classList.add('animated');
+                        }, 100);
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            observer.observe(ctaSection);
         })();
     </script>
 
