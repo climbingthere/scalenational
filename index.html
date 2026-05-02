@@ -11,6 +11,8 @@
     <meta property="og:title" content="Scale National - Websites, CRM & Growth Systems Built For Contractors">
     <meta property="og:description" content="Real systems for real businesses. We build the websites and automation contractors actually need to grow.">
     <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700;800;900&family=Barlow+Condensed:wght@700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -127,15 +129,6 @@
             50% { transform: translateY(-20px); }
         }
 
-        @keyframes scrollLeft {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-
-        @keyframes scrollRight {
-            from { transform: translateX(-50%); }
-            to { transform: translateX(0); }
-        }
 
         /* ========== STICKY NAV ========== */
         .nav {
@@ -596,42 +589,69 @@
             color: #ffffff;
         }
 
-        .ticker-row {
-            display: flex;
-            width: max-content;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .ticker-row.left {
-            animation: scrollLeft 30s linear infinite;
-        }
-
-        .ticker-row.right {
-            animation: scrollRight 30s linear infinite;
-        }
-
-        .ticker-wrap {
+        .ticker-wrapper {
             overflow: hidden;
             width: 100%;
+            padding: 12px 0;
+            background: #0d0d0d;
+            position: relative;
         }
 
-        .trade-pill {
-            background: transparent;
-            color: #ffffff;
+        .ticker-wrapper::before,
+        .ticker-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .ticker-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, #0d0d0d, transparent);
+        }
+
+        .ticker-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, #0d0d0d, transparent);
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: tickerScroll 30s linear infinite;
+            will-change: transform;
+        }
+
+        .ticker-track.reverse {
+            animation: tickerScrollReverse 30s linear infinite;
+        }
+
+        @keyframes tickerScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes tickerScrollReverse {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            padding: 8px 20px;
+            margin: 0 6px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50px;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 14px;
             font-weight: 500;
-            padding: 10px 24px;
-            border-radius: 50px;
-            border: 1px solid #333;
-            white-space: nowrap;
-            cursor: default;
-            transition: all 0.3s ease;
-        }
-
-        .trade-pill:hover {
-            border-color: #FF5A1F;
-            color: #FF5A1F;
+            color: rgba(255,255,255,0.8);
+            flex-shrink: 0;
         }
 
         /* ========== PARTNERS ========== */
@@ -978,7 +998,7 @@
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#" class="nav-logo">
-                <img src="logo.png" alt="Scale National">
+                <img src="logo-white.jpg" alt="Scale National" style="height:36px;width:auto;border-radius:6px;">
             </a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
@@ -1153,60 +1173,112 @@
                 <h2>Built for every trade</h2>
             </div>
         </div>
-        <div class="ticker-wrap">
-            <div class="ticker-row left">
-                <span class="trade-pill">Roofing</span>
-                <span class="trade-pill">HVAC</span>
-                <span class="trade-pill">Plumbing</span>
-                <span class="trade-pill">Electrical</span>
-                <span class="trade-pill">Painting</span>
-                <span class="trade-pill">Landscaping</span>
-                <span class="trade-pill">General Contractor</span>
-                <span class="trade-pill">Flooring</span>
-                <span class="trade-pill">Concrete</span>
-                <span class="trade-pill">Fencing</span>
-                <span class="trade-pill">Pest Control</span>
-                <span class="trade-pill">Pool & Spa</span>
-                <span class="trade-pill">Roofing</span>
-                <span class="trade-pill">HVAC</span>
-                <span class="trade-pill">Plumbing</span>
-                <span class="trade-pill">Electrical</span>
-                <span class="trade-pill">Painting</span>
-                <span class="trade-pill">Landscaping</span>
-                <span class="trade-pill">General Contractor</span>
-                <span class="trade-pill">Flooring</span>
-                <span class="trade-pill">Concrete</span>
-                <span class="trade-pill">Fencing</span>
-                <span class="trade-pill">Pest Control</span>
-                <span class="trade-pill">Pool & Spa</span>
+        <div class="ticker-wrapper">
+            <div class="ticker-track">
+                <!-- Set 1 -->
+                <span class="ticker-item">Roofing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">HVAC</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Plumbing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Electrical</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Painting</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Landscaping</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">General Contractor</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Flooring</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Concrete</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Fencing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Pest Control</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Pool &amp; Spa</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Garage Doors</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Gutters</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Siding</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Windows &amp; Doors</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Pressure Washing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Tree Service</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Masonry</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Remodeling</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Solar</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Insulation</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Drywall</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Handyman</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <!-- Set 2 — exact duplicate -->
+                <span class="ticker-item">Roofing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">HVAC</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Plumbing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Electrical</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Painting</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Landscaping</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">General Contractor</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Flooring</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Concrete</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Fencing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Pest Control</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Pool &amp; Spa</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Garage Doors</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Gutters</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Siding</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Windows &amp; Doors</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Pressure Washing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Tree Service</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Masonry</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Remodeling</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Solar</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Insulation</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Drywall</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Handyman</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
             </div>
         </div>
-        <div class="ticker-wrap">
-            <div class="ticker-row right">
-                <span class="trade-pill">Garage Doors</span>
-                <span class="trade-pill">Gutters</span>
-                <span class="trade-pill">Siding</span>
-                <span class="trade-pill">Windows & Doors</span>
-                <span class="trade-pill">Pressure Washing</span>
-                <span class="trade-pill">Tree Service</span>
-                <span class="trade-pill">Masonry</span>
-                <span class="trade-pill">Remodeling</span>
-                <span class="trade-pill">Solar</span>
-                <span class="trade-pill">Insulation</span>
-                <span class="trade-pill">Drywall</span>
-                <span class="trade-pill">Handyman</span>
-                <span class="trade-pill">Garage Doors</span>
-                <span class="trade-pill">Gutters</span>
-                <span class="trade-pill">Siding</span>
-                <span class="trade-pill">Windows & Doors</span>
-                <span class="trade-pill">Pressure Washing</span>
-                <span class="trade-pill">Tree Service</span>
-                <span class="trade-pill">Masonry</span>
-                <span class="trade-pill">Remodeling</span>
-                <span class="trade-pill">Solar</span>
-                <span class="trade-pill">Insulation</span>
-                <span class="trade-pill">Drywall</span>
-                <span class="trade-pill">Handyman</span>
+        <div class="ticker-wrapper" style="margin-top:8px;">
+            <div class="ticker-track reverse">
+                <!-- Set 1 -->
+                <span class="ticker-item">Roofing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">HVAC</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Plumbing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Electrical</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Painting</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Landscaping</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">General Contractor</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Flooring</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Concrete</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Fencing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Pest Control</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Pool &amp; Spa</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Garage Doors</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Gutters</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Siding</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Windows &amp; Doors</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Pressure Washing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Tree Service</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Masonry</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Remodeling</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Solar</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Insulation</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Drywall</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Handyman</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <!-- Set 2 — exact duplicate -->
+                <span class="ticker-item">Roofing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">HVAC</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Plumbing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Electrical</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Painting</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Landscaping</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">General Contractor</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Flooring</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Concrete</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Fencing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Pest Control</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Pool &amp; Spa</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Garage Doors</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Gutters</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Siding</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Windows &amp; Doors</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Pressure Washing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Tree Service</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Masonry</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Remodeling</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Solar</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Insulation</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Drywall</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
+                <span class="ticker-item">Handyman</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
             </div>
         </div>
     </section>
@@ -1328,7 +1400,7 @@
             <div class="footer-inner">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="logo.png" alt="Scale National">
+                        <img src="logo-white.jpg" alt="Scale National" style="height:36px;width:auto;border-radius:6px;">
                     </div>
                     <div class="tagline">Websites, CRM & growth systems for contractors nationwide</div>
                 </div>
