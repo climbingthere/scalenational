@@ -240,7 +240,19 @@
       star.addEventListener('click', () => {
         selectedRating = parseInt(star.dataset.value);
         if (selectedRating >= 4) {
-          showState('state-happy');
+          // Fire GHL tag in background, then immediately redirect
+          if (cid && lid) {
+            fetch('/functions/review-click', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ cid, lid, rating: selectedRating })
+            }).catch(() => {});
+          }
+          if (googleUrl) {
+            window.location.href = googleUrl;
+          } else {
+            showState('state-happy'); // fallback if no google URL param
+          }
         } else {
           showState('state-unhappy');
         }
@@ -257,28 +269,10 @@
       document.getElementById(id).classList.add('active');
     }
 
-    // Happy path — Google review button
-    document.getElementById('btn-google').addEventListener('click', async () => {
-      const btn = document.getElementById('btn-google');
-      btn.classList.add('loading');
-      btn.disabled = true;
-
-      try {
-        await fetch('/functions/review-click', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ cid, lid, rating: selectedRating })
-        });
-      } catch (e) {
-        // Don't block the user
-      }
-
-      // Redirect to Google review
+    // Happy path — Google review button (fallback only, when no google param)
+    document.getElementById('btn-google').addEventListener('click', () => {
       if (googleUrl) {
         window.location.href = googleUrl;
-      } else {
-        btn.textContent = 'Thank you!';
-        btn.classList.remove('loading');
       }
     });
 
