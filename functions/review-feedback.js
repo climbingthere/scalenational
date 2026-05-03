@@ -11,14 +11,15 @@ export async function onRequestPost({ request }) {
     return new Response(JSON.stringify({ ok: false }), { status: 400, headers: cors });
   }
 
-  const { cid, lid, rating, feedback, name, email } = body;
+  const { cid, lid, rating, reason, feedback, name, email } = body;
   const GHL_TOKEN = 'pit-99d7b12e-693a-4577-b431-32fbbaf40ac1';
   const RESEND_KEY = 're_JknkKC6j_13yygp1KZtRXqxyeqrfMEJGu';
 
-  if (!cid || !feedback) {
-    return new Response(JSON.stringify({ ok: false, error: 'missing cid or feedback' }), { status: 400, headers: cors });
+  if (!cid) {
+    return new Response(JSON.stringify({ ok: false, error: 'missing cid' }), { status: 400, headers: cors });
   }
 
+  const reasonLine = reason ? `, reason: ${reason}` : '';
   const nameLine = name ? `\nName: ${name}` : '';
   const emailLine = email ? `\nEmail: ${email}` : '';
 
@@ -43,12 +44,13 @@ export async function onRequestPost({ request }) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        body: `Customer left private feedback (rating: ${rating}/5)${nameLine}${emailLine}\n\n${feedback}`,
+        body: `Private feedback (rating: ${rating}/5${reasonLine}): ${feedback || 'No comment'}${nameLine}${emailLine}`,
         userId: 'Dj7WGTAWQ14PhUA82yX7'
       })
     });
 
     // Send email alert via Resend
+    const reasonSubject = reason ? ` — ${reason}` : '';
     await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -58,8 +60,8 @@ export async function onRequestPost({ request }) {
       body: JSON.stringify({
         from: 'Scale National <notifications@scalenational.com>',
         to: ['eric@scalenational.com'],
-        subject: `New Private Feedback — ${rating}/5 stars`,
-        text: `Rating: ${rating}/5${nameLine}${emailLine}\n\nFeedback:\n${feedback}\n\nContact ID: ${cid}\nLocation ID: ${lid}`
+        subject: `Private Feedback — ${rating}/5${reasonSubject}`,
+        text: `Rating: ${rating}/5\nReason: ${reason || 'Not specified'}${nameLine}${emailLine}\n\nFeedback:\n${feedback || 'No comment'}\n\nContact ID: ${cid}\nLocation ID: ${lid}`
       })
     });
   } catch (e) {
