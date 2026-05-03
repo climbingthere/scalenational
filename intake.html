@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Get Started — Scale National</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      min-height: 100vh;
+      background: #0D0D0D;
+      font-family: 'Urbanist', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px 64px;
+    }
+
+    /* ── Page header ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .page-header img {
+      height: 44px;
+      margin-bottom: 16px;
+    }
+
+    .page-header h1 {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 560px;
+      padding: 40px 36px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    .card h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0D0D0D;
+      margin-bottom: 4px;
+      letter-spacing: -0.3px;
+    }
+
+    .card .subtext {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 28px;
+    }
+
+    /* ── Form layout ── */
+    .row {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .row.two-col { grid-template-columns: 1fr 1fr; }
+
+    @media (max-width: 540px) {
+      .row.two-col { grid-template-columns: 1fr; }
+      .card { padding: 32px 20px; }
+      body { padding: 32px 16px 48px; }
+    }
+
+    /* ── Fields ── */
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0D0D0D;
+      margin-bottom: 6px;
+    }
+
+    .field label .req { color: #FF5A1F; }
+
+    .field input,
+    .field select {
+      width: 100%;
+      border: 1.5px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: 'Urbanist', sans-serif;
+      font-size: 15px;
+      color: #0D0D0D;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .field input::placeholder,
+    .field select option[value=""] { color: #999; }
+
+    .field input:focus,
+    .field select:focus { border-color: #FF5A1F; }
+
+    /* ── Button ── */
+    .btn-submit {
+      width: 100%;
+      margin-top: 8px;
+      padding: 16px;
+      background: #FF5A1F;
+      color: #fff;
+      font-family: 'Urbanist', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-submit:hover { background: #e84e16; }
+    .btn-submit:active { transform: scale(0.99); }
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    /* ── Inline error ── */
+    .inline-error {
+      color: #d32f2f;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 12px;
+      text-align: center;
+      display: none;
+    }
+
+    .inline-error.visible { display: block; }
+
+    /* ── Success state ── */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 32px 0;
+    }
+
+    .success-state .check-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+    }
+
+    .success-state h3 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0D0D0D;
+      margin-bottom: 8px;
+    }
+
+    .success-state p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.6;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    /* ── Spinner ── */
+    .spinner {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <img src="logo.png" alt="Scale National">
+    <h1>Let's see if we're a good fit.</h1>
+  </div>
+
+  <div class="card">
+    <!-- Form -->
+    <div id="formWrap">
+      <h2>Tell us about your business</h2>
+      <p class="subtext">Takes 2 minutes. We'll reach out within 24 hours.</p>
+
+      <form id="intakeForm" novalidate>
+        <!-- Row 1: Name -->
+        <div class="row two-col">
+          <div class="field">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" name="firstName" required placeholder="First name">
+          </div>
+          <div class="field">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" name="lastName" required placeholder="Last name">
+          </div>
+        </div>
+
+        <!-- Row 2: Business -->
+        <div class="row">
+          <div class="field">
+            <label>Business Name <span class="req">*</span></label>
+            <input type="text" name="businessName" required placeholder="Your business name">
+          </div>
+        </div>
+
+        <!-- Row 3: Contact -->
+        <div class="row two-col">
+          <div class="field">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" required placeholder="you@company.com">
+          </div>
+          <div class="field">
+            <label>Phone <span class="req">*</span></label>
+            <input type="tel" name="phone" required placeholder="(555) 123-4567">
+          </div>
+        </div>
+
+        <!-- Row 4: Trade -->
+        <div class="row">
+          <div class="field">
+            <label>Trade / Industry <span class="req">*</span></label>
+            <select name="trade" required>
+              <option value="">Select your trade...</option>
+              <option>Landscaping &amp; Lawn Care</option>
+              <option>HVAC</option>
+              <option>Plumbing</option>
+              <option>Pest Control</option>
+              <option>Cleaning Services</option>
+              <option>Pool Service &amp; Maintenance</option>
+              <option>Pressure Washing</option>
+              <option>Electrician</option>
+              <option>Painting</option>
+              <option>Handyman</option>
+              <option>Roofer</option>
+              <option>Tree Service</option>
+              <option>Junk Removal</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Row 5: Revenue + Reviews -->
+        <div class="row two-col">
+          <div class="field">
+            <label>Monthly Revenue</label>
+            <select name="revenue">
+              <option value="">Estimated monthly revenue...</option>
+              <option>Under $10,000</option>
+              <option>$10,000 – $25,000</option>
+              <option>$25,000 – $50,000</option>
+              <option>$50,000 – $100,000</option>
+              <option>$100,000+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Google Reviews</label>
+            <input type="number" name="reviewCount" min="0" placeholder="# of Google reviews">
+          </div>
+        </div>
+
+        <!-- Row 6: Rating -->
+        <div class="row">
+          <div class="field">
+            <label>Current Google Rating</label>
+            <select name="reviewRating">
+              <option value="">Current Google rating...</option>
+              <option>No reviews yet</option>
+              <option>1 – 2 stars</option>
+              <option>3 stars</option>
+              <option>3.5 stars</option>
+              <option>4 stars</option>
+              <option>4.5 stars</option>
+              <option>5 stars</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Get Started &rarr;</button>
+        <div class="inline-error" id="errorMsg"></div>
+      </form>
+    </div>
+
+    <!-- Success -->
+    <div class="success-state" id="successState">
+      <svg class="check-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="32" fill="#FF5A1F"/>
+        <path d="M20 33l8 8 16-16" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>You're in.</h3>
+      <p>We'll review your info and reach out within 24 hours. Keep an eye on your email.</p>
+    </div>
+  </div>
+
+  <script>
+    const form     = document.getElementById('intakeForm');
+    const formWrap = document.getElementById('formWrap');
+    const success  = document.getElementById('successState');
+    const btn      = document.getElementById('submitBtn');
+    const errEl    = document.getElementById('errorMsg');
+
+    function showError(msg) {
+      errEl.textContent = msg;
+      errEl.classList.add('visible');
+    }
+
+    function hideError() {
+      errEl.classList.remove('visible');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideError();
+
+      // Client-side required check
+      const data = Object.fromEntries(new FormData(form));
+      const required = ['firstName', 'lastName', 'businessName', 'email', 'phone', 'trade'];
+      for (const key of required) {
+        if (!data[key] || !data[key].trim()) {
+          showError('Please fill out all required fields.');
+          return;
+        }
+      }
+
+      // Email format
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+        showError('Please enter a valid email address.');
+        return;
+      }
+
+      // Loading state
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Submitting...';
+
+      try {
+        const res = await fetch('/intake', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        const result = await res.json();
+
+        if (!res.ok || result.ok === false) {
+          throw new Error(result.error || 'Something went wrong. Please try again.');
+        }
+
+        // Success
+        formWrap.style.display = 'none';
+        success.style.display = 'block';
+      } catch (err) {
+        showError(err.message);
+        btn.disabled = false;
+        btn.innerHTML = 'Get Started &rarr;';
+      }
+    });
+  </script>
+</body>
+</html>
