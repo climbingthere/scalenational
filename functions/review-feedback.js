@@ -11,13 +11,16 @@ export async function onRequestPost({ request }) {
     return new Response(JSON.stringify({ ok: false }), { status: 400, headers: cors });
   }
 
-  const { cid, lid, rating, feedback } = body;
+  const { cid, lid, rating, feedback, name, email } = body;
   const GHL_TOKEN = 'pit-99d7b12e-693a-4577-b431-32fbbaf40ac1';
   const RESEND_KEY = 're_JknkKC6j_13yygp1KZtRXqxyeqrfMEJGu';
 
   if (!cid || !feedback) {
     return new Response(JSON.stringify({ ok: false, error: 'missing cid or feedback' }), { status: 400, headers: cors });
   }
+
+  const nameLine = name ? `\nName: ${name}` : '';
+  const emailLine = email ? `\nEmail: ${email}` : '';
 
   try {
     // Add tag "negative-feedback"
@@ -40,7 +43,7 @@ export async function onRequestPost({ request }) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        body: `Customer left private feedback (rating: ${rating}/5): ${feedback}`,
+        body: `Customer left private feedback (rating: ${rating}/5)${nameLine}${emailLine}\n\n${feedback}`,
         userId: 'Dj7WGTAWQ14PhUA82yX7'
       })
     });
@@ -56,7 +59,7 @@ export async function onRequestPost({ request }) {
         from: 'Scale National <notifications@scalenational.com>',
         to: ['eric@scalenational.com'],
         subject: `New Private Feedback — ${rating}/5 stars`,
-        text: `Rating: ${rating}/5\n\nFeedback:\n${feedback}\n\nContact ID: ${cid}\nLocation ID: ${lid}`
+        text: `Rating: ${rating}/5${nameLine}${emailLine}\n\nFeedback:\n${feedback}\n\nContact ID: ${cid}\nLocation ID: ${lid}`
       })
     });
   } catch (e) {
