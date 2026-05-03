@@ -901,31 +901,40 @@ html {
                 }
                 .logo-item {
                     display: flex;
-                    flex-direction: row;
+                    flex-direction: column;
                     align-items: center;
                     gap: 10px;
                     flex-shrink: 0;
-                    background: rgba(255,255,255,0.06);
+                    min-width: 120px;
+                }
+                .logo-box {
+                    width: 80px;
+                    height: 80px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(255,255,255,0.07);
                     border: 1px solid rgba(255,255,255,0.1);
-                    border-radius: 100px;
-                    padding: 12px 22px;
-                    white-space: nowrap;
+                    border-radius: 20px;
+                    padding: 16px;
                     transition: background 0.2s;
                 }
-                .logo-item:hover {
-                    background: rgba(255,255,255,0.1);
+                .logo-item:hover .logo-box {
+                    background: rgba(255,255,255,0.13);
                 }
-                .logo-dot {
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                    flex-shrink: 0;
+                .logo-box img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    filter: brightness(0) invert(1);
+                    opacity: 0.85;
                 }
                 .logo-name {
-                    font-size: 14px;
-                    font-weight: 700;
-                    color: rgba(255,255,255,0.9);
-                    letter-spacing: 0.02em;
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: rgba(255,255,255,0.5);
+                    text-align: center;
+                    letter-spacing: 0.03em;
                 }
                 @keyframes logoScroll {
                     0% { transform: translateX(0); }
@@ -1789,12 +1798,30 @@ html {
             <p class="logos-sub">We make sure your customers can find, trust, and choose you — on every platform that matters.</p>
             <div class="logos-carousel">
                 <div class="logos-track" id="logos-track">
-                    <div class="logo-item"><span class="logo-dot" style="background:#4285F4"></span><span class="logo-name">Google Search</span></div>
-                    <div class="logo-item"><span class="logo-dot" style="background:#EA4335"></span><span class="logo-name">Google Maps</span></div>
-                    <div class="logo-item"><span class="logo-dot" style="background:#34A853"></span><span class="logo-name">Google Business Profile</span></div>
-                    <div class="logo-item"><span class="logo-dot" style="background:#1877F2"></span><span class="logo-name">Facebook</span></div>
-                    <div class="logo-item"><span class="logo-dot" style="background:#E1306C"></span><span class="logo-name">Instagram</span></div>
-                    <div class="logo-item"><span class="logo-dot" style="background:#00B140"></span><span class="logo-name">Nextdoor</span></div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://cdn.simpleicons.org/google/ffffff" alt="Google"></div>
+                        <span class="logo-name">Google Search</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://cdn.simpleicons.org/googlemaps/ffffff" alt="Google Maps"></div>
+                        <span class="logo-name">Google Maps</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://cdn.simpleicons.org/googlemybusiness/ffffff" alt="Google Business"></div>
+                        <span class="logo-name">Google Business</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook"></div>
+                        <span class="logo-name">Facebook</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram"></div>
+                        <span class="logo-name">Instagram</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-box"><img src="https://cdn.simpleicons.org/nextdoor/ffffff" alt="Nextdoor"></div>
+                        <span class="logo-name">Nextdoor</span>
+                    </div>
                 </div>
             </div>
         </div>
