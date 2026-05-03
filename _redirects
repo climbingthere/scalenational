@@ -1,0 +1,3 @@
+# review.scalenational.com → /review (preserves query string)
+https://review.scalenational.com/* https://scalenational.com/review/:splat 301
+https://review.scalenational.com https://scalenational.com/review 301
