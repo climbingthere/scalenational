@@ -4,7 +4,11 @@
  *       parses all fields, sends a formatted email via Resend.
  */
 
-const RESEND_KEY = 're_JknkKC6j_13yygp1KZtRXqxyeqrfMEJGu';
+const RESEND_KEY   = 're_JknkKC6j_13yygp1KZtRXqxyeqrfMEJGu';
+const GHL_TOKEN    = 'pit-0f6cdeea-ddbf-4c1e-bdd7-5b1bd0d919d6';
+const GHL_LOCATION = 'bxAx2g1z6Dd09kSdJZYt';
+const GHL_BASE     = 'https://services.leadconnectorhq.com';
+const GHL_VERSION  = '2021-07-28';
 
 const CORS = {
   'Access-Control-Allow-Origin': 'https://scalenational.com',
@@ -207,6 +211,96 @@ export async function onRequest(context) {
   } catch (err) {
     console.error('Resend exception:', err);
     return json({ ok: false, error: 'Failed to send notification email' }, 502);
+  }
+
+  // ── GHL: Create contact + note ─────────────────────────────────────
+  try {
+    const ghlHeaders = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${GHL_TOKEN}`,
+      'Version': GHL_VERSION,
+    };
+
+    // 1. Create contact
+    const contactPayload = {
+      locationId:  GHL_LOCATION,
+      firstName:   ownerFirst,
+      lastName:    ownerLast,
+      email:       emailsArr[0] || '',
+      phone:       phonesArr[0] || '',
+      companyName: businessName,
+      website:     website || '',
+      address1:    address || '',
+      tags:        ['client-onboarding'],
+      source:      'onboarding-form',
+    };
+
+    const contactRes  = await fetch(`${GHL_BASE}/contacts/`, {
+      method:  'POST',
+      headers: ghlHeaders,
+      body:    JSON.stringify(contactPayload),
+    });
+    const contactData = await contactRes.json();
+    const contactId   = contactData?.contact?.id;
+
+    if (contactId) {
+      // 2. Add detailed note with all onboarding info
+      const staffArr2  = JSON.parse(staff || '[]');
+      const staffLines = staffArr2.length
+        ? staffArr2.map(s => `  - ${s.first} ${s.last}${s.role ? ` (${s.role})` : ''}`).join('\n')
+        : '  None provided';
+
+      const noteBody = [
+        `=== CLIENT ONBOARDING SUBMISSION ===`,
+        ``,
+        `BUSINESS: ${businessName}`,
+        `OWNER: ${ownerFirst} ${ownerLast}`,
+        `PHONES: ${phonesArr.join(', ')}`,
+        `EMAILS: ${emailsArr.join(', ')}`,
+        website    ? `WEBSITE: ${website}` : null,
+        address    ? `ADDRESS: ${address}` : null,
+        ``,
+        `SERVICES OFFERED:`,
+        services,
+        ``,
+        `ASSOCIATIONS / CERTIFICATIONS:`,
+        certifications || 'None provided',
+        ``,
+        `BRAND COLORS:`,
+        `  Primary: ${primaryColor || 'Not specified'}`,
+        `  Secondary: ${secondaryColor || 'Not specified'}`,
+        brandNotes ? `  Notes: ${brandNotes}` : null,
+        ``,
+        `STAFF:`,
+        staffLines,
+        notes ? `\nADDITIONAL NOTES:\n${notes}` : null,
+        ``,
+        `PHOTOS UPLOADED: ${photos.length}`,
+      ].filter(l => l !== null).join('\n');
+
+      await fetch(`${GHL_BASE}/contacts/${contactId}/notes`, {
+        method:  'POST',
+        headers: ghlHeaders,
+        body:    JSON.stringify({ body: noteBody, userId: contactId }),
+      });
+
+      // 3. Create opportunity in pipeline
+      await fetch(`${GHL_BASE}/opportunities/`, {
+        method:  'POST',
+        headers: ghlHeaders,
+        body:    JSON.stringify({
+          locationId:  GHL_LOCATION,
+          contactId,
+          name:        `${businessName} — Onboarding`,
+          pipelineId:  'VxsnPyFkv6rjjHDA30M7',
+          stageId:     'a3e90324-df2f-4593-9d74-160b2d9c5f81',
+          status:      'open',
+        }),
+      });
+    }
+  } catch (err) {
+    console.error('GHL error:', err);
+    // Don't fail the request if GHL is down — email already sent
   }
 
   return json({ ok: true });
