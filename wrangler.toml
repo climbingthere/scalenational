@@ -5,7 +5,11 @@ account_id = "2dad56fed54a3d0d86f733cf825dbb07"
 
 [vars]
 LOCATION_ID = "bxAx2g1z6Dd09kSdJZYt"
+GHL_TOKEN = "pit-0f6cdeea-ddbf-4c1e-bdd7-5b1bd0d919d6"
+RESEND_KEY = "re_JknkKC6j_13yygp1KZtRXqxyeqrfMEJGu"
 
 routes = [
-  { pattern = "api.scalenational.com/chat*", zone_id = "209ab30874eb3c5e07d11cc28aae7cef" }
+  { pattern = "api.scalenational.com/chat*", zone_id = "209ab30874eb3c5e07d11cc28aae7cef" },
+  { pattern = "api.scalenational.com/intake", zone_id = "209ab30874eb3c5e07d11cc28aae7cef" },
+  { pattern = "api.scalenational.com/onboard", zone_id = "209ab30874eb3c5e07d11cc28aae7cef" },
 ]

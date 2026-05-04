@@ -363,7 +363,7 @@
       btn.innerHTML = '<span class="spinner"></span> Submitting...';
 
       try {
-        const res = await fetch('/functions/intake', {
+        const res = await fetch('https://api.scalenational.com/intake', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
