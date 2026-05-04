@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Client Onboarding — Scale National</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      min-height: 100vh;
+      background: #0D0D0D;
+      font-family: 'Urbanist', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px 64px;
+    }
+
+    /* ── Page header ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .page-header img {
+      height: 44px;
+      margin-bottom: 16px;
+    }
+
+    .page-header h1 {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 680px;
+      padding: 40px 36px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ── Section headers ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #FF5A1F;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 16px;
+      margin-top: 32px;
+    }
+
+    .section-label:first-child { margin-top: 0; }
+
+    /* ── Form layout ── */
+    .row {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .row.two-col { grid-template-columns: 1fr 1fr; }
+    .row.three-col { grid-template-columns: 1fr 1fr 1fr; }
+
+    @media (max-width: 640px) {
+      .row.two-col { grid-template-columns: 1fr; }
+      .row.three-col { grid-template-columns: 1fr; }
+      .card { padding: 32px 20px; }
+      body { padding: 32px 16px 48px; }
+      .color-row { flex-direction: column; }
+    }
+
+    /* ── Fields ── */
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0D0D0D;
+      margin-bottom: 6px;
+    }
+
+    .field label .req { color: #FF5A1F; }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1.5px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: 'Urbanist', sans-serif;
+      font-size: 15px;
+      color: #0D0D0D;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 80px;
+      line-height: 1.5;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder { color: #999; }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus { border-color: #FF5A1F; }
+
+    /* ── Dynamic list (phones, emails) ── */
+    .dynamic-list .dynamic-entry {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+      align-items: center;
+    }
+
+    .dynamic-list .dynamic-entry input { flex: 1; }
+
+    .btn-remove {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: #f5f5f5;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      color: #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .btn-remove:hover { background: #fee; color: #d32f2f; }
+
+    .btn-add {
+      background: none;
+      border: none;
+      color: #FF5A1F;
+      font-family: 'Urbanist', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 4px 0;
+      transition: opacity 0.2s;
+    }
+
+    .btn-add:hover { opacity: 0.7; }
+
+    /* ── Color picker ── */
+    .color-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .color-row input[type="color"] {
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 2px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .color-row input[type="text"] {
+      flex: 1;
+    }
+
+    /* ── Staff rows ── */
+    .staff-entry {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 36px;
+      gap: 8px;
+      margin-bottom: 8px;
+      align-items: center;
+    }
+
+    @media (max-width: 640px) {
+      .staff-entry {
+        grid-template-columns: 1fr 1fr;
+      }
+      .staff-entry .btn-remove {
+        grid-column: 2;
+        justify-self: end;
+      }
+    }
+
+    /* ── File upload drop zone ── */
+    .drop-zone {
+      border: 2px dashed #E0E0E0;
+      border-radius: 12px;
+      padding: 32px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      margin-bottom: 8px;
+    }
+
+    .drop-zone:hover,
+    .drop-zone.dragover {
+      border-color: #FF5A1F;
+      background: #fff8f5;
+    }
+
+    .drop-zone svg {
+      margin-bottom: 12px;
+    }
+
+    .drop-zone .dz-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0D0D0D;
+      margin-bottom: 4px;
+    }
+
+    .drop-zone .dz-sub {
+      font-size: 13px;
+      color: #999;
+      line-height: 1.5;
+    }
+
+    .drop-zone input[type="file"] { display: none; }
+
+    /* ── Thumbnails ── */
+    .thumb-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .thumb-grid .thumb {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1.5px solid #E0E0E0;
+    }
+
+    .thumb-grid .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumb-grid .thumb .thumb-remove {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 20px;
+      height: 20px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    /* ── Button ── */
+    .btn-submit {
+      width: 100%;
+      margin-top: 8px;
+      padding: 16px;
+      background: #FF5A1F;
+      color: #fff;
+      font-family: 'Urbanist', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-submit:hover { background: #e84e16; }
+    .btn-submit:active { transform: scale(0.99); }
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    /* ── Inline error ── */
+    .inline-error {
+      color: #d32f2f;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 12px;
+      text-align: center;
+      display: none;
+    }
+
+    .inline-error.visible { display: block; }
+
+    /* ── Success state ── */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 32px 0;
+    }
+
+    .success-state .check-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+    }
+
+    .success-state h3 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0D0D0D;
+      margin-bottom: 8px;
+    }
+
+    .success-state p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.6;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    /* ── Spinner ── */
+    .spinner {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <img src="logo.png" alt="Scale National">
+    <h1>Client Onboarding</h1>
+  </div>
+
+  <div class="card">
+    <!-- Form -->
+    <div id="formWrap">
+      <form id="onboardForm" novalidate>
+
+        <!-- ── Business Info ── -->
+        <div class="section-label">Business Info</div>
+
+        <div class="row">
+          <div class="field">
+            <label>Business Name <span class="req">*</span></label>
+            <input type="text" name="businessName" required placeholder="Your business name">
+          </div>
+        </div>
+
+        <div class="row two-col">
+          <div class="field">
+            <label>Owner First Name <span class="req">*</span></label>
+            <input type="text" name="ownerFirst" required placeholder="First name">
+          </div>
+          <div class="field">
+            <label>Owner Last Name <span class="req">*</span></label>
+            <input type="text" name="ownerLast" required placeholder="Last name">
+          </div>
+        </div>
+
+        <div class="field" style="margin-bottom:16px;">
+          <label>Business Phone Number(s) <span class="req">*</span></label>
+          <div class="dynamic-list" id="phoneList">
+            <div class="dynamic-entry">
+              <input type="tel" name="phones" required placeholder="(555) 123-4567">
+            </div>
+          </div>
+          <button type="button" class="btn-add" onclick="addDynamicEntry('phoneList','tel','phones','(555) 123-4567')">+ Add Another Number</button>
+        </div>
+
+        <div class="field" style="margin-bottom:16px;">
+          <label>Business Email(s) <span class="req">*</span></label>
+          <div class="dynamic-list" id="emailList">
+            <div class="dynamic-entry">
+              <input type="email" name="emails" required placeholder="you@company.com">
+            </div>
+          </div>
+          <button type="button" class="btn-add" onclick="addDynamicEntry('emailList','email','emails','you@company.com')">+ Add Another Email</button>
+        </div>
+
+        <div class="row two-col">
+          <div class="field">
+            <label>Website URL</label>
+            <input type="url" name="website" placeholder="https://yoursite.com">
+          </div>
+          <div class="field">
+            <label>Business Address</label>
+            <input type="text" name="address" placeholder="123 Main St, City, ST">
+          </div>
+        </div>
+
+        <!-- ── Services ── -->
+        <div class="section-label">Services</div>
+
+        <div class="row">
+          <div class="field">
+            <label>Services Offered <span class="req">*</span></label>
+            <textarea name="services" required placeholder="List all services you offer, e.g. Lawn Care, Fertilization, Aeration..."></textarea>
+          </div>
+        </div>
+
+        <!-- ── Associations & Certifications ── -->
+        <div class="section-label">Associations &amp; Certifications</div>
+
+        <div class="row">
+          <div class="field">
+            <label>Associations / Certifications</label>
+            <textarea name="certifications" placeholder="e.g. NALP Member, EPA Certified, BBB Accredited..."></textarea>
+          </div>
+        </div>
+
+        <!-- ── Brand & Design ── -->
+        <div class="section-label">Brand &amp; Design</div>
+
+        <div class="row two-col">
+          <div class="field">
+            <label>Primary Brand Color</label>
+            <div class="color-row">
+              <input type="color" id="primaryColor" value="#FF5A1F">
+              <input type="text" name="primaryColor" id="primaryColorText" value="#FF5A1F" placeholder="#FF5A1F">
+            </div>
+          </div>
+          <div class="field">
+            <label>Secondary Brand Color</label>
+            <div class="color-row">
+              <input type="color" id="secondaryColor" value="#0D0D0D">
+              <input type="text" name="secondaryColor" id="secondaryColorText" value="" placeholder="#000000">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>Brand / Design Notes</label>
+            <textarea name="brandNotes" placeholder="Describe your vibe, any brands you like the look of, preferences..."></textarea>
+          </div>
+        </div>
+
+        <!-- ── Staff ── -->
+        <div class="section-label">Staff</div>
+
+        <div class="field" style="margin-bottom:16px;">
+          <label>Staff Members</label>
+          <div id="staffList">
+            <div class="staff-entry">
+              <input type="text" name="staffFirst" placeholder="First name">
+              <input type="text" name="staffLast" placeholder="Last name">
+              <input type="text" name="staffRole" placeholder="Role / Title">
+              <button type="button" class="btn-remove" onclick="removeEntry(this.parentElement, 'staffList')" title="Remove">&times;</button>
+            </div>
+          </div>
+          <button type="button" class="btn-add" onclick="addStaffRow()">+ Add Staff Member</button>
+        </div>
+
+        <!-- ── Photos / Media ── -->
+        <div class="section-label">Photos / Media</div>
+
+        <div class="field" style="margin-bottom:16px;">
+          <label>Business Photos &amp; Media</label>
+          <div class="drop-zone" id="dropZone">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#FFF3ED"/>
+              <path d="M20 14v12M14 20h12" stroke="#FF5A1F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div class="dz-label">Drag &amp; drop files here, or click to browse</div>
+            <div class="dz-sub">Upload your logo, team photos, job photos, or any brand assets.<br>Max 10 files, 10MB each. JPG, PNG, WebP, HEIC accepted.</div>
+            <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.webp,.heic,image/jpeg,image/png,image/webp,image/heic">
+          </div>
+          <div class="thumb-grid" id="thumbGrid"></div>
+        </div>
+
+        <!-- ── Additional Notes ── -->
+        <div class="section-label">Additional Notes</div>
+
+        <div class="row">
+          <div class="field">
+            <label>Anything else we should know?</label>
+            <textarea name="notes" placeholder="Additional info, special requests, timelines..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Submit Onboarding Info &rarr;</button>
+        <div class="inline-error" id="errorMsg"></div>
+      </form>
+    </div>
+
+    <!-- Success -->
+    <div class="success-state" id="successState">
+      <svg class="check-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="32" fill="#FF5A1F"/>
+        <path d="M20 33l8 8 16-16" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>You're all set.</h3>
+      <p>We'll review everything and be in touch within 24 hours to get your system built.</p>
+    </div>
+  </div>
+
+  <script>
+    // ── Dynamic add/remove for phones, emails ──
+    function addDynamicEntry(listId, type, name, placeholder) {
+      const list = document.getElementById(listId);
+      const entry = document.createElement('div');
+      entry.className = 'dynamic-entry';
+      entry.innerHTML = `
+        <input type="${type}" name="${name}" placeholder="${placeholder}">
+        <button type="button" class="btn-remove" onclick="removeEntry(this.parentElement, '${listId}')" title="Remove">&times;</button>
+      `;
+      list.appendChild(entry);
+    }
+
+    function removeEntry(el, listId) {
+      const list = document.getElementById(listId);
+      if (list.querySelectorAll('.dynamic-entry, .staff-entry').length > 1) {
+        el.remove();
+      }
+    }
+
+    // ── Staff rows ──
+    function addStaffRow() {
+      const list = document.getElementById('staffList');
+      const entry = document.createElement('div');
+      entry.className = 'staff-entry';
+      entry.innerHTML = `
+        <input type="text" name="staffFirst" placeholder="First name">
+        <input type="text" name="staffLast" placeholder="Last name">
+        <input type="text" name="staffRole" placeholder="Role / Title">
+        <button type="button" class="btn-remove" onclick="removeEntry(this.parentElement, 'staffList')" title="Remove">&times;</button>
+      `;
+      list.appendChild(entry);
+    }
+
+    // ── Color picker sync ──
+    const primaryPicker = document.getElementById('primaryColor');
+    const primaryText   = document.getElementById('primaryColorText');
+    const secondaryPicker = document.getElementById('secondaryColor');
+    const secondaryText   = document.getElementById('secondaryColorText');
+
+    primaryPicker.addEventListener('input', () => { primaryText.value = primaryPicker.value.toUpperCase(); });
+    primaryText.addEventListener('input', () => {
+      const v = primaryText.value;
+      if (/^#[0-9A-Fa-f]{6}$/.test(v)) primaryPicker.value = v;
+    });
+
+    secondaryPicker.addEventListener('input', () => { secondaryText.value = secondaryPicker.value.toUpperCase(); });
+    secondaryText.addEventListener('input', () => {
+      const v = secondaryText.value;
+      if (/^#[0-9A-Fa-f]{6}$/.test(v)) secondaryPicker.value = v;
+    });
+
+    // ── File upload / drag & drop ──
+    const dropZone  = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const thumbGrid = document.getElementById('thumbGrid');
+    let selectedFiles = [];
+
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('dragover'); });
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      handleFiles(e.dataTransfer.files);
+    });
+    fileInput.addEventListener('change', () => { handleFiles(fileInput.files); });
+
+    function handleFiles(fileList) {
+      const newFiles = Array.from(fileList).filter(f =>
+        f.type.startsWith('image/') || /\.(jpg|jpeg|png|webp|heic)$/i.test(f.name)
+      );
+
+      for (const f of newFiles) {
+        if (selectedFiles.length >= 10) break;
+        if (f.size > 10 * 1024 * 1024) continue;
+        selectedFiles.push(f);
+      }
+      renderThumbs();
+    }
+
+    function renderThumbs() {
+      thumbGrid.innerHTML = '';
+      selectedFiles.forEach((file, idx) => {
+        const thumb = document.createElement('div');
+        thumb.className = 'thumb';
+
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(file);
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'thumb-remove';
+        btn.innerHTML = '&times;';
+        btn.onclick = () => {
+          selectedFiles.splice(idx, 1);
+          renderThumbs();
+        };
+
+        thumb.appendChild(img);
+        thumb.appendChild(btn);
+        thumbGrid.appendChild(thumb);
+      });
+    }
+
+    // ── Form submission ──
+    const form     = document.getElementById('onboardForm');
+    const formWrap = document.getElementById('formWrap');
+    const success  = document.getElementById('successState');
+    const btn      = document.getElementById('submitBtn');
+    const errEl    = document.getElementById('errorMsg');
+
+    function showError(msg) {
+      errEl.textContent = msg;
+      errEl.classList.add('visible');
+    }
+
+    function hideError() {
+      errEl.classList.remove('visible');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideError();
+
+      // Validate required fields
+      const biz = form.querySelector('[name="businessName"]').value.trim();
+      const oFirst = form.querySelector('[name="ownerFirst"]').value.trim();
+      const oLast = form.querySelector('[name="ownerLast"]').value.trim();
+      const services = form.querySelector('[name="services"]').value.trim();
+
+      if (!biz || !oFirst || !oLast || !services) {
+        showError('Please fill out all required fields.');
+        return;
+      }
+
+      // Check at least one phone and one email
+      const phones = Array.from(form.querySelectorAll('[name="phones"]')).map(i => i.value.trim()).filter(Boolean);
+      const emails = Array.from(form.querySelectorAll('[name="emails"]')).map(i => i.value.trim()).filter(Boolean);
+
+      if (phones.length === 0) {
+        showError('Please enter at least one phone number.');
+        return;
+      }
+      if (emails.length === 0) {
+        showError('Please enter at least one email address.');
+        return;
+      }
+
+      // Validate email format
+      for (const em of emails) {
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) {
+          showError('Please enter valid email addresses.');
+          return;
+        }
+      }
+
+      // Build FormData
+      const fd = new FormData();
+      fd.append('businessName', biz);
+      fd.append('ownerFirst', oFirst);
+      fd.append('ownerLast', oLast);
+      fd.append('phones', JSON.stringify(phones));
+      fd.append('emails', JSON.stringify(emails));
+      fd.append('website', form.querySelector('[name="website"]').value.trim());
+      fd.append('address', form.querySelector('[name="address"]').value.trim());
+      fd.append('services', services);
+      fd.append('certifications', form.querySelector('[name="certifications"]').value.trim());
+      fd.append('primaryColor', primaryText.value.trim());
+      fd.append('secondaryColor', secondaryText.value.trim());
+      fd.append('brandNotes', form.querySelector('[name="brandNotes"]').value.trim());
+      fd.append('notes', form.querySelector('[name="notes"]').value.trim());
+
+      // Staff
+      const staffFirsts = Array.from(form.querySelectorAll('[name="staffFirst"]')).map(i => i.value.trim());
+      const staffLasts  = Array.from(form.querySelectorAll('[name="staffLast"]')).map(i => i.value.trim());
+      const staffRoles  = Array.from(form.querySelectorAll('[name="staffRole"]')).map(i => i.value.trim());
+      const staff = [];
+      for (let i = 0; i < staffFirsts.length; i++) {
+        if (staffFirsts[i] || staffLasts[i] || staffRoles[i]) {
+          staff.push({ first: staffFirsts[i], last: staffLasts[i], role: staffRoles[i] });
+        }
+      }
+      fd.append('staff', JSON.stringify(staff));
+
+      // Files
+      for (const file of selectedFiles) {
+        fd.append('photos', file);
+      }
+
+      // Loading state
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Submitting...';
+
+      try {
+        const res = await fetch('/functions/onboard', {
+          method: 'POST',
+          body: fd,
+        });
+
+        const result = await res.json();
+
+        if (!res.ok || result.ok === false) {
+          throw new Error(result.error || 'Something went wrong. Please try again.');
+        }
+
+        formWrap.style.display = 'none';
+        success.style.display = 'block';
+      } catch (err) {
+        showError(err.message);
+        btn.disabled = false;
+        btn.innerHTML = 'Submit Onboarding Info &rarr;';
+      }
+    });
+  </script>
+</body>
+</html>
