@@ -190,12 +190,12 @@ export async function onRequest(context) {
         method:  'POST',
         headers: ghlHeaders,
         body:    JSON.stringify({
-          locationId:  GHL_LOCATION,
+          locationId:      GHL_LOCATION,
           contactId,
-          name:        `${businessName} — Onboarding`,
-          pipelineId:  'cj4PcpkZVtjn3oW2PdYS',
-          stageId:     'ff0ae1b2-1344-45c1-8742-51e821483eba',
-          status:      'open',
+          name:            `${businessName} — Onboarding`,
+          pipelineId:      'cj4PcpkZVtjn3oW2PdYS',
+          pipelineStageId: 'ff0ae1b2-1344-45c1-8742-51e821483eba',
+          status:          'open',
         }),
       });
     }
