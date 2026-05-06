@@ -10,7 +10,7 @@ const GHL_BASE     = 'https://services.leadconnectorhq.com';
 const GHL_VERSION  = '2021-07-28';
 
 const CORS = {
-  'Access-Control-Allow-Origin': 'https://scalenational.com',
+  'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
 };
