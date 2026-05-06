@@ -198,6 +198,50 @@ export async function onRequest(context) {
           status:          'open',
         }),
       });
+
+      // 4. Send thank-you email to client (only if email was provided)
+      if (emailsArr[0]) {
+        const firstName = ownerFirst || businessName;
+        await fetch(`${GHL_BASE}/conversations/messages/outbound`, {
+          method:  'POST',
+          headers: ghlHeaders,
+          body:    JSON.stringify({
+            type:          'Email',
+            contactId,
+            emailFrom:     'Scale National <info@scalenational.com>',
+            emailTo:       emailsArr[0],
+            subject:       `We received your onboarding info, ${firstName}!`,
+            html: `
+              <div style="font-family:'Inter',sans-serif;max-width:560px;margin:0 auto;background:#0d0d0d;color:#ffffff;border-radius:12px;overflow:hidden;">
+                <div style="background:#FF5A1F;padding:32px 40px;">
+                  <h1 style="margin:0;font-size:24px;font-weight:700;color:#fff;">You're all set, ${firstName}!</h1>
+                </div>
+                <div style="padding:32px 40px;">
+                  <p style="font-size:16px;line-height:1.6;color:#cccccc;margin:0 0 16px;">
+                    We've received everything for <strong style="color:#fff;">${businessName}</strong> and our team is already on it.
+                  </p>
+                  <p style="font-size:16px;line-height:1.6;color:#cccccc;margin:0 0 16px;">
+                    Here's what happens next:
+                  </p>
+                  <ol style="color:#cccccc;font-size:15px;line-height:1.8;padding-left:20px;margin:0 0 24px;">
+                    <li>We review your submission and begin building your system</li>
+                    <li>Your website goes live within 24–48 hours</li>
+                    <li>Review automation and missed call text-back are activated within 1–2 weeks (carrier processing)</li>
+                    <li>We'll reach out if we need anything else from you</li>
+                  </ol>
+                  <p style="font-size:15px;color:#999999;margin:0 0 24px;">
+                    Questions? Reply to this email or text us directly — we'll get back to you fast.
+                  </p>
+                  <a href="https://scalenational.com" style="display:inline-block;background:#FF5A1F;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;">Visit Scale National</a>
+                </div>
+                <div style="padding:20px 40px;border-top:1px solid #1f1f1f;">
+                  <p style="font-size:12px;color:#555555;margin:0;">Scale National · Contractor Marketing · scalenational.com</p>
+                </div>
+              </div>
+            `,
+          }),
+        });
+      }
     }
   } catch (err) {
     console.error('GHL error:', err?.message || err);
