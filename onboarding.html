@@ -600,6 +600,21 @@
         <div class="section-label">Photos / Media</div>
 
         <div class="field" style="margin-bottom:16px;">
+          <label>Business Logo</label>
+          <div class="drop-zone" id="logoDropZone">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#FFF3ED"/>
+              <path d="M20 14v12M14 20h12" stroke="#FF5A1F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div class="dz-label">Upload your logo</div>
+            <div class="dz-sub">PNG or SVG preferred for best quality. JPG accepted.<br>1 file, max 10MB.</div>
+            <input type="file" id="logoInput" accept=".jpg,.jpeg,.png,.svg,.webp,image/jpeg,image/png,image/svg+xml,image/webp">
+          </div>
+          <div class="thumb-grid" id="logoThumbGrid"></div>
+          <p style="font-size:12px;color:#999;margin-top:8px;">Don't have a logo yet? No problem — we'll design one for you as part of your setup.</p>
+        </div>
+
+        <div class="field" style="margin-bottom:16px;">
           <label>Business Photos &amp; Media</label>
           <div class="drop-zone" id="dropZone">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -607,7 +622,7 @@
               <path d="M20 14v12M14 20h12" stroke="#FF5A1F" stroke-width="2" stroke-linecap="round"/>
             </svg>
             <div class="dz-label">Drag &amp; drop files here, or click to browse</div>
-            <div class="dz-sub">Upload your logo, team photos, job photos, or any brand assets.<br>Max 10 files, 10MB each. JPG, PNG, WebP, HEIC accepted.</div>
+            <div class="dz-sub">Team photos, job site photos, before &amp; afters, any brand assets.<br>Max 10 files, 10MB each. JPG, PNG, WebP, HEIC accepted.</div>
             <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.webp,.heic,image/jpeg,image/png,image/webp,image/heic">
           </div>
           <div class="thumb-grid" id="thumbGrid"></div>
@@ -692,6 +707,31 @@
     });
 
     // ── File upload / drag & drop ──
+    // ── Logo upload ──
+    const logoDropZone  = document.getElementById('logoDropZone');
+    const logoInput     = document.getElementById('logoInput');
+    const logoThumbGrid = document.getElementById('logoThumbGrid');
+    let selectedLogo = null;
+
+    logoDropZone.addEventListener('click', () => logoInput.click());
+    logoDropZone.addEventListener('dragover', (e) => { e.preventDefault(); logoDropZone.classList.add('dragover'); });
+    logoDropZone.addEventListener('dragleave', () => logoDropZone.classList.remove('dragover'));
+    logoDropZone.addEventListener('drop', (e) => { e.preventDefault(); logoDropZone.classList.remove('dragover'); handleLogo(e.dataTransfer.files); });
+    logoInput.addEventListener('change', () => handleLogo(logoInput.files));
+
+    function handleLogo(fileList) {
+      const f = Array.from(fileList)[0];
+      if (!f) return;
+      selectedLogo = f;
+      logoThumbGrid.innerHTML = '';
+      const thumb = document.createElement('div'); thumb.className = 'thumb';
+      const img = document.createElement('img'); img.src = URL.createObjectURL(f);
+      const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'thumb-remove'; btn.innerHTML = '&times;';
+      btn.onclick = () => { selectedLogo = null; logoThumbGrid.innerHTML = ''; };
+      thumb.appendChild(img); thumb.appendChild(btn); logoThumbGrid.appendChild(thumb);
+    }
+
+    // ── Business photos upload ──
     const dropZone  = document.getElementById('dropZone');
     const fileInput = document.getElementById('fileInput');
     const thumbGrid = document.getElementById('thumbGrid');
