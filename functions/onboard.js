@@ -226,7 +226,7 @@ export async function onRequest(context) {
   try {
     const emailPayload = {
       from: 'Scale National <notifications@scalenational.com>',
-      to: ['info@scalenational.com', 'eric@scalenational.com', 'tim@scalenational.com'],
+      to: ['info@scalenational.com'],
       subject: `New Client Onboarding — ${businessName}`,
       html: emailHtml,
     };
