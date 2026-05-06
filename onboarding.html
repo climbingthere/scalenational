@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Client Onboarding — Scale National</title>
+  <title>Contractor Onboarding — Scale National</title>
   <link rel="icon" type="image/png" href="logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -366,10 +366,15 @@
 
   <div class="page-header">
     <img src="logo.png" alt="Scale National">
-    <h1>Client Onboarding</h1>
+    <h1>Contractor Onboarding — Scale National</h1>
+    <p style="color:rgba(255,255,255,0.5);font-size:14px;margin-top:6px;">Internal use only — collect contractor info to build their sub-account</p>
   </div>
 
   <div class="card">
+    <div style="background:#fff8f5;border-left:3px solid #FF5A1F;border-radius:8px;padding:14px 18px;margin-bottom:28px;">
+      <p style="font-size:13px;font-weight:700;color:#FF5A1F;margin-bottom:4px;">Fill in what you have</p>
+      <p style="font-size:13px;color:#555;line-height:1.6;margin:0;">Not every field is required — skip anything that doesn't apply yet. The more information you provide, the better and faster we can build the system. Fields marked with a <span style="color:#FF5A1F;font-weight:700;">*</span> are the only ones we need to get started.</p>
+    </div>
     <!-- Form -->
     <div id="formWrap">
       <form id="onboardForm" novalidate>
@@ -386,30 +391,30 @@
 
         <div class="row two-col">
           <div class="field">
-            <label>Owner First Name <span class="req">*</span></label>
-            <input type="text" name="ownerFirst" required placeholder="First name">
+            <label>Owner First Name</label>
+            <input type="text" name="ownerFirst" placeholder="First name">
           </div>
           <div class="field">
-            <label>Owner Last Name <span class="req">*</span></label>
-            <input type="text" name="ownerLast" required placeholder="Last name">
+            <label>Owner Last Name</label>
+            <input type="text" name="ownerLast" placeholder="Last name">
           </div>
         </div>
 
         <div class="field" style="margin-bottom:16px;">
-          <label>Business Phone Number(s) <span class="req">*</span></label>
+          <label>Business Phone Number(s)</label>
           <div class="dynamic-list" id="phoneList">
             <div class="dynamic-entry">
-              <input type="tel" name="phones" required placeholder="(555) 123-4567">
+              <input type="tel" name="phones" placeholder="(555) 123-4567">
             </div>
           </div>
           <button type="button" class="btn-add" onclick="addDynamicEntry('phoneList','tel','phones','(555) 123-4567')">+ Add Another Number</button>
         </div>
 
         <div class="field" style="margin-bottom:16px;">
-          <label>Business Email(s) <span class="req">*</span></label>
+          <label>Business Email(s)</label>
           <div class="dynamic-list" id="emailList">
             <div class="dynamic-entry">
-              <input type="email" name="emails" required placeholder="you@company.com">
+              <input type="email" name="emails" placeholder="you@company.com">
             </div>
           </div>
           <button type="button" class="btn-add" onclick="addDynamicEntry('emailList','email','emails','you@company.com')">+ Add Another Email</button>
@@ -428,8 +433,8 @@
 
         <div class="row two-col">
           <div class="field">
-            <label>Trade Type <span class="req">*</span></label>
-            <select name="tradeType" required>
+            <label>Trade Type</label>
+            <select name="tradeType">
               <option value="" disabled selected>Select your trade...</option>
               <option value="Roofing">Roofing</option>
               <option value="Plumbing">Plumbing</option>
@@ -444,15 +449,15 @@
             </select>
           </div>
           <div class="field">
-            <label>Years in Business <span class="req">*</span></label>
-            <input type="text" name="yearsInBusiness" required placeholder="e.g. 8">
+            <label>Years in Business</label>
+            <input type="text" name="yearsInBusiness" placeholder="e.g. 8">
           </div>
         </div>
 
         <div class="row">
           <div class="field">
-            <label>Service Area / Cities Served <span class="req">*</span></label>
-            <textarea name="serviceArea" required placeholder="e.g. Austin, Round Rock, Cedar Park, Georgetown..."></textarea>
+            <label>Service Area / Cities Served</label>
+            <textarea name="serviceArea" placeholder="e.g. Austin, Round Rock, Cedar Park, Georgetown..."></textarea>
           </div>
         </div>
 
@@ -508,8 +513,8 @@
 
         <div class="row">
           <div class="field">
-            <label>Google Business Profile URL <span class="req">*</span></label>
-            <input type="url" name="googleBusinessUrl" required placeholder="https://maps.app.goo.gl/...">
+            <label>Google Business Profile URL</label>
+            <input type="url" name="googleBusinessUrl" placeholder="https://maps.app.goo.gl/...">
           </div>
         </div>
 
@@ -518,8 +523,8 @@
 
         <div class="row">
           <div class="field">
-            <label>Services Offered <span class="req">*</span></label>
-            <textarea name="services" required placeholder="List all services you offer, e.g. Lawn Care, Fertilization, Aeration..."></textarea>
+            <label>Services Offered</label>
+            <textarea name="services" placeholder="List all services you offer, e.g. Lawn Care, Fertilization, Aeration..."></textarea>
           </div>
         </div>
 
@@ -761,29 +766,18 @@
 
       // Validate required fields
       const biz = form.querySelector('[name="businessName"]').value.trim();
-      const oFirst = form.querySelector('[name="ownerFirst"]').value.trim();
-      const oLast = form.querySelector('[name="ownerLast"]').value.trim();
-      const services = form.querySelector('[name="services"]').value.trim();
-      const tradeType = form.querySelector('[name="tradeType"]').value;
-      const yearsInBusiness = form.querySelector('[name="yearsInBusiness"]').value.trim();
-      const serviceArea = form.querySelector('[name="serviceArea"]').value.trim();
-      const googleBusinessUrl = form.querySelector('[name="googleBusinessUrl"]').value.trim();
 
-      if (!biz || !oFirst || !oLast || !services || !tradeType || !yearsInBusiness || !serviceArea || !googleBusinessUrl) {
-        showError('Please fill out all required fields.');
+      if (!biz) {
+        showError('Please enter a business name.');
         return;
       }
 
-      // Check at least one phone and one email
+      // Check at least one phone or one email
       const phones = Array.from(form.querySelectorAll('[name="phones"]')).map(i => i.value.trim()).filter(Boolean);
       const emails = Array.from(form.querySelectorAll('[name="emails"]')).map(i => i.value.trim()).filter(Boolean);
 
-      if (phones.length === 0) {
-        showError('Please enter at least one phone number.');
-        return;
-      }
-      if (emails.length === 0) {
-        showError('Please enter at least one email address.');
+      if (phones.length === 0 && emails.length === 0) {
+        showError('Please enter at least one phone number or email address.');
         return;
       }
 
@@ -798,15 +792,15 @@
       // Build FormData
       const fd = new FormData();
       fd.append('businessName', biz);
-      fd.append('ownerFirst', oFirst);
-      fd.append('ownerLast', oLast);
+      fd.append('ownerFirst', form.querySelector('[name="ownerFirst"]').value.trim());
+      fd.append('ownerLast', form.querySelector('[name="ownerLast"]').value.trim());
       fd.append('phones', JSON.stringify(phones));
       fd.append('emails', JSON.stringify(emails));
       fd.append('website', form.querySelector('[name="website"]').value.trim());
       fd.append('address', form.querySelector('[name="address"]').value.trim());
-      fd.append('tradeType', tradeType);
-      fd.append('yearsInBusiness', yearsInBusiness);
-      fd.append('serviceArea', serviceArea);
+      fd.append('tradeType', form.querySelector('[name="tradeType"]').value);
+      fd.append('yearsInBusiness', form.querySelector('[name="yearsInBusiness"]').value.trim());
+      fd.append('serviceArea', form.querySelector('[name="serviceArea"]').value.trim());
       fd.append('tagline', form.querySelector('[name="tagline"]').value.trim());
       fd.append('aboutBusiness', form.querySelector('[name="aboutBusiness"]').value.trim());
       const licensedRadio = form.querySelector('[name="licensedInsured"]:checked');
@@ -815,8 +809,8 @@
       const emergencyRadio = form.querySelector('[name="emergencyServices"]:checked');
       fd.append('emergencyServices', emergencyRadio ? emergencyRadio.value : '');
       fd.append('hours', form.querySelector('[name="hours"]').value.trim());
-      fd.append('googleBusinessUrl', googleBusinessUrl);
-      fd.append('services', services);
+      fd.append('googleBusinessUrl', form.querySelector('[name="googleBusinessUrl"]').value.trim());
+      fd.append('services', form.querySelector('[name="services"]').value.trim());
       fd.append('certifications', form.querySelector('[name="certifications"]').value.trim());
       fd.append('primaryColor', primaryText.value.trim());
       fd.append('secondaryColor', secondaryText.value.trim());
