@@ -247,11 +247,11 @@ export async function onRequest(context) {
     if (!res.ok) {
       const err = await res.text();
       console.error('Resend error:', err);
-      return json({ ok: false, error: 'Failed to send notification email' }, 502);
+      // Don't fail submission if email fails — GHL contact still gets created
     }
   } catch (err) {
     console.error('Resend exception:', err);
-    return json({ ok: false, error: 'Failed to send notification email' }, 502);
+    // Don't fail submission if email fails
   }
 
   // ── GHL: Create contact + note ─────────────────────────────────────
