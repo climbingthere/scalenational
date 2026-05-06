@@ -186,7 +186,7 @@ export async function onRequest(context) {
       });
 
       // 3. Create opportunity in pipeline
-      await fetch(`${GHL_BASE}/opportunities/`, {
+      const oppRes = await fetch(`${GHL_BASE}/opportunities/`, {
         method:  'POST',
         headers: ghlHeaders,
         body:    JSON.stringify({
@@ -198,6 +198,11 @@ export async function onRequest(context) {
           status:          'open',
         }),
       });
+
+      if (!oppRes.ok) {
+        const oppErr = await oppRes.text();
+        console.error('GHL opportunity creation failed:', oppRes.status, oppErr);
+      }
 
       // 4. Send thank-you email to client (only if email was provided)
       if (emailsArr[0]) {
