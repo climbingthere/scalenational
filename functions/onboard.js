@@ -275,9 +275,14 @@ export async function onRequest(context) {
       tags:        ['client-onboarding', 'onboarding-submitted'],
       source:      'onboarding-form',
       customFields: [
-        { key: 'business_name', field_value: businessName },
-        { key: 'job_type', field_value: tradeType },
-        { key: 'google_review_url', field_value: googleBusinessUrl },
+        { id: 'ycFGBIcsGnxwhOW5YAt8', field_value: businessName },        // Business Name
+        { id: 'nMLwyym5kB1IDELNCQ0x', field_value: tradeType },            // Job Type
+        { id: 'I5t03jB0XvhoJQ2p8gRn', field_value: googleBusinessUrl },   // Google Review URL
+        { id: 'iwiYHa8Jw1SeKMTTuuJB', field_value: emailsArr[0] || '' },  // Business Email
+        { id: 'IoXwmFhoqu6rFG1FbLhE', field_value: phonesArr[0] || '' },  // Business Phone Number
+        { id: 'WRUy6o8wTIC1y2xFY8CV', field_value: services },            // Offered Services
+        { id: 'bmOobbW3wvCh0GPAx0uh', field_value: certifications },      // Associations/Certifications
+        { id: 'OyPducTd33ZsiKuMDtHM', field_value: primaryColor },        // Brand Color
       ],
     };
 
