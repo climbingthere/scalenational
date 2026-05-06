@@ -74,11 +74,15 @@ export async function onRequest(context) {
     return json({ error: 'Business name is required' }, 400);
   }
 
-  const phonesArr = JSON.parse(phones);
-  const emailsArr = JSON.parse(emails);
-  if (!phonesArr.length || !emailsArr.length) {
-    return json({ error: 'At least one phone number and one email are required' }, 400);
+  let phonesArr, emailsArr;
+  try {
+    phonesArr = JSON.parse(phones);
+    emailsArr = JSON.parse(emails);
+  } catch {
+    return json({ error: 'Invalid phone or email data' }, 400);
   }
+
+  // Phone and email are optional — form may not collect them for all clients
 
   // Count uploaded photos (for the GHL note)
   const photos = formData.getAll('photos').filter(f => f instanceof File && f.size > 0);
@@ -123,7 +127,12 @@ export async function onRequest(context) {
     const contactData = await contactRes.json();
     const contactId   = contactData?.contact?.id;
 
-    if (contactId) {
+    if (!contactId) {
+      console.error('GHL contact creation failed:', JSON.stringify(contactData));
+      return json({ error: 'Failed to create contact in CRM' }, 502);
+    }
+
+    {
       // 2. Add detailed note with all onboarding info
       const staffArr2  = JSON.parse(staff || '[]');
       const staffLines = staffArr2.length
@@ -184,14 +193,15 @@ export async function onRequest(context) {
           locationId:  GHL_LOCATION,
           contactId,
           name:        `${businessName} — Onboarding`,
-          pipelineId:  '4Rn80qQGJ89k8ycfTPNX',
-          stageId:     'e3decf39-4c42-4137-8fd4-7ecd3143c5a4',
+          pipelineId:  'cj4PcpkZVtjn3oW2PdYS',
+          stageId:     'ff0ae1b2-1344-45c1-8742-51e821483eba',
           status:      'open',
         }),
       });
     }
   } catch (err) {
-    console.error('GHL error:', err);
+    console.error('GHL error:', err?.message || err);
+    return json({ error: 'Internal error processing onboarding' }, 500);
   }
 
   return json({ ok: true });
