@@ -2,5 +2,5 @@
 https://review.scalenational.com/* https://scalenational.com/review/:splat 301
 https://review.scalenational.com https://scalenational.com/review 301
 
-# Note: 404.html disables Cloudflare Pages SPA fallback. All .html files
-# are served at their pretty-URL paths natively (e.g. onboarding.html → /onboarding).
+# Note: 404.html disables Cloudflare Pages SPA fallback.
+# /onboarding is served by onboarding/index.html (directory-based routing).
