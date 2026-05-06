@@ -194,7 +194,7 @@ export async function onRequest(context) {
           contactId,
           name:            `${businessName} — Onboarding`,
           pipelineId:      'cj4PcpkZVtjn3oW2PdYS',
-          pipelineStageId: 'ff0ae1b2-1344-45c1-8742-51e821483eba',
+          pipelineStageId: 'ba9712f4-57bd-46c9-9a87-82859f01c8fd', // Signed (first stage)
           status:          'open',
         }),
       });
