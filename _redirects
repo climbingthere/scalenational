@@ -1,5 +1,10 @@
+# Explicit rewrites — ensure these pages are never swallowed by SPA fallback
+/onboarding  /onboarding.html  200
+/intake      /intake.html      200
+/privacy     /privacy.html     200
+/terms       /terms.html       200
+/review      /review.html      200
+
 # review.scalenational.com → /review (preserves query string)
 https://review.scalenational.com/* https://scalenational.com/review/:splat 301
 https://review.scalenational.com https://scalenational.com/review 301
-
-# /onboarding is served by onboarding/index.html (directory-based routing)
