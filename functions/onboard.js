@@ -1,10 +1,9 @@
 /**
  * Cloudflare Pages Function — /onboard
  * POST: Receives multipart/form-data from the client onboarding form,
- *       parses all fields, sends a formatted email via Resend.
+ *       creates a GHL contact, note, and opportunity.
  */
 
-const RESEND_KEY   = 're_JknkKC6j_13yygp1KZtRXqxyeqrfMEJGu';
 const GHL_TOKEN    = 'pit-0f6cdeea-ddbf-4c1e-bdd7-5b1bd0d919d6';
 const GHL_LOCATION = 'bxAx2g1z6Dd09kSdJZYt';
 const GHL_BASE     = 'https://services.leadconnectorhq.com';
@@ -21,117 +20,6 @@ function json(data, status = 200) {
     status,
     headers: { 'Content-Type': 'application/json', ...CORS },
   });
-}
-
-function esc(str) {
-  if (!str) return '';
-  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-function buildEmailHtml(fields) {
-  const {
-    businessName, ownerFirst, ownerLast, phones, emails,
-    website, address, services, certifications,
-    primaryColor, secondaryColor, brandNotes, staff, notes,
-    tradeType, yearsInBusiness, serviceArea, tagline, aboutBusiness,
-    licensedInsured, licenseNumber, emergencyServices, hours,
-    googleBusinessUrl, facebookUrl, instagramUrl, youtubeUrl,
-    photoCount,
-  } = fields;
-
-  const phonesArr = JSON.parse(phones || '[]');
-  const emailsArr = JSON.parse(emails || '[]');
-  const staffArr  = JSON.parse(staff || '[]');
-
-  const sectionStyle = 'style="margin-top:24px;margin-bottom:8px;font-size:12px;font-weight:800;color:#FF5A1F;text-transform:uppercase;letter-spacing:1px;"';
-  const tdLabel = 'style="padding:6px 12px;font-weight:bold;vertical-align:top;white-space:nowrap;"';
-  const tdValue = 'style="padding:6px 12px;vertical-align:top;"';
-
-  let html = `
-    <div style="font-family:sans-serif;font-size:14px;color:#222;max-width:600px;">
-      <h2 style="margin-bottom:4px;">New Client Onboarding</h2>
-      <p style="color:#666;margin-bottom:20px;">Submitted from scalenational.com/onboarding.html</p>
-
-      <div ${sectionStyle}>Business Info</div>
-      <table style="border-collapse:collapse;width:100%;">
-        <tr><td ${tdLabel}>Business</td><td ${tdValue}>${esc(businessName)}</td></tr>
-        <tr><td ${tdLabel}>Owner</td><td ${tdValue}>${esc(ownerFirst)} ${esc(ownerLast)}</td></tr>
-        <tr><td ${tdLabel}>Phone(s)</td><td ${tdValue}>${phonesArr.map(esc).join('<br>') || '—'}</td></tr>
-        <tr><td ${tdLabel}>Email(s)</td><td ${tdValue}>${emailsArr.map(esc).join('<br>') || '—'}</td></tr>
-        <tr><td ${tdLabel}>Website</td><td ${tdValue}>${website ? esc(website) : '—'}</td></tr>
-        <tr><td ${tdLabel}>Address</td><td ${tdValue}>${address ? esc(address) : '—'}</td></tr>
-        <tr><td ${tdLabel}>Licensed &amp; Insured</td><td ${tdValue}>${licensedInsured || '—'}${licensedInsured === 'Yes' && licenseNumber ? ` (License #: ${esc(licenseNumber)})` : ''}</td></tr>
-        <tr><td ${tdLabel}>Emergency Services</td><td ${tdValue}>${emergencyServices || '—'}</td></tr>
-        <tr><td ${tdLabel}>Hours</td><td ${tdValue}>${hours ? esc(hours) : '—'}</td></tr>
-      </table>
-
-      <div ${sectionStyle}>Website &amp; Review Info</div>
-      <table style="border-collapse:collapse;width:100%;">
-        <tr><td ${tdLabel}>Trade Type</td><td ${tdValue}>${esc(tradeType)}</td></tr>
-        <tr><td ${tdLabel}>Years in Business</td><td ${tdValue}>${esc(yearsInBusiness)}</td></tr>
-        <tr><td ${tdLabel}>Tagline</td><td ${tdValue}>${tagline ? esc(tagline) : '—'}</td></tr>
-        <tr><td ${tdLabel}>Google Business URL</td><td ${tdValue}>${googleBusinessUrl ? `<a href="${esc(googleBusinessUrl)}">${esc(googleBusinessUrl)}</a>` : '—'}</td></tr>
-        <tr><td ${tdLabel}>Service Area</td><td ${tdValue}>${esc(serviceArea)}</td></tr>
-      </table>`;
-
-  if (aboutBusiness) {
-    html += `
-      <div ${sectionStyle}>About</div>
-      <p style="padding:0 12px;white-space:pre-wrap;">${esc(aboutBusiness)}</p>`;
-  }
-
-  html += `
-      <div ${sectionStyle}>Services</div>
-      <p style="padding:0 12px;white-space:pre-wrap;">${esc(services)}</p>
-
-      <div ${sectionStyle}>Associations &amp; Certifications</div>
-      <p style="padding:0 12px;white-space:pre-wrap;">${certifications ? esc(certifications) : '—'}</p>
-
-      <div ${sectionStyle}>Brand &amp; Design</div>
-      <table style="border-collapse:collapse;width:100%;">
-        <tr>
-          <td ${tdLabel}>Primary Color</td>
-          <td ${tdValue}>
-            ${primaryColor ? `<span style="display:inline-block;width:16px;height:16px;background:${esc(primaryColor)};border-radius:3px;vertical-align:middle;margin-right:6px;"></span>${esc(primaryColor)}` : '—'}
-          </td>
-        </tr>
-        <tr>
-          <td ${tdLabel}>Secondary Color</td>
-          <td ${tdValue}>
-            ${secondaryColor ? `<span style="display:inline-block;width:16px;height:16px;background:${esc(secondaryColor)};border-radius:3px;vertical-align:middle;margin-right:6px;"></span>${esc(secondaryColor)}` : '—'}
-          </td>
-        </tr>
-        <tr><td ${tdLabel}>Brand Notes</td><td ${tdValue}>${brandNotes ? esc(brandNotes) : '—'}</td></tr>
-        ${facebookUrl ? `<tr><td ${tdLabel}>Facebook</td><td ${tdValue}><a href="${esc(facebookUrl)}">${esc(facebookUrl)}</a></td></tr>` : ''}
-        ${instagramUrl ? `<tr><td ${tdLabel}>Instagram</td><td ${tdValue}><a href="${esc(instagramUrl)}">${esc(instagramUrl)}</a></td></tr>` : ''}
-        ${youtubeUrl ? `<tr><td ${tdLabel}>YouTube</td><td ${tdValue}><a href="${esc(youtubeUrl)}">${esc(youtubeUrl)}</a></td></tr>` : ''}
-      </table>`;
-
-  if (staffArr.length > 0) {
-    html += `
-      <div ${sectionStyle}>Staff</div>
-      <table style="border-collapse:collapse;width:100%;">
-        <tr style="background:#f5f5f5;">
-          <td ${tdLabel}>First</td><td ${tdLabel}>Last</td><td ${tdLabel}>Role</td>
-        </tr>`;
-    for (const s of staffArr) {
-      html += `<tr><td ${tdValue}>${esc(s.first)}</td><td ${tdValue}>${esc(s.last)}</td><td ${tdValue}>${esc(s.role) || '—'}</td></tr>`;
-    }
-    html += `</table>`;
-  }
-
-  html += `
-      <div ${sectionStyle}>Photos / Media</div>
-      <p style="padding:0 12px;">${photoCount > 0 ? `${photoCount} file(s) uploaded (attached to this email)` : 'No files uploaded'}</p>`;
-
-  if (notes) {
-    html += `
-      <div ${sectionStyle}>Additional Notes</div>
-      <p style="padding:0 12px;white-space:pre-wrap;">${esc(notes)}</p>`;
-  }
-
-  html += `</div>`;
-  return html;
 }
 
 export async function onRequest(context) {
@@ -192,67 +80,8 @@ export async function onRequest(context) {
     return json({ error: 'At least one phone number and one email are required' }, 400);
   }
 
-  // Collect uploaded photos
+  // Count uploaded photos (for the GHL note)
   const photos = formData.getAll('photos').filter(f => f instanceof File && f.size > 0);
-
-  // Build attachments array for Resend (base64 encoded)
-  const attachments = [];
-  for (const photo of photos) {
-    try {
-      const buffer = await photo.arrayBuffer();
-      const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)));
-      attachments.push({
-        filename: photo.name,
-        content: base64,
-      });
-    } catch {
-      // Skip files that fail to process
-    }
-  }
-
-  const fields = {
-    businessName, ownerFirst, ownerLast, phones, emails,
-    website, address, services, certifications,
-    primaryColor, secondaryColor, brandNotes, staff, notes,
-    tradeType, yearsInBusiness, serviceArea, tagline, aboutBusiness,
-    licensedInsured, licenseNumber, emergencyServices, hours,
-    googleBusinessUrl, facebookUrl, instagramUrl, youtubeUrl,
-    photoCount: photos.length,
-  };
-
-  const emailHtml = buildEmailHtml(fields);
-
-  // Send via Resend
-  try {
-    const emailPayload = {
-      from: 'Scale National <notifications@scalenational.com>',
-      to: ['info@scalenational.com'],
-      subject: `New Client Onboarding — ${businessName}`,
-      html: emailHtml,
-    };
-
-    if (attachments.length > 0) {
-      emailPayload.attachments = attachments;
-    }
-
-    const res = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${RESEND_KEY}`,
-      },
-      body: JSON.stringify(emailPayload),
-    });
-
-    if (!res.ok) {
-      const err = await res.text();
-      console.error('Resend error:', err);
-      // Don't fail submission if email fails — GHL contact still gets created
-    }
-  } catch (err) {
-    console.error('Resend exception:', err);
-    // Don't fail submission if email fails
-  }
 
   // ── GHL: Create contact + note ─────────────────────────────────────
   try {
@@ -363,7 +192,6 @@ export async function onRequest(context) {
     }
   } catch (err) {
     console.error('GHL error:', err);
-    // Don't fail the request if GHL is down — email already sent
   }
 
   return json({ ok: true });
