@@ -181,9 +181,9 @@ export async function onRequest(context) {
   const staff         = formData.get('staff') || '[]';
   const notes         = formData.get('notes') || '';
 
-  // Validate required
-  if (!businessName || !ownerFirst || !ownerLast || !services || !tradeType || !yearsInBusiness || !serviceArea || !googleBusinessUrl) {
-    return json({ error: 'Missing required fields' }, 400);
+  // Validate required — business name only
+  if (!businessName) {
+    return json({ error: 'Business name is required' }, 400);
   }
 
   const phonesArr = JSON.parse(phones);
