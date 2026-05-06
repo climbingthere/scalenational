@@ -1,10 +1,6 @@
-# Explicit rewrites — ensure these pages are never swallowed by SPA fallback
-/onboarding  /onboarding.html  200
-/intake      /intake.html      200
-/privacy     /privacy.html     200
-/terms       /terms.html       200
-/review      /review.html      200
-
 # review.scalenational.com → /review (preserves query string)
 https://review.scalenational.com/* https://scalenational.com/review/:splat 301
 https://review.scalenational.com https://scalenational.com/review 301
+
+# Note: 404.html disables Cloudflare Pages SPA fallback. All .html files
+# are served at their pretty-URL paths natively (e.g. onboarding.html → /onboarding).
