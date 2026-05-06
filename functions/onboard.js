@@ -125,11 +125,11 @@ export async function onRequest(context) {
       body:    JSON.stringify(contactPayload),
     });
     const contactData = await contactRes.json();
-    const contactId   = contactData?.contact?.id;
+    const contactId   = contactData?.contact?.id || contactData?.meta?.contactId;
 
     if (!contactId) {
       console.error('GHL contact creation failed:', JSON.stringify(contactData));
-      return json({ error: 'Failed to create contact in CRM' }, 502);
+      return json({ error: 'Failed to create contact in CRM' }, 422);
     }
 
     {
@@ -250,7 +250,7 @@ export async function onRequest(context) {
     }
   } catch (err) {
     console.error('GHL error:', err?.message || err);
-    return json({ error: 'Internal error processing onboarding' }, 500);
+    return json({ error: 'Internal error processing onboarding' }, 422);
   }
 
   return json({ ok: true });
