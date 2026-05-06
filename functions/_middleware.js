@@ -7,11 +7,12 @@ export async function onRequest({ request, next }) {
   const host = url.hostname;
 
   const subdomainMap = {
-    'deck.scalenational.com':    'https://scalenational.com/discovery-deck.html',
-    'scripts.scalenational.com': 'https://scalenational.com/dm-scripts.html',
-    'apply.scalenational.com':   'https://scalenational.com/creator-signup.html',
-    'intake.scalenational.com':  'https://scalenational.com/portal/client-intake.html',
-    'onepager.scalenational.com': 'https://scalenational.com/one-pager.html',
+    'deck.scalenational.com':        'https://scalenational.com/discovery-deck.html',
+    'scripts.scalenational.com':     'https://scalenational.com/dm-scripts.html',
+    'apply.scalenational.com':       'https://scalenational.com/creator-signup.html',
+    'intake.scalenational.com':      'https://scalenational.com/portal/client-intake.html',
+    'onepager.scalenational.com':    'https://scalenational.com/one-pager.html',
+    'onboarding.scalenational.com':  'https://scalenational.com/onboarding.html',
   };
 
   const target = subdomainMap[host];
