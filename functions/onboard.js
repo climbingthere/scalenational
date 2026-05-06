@@ -33,6 +33,9 @@ function buildEmailHtml(fields) {
     businessName, ownerFirst, ownerLast, phones, emails,
     website, address, services, certifications,
     primaryColor, secondaryColor, brandNotes, staff, notes,
+    tradeType, yearsInBusiness, serviceArea, tagline, aboutBusiness,
+    licensedInsured, licenseNumber, emergencyServices, hours,
+    googleBusinessUrl, facebookUrl, instagramUrl, youtubeUrl,
     photoCount,
   } = fields;
 
@@ -57,8 +60,27 @@ function buildEmailHtml(fields) {
         <tr><td ${tdLabel}>Email(s)</td><td ${tdValue}>${emailsArr.map(esc).join('<br>') || '—'}</td></tr>
         <tr><td ${tdLabel}>Website</td><td ${tdValue}>${website ? esc(website) : '—'}</td></tr>
         <tr><td ${tdLabel}>Address</td><td ${tdValue}>${address ? esc(address) : '—'}</td></tr>
+        <tr><td ${tdLabel}>Licensed &amp; Insured</td><td ${tdValue}>${licensedInsured || '—'}${licensedInsured === 'Yes' && licenseNumber ? ` (License #: ${esc(licenseNumber)})` : ''}</td></tr>
+        <tr><td ${tdLabel}>Emergency Services</td><td ${tdValue}>${emergencyServices || '—'}</td></tr>
+        <tr><td ${tdLabel}>Hours</td><td ${tdValue}>${hours ? esc(hours) : '—'}</td></tr>
       </table>
 
+      <div ${sectionStyle}>Website &amp; Review Info</div>
+      <table style="border-collapse:collapse;width:100%;">
+        <tr><td ${tdLabel}>Trade Type</td><td ${tdValue}>${esc(tradeType)}</td></tr>
+        <tr><td ${tdLabel}>Years in Business</td><td ${tdValue}>${esc(yearsInBusiness)}</td></tr>
+        <tr><td ${tdLabel}>Tagline</td><td ${tdValue}>${tagline ? esc(tagline) : '—'}</td></tr>
+        <tr><td ${tdLabel}>Google Business URL</td><td ${tdValue}>${googleBusinessUrl ? `<a href="${esc(googleBusinessUrl)}">${esc(googleBusinessUrl)}</a>` : '—'}</td></tr>
+        <tr><td ${tdLabel}>Service Area</td><td ${tdValue}>${esc(serviceArea)}</td></tr>
+      </table>`;
+
+  if (aboutBusiness) {
+    html += `
+      <div ${sectionStyle}>About</div>
+      <p style="padding:0 12px;white-space:pre-wrap;">${esc(aboutBusiness)}</p>`;
+  }
+
+  html += `
       <div ${sectionStyle}>Services</div>
       <p style="padding:0 12px;white-space:pre-wrap;">${esc(services)}</p>
 
@@ -80,6 +102,9 @@ function buildEmailHtml(fields) {
           </td>
         </tr>
         <tr><td ${tdLabel}>Brand Notes</td><td ${tdValue}>${brandNotes ? esc(brandNotes) : '—'}</td></tr>
+        ${facebookUrl ? `<tr><td ${tdLabel}>Facebook</td><td ${tdValue}><a href="${esc(facebookUrl)}">${esc(facebookUrl)}</a></td></tr>` : ''}
+        ${instagramUrl ? `<tr><td ${tdLabel}>Instagram</td><td ${tdValue}><a href="${esc(instagramUrl)}">${esc(instagramUrl)}</a></td></tr>` : ''}
+        ${youtubeUrl ? `<tr><td ${tdLabel}>YouTube</td><td ${tdValue}><a href="${esc(youtubeUrl)}">${esc(youtubeUrl)}</a></td></tr>` : ''}
       </table>`;
 
   if (staffArr.length > 0) {
@@ -140,11 +165,24 @@ export async function onRequest(context) {
   const primaryColor  = formData.get('primaryColor') || '';
   const secondaryColor = formData.get('secondaryColor') || '';
   const brandNotes    = formData.get('brandNotes') || '';
+  const tradeType      = formData.get('tradeType') || '';
+  const yearsInBusiness = formData.get('yearsInBusiness') || '';
+  const serviceArea    = formData.get('serviceArea') || '';
+  const tagline        = formData.get('tagline') || '';
+  const aboutBusiness  = formData.get('aboutBusiness') || '';
+  const licensedInsured = formData.get('licensedInsured') || '';
+  const licenseNumber  = formData.get('licenseNumber') || '';
+  const emergencyServices = formData.get('emergencyServices') || '';
+  const hours          = formData.get('hours') || '';
+  const googleBusinessUrl = formData.get('googleBusinessUrl') || '';
+  const facebookUrl    = formData.get('facebookUrl') || '';
+  const instagramUrl   = formData.get('instagramUrl') || '';
+  const youtubeUrl     = formData.get('youtubeUrl') || '';
   const staff         = formData.get('staff') || '[]';
   const notes         = formData.get('notes') || '';
 
   // Validate required
-  if (!businessName || !ownerFirst || !ownerLast || !services) {
+  if (!businessName || !ownerFirst || !ownerLast || !services || !tradeType || !yearsInBusiness || !serviceArea || !googleBusinessUrl) {
     return json({ error: 'Missing required fields' }, 400);
   }
 
@@ -176,6 +214,9 @@ export async function onRequest(context) {
     businessName, ownerFirst, ownerLast, phones, emails,
     website, address, services, certifications,
     primaryColor, secondaryColor, brandNotes, staff, notes,
+    tradeType, yearsInBusiness, serviceArea, tagline, aboutBusiness,
+    licensedInsured, licenseNumber, emergencyServices, hours,
+    googleBusinessUrl, facebookUrl, instagramUrl, youtubeUrl,
     photoCount: photos.length,
   };
 
@@ -185,7 +226,7 @@ export async function onRequest(context) {
   try {
     const emailPayload = {
       from: 'Scale National <notifications@scalenational.com>',
-      to: ['info@scalenational.com', 'eric@scalenational.com'],
+      to: ['info@scalenational.com', 'eric@scalenational.com', 'tim@scalenational.com'],
       subject: `New Client Onboarding — ${businessName}`,
       html: emailHtml,
     };
@@ -231,8 +272,13 @@ export async function onRequest(context) {
       companyName: businessName,
       website:     website || '',
       address1:    address || '',
-      tags:        ['client-onboarding'],
+      tags:        ['client-onboarding', 'onboarding-submitted'],
       source:      'onboarding-form',
+      customFields: [
+        { key: 'business_name', field_value: businessName },
+        { key: 'job_type', field_value: tradeType },
+        { key: 'google_review_url', field_value: googleBusinessUrl },
+      ],
     };
 
     const contactRes  = await fetch(`${GHL_BASE}/contacts/`, {
@@ -255,11 +301,20 @@ export async function onRequest(context) {
         ``,
         `BUSINESS: ${businessName}`,
         `OWNER: ${ownerFirst} ${ownerLast}`,
+        `TRADE TYPE: ${tradeType}`,
+        `YEARS IN BUSINESS: ${yearsInBusiness}`,
         `PHONES: ${phonesArr.join(', ')}`,
         `EMAILS: ${emailsArr.join(', ')}`,
         website    ? `WEBSITE: ${website}` : null,
         address    ? `ADDRESS: ${address}` : null,
+        `SERVICE AREA: ${serviceArea}`,
+        tagline    ? `TAGLINE: ${tagline}` : null,
+        `GOOGLE BUSINESS URL: ${googleBusinessUrl}`,
+        licensedInsured ? `LICENSED & INSURED: ${licensedInsured}${licensedInsured === 'Yes' && licenseNumber ? ` (License #: ${licenseNumber})` : ''}` : null,
+        emergencyServices ? `EMERGENCY SERVICES: ${emergencyServices}` : null,
+        hours      ? `HOURS: ${hours}` : null,
         ``,
+        aboutBusiness ? `ABOUT:\n${aboutBusiness}\n` : null,
         `SERVICES OFFERED:`,
         services,
         ``,
@@ -270,6 +325,9 @@ export async function onRequest(context) {
         `  Primary: ${primaryColor || 'Not specified'}`,
         `  Secondary: ${secondaryColor || 'Not specified'}`,
         brandNotes ? `  Notes: ${brandNotes}` : null,
+        facebookUrl  ? `FACEBOOK: ${facebookUrl}` : null,
+        instagramUrl ? `INSTAGRAM: ${instagramUrl}` : null,
+        youtubeUrl   ? `YOUTUBE: ${youtubeUrl}` : null,
         ``,
         `STAFF:`,
         staffLines,
@@ -292,8 +350,8 @@ export async function onRequest(context) {
           locationId:  GHL_LOCATION,
           contactId,
           name:        `${businessName} — Onboarding`,
-          pipelineId:  'VxsnPyFkv6rjjHDA30M7',
-          stageId:     'a3e90324-df2f-4593-9d74-160b2d9c5f81',
+          pipelineId:  '4Rn80qQGJ89k8ycfTPNX',
+          stageId:     'e3decf39-4c42-4137-8fd4-7ecd3143c5a4',
           status:      'open',
         }),
       });

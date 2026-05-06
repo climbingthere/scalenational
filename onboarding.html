@@ -426,6 +426,93 @@
           </div>
         </div>
 
+        <div class="row two-col">
+          <div class="field">
+            <label>Trade Type <span class="req">*</span></label>
+            <select name="tradeType" required>
+              <option value="" disabled selected>Select your trade...</option>
+              <option value="Roofing">Roofing</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="HVAC">HVAC</option>
+              <option value="Electrical">Electrical</option>
+              <option value="Landscaping">Landscaping</option>
+              <option value="Painting">Painting</option>
+              <option value="Concrete">Concrete</option>
+              <option value="Flooring">Flooring</option>
+              <option value="General Contractor">General Contractor</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Years in Business <span class="req">*</span></label>
+            <input type="text" name="yearsInBusiness" required placeholder="e.g. 8">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>Service Area / Cities Served <span class="req">*</span></label>
+            <textarea name="serviceArea" required placeholder="e.g. Austin, Round Rock, Cedar Park, Georgetown..."></textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>Tagline / One-liner</label>
+            <input type="text" name="tagline" placeholder="e.g. Austin's Most Trusted Roofer">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>Short About Paragraph</label>
+            <textarea name="aboutBusiness" placeholder="Tell us about your business — who you are, what makes you different, why customers choose you..."></textarea>
+          </div>
+        </div>
+
+        <div class="row two-col">
+          <div class="field">
+            <label>Licensed &amp; Insured</label>
+            <div style="display:flex;gap:16px;padding:8px 0;">
+              <label style="font-weight:500;font-size:14px;display:flex;align-items:center;gap:6px;cursor:pointer;">
+                <input type="radio" name="licensedInsured" value="Yes" onclick="document.getElementById('licenseNumberField').style.display='block'"> Yes
+              </label>
+              <label style="font-weight:500;font-size:14px;display:flex;align-items:center;gap:6px;cursor:pointer;">
+                <input type="radio" name="licensedInsured" value="No" onclick="document.getElementById('licenseNumberField').style.display='none'"> No
+              </label>
+            </div>
+          </div>
+          <div class="field" id="licenseNumberField" style="display:none;">
+            <label>License Number</label>
+            <input type="text" name="licenseNumber" placeholder="e.g. TX-12345">
+          </div>
+        </div>
+
+        <div class="row two-col">
+          <div class="field">
+            <label>Emergency Services Available</label>
+            <div style="display:flex;gap:16px;padding:8px 0;">
+              <label style="font-weight:500;font-size:14px;display:flex;align-items:center;gap:6px;cursor:pointer;">
+                <input type="radio" name="emergencyServices" value="Yes"> Yes
+              </label>
+              <label style="font-weight:500;font-size:14px;display:flex;align-items:center;gap:6px;cursor:pointer;">
+                <input type="radio" name="emergencyServices" value="No"> No
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Hours of Operation</label>
+            <input type="text" name="hours" placeholder="e.g. Mon–Fri 7am–6pm, Sat 8am–2pm">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>Google Business Profile URL <span class="req">*</span></label>
+            <input type="url" name="googleBusinessUrl" required placeholder="https://maps.app.goo.gl/...">
+          </div>
+        </div>
+
         <!-- ── Services ── -->
         <div class="section-label">Services</div>
 
@@ -470,6 +557,21 @@
           <div class="field">
             <label>Brand / Design Notes</label>
             <textarea name="brandNotes" placeholder="Describe your vibe, any brands you like the look of, preferences..."></textarea>
+          </div>
+        </div>
+
+        <div class="row three-col">
+          <div class="field">
+            <label>Facebook URL</label>
+            <input type="text" name="facebookUrl" placeholder="https://facebook.com/yourpage">
+          </div>
+          <div class="field">
+            <label>Instagram URL</label>
+            <input type="text" name="instagramUrl" placeholder="https://instagram.com/yourhandle">
+          </div>
+          <div class="field">
+            <label>YouTube URL</label>
+            <input type="text" name="youtubeUrl" placeholder="https://youtube.com/@yourchannel">
           </div>
         </div>
 
@@ -662,8 +764,12 @@
       const oFirst = form.querySelector('[name="ownerFirst"]').value.trim();
       const oLast = form.querySelector('[name="ownerLast"]').value.trim();
       const services = form.querySelector('[name="services"]').value.trim();
+      const tradeType = form.querySelector('[name="tradeType"]').value;
+      const yearsInBusiness = form.querySelector('[name="yearsInBusiness"]').value.trim();
+      const serviceArea = form.querySelector('[name="serviceArea"]').value.trim();
+      const googleBusinessUrl = form.querySelector('[name="googleBusinessUrl"]').value.trim();
 
-      if (!biz || !oFirst || !oLast || !services) {
+      if (!biz || !oFirst || !oLast || !services || !tradeType || !yearsInBusiness || !serviceArea || !googleBusinessUrl) {
         showError('Please fill out all required fields.');
         return;
       }
@@ -698,11 +804,26 @@
       fd.append('emails', JSON.stringify(emails));
       fd.append('website', form.querySelector('[name="website"]').value.trim());
       fd.append('address', form.querySelector('[name="address"]').value.trim());
+      fd.append('tradeType', tradeType);
+      fd.append('yearsInBusiness', yearsInBusiness);
+      fd.append('serviceArea', serviceArea);
+      fd.append('tagline', form.querySelector('[name="tagline"]').value.trim());
+      fd.append('aboutBusiness', form.querySelector('[name="aboutBusiness"]').value.trim());
+      const licensedRadio = form.querySelector('[name="licensedInsured"]:checked');
+      fd.append('licensedInsured', licensedRadio ? licensedRadio.value : '');
+      fd.append('licenseNumber', form.querySelector('[name="licenseNumber"]').value.trim());
+      const emergencyRadio = form.querySelector('[name="emergencyServices"]:checked');
+      fd.append('emergencyServices', emergencyRadio ? emergencyRadio.value : '');
+      fd.append('hours', form.querySelector('[name="hours"]').value.trim());
+      fd.append('googleBusinessUrl', googleBusinessUrl);
       fd.append('services', services);
       fd.append('certifications', form.querySelector('[name="certifications"]').value.trim());
       fd.append('primaryColor', primaryText.value.trim());
       fd.append('secondaryColor', secondaryText.value.trim());
       fd.append('brandNotes', form.querySelector('[name="brandNotes"]').value.trim());
+      fd.append('facebookUrl', form.querySelector('[name="facebookUrl"]').value.trim());
+      fd.append('instagramUrl', form.querySelector('[name="instagramUrl"]').value.trim());
+      fd.append('youtubeUrl', form.querySelector('[name="youtubeUrl"]').value.trim());
       fd.append('notes', form.querySelector('[name="notes"]').value.trim());
 
       // Staff
@@ -727,7 +848,7 @@
       btn.innerHTML = '<span class="spinner"></span> Submitting...';
 
       try {
-        const res = await fetch('https://api.scalenational.com/onboard', {
+        const res = await fetch('/onboard', {
           method: 'POST',
           body: fd,
         });
