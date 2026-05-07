@@ -7,92 +7,195 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:#fff;background:#0D0D0D;line-height:1.6}
-a{text-decoration:none;color:inherit}
-:root{--orange:#FF5A1F;--orange-hover:#E04D15;--dark:#0D0D0D;--dark-card:#161616;--dark-border:#252525;--gray-light:#A3A3A3;--max-w:1200px;--section-pad:80px 24px}
-.container{max-width:var(--max-w);margin:0 auto;width:100%}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-weight:700;font-size:1rem;padding:16px 36px;border-radius:8px;border:none;cursor:pointer;transition:background .2s,transform .15s}
-.btn:hover{background:var(--orange-hover);transform:translateY(-2px)}
-.btn-outline{background:transparent;border:2px solid var(--orange);color:var(--orange)}
-.btn-outline:hover{background:var(--orange);color:#fff}
-.btn-sm{padding:12px 24px;font-size:.9rem}
-.section-label{text-transform:uppercase;letter-spacing:3px;font-size:.75rem;font-weight:700;color:var(--orange);margin-bottom:12px}
-.section-title{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;line-height:1.15;margin-bottom:20px}
+/* ── RESET & BASE ────────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',system-ui,-apple-system,sans-serif; color:#fff; background:#0D0D0D; line-height:1.6; -webkit-font-smoothing:antialiased; }
+a { text-decoration:none; color:inherit; }
 
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--dark-border)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:var(--max-w);margin:0 auto}
-.nav-logo{font-size:1.25rem;font-weight:900}
-.nav-logo span{color:var(--orange)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{font-size:.9rem;font-weight:500;color:var(--gray-light);transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--orange)}
-.nav-phone{font-weight:700;color:var(--orange);font-size:.95rem}
-.nav-cta{display:none}
-.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
-@media(max-width:768px){.nav-links,.nav-phone{display:none}.hamburger{display:block}.nav-cta{display:inline-flex}}
-
-/* PAGE HEADER */
-.page-header{padding:160px 24px 80px;text-align:center;position:relative;overflow:hidden}
-.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,90,31,.1) 0%,transparent 60%);pointer-events:none}
-.page-header h1{font-size:clamp(2rem,5vw,3.25rem);font-weight:900;margin-bottom:16px}
-.page-header h1 span{color:var(--orange)}
-.page-header p{color:var(--gray-light);font-size:1.1rem;max-width:600px;margin:0 auto}
-
-/* SERVICE DETAIL CARDS */
-.service-section{padding:var(--section-pad);border-bottom:1px solid var(--dark-border)}
-.service-section:nth-child(even){background:var(--dark-card)}
-.service-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.service-inner.reverse{direction:rtl}
-.service-inner.reverse > *{direction:ltr}
-.service-content .service-tag{display:inline-block;background:rgba(255,90,31,.1);color:var(--orange);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:6px 14px;border-radius:100px;margin-bottom:16px}
-.service-content h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;margin-bottom:16px}
-.service-content p{color:var(--gray-light);font-size:.95rem;margin-bottom:20px}
-.service-features{list-style:none;margin-bottom:28px}
-.service-features li{padding:6px 0;font-size:.9rem;color:var(--gray-light)}
-.service-features li::before{content:'✓';color:var(--orange);font-weight:700;margin-right:10px}
-.price-range{display:inline-flex;align-items:center;gap:8px;background:var(--dark-card);border:1px solid var(--dark-border);border-radius:8px;padding:12px 20px;margin-bottom:24px}
-.price-range .price-label{font-size:.8rem;color:var(--gray-light);text-transform:uppercase;letter-spacing:1px}
-.price-range .price-value{font-size:1.1rem;font-weight:800;color:var(--orange)}
-.service-visual{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:20px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:4rem;overflow:hidden}
-@media(max-width:768px){
-  .service-inner,.service-inner.reverse{grid-template-columns:1fr;direction:ltr}
-  .service-visual{aspect-ratio:16/9}
+:root {
+  --orange:#FF5A1F;
+  --orange-hover:#E04D15;
+  --dark:#0D0D0D;
+  --dark-card:#141414;
+  --dark-border:#222;
+  --gray-light:#A3A3A3;
+  --gray-mid:#666;
+  --max-w:1200px;
+  --section-pad:100px 24px;
+  --radius:12px;
 }
 
-/* CTA BANNER */
-.cta-banner{padding:var(--section-pad);text-align:center;position:relative;overflow:hidden}
-.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(255,90,31,.08) 0%,transparent 60%);pointer-events:none}
-.cta-banner h2{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;margin-bottom:16px}
-.cta-banner p{color:var(--gray-light);font-size:1.05rem;max-width:520px;margin:0 auto 32px}
+.container { max-width:var(--max-w); margin:0 auto; width:100%; }
+.btn { display:inline-flex; align-items:center; gap:10px; background:var(--orange); color:#fff; font-weight:700; font-size:.95rem; padding:16px 36px; border-radius:var(--radius); border:none; cursor:pointer; transition:all .25s ease; }
+.btn:hover { background:var(--orange-hover); transform:translateY(-2px); box-shadow:0 8px 30px rgba(255,90,31,.25); }
+.btn-outline { background:transparent; border:2px solid rgba(255,255,255,.2); color:#fff; }
+.btn-outline:hover { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.4); color:#fff; transform:translateY(-2px); box-shadow:none; }
+.btn-sm { padding:14px 28px; font-size:.88rem; }
+.btn svg { width:18px; height:18px; fill:currentColor; flex-shrink:0; }
+.section-label { text-transform:uppercase; letter-spacing:4px; font-size:.7rem; font-weight:700; color:var(--orange); margin-bottom:16px; font-variant:small-caps; }
 
-/* FOOTER */
-.footer{padding:48px 24px 24px;border-top:1px solid var(--dark-border)}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-inner p{font-size:.8rem;color:var(--gray-light)}
-.footer-inner a{color:var(--orange);font-weight:600}
+/* ── NAV ─────────────────────────────────────────────── */
+.nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(13,13,13,.88); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--dark-border); }
+.nav-inner { display:flex; align-items:center; justify-content:space-between; padding:18px 24px; max-width:var(--max-w); margin:0 auto; }
+.nav-logo { font-size:1.2rem; font-weight:900; letter-spacing:-.02em; display:flex; align-items:center; gap:10px; }
+.nav-logo svg { width:28px; height:28px; }
+.nav-logo .logo-text span { color:var(--orange); }
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a { font-size:.88rem; font-weight:500; color:var(--gray-light); transition:color .2s; }
+.nav-links a:hover, .nav-links a.active { color:#fff; }
+.nav-right { display:flex; align-items:center; gap:20px; }
+.nav-phone { font-weight:700; color:var(--orange); font-size:.9rem; display:flex; align-items:center; gap:8px; }
+.nav-phone svg { width:16px; height:16px; fill:var(--orange); }
+.nav-cta { display:none; }
+.hamburger { display:none; background:none; border:none; color:#fff; cursor:pointer; padding:4px; }
+.hamburger svg { width:24px; height:24px; fill:#fff; }
+
+.mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(13,13,13,.98); z-index:999; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:1.5rem; font-weight:700; color:#fff; }
+.mobile-menu a:hover { color:var(--orange); }
+.mobile-menu .mobile-close { position:absolute; top:20px; right:24px; background:none; border:none; color:#fff; cursor:pointer; }
+.mobile-menu .mobile-close svg { width:28px; height:28px; fill:#fff; }
+
+@media(max-width:768px){
+  .nav-links, .nav-phone { display:none; }
+  .hamburger { display:block; }
+  .nav-cta { display:inline-flex; padding:10px 20px; font-size:.82rem; }
+}
+
+/* ── PAGE HEADER ─────────────────────────────────────── */
+.page-header { padding:180px 24px 80px; text-align:center; position:relative; overflow:hidden; }
+.page-header::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,90,31,.1) 0%, transparent 70%);
+  pointer-events:none;
+}
+.page-header::after {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 70% 50% at 50% 30%, black, transparent);
+  -webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 30%, black, transparent);
+  pointer-events:none;
+}
+.page-header h1 { font-size:clamp(2rem,5vw,3.5rem); font-weight:900; margin-bottom:16px; letter-spacing:-.03em; position:relative; }
+.page-header h1 span { color:var(--orange); }
+.page-header p { color:var(--gray-light); font-size:1.1rem; max-width:600px; margin:0 auto; position:relative; line-height:1.7; }
+
+/* ── SERVICE DETAIL SECTIONS ─────────────────────────── */
+.service-section { padding:var(--section-pad); border-bottom:1px solid var(--dark-border); }
+.service-section:nth-child(even) { background:var(--dark-card); }
+.service-inner { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+.service-inner.reverse { direction:rtl; }
+.service-inner.reverse > * { direction:ltr; }
+.service-content .service-tag { display:inline-block; background:rgba(255,90,31,.1); color:var(--orange); font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:3px; padding:6px 16px; border-radius:100px; margin-bottom:20px; }
+.service-content h2 { font-size:clamp(1.5rem,3vw,2.25rem); font-weight:800; margin-bottom:16px; letter-spacing:-.02em; }
+.service-content > p { color:var(--gray-light); font-size:.95rem; margin-bottom:24px; line-height:1.75; }
+.service-features { list-style:none; margin-bottom:32px; }
+.service-features li { padding:8px 0; font-size:.9rem; color:var(--gray-light); display:flex; align-items:flex-start; gap:12px; }
+.service-features li svg { width:18px; height:18px; fill:var(--orange); flex-shrink:0; margin-top:2px; }
+.price-badge { display:inline-flex; align-items:center; gap:12px; background:var(--dark); border:1px solid var(--dark-border); border-radius:var(--radius); padding:14px 22px; margin-bottom:28px; }
+.price-badge .price-label { font-size:.75rem; color:var(--gray-mid); text-transform:uppercase; letter-spacing:2px; font-weight:600; }
+.price-badge .price-value { font-size:1.1rem; font-weight:800; color:var(--orange); }
+.service-visual { background:var(--dark-card); border:1px solid var(--dark-border); border-radius:20px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; }
+.service-visual::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(circle at 50% 50%, rgba(255,90,31,.06) 0%, transparent 70%);
+}
+.service-visual svg { width:80px; height:80px; fill:rgba(255,90,31,.2); position:relative; }
+@media(max-width:768px){
+  .service-inner, .service-inner.reverse { grid-template-columns:1fr; direction:ltr; gap:40px; }
+  .service-visual { aspect-ratio:16/9; }
+}
+
+/* ── CTA BANNER ──────────────────────────────────────── */
+.cta-banner { padding:80px 24px; text-align:center; position:relative; overflow:hidden; background:linear-gradient(135deg, #FF5A1F 0%, #E04D15 40%, #C43D0C 100%); }
+.cta-banner::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;
+}
+.cta-banner h2 { font-size:clamp(1.75rem,4vw,2.75rem); font-weight:900; margin-bottom:16px; position:relative; }
+.cta-banner p { color:rgba(255,255,255,.85); font-size:1.05rem; max-width:520px; margin:0 auto 36px; position:relative; line-height:1.7; }
+.cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; position:relative; }
+.cta-btns .btn { background:#fff; color:var(--dark); }
+.cta-btns .btn:hover { background:rgba(255,255,255,.9); box-shadow:0 8px 30px rgba(0,0,0,.2); }
+.cta-btns .btn-outline { background:transparent; border:2px solid rgba(255,255,255,.4); color:#fff; }
+.cta-btns .btn-outline:hover { background:rgba(255,255,255,.1); border-color:#fff; box-shadow:none; }
+
+/* ── FOOTER ──────────────────────────────────────────── */
+.footer { padding:72px 24px 32px; border-top:1px solid var(--dark-border); }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px; }
+.footer-brand .footer-logo { font-size:1.15rem; font-weight:900; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+.footer-brand .footer-logo span { color:var(--orange); }
+.footer-brand p { color:var(--gray-mid); font-size:.85rem; line-height:1.7; }
+.footer h4 { font-size:.72rem; text-transform:uppercase; letter-spacing:3px; color:var(--gray-mid); margin-bottom:20px; font-weight:700; }
+.footer ul { list-style:none; }
+.footer ul li { margin-bottom:12px; }
+.footer ul a { font-size:.88rem; color:var(--gray-light); transition:color .2s; }
+.footer ul a:hover { color:var(--orange); }
+.footer-bottom { border-top:1px solid var(--dark-border); padding-top:28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+.footer-bottom p { font-size:.78rem; color:var(--gray-mid); }
+.footer-bottom a { color:var(--orange); font-weight:600; transition:opacity .2s; }
+.footer-bottom a:hover { opacity:.8; }
+.footer-socials { display:flex; gap:12px; }
+.footer-socials a { width:40px; height:40px; background:var(--dark-card); border:1px solid var(--dark-border); border-radius:10px; display:flex; align-items:center; justify-content:center; transition:all .25s; }
+.footer-socials a svg { width:18px; height:18px; fill:var(--gray-light); transition:fill .25s; }
+.footer-socials a:hover { border-color:var(--orange); background:rgba(255,90,31,.08); }
+.footer-socials a:hover svg { fill:var(--orange); }
+@media(max-width:768px){ .footer-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:480px){ .footer-grid { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ══════════════ NAV ══════════════ -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo"><span>Peak</span> Roofing Solutions</a>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 28 28" fill="none"><path d="M14 2L2 14h4v10h6v-7h4v7h6V14h4L14 2z" fill="#FF5A1F"/></svg>
+      <span class="logo-text"><span>Peak</span> Roofing</span>
+    </a>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="services" class="active">Services</a></li>
       <li><a href="contact">Free Estimate</a></li>
     </ul>
-    <a href="tel:+19085551234" class="nav-phone">(908) 555-1234</a>
-    <a href="contact" class="btn nav-cta" style="padding:10px 20px;font-size:.85rem;">Free Estimate</a>
-    <button class="hamburger" aria-label="Menu">&#9776;</button>
+    <div class="nav-right">
+      <a href="tel:+19085551234" class="nav-phone">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.49a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
+        (908) 555-1234
+      </a>
+      <a href="contact" class="btn nav-cta" style="padding:10px 20px;font-size:.82rem;">Free Estimate</a>
+      <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.add('open')">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- PAGE HEADER -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" aria-label="Close menu" onclick="document.getElementById('mobileMenu').classList.remove('open')">
+    <svg viewBox="0 0 24 24"><path d="M18.3 5.7a1 1 0 00-1.4 0L12 10.6 7.1 5.7a1 1 0 00-1.4 1.4L10.6 12l-4.9 4.9a1 1 0 101.4 1.4L12 13.4l4.9 4.9a1 1 0 001.4-1.4L13.4 12l4.9-4.9a1 1 0 000-1.4z"/></svg>
+  </button>
+  <a href="/" onclick="document.getElementById('mobileMenu').classList.remove('open')">Home</a>
+  <a href="services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Services</a>
+  <a href="contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">Free Estimate</a>
+  <a href="tel:+19085551234" style="color:var(--orange);">(908) 555-1234</a>
+</div>
+
+<!-- ══════════════ PAGE HEADER ══════════════ -->
 <section class="page-header">
   <div class="container">
     <div class="section-label">Our Services</div>
@@ -101,7 +204,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- SERVICE 1: ROOF REPLACEMENT -->
+<!-- ══════════════ SERVICE 1: ROOF REPLACEMENT ══════════════ -->
 <section class="service-section">
   <div class="container">
     <div class="service-inner">
@@ -110,26 +213,30 @@ a{text-decoration:none;color:inherit}
         <h2>Complete Roof Replacement</h2>
         <p>When repairs are no longer enough, our full tear-off and replacement service gives your home a brand-new roof built to last decades. We use only premium GAF Timberline HDZ architectural shingles and follow manufacturer specifications to the letter.</p>
         <ul class="service-features">
-          <li>Full tear-off down to the deck — no layovers</li>
-          <li>Inspect and replace rotted decking at no hidden cost</li>
-          <li>Synthetic underlayment and ice &amp; water shield</li>
-          <li>New drip edge, step flashing, and ridge vent</li>
-          <li>25-year workmanship warranty + 50-year shingle warranty</li>
-          <li>Typical completion: 1-2 days</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Full tear-off down to the deck — no layovers</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Inspect and replace rotted decking at no hidden cost</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Synthetic underlayment and ice &amp; water shield</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>New drip edge, step flashing, and ridge vent</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>25-year workmanship warranty + 50-year shingle warranty</li>
         </ul>
-        <div class="price-range">
+        <div class="price-badge">
           <span class="price-label">Starting at</span>
-          <span class="price-value">$8,500 – $18,000</span>
+          <span class="price-value">$8,500 &ndash; $18,000</span>
         </div>
         <br>
-        <a href="contact" class="btn btn-sm">Get a Free Quote &rarr;</a>
+        <a href="contact" class="btn btn-sm">
+          Get a Free Quote
+          <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <div class="service-visual">&#127968;</div>
+      <div class="service-visual">
+        <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.84L19 12h-2v8h-3v-6H10v6H7v-8H5l7-6.16z"/></svg>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICE 2: ROOF REPAIR -->
+<!-- ══════════════ SERVICE 2: ROOF REPAIR ══════════════ -->
 <section class="service-section">
   <div class="container">
     <div class="service-inner reverse">
@@ -138,25 +245,30 @@ a{text-decoration:none;color:inherit}
         <h2>Roof Repair</h2>
         <p>Leaks, missing shingles, damaged flashing, or sagging areas — we diagnose the problem accurately and fix it right the first time. Most repairs are completed same-week, and we always provide photos of the damage before we start.</p>
         <ul class="service-features">
-          <li>Leak detection and targeted repair</li>
-          <li>Shingle replacement and re-sealing</li>
-          <li>Flashing repair around chimneys, vents, and skylights</li>
-          <li>Emergency tarping available for active leaks</li>
-          <li>Same-week scheduling for most repairs</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Leak detection and targeted repair</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Shingle replacement and re-sealing</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Flashing repair around chimneys, vents, and skylights</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Emergency tarping available for active leaks</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Same-week scheduling for most repairs</li>
         </ul>
-        <div class="price-range">
+        <div class="price-badge">
           <span class="price-label">Starting at</span>
-          <span class="price-value">$350 – $2,500</span>
+          <span class="price-value">$350 &ndash; $2,500</span>
         </div>
         <br>
-        <a href="contact" class="btn btn-sm">Schedule a Repair &rarr;</a>
+        <a href="contact" class="btn btn-sm">
+          Schedule a Repair
+          <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <div class="service-visual">&#128295;</div>
+      <div class="service-visual">
+        <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICE 3: STORM DAMAGE -->
+<!-- ══════════════ SERVICE 3: STORM DAMAGE ══════════════ -->
 <section class="service-section">
   <div class="container">
     <div class="service-inner">
@@ -165,25 +277,30 @@ a{text-decoration:none;color:inherit}
         <h2>Storm Damage Restoration</h2>
         <p>New Jersey storms can cause serious roof damage. We specialize in helping homeowners navigate insurance claims and restore their roofs quickly. Our team documents all damage with drone imagery and works directly with your adjuster.</p>
         <ul class="service-features">
-          <li>Free storm damage assessment within 24 hours</li>
-          <li>Detailed drone inspection with photo report</li>
-          <li>Direct coordination with your insurance adjuster</li>
-          <li>We handle all paperwork and supplement requests</li>
-          <li>Pay only your deductible in most cases</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Free storm damage assessment within 24 hours</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Detailed drone inspection with photo report</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Direct coordination with your insurance adjuster</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>We handle all paperwork and supplement requests</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Pay only your deductible in most cases</li>
         </ul>
-        <div class="price-range">
+        <div class="price-badge">
           <span class="price-label">Cost</span>
           <span class="price-value">Covered by Insurance</span>
         </div>
         <br>
-        <a href="contact" class="btn btn-sm">Report Storm Damage &rarr;</a>
+        <a href="contact" class="btn btn-sm">
+          Report Storm Damage
+          <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <div class="service-visual">&#9889;</div>
+      <div class="service-visual">
+        <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8H7z"/></svg>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICE 4: GUTTERS -->
+<!-- ══════════════ SERVICE 4: GUTTERS ══════════════ -->
 <section class="service-section">
   <div class="container">
     <div class="service-inner reverse">
@@ -192,25 +309,30 @@ a{text-decoration:none;color:inherit}
         <h2>Gutters &amp; Downspouts</h2>
         <p>Properly functioning gutters are critical to protecting your home's foundation, siding, and landscaping. We install seamless aluminum gutters custom-fabricated on-site for a perfect fit — no seams, no leaks.</p>
         <ul class="service-features">
-          <li>Seamless 5" and 6" aluminum gutters</li>
-          <li>Custom color matching to your home's trim</li>
-          <li>LeafGuard-style gutter protection available</li>
-          <li>Downspout extensions and underground drainage</li>
-          <li>Gutter repair and cleaning services</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Seamless 5" and 6" aluminum gutters</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Custom color matching to your home's trim</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>LeafGuard-style gutter protection available</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Downspout extensions and underground drainage</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Gutter repair and cleaning services</li>
         </ul>
-        <div class="price-range">
+        <div class="price-badge">
           <span class="price-label">Starting at</span>
-          <span class="price-value">$1,200 – $4,000</span>
+          <span class="price-value">$1,200 &ndash; $4,000</span>
         </div>
         <br>
-        <a href="contact" class="btn btn-sm">Get a Gutter Quote &rarr;</a>
+        <a href="contact" class="btn btn-sm">
+          Get a Gutter Quote
+          <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <div class="service-visual">&#127783;&#65039;</div>
+      <div class="service-visual">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6 2 10.5c0 3.27 2.15 6.08 5.25 7.34.17 1.63.53 3.16 1.07 4.16h7.36c.54-1 .9-2.53 1.07-4.16C19.85 16.58 22 13.77 22 10.5 22 6 17.52 2 12 2zm0 2c4.42 0 8 3.13 8 6.5 0 2.53-1.69 4.74-4.13 5.72l-.62.25-.07.67c-.1.93-.29 1.93-.56 2.86H9.38c-.27-.93-.46-1.93-.56-2.86l-.07-.67-.62-.25C5.69 15.24 4 13.03 4 10.5 4 7.13 7.58 4 12 4z"/></svg>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICE 5: FREE INSPECTIONS -->
+<!-- ══════════════ SERVICE 5: FREE INSPECTIONS ══════════════ -->
 <section class="service-section">
   <div class="container">
     <div class="service-inner">
@@ -219,43 +341,99 @@ a{text-decoration:none;color:inherit}
         <h2>Free 21-Point Roof Inspection</h2>
         <p>Not sure if your roof needs work? Our comprehensive inspection covers every component of your roofing system. We use drone technology to capture high-resolution imagery without ever stepping on your roof, keeping it (and us) safe.</p>
         <ul class="service-features">
-          <li>21-point inspection checklist covering all components</li>
-          <li>HD drone imagery of your entire roof surface</li>
-          <li>Detailed written report with findings and photos</li>
-          <li>Honest assessment — we never upsell</li>
-          <li>Report delivered within 24 hours</li>
-          <li>Absolutely free, no strings attached</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>21-point inspection checklist covering all components</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>HD drone imagery of your entire roof surface</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Detailed written report with findings and photos</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Honest assessment — we never upsell</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Report delivered within 24 hours</li>
         </ul>
-        <div class="price-range">
+        <div class="price-badge">
           <span class="price-label">Cost</span>
           <span class="price-value">FREE</span>
         </div>
         <br>
-        <a href="contact" class="btn btn-sm">Book Your Inspection &rarr;</a>
+        <a href="contact" class="btn btn-sm">
+          Book Your Inspection
+          <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <div class="service-visual">&#128269;</div>
+      <div class="service-visual">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA BANNER -->
+<!-- ══════════════ CTA BANNER ══════════════ -->
 <section class="cta-banner">
   <div class="container">
     <h2>Not Sure What You Need?</h2>
     <p>Give us a call or fill out the form and we'll schedule a free inspection to determine exactly what your roof needs — no pressure, no obligation.</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="contact" class="btn">Request a Free Estimate &rarr;</a>
-      <a href="tel:+19085551234" class="btn btn-outline">Call (908) 555-1234</a>
+    <div class="cta-btns">
+      <a href="contact" class="btn">
+        Request a Free Estimate
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="tel:+19085551234" class="btn btn-outline">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.49a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
+        Call (908) 555-1234
+      </a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ══════════════ FOOTER ══════════════ -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-inner">
-      <p>&copy; 2026 Peak Roofing Solutions. All rights reserved. NJ HIC #13VH12345678 &nbsp;|&nbsp; Website by <a href="#">Scale National</a></p>
-      <p><a href="tel:+19085551234" style="color:var(--orange);font-weight:700;">(908) 555-1234</a></p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 28 28" width="24" height="24" fill="none"><path d="M14 2L2 14h4v10h6v-7h4v7h6V14h4L14 2z" fill="#FF5A1F"/></svg>
+          <span><span>Peak</span> Roofing Solutions</span>
+        </div>
+        <p>Licensed and insured roofing contractor serving central and northern New Jersey since 2011. NJ HIC License #13VH12345678.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services">Roof Replacement</a></li>
+          <li><a href="services">Roof Repair</a></li>
+          <li><a href="services">Storm Damage</a></li>
+          <li><a href="services">Gutters</a></li>
+          <li><a href="services">Inspections</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="services">Services</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li><a href="contact">Free Estimate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+19085551234">(908) 555-1234</a></li>
+          <li><a href="mailto:info@peakroofingsolutions.com">info@peakroofing<wbr>solutions.com</a></li>
+          <li style="color:var(--gray-light);font-size:.88rem;">123 Main Street<br>Somerville, NJ 08876</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Peak Roofing Solutions. All rights reserved. &nbsp;|&nbsp; Website by <a href="#">Scale National</a></p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5M12 7a5 5 0 110 10 5 5 0 010-10m0 2a3 3 0 100 6 3 3 0 000-6z"/></svg>
+        </a>
+        <a href="#" aria-label="Google My Business">
+          <svg viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </footer>

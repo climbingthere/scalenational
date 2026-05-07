@@ -7,98 +7,196 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:#fff;background:#0D0D0D;line-height:1.6}
-a{text-decoration:none;color:inherit}
-:root{--orange:#FF5A1F;--orange-hover:#E04D15;--dark:#0D0D0D;--dark-card:#161616;--dark-border:#252525;--gray-light:#A3A3A3;--max-w:1200px;--section-pad:80px 24px}
-.container{max-width:var(--max-w);margin:0 auto;width:100%}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-weight:700;font-size:1rem;padding:16px 36px;border-radius:8px;border:none;cursor:pointer;transition:background .2s,transform .15s;width:100%;justify-content:center}
-.btn:hover{background:var(--orange-hover);transform:translateY(-2px)}
-.section-label{text-transform:uppercase;letter-spacing:3px;font-size:.75rem;font-weight:700;color:var(--orange);margin-bottom:12px}
+/* ── RESET & BASE ────────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',system-ui,-apple-system,sans-serif; color:#fff; background:#0D0D0D; line-height:1.6; -webkit-font-smoothing:antialiased; }
+a { text-decoration:none; color:inherit; }
 
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--dark-border)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:var(--max-w);margin:0 auto}
-.nav-logo{font-size:1.25rem;font-weight:900}
-.nav-logo span{color:var(--orange)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{font-size:.9rem;font-weight:500;color:var(--gray-light);transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--orange)}
-.nav-phone{font-weight:700;color:var(--orange);font-size:.95rem}
-.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
-@media(max-width:768px){.nav-links,.nav-phone{display:none}.hamburger{display:block}}
+:root {
+  --orange:#FF5A1F;
+  --orange-hover:#E04D15;
+  --dark:#0D0D0D;
+  --dark-card:#141414;
+  --dark-border:#222;
+  --gray-light:#A3A3A3;
+  --gray-mid:#666;
+  --max-w:1200px;
+  --section-pad:100px 24px;
+  --radius:12px;
+}
 
-/* PAGE HEADER */
-.page-header{padding:160px 24px 60px;text-align:center;position:relative;overflow:hidden}
-.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,90,31,.1) 0%,transparent 60%);pointer-events:none}
-.page-header h1{font-size:clamp(2rem,5vw,3.25rem);font-weight:900;margin-bottom:16px}
-.page-header h1 span{color:var(--orange)}
-.page-header p{color:var(--gray-light);font-size:1.1rem;max-width:600px;margin:0 auto}
+.container { max-width:var(--max-w); margin:0 auto; width:100%; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; background:var(--orange); color:#fff; font-weight:700; font-size:.95rem; padding:16px 36px; border-radius:var(--radius); border:none; cursor:pointer; transition:all .25s ease; width:100%; }
+.btn:hover { background:var(--orange-hover); transform:translateY(-2px); box-shadow:0 8px 30px rgba(255,90,31,.25); }
+.btn svg { width:18px; height:18px; fill:currentColor; flex-shrink:0; }
+.section-label { text-transform:uppercase; letter-spacing:4px; font-size:.7rem; font-weight:700; color:var(--orange); margin-bottom:16px; font-variant:small-caps; }
 
-/* CONTACT LAYOUT */
-.contact-section{padding:0 24px 80px}
-.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
-@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
+/* ── NAV ─────────────────────────────────────────────── */
+.nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(13,13,13,.88); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--dark-border); }
+.nav-inner { display:flex; align-items:center; justify-content:space-between; padding:18px 24px; max-width:var(--max-w); margin:0 auto; }
+.nav-logo { font-size:1.2rem; font-weight:900; letter-spacing:-.02em; display:flex; align-items:center; gap:10px; }
+.nav-logo svg { width:28px; height:28px; }
+.nav-logo .logo-text span { color:var(--orange); }
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a { font-size:.88rem; font-weight:500; color:var(--gray-light); transition:color .2s; }
+.nav-links a:hover, .nav-links a.active { color:#fff; }
+.nav-right { display:flex; align-items:center; gap:20px; }
+.nav-phone { font-weight:700; color:var(--orange); font-size:.9rem; display:flex; align-items:center; gap:8px; }
+.nav-phone svg { width:16px; height:16px; fill:var(--orange); }
+.hamburger { display:none; background:none; border:none; color:#fff; cursor:pointer; padding:4px; }
+.hamburger svg { width:24px; height:24px; fill:#fff; }
 
-/* FORM */
-.form-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:20px;padding:40px}
-.form-card h2{font-size:1.5rem;font-weight:800;margin-bottom:8px}
-.form-card .form-sub{color:var(--gray-light);font-size:.9rem;margin-bottom:32px}
-.form-group{margin-bottom:20px}
-.form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:8px;color:var(--gray-light)}
-.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--dark);border:1px solid var(--dark-border);border-radius:10px;padding:14px 16px;color:#fff;font-size:.95rem;font-family:inherit;transition:border-color .2s;outline:none}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--orange)}
-.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%23A3A3A3'%3E%3Cpath d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;cursor:pointer}
-.form-group select option{background:var(--dark);color:#fff}
-.form-group textarea{resize:vertical;min-height:100px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:480px){.form-row{grid-template-columns:1fr}}
-.form-note{font-size:.8rem;color:var(--gray-light);margin-top:16px;text-align:center}
+.mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(13,13,13,.98); z-index:999; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:1.5rem; font-weight:700; color:#fff; }
+.mobile-menu a:hover { color:var(--orange); }
+.mobile-menu .mobile-close { position:absolute; top:20px; right:24px; background:none; border:none; color:#fff; cursor:pointer; }
+.mobile-menu .mobile-close svg { width:28px; height:28px; fill:#fff; }
 
-/* CONTACT INFO SIDEBAR */
-.contact-info{display:flex;flex-direction:column;gap:28px}
-.info-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:16px;padding:28px}
-.info-card .info-icon{width:44px;height:44px;background:rgba(255,90,31,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:16px}
-.info-card h3{font-size:1rem;font-weight:700;margin-bottom:8px}
-.info-card p{color:var(--gray-light);font-size:.9rem}
-.info-card a{color:var(--orange);font-weight:700;font-size:1.1rem;transition:opacity .2s}
-.info-card a:hover{opacity:.8}
-.info-highlight{border-color:var(--orange);background:linear-gradient(135deg,rgba(255,90,31,.06),var(--dark-card))}
+@media(max-width:768px){
+  .nav-links, .nav-phone { display:none; }
+  .hamburger { display:block; }
+}
 
-/* SERVICE AREA */
-.service-area{padding:0 24px 80px}
-.area-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:20px;padding:48px;text-align:center}
-.area-card h2{font-size:1.5rem;font-weight:800;margin-bottom:12px}
-.area-card p{color:var(--gray-light);font-size:.95rem;max-width:600px;margin:0 auto 28px}
-.area-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.area-tag{background:var(--dark);border:1px solid var(--dark-border);border-radius:100px;padding:8px 18px;font-size:.85rem;font-weight:500;color:var(--gray-light);transition:border-color .2s,color .2s}
-.area-tag:hover{border-color:var(--orange);color:var(--orange)}
+/* ── PAGE HEADER ─────────────────────────────────────── */
+.page-header { padding:180px 24px 60px; text-align:center; position:relative; overflow:hidden; }
+.page-header::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,90,31,.1) 0%, transparent 70%);
+  pointer-events:none;
+}
+.page-header::after {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 70% 50% at 50% 30%, black, transparent);
+  -webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 30%, black, transparent);
+  pointer-events:none;
+}
+.page-header h1 { font-size:clamp(2rem,5vw,3.5rem); font-weight:900; margin-bottom:16px; letter-spacing:-.03em; position:relative; }
+.page-header h1 span { color:var(--orange); }
+.page-header p { color:var(--gray-light); font-size:1.1rem; max-width:600px; margin:0 auto; position:relative; line-height:1.7; }
 
-/* FOOTER */
-.footer{padding:48px 24px 24px;border-top:1px solid var(--dark-border)}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-inner p{font-size:.8rem;color:var(--gray-light)}
-.footer-inner a{color:var(--orange);font-weight:600}
+/* ── CONTACT LAYOUT ──────────────────────────────────── */
+.contact-section { padding:0 24px 100px; }
+.contact-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:start; }
+@media(max-width:768px){ .contact-grid { grid-template-columns:1fr; } }
+
+/* ── FORM ────────────────────────────────────────────── */
+.form-card { background:var(--dark-card); border:1px solid var(--dark-border); border-radius:20px; padding:44px; }
+.form-card h2 { font-size:1.4rem; font-weight:800; margin-bottom:8px; letter-spacing:-.01em; }
+.form-card .form-sub { color:var(--gray-light); font-size:.88rem; margin-bottom:36px; line-height:1.6; }
+.form-group { margin-bottom:22px; }
+.form-group label { display:block; font-size:.82rem; font-weight:600; margin-bottom:8px; color:var(--gray-light); }
+.form-group input, .form-group select, .form-group textarea {
+  width:100%; background:var(--dark); border:1px solid var(--dark-border); border-radius:10px;
+  padding:14px 16px; color:#fff; font-size:.93rem; font-family:inherit;
+  transition:border-color .25s, box-shadow .25s; outline:none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color:var(--orange);
+  box-shadow:0 0 0 3px rgba(255,90,31,.1);
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color:var(--gray-mid); }
+.form-group select {
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%23666'%3E%3Cpath d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 16px center; cursor:pointer;
+}
+.form-group select option { background:var(--dark); color:#fff; }
+.form-group textarea { resize:vertical; min-height:110px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media(max-width:480px){ .form-row { grid-template-columns:1fr; } }
+.form-note { font-size:.78rem; color:var(--gray-mid); margin-top:18px; text-align:center; line-height:1.5; }
+
+/* ── CONTACT SIDEBAR ─────────────────────────────────── */
+.contact-info { display:flex; flex-direction:column; gap:20px; }
+.info-card { background:var(--dark-card); border:1px solid var(--dark-border); border-radius:16px; padding:28px; transition:border-color .3s; }
+.info-card:hover { border-color:rgba(255,90,31,.3); }
+.info-card-header { display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+.info-icon { width:46px; height:46px; background:rgba(255,90,31,.08); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.info-icon svg { width:22px; height:22px; fill:var(--orange); }
+.info-card h3 { font-size:.95rem; font-weight:700; }
+.info-card p { color:var(--gray-light); font-size:.88rem; line-height:1.65; }
+.info-card a.info-link { color:var(--orange); font-weight:700; font-size:1.05rem; transition:opacity .2s; display:inline-block; margin-top:8px; }
+.info-card a.info-link:hover { opacity:.8; }
+.info-highlight { border-color:var(--orange); background:linear-gradient(135deg, rgba(255,90,31,.06), var(--dark-card) 60%); }
+
+/* ── SERVICE AREA ────────────────────────────────────── */
+.service-area { padding:0 24px 100px; }
+.area-card { background:var(--dark-card); border:1px solid var(--dark-border); border-radius:20px; padding:56px; text-align:center; }
+.area-card h2 { font-size:clamp(1.25rem,3vw,1.5rem); font-weight:800; margin-bottom:12px; letter-spacing:-.01em; }
+.area-card > p { color:var(--gray-light); font-size:.95rem; max-width:600px; margin:0 auto 32px; line-height:1.7; }
+.area-tags { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+.area-tag { background:var(--dark); border:1px solid var(--dark-border); border-radius:100px; padding:8px 20px; font-size:.84rem; font-weight:500; color:var(--gray-light); transition:all .25s; }
+.area-tag:hover { border-color:var(--orange); color:var(--orange); }
+
+/* ── FOOTER ──────────────────────────────────────────── */
+.footer { padding:72px 24px 32px; border-top:1px solid var(--dark-border); }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px; }
+.footer-brand .footer-logo { font-size:1.15rem; font-weight:900; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+.footer-brand .footer-logo span { color:var(--orange); }
+.footer-brand p { color:var(--gray-mid); font-size:.85rem; line-height:1.7; }
+.footer h4 { font-size:.72rem; text-transform:uppercase; letter-spacing:3px; color:var(--gray-mid); margin-bottom:20px; font-weight:700; }
+.footer ul { list-style:none; }
+.footer ul li { margin-bottom:12px; }
+.footer ul a { font-size:.88rem; color:var(--gray-light); transition:color .2s; }
+.footer ul a:hover { color:var(--orange); }
+.footer-bottom { border-top:1px solid var(--dark-border); padding-top:28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+.footer-bottom p { font-size:.78rem; color:var(--gray-mid); }
+.footer-bottom a { color:var(--orange); font-weight:600; transition:opacity .2s; }
+.footer-bottom a:hover { opacity:.8; }
+.footer-socials { display:flex; gap:12px; }
+.footer-socials a { width:40px; height:40px; background:var(--dark-card); border:1px solid var(--dark-border); border-radius:10px; display:flex; align-items:center; justify-content:center; transition:all .25s; }
+.footer-socials a svg { width:18px; height:18px; fill:var(--gray-light); transition:fill .25s; }
+.footer-socials a:hover { border-color:var(--orange); background:rgba(255,90,31,.08); }
+.footer-socials a:hover svg { fill:var(--orange); }
+@media(max-width:768px){ .footer-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:480px){ .footer-grid { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ══════════════ NAV ══════════════ -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo"><span>Peak</span> Roofing Solutions</a>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 28 28" fill="none"><path d="M14 2L2 14h4v10h6v-7h4v7h6V14h4L14 2z" fill="#FF5A1F"/></svg>
+      <span class="logo-text"><span>Peak</span> Roofing</span>
+    </a>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="services">Services</a></li>
       <li><a href="contact" class="active">Free Estimate</a></li>
     </ul>
-    <a href="tel:+19085551234" class="nav-phone">(908) 555-1234</a>
-    <button class="hamburger" aria-label="Menu">&#9776;</button>
+    <div class="nav-right">
+      <a href="tel:+19085551234" class="nav-phone">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.49a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
+        (908) 555-1234
+      </a>
+      <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.add('open')">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- PAGE HEADER -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" aria-label="Close menu" onclick="document.getElementById('mobileMenu').classList.remove('open')">
+    <svg viewBox="0 0 24 24"><path d="M18.3 5.7a1 1 0 00-1.4 0L12 10.6 7.1 5.7a1 1 0 00-1.4 1.4L10.6 12l-4.9 4.9a1 1 0 101.4 1.4L12 13.4l4.9 4.9a1 1 0 001.4-1.4L13.4 12l4.9-4.9a1 1 0 000-1.4z"/></svg>
+  </button>
+  <a href="/" onclick="document.getElementById('mobileMenu').classList.remove('open')">Home</a>
+  <a href="services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Services</a>
+  <a href="contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">Free Estimate</a>
+  <a href="tel:+19085551234" style="color:var(--orange);">(908) 555-1234</a>
+</div>
+
+<!-- ══════════════ PAGE HEADER ══════════════ -->
 <section class="page-header">
   <div class="container">
     <div class="section-label">Contact Us</div>
@@ -107,7 +205,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- CONTACT SECTION -->
+<!-- ══════════════ CONTACT SECTION ══════════════ -->
 <section class="contact-section">
   <div class="container">
     <div class="contact-grid">
@@ -147,52 +245,62 @@ a{text-decoration:none;color:inherit}
             <label for="message">Tell Us About Your Project</label>
             <textarea id="message" name="message" placeholder="Describe the issue or project you need help with..."></textarea>
           </div>
-          <button type="submit" class="btn">Send My Request &rarr;</button>
-          <p class="form-note">We respond within 2 hours during business hours (Mon–Sat, 7am–7pm).</p>
+          <button type="submit" class="btn">
+            Send My Request
+            <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="form-note">We respond within 2 hours during business hours (Mon-Sat, 7am-7pm).</p>
         </form>
       </div>
 
       <!-- SIDEBAR -->
       <div class="contact-info">
         <div class="info-card info-highlight">
-          <div class="info-icon">&#128222;</div>
-          <h3>Call Us Directly</h3>
+          <div class="info-card-header">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.49a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
+            </div>
+            <h3>Call Us Directly</h3>
+          </div>
           <p>Speak with a roofing specialist right now — no call centers, no runaround.</p>
-          <br>
-          <a href="tel:+19085551234">(908) 555-1234</a>
+          <a href="tel:+19085551234" class="info-link">(908) 555-1234</a>
         </div>
 
         <div class="info-card">
-          <div class="info-icon">&#128205;</div>
-          <h3>Office Location</h3>
+          <div class="info-card-header">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <h3>Email Us</h3>
+          </div>
+          <p>For non-urgent inquiries or to send photos of your roof.</p>
+          <a href="mailto:info@peakroofingsolutions.com" class="info-link" style="font-size:.92rem;">info@peakroofingsolutions.com</a>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-header">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+            </div>
+            <h3>Office Location</h3>
+          </div>
           <p>
             Peak Roofing Solutions<br>
             123 Main Street<br>
             Somerville, NJ 08876
           </p>
-          <br>
-          <p style="font-size:.85rem;color:var(--gray-light);">
-            <strong style="color:#fff;">Hours:</strong><br>
-            Monday – Saturday: 7:00 AM – 7:00 PM<br>
-            Sunday: Emergency calls only
-          </p>
         </div>
 
         <div class="info-card">
-          <div class="info-icon">&#128231;</div>
-          <h3>Email Us</h3>
-          <p>For non-urgent inquiries or to send photos of your roof:</p>
-          <br>
-          <a href="mailto:info@peakroofingsolutions.com" style="font-size:.95rem;">info@peakroofingsolutions.com</a>
-        </div>
-
-        <div class="info-card">
-          <div class="info-icon">&#128737;&#65039;</div>
-          <h3>Licensed &amp; Insured</h3>
+          <div class="info-card-header">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            </div>
+            <h3>Business Hours</h3>
+          </div>
           <p>
-            NJ Home Improvement Contractor<br>
-            License #13VH12345678<br>
-            Fully insured with $2M general liability
+            <strong style="color:#fff;">Mon &ndash; Sat:</strong> 7:00 AM &ndash; 7:00 PM<br>
+            <strong style="color:#fff;">Sunday:</strong> Emergency calls only
           </p>
         </div>
       </div>
@@ -201,7 +309,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- SERVICE AREA -->
+<!-- ══════════════ SERVICE AREA ══════════════ -->
 <section class="service-area">
   <div class="container">
     <div class="area-card">
@@ -232,12 +340,58 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ══════════════ FOOTER ══════════════ -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-inner">
-      <p>&copy; 2026 Peak Roofing Solutions. All rights reserved. NJ HIC #13VH12345678 &nbsp;|&nbsp; Website by <a href="#">Scale National</a></p>
-      <p><a href="tel:+19085551234" style="color:var(--orange);font-weight:700;">(908) 555-1234</a></p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 28 28" width="24" height="24" fill="none"><path d="M14 2L2 14h4v10h6v-7h4v7h6V14h4L14 2z" fill="#FF5A1F"/></svg>
+          <span><span>Peak</span> Roofing Solutions</span>
+        </div>
+        <p>Licensed and insured roofing contractor serving central and northern New Jersey since 2011. NJ HIC License #13VH12345678.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services">Roof Replacement</a></li>
+          <li><a href="services">Roof Repair</a></li>
+          <li><a href="services">Storm Damage</a></li>
+          <li><a href="services">Gutters</a></li>
+          <li><a href="services">Inspections</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="services">Services</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li><a href="contact">Free Estimate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+19085551234">(908) 555-1234</a></li>
+          <li><a href="mailto:info@peakroofingsolutions.com">info@peakroofing<wbr>solutions.com</a></li>
+          <li style="color:var(--gray-light);font-size:.88rem;">123 Main Street<br>Somerville, NJ 08876</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Peak Roofing Solutions. All rights reserved. &nbsp;|&nbsp; Website by <a href="#">Scale National</a></p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5M12 7a5 5 0 110 10 5 5 0 010-10m0 2a3 3 0 100 6 3 3 0 000-6z"/></svg>
+        </a>
+        <a href="#" aria-label="Google My Business">
+          <svg viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </footer>
