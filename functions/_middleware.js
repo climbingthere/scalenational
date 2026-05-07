@@ -7,7 +7,8 @@ export async function onRequest({ request, next }) {
   const host = url.hostname;
 
   const subdomainMap = {
-    'onboarding.scalenational.com':  'https://scalenational.com/onboarding',
+    'onboarding.scalenational.com': 'https://scalenational.com/onboarding',
+    'sample.scalenational.com':     'https://scalenational.com/sample/',
   };
 
   const target = subdomainMap[host];
