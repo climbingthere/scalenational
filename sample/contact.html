@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Free Estimate — Peak Roofing Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:#fff;background:#0D0D0D;line-height:1.6}
+a{text-decoration:none;color:inherit}
+:root{--orange:#FF5A1F;--orange-hover:#E04D15;--dark:#0D0D0D;--dark-card:#161616;--dark-border:#252525;--gray-light:#A3A3A3;--max-w:1200px;--section-pad:80px 24px}
+.container{max-width:var(--max-w);margin:0 auto;width:100%}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-weight:700;font-size:1rem;padding:16px 36px;border-radius:8px;border:none;cursor:pointer;transition:background .2s,transform .15s;width:100%;justify-content:center}
+.btn:hover{background:var(--orange-hover);transform:translateY(-2px)}
+.section-label{text-transform:uppercase;letter-spacing:3px;font-size:.75rem;font-weight:700;color:var(--orange);margin-bottom:12px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--dark-border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:var(--max-w);margin:0 auto}
+.nav-logo{font-size:1.25rem;font-weight:900}
+.nav-logo span{color:var(--orange)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--gray-light);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--orange)}
+.nav-phone{font-weight:700;color:var(--orange);font-size:.95rem}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){.nav-links,.nav-phone{display:none}.hamburger{display:block}}
+
+/* PAGE HEADER */
+.page-header{padding:160px 24px 60px;text-align:center;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,90,31,.1) 0%,transparent 60%);pointer-events:none}
+.page-header h1{font-size:clamp(2rem,5vw,3.25rem);font-weight:900;margin-bottom:16px}
+.page-header h1 span{color:var(--orange)}
+.page-header p{color:var(--gray-light);font-size:1.1rem;max-width:600px;margin:0 auto}
+
+/* CONTACT LAYOUT */
+.contact-section{padding:0 24px 80px}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
+
+/* FORM */
+.form-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:20px;padding:40px}
+.form-card h2{font-size:1.5rem;font-weight:800;margin-bottom:8px}
+.form-card .form-sub{color:var(--gray-light);font-size:.9rem;margin-bottom:32px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:8px;color:var(--gray-light)}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--dark);border:1px solid var(--dark-border);border-radius:10px;padding:14px 16px;color:#fff;font-size:.95rem;font-family:inherit;transition:border-color .2s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--orange)}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%23A3A3A3'%3E%3Cpath d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;cursor:pointer}
+.form-group select option{background:var(--dark);color:#fff}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:480px){.form-row{grid-template-columns:1fr}}
+.form-note{font-size:.8rem;color:var(--gray-light);margin-top:16px;text-align:center}
+
+/* CONTACT INFO SIDEBAR */
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.info-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:16px;padding:28px}
+.info-card .info-icon{width:44px;height:44px;background:rgba(255,90,31,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:16px}
+.info-card h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+.info-card p{color:var(--gray-light);font-size:.9rem}
+.info-card a{color:var(--orange);font-weight:700;font-size:1.1rem;transition:opacity .2s}
+.info-card a:hover{opacity:.8}
+.info-highlight{border-color:var(--orange);background:linear-gradient(135deg,rgba(255,90,31,.06),var(--dark-card))}
+
+/* SERVICE AREA */
+.service-area{padding:0 24px 80px}
+.area-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:20px;padding:48px;text-align:center}
+.area-card h2{font-size:1.5rem;font-weight:800;margin-bottom:12px}
+.area-card p{color:var(--gray-light);font-size:.95rem;max-width:600px;margin:0 auto 28px}
+.area-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.area-tag{background:var(--dark);border:1px solid var(--dark-border);border-radius:100px;padding:8px 18px;font-size:.85rem;font-weight:500;color:var(--gray-light);transition:border-color .2s,color .2s}
+.area-tag:hover{border-color:var(--orange);color:var(--orange)}
+
+/* FOOTER */
+.footer{padding:48px 24px 24px;border-top:1px solid var(--dark-border)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-inner p{font-size:.8rem;color:var(--gray-light)}
+.footer-inner a{color:var(--orange);font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>Peak</span> Roofing Solutions</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="services">Services</a></li>
+      <li><a href="contact" class="active">Free Estimate</a></li>
+    </ul>
+    <a href="tel:+19085551234" class="nav-phone">(908) 555-1234</a>
+    <button class="hamburger" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <div class="section-label">Contact Us</div>
+    <h1>Get Your <span>Free Estimate</span></h1>
+    <p>Tell us about your project and we'll get back to you within 2 hours during business hours. No pressure, no obligation — just honest answers.</p>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="form-card">
+        <h2>Request a Free Estimate</h2>
+        <p class="form-sub">Fill out the form below and a roofing specialist will contact you shortly.</p>
+        <form action="#" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="John Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="(908) 555-1234" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com">
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed *</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option value="roof-replacement">Roof Replacement</option>
+              <option value="roof-repair">Roof Repair</option>
+              <option value="storm-damage">Storm Damage / Insurance Claim</option>
+              <option value="gutters">Gutters &amp; Downspouts</option>
+              <option value="inspection">Free Roof Inspection</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell Us About Your Project</label>
+            <textarea id="message" name="message" placeholder="Describe the issue or project you need help with..."></textarea>
+          </div>
+          <button type="submit" class="btn">Send My Request &rarr;</button>
+          <p class="form-note">We respond within 2 hours during business hours (Mon–Sat, 7am–7pm).</p>
+        </form>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="contact-info">
+        <div class="info-card info-highlight">
+          <div class="info-icon">&#128222;</div>
+          <h3>Call Us Directly</h3>
+          <p>Speak with a roofing specialist right now — no call centers, no runaround.</p>
+          <br>
+          <a href="tel:+19085551234">(908) 555-1234</a>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">&#128205;</div>
+          <h3>Office Location</h3>
+          <p>
+            Peak Roofing Solutions<br>
+            123 Main Street<br>
+            Somerville, NJ 08876
+          </p>
+          <br>
+          <p style="font-size:.85rem;color:var(--gray-light);">
+            <strong style="color:#fff;">Hours:</strong><br>
+            Monday – Saturday: 7:00 AM – 7:00 PM<br>
+            Sunday: Emergency calls only
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">&#128231;</div>
+          <h3>Email Us</h3>
+          <p>For non-urgent inquiries or to send photos of your roof:</p>
+          <br>
+          <a href="mailto:info@peakroofingsolutions.com" style="font-size:.95rem;">info@peakroofingsolutions.com</a>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">&#128737;&#65039;</div>
+          <h3>Licensed &amp; Insured</h3>
+          <p>
+            NJ Home Improvement Contractor<br>
+            License #13VH12345678<br>
+            Fully insured with $2M general liability
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="service-area">
+  <div class="container">
+    <div class="area-card">
+      <div class="section-label">Service Area</div>
+      <h2>Proudly Serving Central &amp; Northern New Jersey</h2>
+      <p>We serve homeowners across Somerset, Morris, Union, Hunterdon, Middlesex, and Essex counties — plus surrounding areas.</p>
+      <div class="area-tags">
+        <span class="area-tag">Somerville</span>
+        <span class="area-tag">Morristown</span>
+        <span class="area-tag">Summit</span>
+        <span class="area-tag">Bridgewater</span>
+        <span class="area-tag">Westfield</span>
+        <span class="area-tag">Flemington</span>
+        <span class="area-tag">Warren</span>
+        <span class="area-tag">Bernardsville</span>
+        <span class="area-tag">Chatham</span>
+        <span class="area-tag">New Brunswick</span>
+        <span class="area-tag">Princeton</span>
+        <span class="area-tag">Madison</span>
+        <span class="area-tag">Basking Ridge</span>
+        <span class="area-tag">Short Hills</span>
+        <span class="area-tag">Cranford</span>
+        <span class="area-tag">Scotch Plains</span>
+        <span class="area-tag">Hillsborough</span>
+        <span class="area-tag">Montclair</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <p>&copy; 2026 Peak Roofing Solutions. All rights reserved. NJ HIC #13VH12345678 &nbsp;|&nbsp; Website by <a href="#">Scale National</a></p>
+      <p><a href="tel:+19085551234" style="color:var(--orange);font-weight:700;">(908) 555-1234</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

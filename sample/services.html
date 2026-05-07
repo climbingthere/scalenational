@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services — Peak Roofing Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:#fff;background:#0D0D0D;line-height:1.6}
+a{text-decoration:none;color:inherit}
+:root{--orange:#FF5A1F;--orange-hover:#E04D15;--dark:#0D0D0D;--dark-card:#161616;--dark-border:#252525;--gray-light:#A3A3A3;--max-w:1200px;--section-pad:80px 24px}
+.container{max-width:var(--max-w);margin:0 auto;width:100%}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-weight:700;font-size:1rem;padding:16px 36px;border-radius:8px;border:none;cursor:pointer;transition:background .2s,transform .15s}
+.btn:hover{background:var(--orange-hover);transform:translateY(-2px)}
+.btn-outline{background:transparent;border:2px solid var(--orange);color:var(--orange)}
+.btn-outline:hover{background:var(--orange);color:#fff}
+.btn-sm{padding:12px 24px;font-size:.9rem}
+.section-label{text-transform:uppercase;letter-spacing:3px;font-size:.75rem;font-weight:700;color:var(--orange);margin-bottom:12px}
+.section-title{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;line-height:1.15;margin-bottom:20px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--dark-border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:var(--max-w);margin:0 auto}
+.nav-logo{font-size:1.25rem;font-weight:900}
+.nav-logo span{color:var(--orange)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--gray-light);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--orange)}
+.nav-phone{font-weight:700;color:var(--orange);font-size:.95rem}
+.nav-cta{display:none}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){.nav-links,.nav-phone{display:none}.hamburger{display:block}.nav-cta{display:inline-flex}}
+
+/* PAGE HEADER */
+.page-header{padding:160px 24px 80px;text-align:center;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,90,31,.1) 0%,transparent 60%);pointer-events:none}
+.page-header h1{font-size:clamp(2rem,5vw,3.25rem);font-weight:900;margin-bottom:16px}
+.page-header h1 span{color:var(--orange)}
+.page-header p{color:var(--gray-light);font-size:1.1rem;max-width:600px;margin:0 auto}
+
+/* SERVICE DETAIL CARDS */
+.service-section{padding:var(--section-pad);border-bottom:1px solid var(--dark-border)}
+.service-section:nth-child(even){background:var(--dark-card)}
+.service-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.service-inner.reverse{direction:rtl}
+.service-inner.reverse > *{direction:ltr}
+.service-content .service-tag{display:inline-block;background:rgba(255,90,31,.1);color:var(--orange);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:6px 14px;border-radius:100px;margin-bottom:16px}
+.service-content h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;margin-bottom:16px}
+.service-content p{color:var(--gray-light);font-size:.95rem;margin-bottom:20px}
+.service-features{list-style:none;margin-bottom:28px}
+.service-features li{padding:6px 0;font-size:.9rem;color:var(--gray-light)}
+.service-features li::before{content:'✓';color:var(--orange);font-weight:700;margin-right:10px}
+.price-range{display:inline-flex;align-items:center;gap:8px;background:var(--dark-card);border:1px solid var(--dark-border);border-radius:8px;padding:12px 20px;margin-bottom:24px}
+.price-range .price-label{font-size:.8rem;color:var(--gray-light);text-transform:uppercase;letter-spacing:1px}
+.price-range .price-value{font-size:1.1rem;font-weight:800;color:var(--orange)}
+.service-visual{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:20px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:4rem;overflow:hidden}
+@media(max-width:768px){
+  .service-inner,.service-inner.reverse{grid-template-columns:1fr;direction:ltr}
+  .service-visual{aspect-ratio:16/9}
+}
+
+/* CTA BANNER */
+.cta-banner{padding:var(--section-pad);text-align:center;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(255,90,31,.08) 0%,transparent 60%);pointer-events:none}
+.cta-banner h2{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;margin-bottom:16px}
+.cta-banner p{color:var(--gray-light);font-size:1.05rem;max-width:520px;margin:0 auto 32px}
+
+/* FOOTER */
+.footer{padding:48px 24px 24px;border-top:1px solid var(--dark-border)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-inner p{font-size:.8rem;color:var(--gray-light)}
+.footer-inner a{color:var(--orange);font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>Peak</span> Roofing Solutions</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="services" class="active">Services</a></li>
+      <li><a href="contact">Free Estimate</a></li>
+    </ul>
+    <a href="tel:+19085551234" class="nav-phone">(908) 555-1234</a>
+    <a href="contact" class="btn nav-cta" style="padding:10px 20px;font-size:.85rem;">Free Estimate</a>
+    <button class="hamburger" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <div class="section-label">Our Services</div>
+    <h1>Expert <span>Roofing Services</span> for Every Need</h1>
+    <p>From a single shingle repair to a complete roof replacement, we deliver quality workmanship backed by industry-leading warranties.</p>
+  </div>
+</section>
+
+<!-- SERVICE 1: ROOF REPLACEMENT -->
+<section class="service-section">
+  <div class="container">
+    <div class="service-inner">
+      <div class="service-content">
+        <span class="service-tag">Most Popular</span>
+        <h2>Complete Roof Replacement</h2>
+        <p>When repairs are no longer enough, our full tear-off and replacement service gives your home a brand-new roof built to last decades. We use only premium GAF Timberline HDZ architectural shingles and follow manufacturer specifications to the letter.</p>
+        <ul class="service-features">
+          <li>Full tear-off down to the deck — no layovers</li>
+          <li>Inspect and replace rotted decking at no hidden cost</li>
+          <li>Synthetic underlayment and ice &amp; water shield</li>
+          <li>New drip edge, step flashing, and ridge vent</li>
+          <li>25-year workmanship warranty + 50-year shingle warranty</li>
+          <li>Typical completion: 1-2 days</li>
+        </ul>
+        <div class="price-range">
+          <span class="price-label">Starting at</span>
+          <span class="price-value">$8,500 – $18,000</span>
+        </div>
+        <br>
+        <a href="contact" class="btn btn-sm">Get a Free Quote &rarr;</a>
+      </div>
+      <div class="service-visual">&#127968;</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 2: ROOF REPAIR -->
+<section class="service-section">
+  <div class="container">
+    <div class="service-inner reverse">
+      <div class="service-content">
+        <span class="service-tag">Fast Turnaround</span>
+        <h2>Roof Repair</h2>
+        <p>Leaks, missing shingles, damaged flashing, or sagging areas — we diagnose the problem accurately and fix it right the first time. Most repairs are completed same-week, and we always provide photos of the damage before we start.</p>
+        <ul class="service-features">
+          <li>Leak detection and targeted repair</li>
+          <li>Shingle replacement and re-sealing</li>
+          <li>Flashing repair around chimneys, vents, and skylights</li>
+          <li>Emergency tarping available for active leaks</li>
+          <li>Same-week scheduling for most repairs</li>
+        </ul>
+        <div class="price-range">
+          <span class="price-label">Starting at</span>
+          <span class="price-value">$350 – $2,500</span>
+        </div>
+        <br>
+        <a href="contact" class="btn btn-sm">Schedule a Repair &rarr;</a>
+      </div>
+      <div class="service-visual">&#128295;</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 3: STORM DAMAGE -->
+<section class="service-section">
+  <div class="container">
+    <div class="service-inner">
+      <div class="service-content">
+        <span class="service-tag">Insurance Experts</span>
+        <h2>Storm Damage Restoration</h2>
+        <p>New Jersey storms can cause serious roof damage. We specialize in helping homeowners navigate insurance claims and restore their roofs quickly. Our team documents all damage with drone imagery and works directly with your adjuster.</p>
+        <ul class="service-features">
+          <li>Free storm damage assessment within 24 hours</li>
+          <li>Detailed drone inspection with photo report</li>
+          <li>Direct coordination with your insurance adjuster</li>
+          <li>We handle all paperwork and supplement requests</li>
+          <li>Pay only your deductible in most cases</li>
+        </ul>
+        <div class="price-range">
+          <span class="price-label">Cost</span>
+          <span class="price-value">Covered by Insurance</span>
+        </div>
+        <br>
+        <a href="contact" class="btn btn-sm">Report Storm Damage &rarr;</a>
+      </div>
+      <div class="service-visual">&#9889;</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 4: GUTTERS -->
+<section class="service-section">
+  <div class="container">
+    <div class="service-inner reverse">
+      <div class="service-content">
+        <span class="service-tag">Protect Your Foundation</span>
+        <h2>Gutters &amp; Downspouts</h2>
+        <p>Properly functioning gutters are critical to protecting your home's foundation, siding, and landscaping. We install seamless aluminum gutters custom-fabricated on-site for a perfect fit — no seams, no leaks.</p>
+        <ul class="service-features">
+          <li>Seamless 5" and 6" aluminum gutters</li>
+          <li>Custom color matching to your home's trim</li>
+          <li>LeafGuard-style gutter protection available</li>
+          <li>Downspout extensions and underground drainage</li>
+          <li>Gutter repair and cleaning services</li>
+        </ul>
+        <div class="price-range">
+          <span class="price-label">Starting at</span>
+          <span class="price-value">$1,200 – $4,000</span>
+        </div>
+        <br>
+        <a href="contact" class="btn btn-sm">Get a Gutter Quote &rarr;</a>
+      </div>
+      <div class="service-visual">&#127783;&#65039;</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 5: FREE INSPECTIONS -->
+<section class="service-section">
+  <div class="container">
+    <div class="service-inner">
+      <div class="service-content">
+        <span class="service-tag">No Cost / No Obligation</span>
+        <h2>Free 21-Point Roof Inspection</h2>
+        <p>Not sure if your roof needs work? Our comprehensive inspection covers every component of your roofing system. We use drone technology to capture high-resolution imagery without ever stepping on your roof, keeping it (and us) safe.</p>
+        <ul class="service-features">
+          <li>21-point inspection checklist covering all components</li>
+          <li>HD drone imagery of your entire roof surface</li>
+          <li>Detailed written report with findings and photos</li>
+          <li>Honest assessment — we never upsell</li>
+          <li>Report delivered within 24 hours</li>
+          <li>Absolutely free, no strings attached</li>
+        </ul>
+        <div class="price-range">
+          <span class="price-label">Cost</span>
+          <span class="price-value">FREE</span>
+        </div>
+        <br>
+        <a href="contact" class="btn btn-sm">Book Your Inspection &rarr;</a>
+      </div>
+      <div class="service-visual">&#128269;</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Not Sure What You Need?</h2>
+    <p>Give us a call or fill out the form and we'll schedule a free inspection to determine exactly what your roof needs — no pressure, no obligation.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact" class="btn">Request a Free Estimate &rarr;</a>
+      <a href="tel:+19085551234" class="btn btn-outline">Call (908) 555-1234</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <p>&copy; 2026 Peak Roofing Solutions. All rights reserved. NJ HIC #13VH12345678 &nbsp;|&nbsp; Website by <a href="#">Scale National</a></p>
+      <p><a href="tel:+19085551234" style="color:var(--orange);font-weight:700;">(908) 555-1234</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
