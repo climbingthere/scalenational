@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Leads — Scale National</title>
+    <meta name="theme-color" content="#0D0D0D">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            background: #0D0D0D;
+            color: #ffffff;
+            font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── PIN Screen ────────────────────────────────────── */
+        .pin-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100dvh;
+            padding: 24px;
+        }
+
+        .pin-screen.hidden { display: none; }
+
+        .pin-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #888;
+            margin-bottom: 24px;
+        }
+
+        .pin-dots {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+
+        .pin-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid #444;
+            transition: all 0.15s;
+        }
+
+        .pin-dot.filled {
+            background: #FF5A1F;
+            border-color: #FF5A1F;
+        }
+
+        .pin-dot.error {
+            border-color: #FF5A1F;
+            animation: shake 0.4s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            75% { transform: translateX(6px); }
+        }
+
+        .pin-keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 72px);
+            gap: 12px;
+        }
+
+        .pin-key {
+            width: 72px;
+            height: 56px;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            background: #1a1a1a;
+            color: #fff;
+            font-family: inherit;
+            font-size: 22px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent;
+            transition: background 0.1s;
+        }
+
+        .pin-key:active { background: #2a2a2a; }
+        .pin-key.empty { visibility: hidden; }
+
+        .pin-key.delete {
+            font-size: 14px;
+            color: #888;
+            font-weight: 500;
+        }
+
+        .pin-error-msg {
+            color: #FF5A1F;
+            font-size: 14px;
+            margin-top: 16px;
+            height: 20px;
+        }
+
+        /* ── Dashboard ─────────────────────────────────────── */
+        .dashboard {
+            display: none;
+            min-height: 100dvh;
+            padding: 0 0 24px;
+        }
+
+        .dashboard.visible { display: block; }
+
+        .dash-header {
+            padding: 20px 20px 16px;
+            border-bottom: 1px solid #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: #0D0D0D;
+            z-index: 10;
+        }
+
+        .dash-logo {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        .dash-logo span { color: #FF5A1F; }
+
+        .refresh-btn {
+            background: none;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            color: #888;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 14px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .refresh-btn:active { background: #1a1a1a; }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 4px;
+            padding: 16px 20px;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: #1a1a1a;
+            color: #888;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .tab.active {
+            background: #FF5A1F;
+            color: #fff;
+        }
+
+        /* Lead cards */
+        .leads-list {
+            padding: 0 20px;
+        }
+
+        .lead-card {
+            background: #141414;
+            border: 1px solid #1f1f1f;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 10px;
+        }
+
+        .lead-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .lead-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .lead-badge {
+            display: inline-block;
+            background: #FF5A1F;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+            margin-left: 8px;
+        }
+
+        .lead-phone {
+            display: inline-block;
+            color: #FF5A1F;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .lead-email {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .lead-notes {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.4;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #1f1f1f;
+        }
+
+        .lead-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .lead-tag {
+            background: #1f1f1f;
+            color: #888;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 5px;
+        }
+
+        .lead-date {
+            color: #555;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        /* States */
+        .loading-state, .empty-state, .error-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+            font-size: 15px;
+        }
+
+        .empty-state p { line-height: 1.6; }
+
+        .total-count {
+            padding: 0 20px;
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- PIN Screen -->
+<div class="pin-screen" id="pinScreen">
+    <div class="pin-title">Enter PIN</div>
+    <div class="pin-dots" id="pinDots">
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+    </div>
+    <div class="pin-keypad" id="pinKeypad">
+        <button class="pin-key" data-key="1">1</button>
+        <button class="pin-key" data-key="2">2</button>
+        <button class="pin-key" data-key="3">3</button>
+        <button class="pin-key" data-key="4">4</button>
+        <button class="pin-key" data-key="5">5</button>
+        <button class="pin-key" data-key="6">6</button>
+        <button class="pin-key" data-key="7">7</button>
+        <button class="pin-key" data-key="8">8</button>
+        <button class="pin-key" data-key="9">9</button>
+        <button class="pin-key empty"></button>
+        <button class="pin-key" data-key="0">0</button>
+        <button class="pin-key delete" data-key="del">Del</button>
+    </div>
+    <div class="pin-error-msg" id="pinError"></div>
+</div>
+
+<!-- Dashboard -->
+<div class="dashboard" id="dashboard">
+    <div class="dash-header">
+        <div class="dash-logo">SCALE <span>NATIONAL</span></div>
+        <button class="refresh-btn" onclick="loadLeads()">Refresh</button>
+    </div>
+
+    <div class="tabs" id="tabs">
+        <button class="tab active" data-filter="all">All</button>
+        <button class="tab" data-filter="new">New (24h)</button>
+        <button class="tab" data-filter="week">This Week</button>
+    </div>
+
+    <div class="total-count" id="totalCount"></div>
+    <div class="leads-list" id="leadsList">
+        <div class="loading-state" id="loadingState">Loading leads...</div>
+    </div>
+</div>
+
+<script>
+    // ── PIN Logic ──────────────────────────────────────────────
+    const CORRECT_PIN = '4471';
+    let pinValue = '';
+    const dots = document.querySelectorAll('.pin-dot');
+
+    document.getElementById('pinKeypad').addEventListener('click', (e) => {
+        const key = e.target.closest('.pin-key')?.dataset.key;
+        if (!key) return;
+
+        if (key === 'del') {
+            pinValue = pinValue.slice(0, -1);
+            updateDots();
+            return;
+        }
+
+        if (pinValue.length >= 4) return;
+        pinValue += key;
+        updateDots();
+
+        if (pinValue.length === 4) {
+            if (pinValue === CORRECT_PIN) {
+                document.getElementById('pinScreen').classList.add('hidden');
+                document.getElementById('dashboard').classList.add('visible');
+                loadLeads();
+            } else {
+                document.getElementById('pinError').textContent = 'Wrong PIN';
+                dots.forEach(d => d.classList.add('error'));
+                setTimeout(() => {
+                    pinValue = '';
+                    updateDots();
+                    dots.forEach(d => d.classList.remove('error'));
+                    document.getElementById('pinError').textContent = '';
+                }, 800);
+            }
+        }
+    });
+
+    function updateDots() {
+        dots.forEach((d, i) => {
+            d.classList.toggle('filled', i < pinValue.length);
+        });
+    }
+
+    // ── Dashboard Logic ────────────────────────────────────────
+    let allContacts = [];
+    let currentFilter = 'all';
+
+    document.getElementById('tabs').addEventListener('click', (e) => {
+        const filter = e.target.closest('.tab')?.dataset.filter;
+        if (!filter) return;
+        currentFilter = filter;
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        e.target.classList.add('active');
+        renderLeads();
+    });
+
+    async function loadLeads() {
+        const list = document.getElementById('leadsList');
+        list.innerHTML = '<div class="loading-state">Loading leads...</div>';
+
+        try {
+            const res = await fetch('/leads-data?pin=' + CORRECT_PIN);
+            const data = await res.json();
+
+            if (!res.ok || !data.ok) {
+                throw new Error(data.error || 'Failed to load');
+            }
+
+            allContacts = data.contacts || [];
+            renderLeads();
+        } catch (err) {
+            list.innerHTML = '<div class="error-state" style="color:#FF5A1F;">' + (err.message || 'Failed to load leads') + '</div>';
+        }
+    }
+
+    function renderLeads() {
+        const list = document.getElementById('leadsList');
+        const now = Date.now();
+        const day = 24 * 60 * 60 * 1000;
+        const week = 7 * day;
+
+        let filtered = allContacts;
+        if (currentFilter === 'new') {
+            filtered = allContacts.filter(c => (now - new Date(c.dateAdded).getTime()) < day);
+        } else if (currentFilter === 'week') {
+            filtered = allContacts.filter(c => (now - new Date(c.dateAdded).getTime()) < week);
+        }
+
+        document.getElementById('totalCount').textContent = filtered.length + ' lead' + (filtered.length !== 1 ? 's' : '');
+
+        if (filtered.length === 0) {
+            list.innerHTML = '<div class="empty-state"><p>No leads yet — your contact form is live and ready.</p></div>';
+            return;
+        }
+
+        list.innerHTML = filtered.map(c => {
+            const isNew = (now - new Date(c.dateAdded).getTime()) < day;
+            const date = new Date(c.dateAdded).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+            const tags = (c.tags || []).map(t => '<span class="lead-tag">' + esc(t) + '</span>').join('');
+
+            return `
+                <div class="lead-card">
+                    <div class="lead-top">
+                        <span class="lead-name">${esc(c.name || 'Unknown')}</span>
+                        ${isNew ? '<span class="lead-badge">New</span>' : ''}
+                    </div>
+                    ${c.phone ? '<a class="lead-phone" href="tel:' + esc(c.phone) + '">' + esc(c.phone) + '</a><br>' : ''}
+                    ${c.email ? '<div class="lead-email">' + esc(c.email) + '</div>' : ''}
+                    ${c.notes ? '<div class="lead-notes">' + esc(c.notes) + '</div>' : ''}
+                    ${tags ? '<div class="lead-meta">' + tags + '</div>' : ''}
+                    ${c.source ? '<div class="lead-meta"><span class="lead-tag">Source: ' + esc(c.source) + '</span></div>' : ''}
+                    <div class="lead-date">${date}</div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function esc(str) {
+        const d = document.createElement('div');
+        d.textContent = str || '';
+        return d.innerHTML;
+    }
+</script>
+
+</body>
+</html>

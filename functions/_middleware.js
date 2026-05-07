@@ -9,6 +9,7 @@ export async function onRequest({ request, next }) {
   const subdomainMap = {
     'onboarding.scalenational.com': 'https://scalenational.com/onboarding',
     'sample.scalenational.com':     'https://scalenational.com/sample/',
+    'leads.scalenational.com':      'https://scalenational.com/leads',
   };
 
   const target = subdomainMap[host];
