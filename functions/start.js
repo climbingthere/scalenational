@@ -46,7 +46,7 @@ export async function onRequest(context) {
   }
 
   // ── Validate required fields ──────────────────────────────────────
-  const { firstName, lastName, phone, email, trade, leadSource, revenue } = body;
+  const { firstName, lastName, phone, email, trade, leadSource, revenue, isOwner, painPoint, investment } = body;
 
   if (!firstName || !lastName || !phone || !email) {
     return json({ error: 'firstName, lastName, phone, and email are required' }, 400);
@@ -143,9 +143,12 @@ export async function onRequest(context) {
       `PHONE: ${phone}`,
       `EMAIL: ${email}`,
       ``,
+      `OWNER / DECISION MAKER: ${isOwner || 'Not specified'}`,
       `TRADE: ${trade || 'Not specified'}`,
-      `CURRENT LEAD SOURCE: ${leadSource || 'Not specified'}`,
       `MONTHLY REVENUE: ${revenue || 'Not specified'}`,
+      `CURRENT LEAD SOURCE: ${leadSource || 'Not specified'}`,
+      `BIGGEST CHALLENGE: ${painPoint || 'Not specified'}`,
+      `INVESTMENT RANGE: ${investment || 'Not specified'}`,
       ``,
       `SOURCE: Meta Ads Qualifying Funnel (/start)`,
     ].join('\n');
