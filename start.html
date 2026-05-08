@@ -1059,14 +1059,14 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
       });
       const data = await res.json();
       if (data.ok) {
-        window.location.href = '/start/thanks';
+        window.location.href = '/start/thanks/';
       } else {
         btn.disabled = false;
         btn.textContent = 'Show Me My Setup \u2192';
         alert('Something went wrong. Please try again.');
       }
     } catch {
-      window.location.href = '/start/thanks';
+      window.location.href = '/start/thanks/';
     }
     return false;
   }
