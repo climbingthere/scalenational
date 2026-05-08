@@ -2165,14 +2165,6 @@ html {
 
   <!-- GHL Chat Widget loaded via platform -->
 
-  <!-- Meta Pixel — Lead event fires on any booking button click -->
-  <script>
-    document.querySelectorAll('a[href*="go.scalenational.com/widget/booking"]').forEach(function(el) {
-      el.addEventListener('click', function() {
-        if (typeof fbq === 'function') fbq('track', 'Lead');
-      });
-    });
-  </script>
 
 </body>
 </html>
