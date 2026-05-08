@@ -91,9 +91,11 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   /* ── Logo ───────────────────────────────────────────────────────── */
   .logo-wrap {
     text-align: center;
-    padding: 10px 16px 4px;
-    flex-shrink: 0;
+    padding: 0 16px 12px;
     user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .logo-wrap img {
     height: 90px;
@@ -110,8 +112,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     color: #C84B00;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    margin-bottom: 4px;
-    flex-shrink: 0;
+    margin-bottom: 8px;
   }
 
   /* ── Back Button ────────────────────────────────────────────────── */
@@ -532,15 +533,15 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 <!-- Progress Bar -->
 <div class="progress-bar"><div class="progress-bar-fill" id="progressFill"></div></div>
 
-<!-- Logo -->
-<div class="logo-wrap">
-  <img src="/logo.png" alt="Scale National" id="siteLogo">
-</div>
-
-<!-- Progress Label -->
-<div class="progress-label" id="progressLabel" style="display:none;"></div>
-
 <div class="funnel-wrap">
+
+  <!-- Logo -->
+  <div class="logo-wrap">
+    <img src="/logo.png" alt="Scale National" id="siteLogo">
+  </div>
+
+  <!-- Progress Label -->
+  <div class="progress-label" id="progressLabel" style="display:none;"></div>
 
   <!-- Back Button -->
   <button class="back-btn" id="backBtn" style="display:none;" onclick="goBack()">
@@ -550,8 +551,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 
   <!-- ════════ STEP 1 ════════ -->
   <div class="step active" id="step1" data-step="1">
-    <h1 class="headline">Most Contractors Are Losing Jobs They Don't Even Know About. We Build the System That Stops That.</h1>
-    <p class="subtext">A proper website, CRM, and automated follow-up build real assets in your business. Handle more customers, close more jobs, and actually scale. Are you a contractor or home service business owner?</p>
+    <h1 class="headline">Are you a contractor or home service business owner?</h1>
     <div class="card-row">
       <button class="card card-yes" onclick="goToStep(2)">
         <span class="card-icon">
