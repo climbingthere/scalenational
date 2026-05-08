@@ -42,6 +42,8 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     background: #ffffff;
     color: #1a1a1a;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -62,16 +64,16 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     transition: width 0.4s ease;
   }
 
-  /* ── Wordmark ─────────────────────────────────────────────────── */
-  .wordmark {
+  /* ── Logo ──────────────────────────────────────────────────────── */
+  .logo-wrap {
     text-align: center;
     padding: 24px 16px 8px;
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.3px;
     user-select: none;
   }
-  .wordmark span { color: #FF5A1F; }
+  .logo-wrap img {
+    max-height: 48px;
+    width: auto;
+  }
 
   /* ── Progress Label ───────────────────────────────────────────── */
   .progress-label {
@@ -105,6 +107,11 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     max-width: 480px;
     margin: 0 auto;
     padding: 0 20px 60px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
   }
 
   /* ── Steps ────────────────────────────────────────────────────── */
@@ -177,8 +184,14 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     color: #374151;
   }
   .card .card-icon {
-    font-size: 28px;
     margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card .card-icon svg {
+    width: 28px;
+    height: 28px;
   }
 
   /* ── Social Proof Badges ──────────────────────────────────────── */
@@ -261,8 +274,14 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   .choice-btn:hover { background: #e64d17; }
   .choice-btn:active { transform: scale(0.97); }
   .choice-btn .choice-icon {
-    font-size: 20px;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .choice-btn .choice-icon svg {
+    width: 24px;
+    height: 24px;
   }
 
   /* ── Form ─────────────────────────────────────────────────────── */
@@ -315,8 +334,14 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     left: 14px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 18px;
     pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .input-wrap .input-icon svg {
+    width: 20px;
+    height: 20px;
   }
 
   .checkbox-wrap {
@@ -423,8 +448,8 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 <!-- Progress Bar (fixed bottom) -->
 <div class="progress-bar"><div class="progress-bar-fill" id="progressFill"></div></div>
 
-<!-- Wordmark -->
-<div class="wordmark">Scale <span>National</span></div>
+<!-- Logo -->
+<div class="logo-wrap"><img src="/logo-transparent.png" alt="Scale National"></div>
 
 <!-- Progress Label (hidden on step 1, 7, 8) -->
 <div class="progress-label" id="progressLabel" style="display:none;"></div>
@@ -440,11 +465,11 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     <p class="subtext">Are you a contractor or home service business owner?</p>
     <div class="card-row">
       <button class="card card-yes" onclick="goToStep(2)">
-        <span class="card-icon">&#10003;</span>
+        <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
         Yes
       </button>
       <button class="card card-no" onclick="showExit()">
-        <span class="card-icon">&#10007;</span>
+        <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
         No
       </button>
     </div>
@@ -468,10 +493,10 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     <h2 class="question-text">Are you the owner of your contracting business?</h2>
     <div class="btn-stack">
       <button class="choice-btn" onclick="selectOwner(this, 'I own my business / I am the primary decision maker')">
-        <span class="choice-icon">1&#65039;&#8419;</span> I own my business / I am the primary decision maker
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">1</text></svg></span> I own my business / I am the primary decision maker
       </button>
       <button class="choice-btn" onclick="selectOwner(this, 'I work for a contracting company')">
-        <span class="choice-icon">2&#65039;&#8419;</span> I work for a contracting company
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">2</text></svg></span> I work for a contracting company
       </button>
     </div>
   </div>
@@ -480,12 +505,12 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   <div class="step" id="step3" data-step="3">
     <h2 class="question-text">What trade are you in?</h2>
     <div class="btn-stack">
-      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon">1&#65039;&#8419;</span> Roofing</button>
-      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon">2&#65039;&#8419;</span> HVAC</button>
-      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon">3&#65039;&#8419;</span> Plumbing</button>
-      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon">4&#65039;&#8419;</span> Electrical</button>
-      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon">5&#65039;&#8419;</span> General Contracting</button>
-      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon">6&#65039;&#8419;</span> Other</button>
+      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">1</text></svg></span> Roofing</button>
+      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">2</text></svg></span> HVAC</button>
+      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">3</text></svg></span> Plumbing</button>
+      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">4</text></svg></span> Electrical</button>
+      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">5</text></svg></span> General Contracting</button>
+      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">6</text></svg></span> Other</button>
     </div>
   </div>
 
@@ -493,10 +518,10 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   <div class="step" id="step4" data-step="4">
     <h2 class="question-text">What's your current monthly revenue?</h2>
     <div class="btn-stack">
-      <button class="choice-btn" onclick="selectRevenue(this)"><span class="choice-icon">1&#65039;&#8419;</span> Under $10k/month</button>
-      <button class="choice-btn" onclick="selectRevenue(this)"><span class="choice-icon">2&#65039;&#8419;</span> $10k &ndash; $30k/month</button>
-      <button class="choice-btn" onclick="selectRevenue(this)"><span class="choice-icon">3&#65039;&#8419;</span> $30k &ndash; $75k/month</button>
-      <button class="choice-btn" onclick="selectRevenue(this)"><span class="choice-icon">4&#65039;&#8419;</span> $75k+/month</button>
+      <button class="choice-btn" onclick="selectRevenue(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">1</text></svg></span> Under $10k/month</button>
+      <button class="choice-btn" onclick="selectRevenue(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">2</text></svg></span> $10k &ndash; $30k/month</button>
+      <button class="choice-btn" onclick="selectRevenue(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">3</text></svg></span> $30k &ndash; $75k/month</button>
+      <button class="choice-btn" onclick="selectRevenue(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">4</text></svg></span> $75k+/month</button>
     </div>
   </div>
 
@@ -504,10 +529,10 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   <div class="step" id="step5" data-step="5">
     <h2 class="question-text">What's your biggest challenge right now?</h2>
     <div class="btn-stack">
-      <button class="choice-btn" onclick="selectPain(this)"><span class="choice-icon">&#128548;</span> Not enough leads coming in</button>
-      <button class="choice-btn" onclick="selectPain(this)"><span class="choice-icon">&#128184;</span> Leads are too expensive or low quality</button>
-      <button class="choice-btn" onclick="selectPain(this)"><span class="choice-icon">&#128222;</span> I get leads but can't convert them to jobs</button>
-      <button class="choice-btn" onclick="selectPain(this)"><span class="choice-icon">&#128640;</span> Things are good &mdash; I just want to scale faster</button>
+      <button class="choice-btn" onclick="selectPain(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span> Not enough leads coming in</button>
+      <button class="choice-btn" onclick="selectPain(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span> Leads are too expensive or low quality</button>
+      <button class="choice-btn" onclick="selectPain(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></span> I get leads but can't convert them to jobs</button>
+      <button class="choice-btn" onclick="selectPain(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></span> Things are good &mdash; I just want to scale faster</button>
     </div>
   </div>
 
@@ -515,45 +540,45 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   <div class="step" id="step6" data-step="6">
     <h2 class="question-text">What are you looking to invest to grow your business?</h2>
     <div class="btn-stack">
-      <button class="choice-btn" onclick="selectInvestment(this)"><span class="choice-icon">1&#65039;&#8419;</span> Under $500/month</button>
-      <button class="choice-btn" onclick="selectInvestment(this)"><span class="choice-icon">2&#65039;&#8419;</span> $500 &ndash; $1,000/month</button>
-      <button class="choice-btn" onclick="selectInvestment(this)"><span class="choice-icon">3&#65039;&#8419;</span> $1,000 &ndash; $2,500/month</button>
-      <button class="choice-btn" onclick="selectInvestment(this)"><span class="choice-icon">4&#65039;&#8419;</span> $2,500+/month</button>
+      <button class="choice-btn" onclick="selectInvestment(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">1</text></svg></span> Under $500/month</button>
+      <button class="choice-btn" onclick="selectInvestment(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">2</text></svg></span> $500 &ndash; $1,000/month</button>
+      <button class="choice-btn" onclick="selectInvestment(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">3</text></svg></span> $1,000 &ndash; $2,500/month</button>
+      <button class="choice-btn" onclick="selectInvestment(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Inter,sans-serif" font-weight="700">4</text></svg></span> $2,500+/month</button>
     </div>
   </div>
 
   <!-- ════════ STEP 7 — Contact Form ════════ -->
   <div class="step" id="step7" data-step="7">
     <div style="text-align:center;">
-      <div class="prequalified-label">&#10003; Great news! You're pre-qualified for our done-for-you marketing system.</div>
+      <div class="prequalified-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;display:inline-block;"><polyline points="20 6 9 17 4 12"/></svg>Great news! You're pre-qualified for our done-for-you marketing system.</div>
     </div>
     <h2 class="headline" style="font-size:22px; margin-bottom:24px;">Fill in your info below so we can build your free market analysis and flood your calendar with contractor jobs.</h2>
 
     <form id="leadForm" onsubmit="return handleSubmit(event)" novalidate>
       <div class="form-group">
         <div class="input-wrap">
-          <span class="input-icon">&#128075;</span>
+          <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
           <input type="text" id="firstName" name="firstName" placeholder="Your first name" autocomplete="given-name" required>
         </div>
         <div class="form-error" id="firstNameError">First name is required</div>
       </div>
       <div class="form-group">
         <div class="input-wrap">
-          <span class="input-icon">&#128075;</span>
+          <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
           <input type="text" id="lastName" name="lastName" placeholder="Your last name" autocomplete="family-name" required>
         </div>
         <div class="form-error" id="lastNameError">Last name is required</div>
       </div>
       <div class="form-group">
         <div class="input-wrap">
-          <span class="input-icon">&#9993;&#65039;</span>
+          <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
           <input type="email" id="email" name="email" placeholder="E-mail address" autocomplete="email" required>
         </div>
         <div class="form-error" id="emailError">Email is required</div>
       </div>
       <div class="form-group">
         <div class="input-wrap">
-          <span class="input-icon">&#127482;&#127480;</span>
+          <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></span>
           <input type="tel" id="phone" name="phone" placeholder="Your phone number" autocomplete="tel" required>
         </div>
         <div class="form-error" id="phoneError">Phone number is required</div>
@@ -572,7 +597,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   <!-- ════════ STEP 8 — Book Call ════════ -->
   <div class="step" id="step8" data-step="8">
     <div class="book-section">
-      <div class="book-label">&#10003; Your market is available!</div>
+      <div class="book-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;display:inline-block;"><polyline points="20 6 9 17 4 12"/></svg>Your market is available!</div>
       <h2 class="headline" style="margin-bottom:12px;">Book your free 15-minute strategy call</h2>
       <p class="subtext">We'll show you the exact system we'd build for your business and what your first 30 days would look like.</p>
       <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" class="book-btn" onclick="if(typeof fbq!=='undefined')fbq('track','Schedule')">Book My Free Call &rarr;</a>
