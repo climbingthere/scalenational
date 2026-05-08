@@ -21,15 +21,15 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scale National — 20+ Exclusive Contractor Leads in 30 Days</title>
+<title>Scale National | See If Your Market Is Available</title>
 <meta name="description" content="We get contractors 20+ exclusive leads in 30 days or you don't pay. See if your market is available.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scalenational.com/start">
-<meta property="og:title" content="Scale National — 20+ Exclusive Contractor Leads in 30 Days">
-<meta property="og:description" content="We get contractors 20+ exclusive leads in 30 days or you don't pay. See if your market is available.">
+<meta property="og:title" content="Scale National | See If Your Market Is Available">
+<meta property="og:description" content="We get contractors 20+ exclusive leads in 30 days or you don't pay.">
 <meta property="og:image" content="https://scalenational.com/og-image.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -37,10 +37,13 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  html, body {
+    background: #0d0d0d;
+  }
+
   body {
     font-family: 'Urbanist', sans-serif;
     font-weight: 400;
-    background: #0d0d0d;
     color: #ffffff;
     min-height: 100vh;
     display: flex;
@@ -48,296 +51,335 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── Animations ───────────────────────────────────────────────────── */
+  /* ── Animations ─────────────────────────────────────────────────── */
   @keyframes pulseGlow {
     0%, 100% { box-shadow: 0 0 0 0 rgba(255,90,31,0.4); }
-    50% { box-shadow: 0 0 20px 4px rgba(255,90,31,0.2); }
+    50%       { box-shadow: 0 0 20px 4px rgba(255,90,31,0.2); }
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes tickerScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes tickerScrollReverse {
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
   }
 
-  /* ── Progress Bar (fixed bottom) ──────────────────────────────── */
+  /* ── Progress Bar ───────────────────────────────────────────────── */
   .progress-bar {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: rgba(255,255,255,0.08);
+    bottom: 0; left: 0;
+    width: 100%; height: 4px;
+    background: rgba(255,255,255,0.07);
     z-index: 1000;
   }
   .progress-bar-fill {
     height: 100%;
     background: #FF5A1F;
     width: 0%;
-    transition: width 0.4s ease;
+    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
   }
 
-  /* ── Logo ──────────────────────────────────────────────────────── */
+  /* ── Logo ───────────────────────────────────────────────────────── */
   .logo-wrap {
     text-align: center;
-    padding: 28px 16px 12px;
+    padding: 36px 16px 28px;
     user-select: none;
   }
   .logo-wrap img {
-    height: 72px;
+    height: 110px;
     width: auto;
+    display: inline-block;
   }
 
-  /* ── Progress Label ───────────────────────────────────────────── */
+  /* ── Progress Label ─────────────────────────────────────────────── */
   .progress-label {
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: #FF5A1F;
-    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
   }
 
-  /* ── Back Button ──────────────────────────────────────────────── */
+  /* ── Back Button ────────────────────────────────────────────────── */
   .back-btn {
     position: absolute;
-    top: 28px;
-    left: 16px;
+    top: 0; left: 0;
     font-family: 'Urbanist', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.35);
     background: none;
     border: none;
     cursor: pointer;
     padding: 4px 8px;
     z-index: 10;
     transition: color 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
-  .back-btn:hover { color: rgba(255,255,255,0.8); }
+  .back-btn:hover { color: rgba(255,255,255,0.7); }
 
-  /* ── Funnel Container ─────────────────────────────────────────── */
+  /* ── Funnel Container ───────────────────────────────────────────── */
   .funnel-wrap {
     position: relative;
     max-width: 480px;
     margin: 0 auto;
-    padding: 0 20px 60px;
+    padding: 0 20px 80px;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    min-height: 420px;
   }
 
-  /* ── Steps ────────────────────────────────────────────────────── */
-  .step {
-    display: none;
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.35s ease, transform 0.35s ease;
-  }
+  /* ── Steps ──────────────────────────────────────────────────────── */
+  .step { display: none; }
   .step.active { display: block; }
-  .step.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── Headlines ────────────────────────────────────────────────── */
+  /* ── Headlines ──────────────────────────────────────────────────── */
   .headline {
-    font-family: 'Urbanist', sans-serif;
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 900;
-    line-height: 1.2;
+    line-height: 1.15;
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     letter-spacing: -0.5px;
     color: #ffffff;
   }
-  @media (min-width: 480px) { .headline { font-size: 30px; } }
+  @media (min-width: 480px) { .headline { font-size: 32px; } }
 
   .subtext {
     font-size: 17px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.55);
     text-align: center;
-    margin-bottom: 28px;
-    line-height: 1.5;
+    margin-bottom: 32px;
+    line-height: 1.55;
   }
 
   .question-text {
-    font-family: 'Urbanist', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 800;
     text-align: center;
-    margin-bottom: 24px;
-    line-height: 1.3;
+    margin-bottom: 28px;
+    line-height: 1.25;
     color: #ffffff;
+    letter-spacing: -0.3px;
   }
 
-  /* ── Step 1 — Yes / No cards ──────────────────────────────────── */
+  /* ── Yes / No Cards ─────────────────────────────────────────────── */
   .card-row {
     display: flex;
-    gap: 16px;
-    margin-bottom: 32px;
+    gap: 14px;
+    margin-bottom: 36px;
   }
-  .card-row .card {
+  .card {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100px;
-    padding: 20px 16px;
-    border-radius: 14px;
+    min-height: 110px;
+    padding: 22px 16px;
+    border-radius: 16px;
     font-family: 'Urbanist', sans-serif;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
     border: none;
-    transition: all 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    letter-spacing: -0.2px;
   }
-  .card:hover { transform: scale(1.03); }
-  .card:active { transform: scale(0.97); }
   .card-yes {
     background: #FF5A1F;
     color: #ffffff;
-    animation: pulseGlow 2s infinite;
+    animation: pulseGlow 2.5s ease infinite;
   }
   .card-yes:hover {
-    background: #e04a10;
+    background: #e64d17;
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255,90,31,0.4);
+    box-shadow: 0 10px 30px rgba(255,90,31,0.4);
   }
+  .card-yes:active { transform: scale(0.96); }
   .card-no {
-    background: rgba(255,255,255,0.03);
-    color: #ffffff;
-    border: 1px solid rgba(255,255,255,0.12) !important;
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.1) !important;
   }
   .card-no:hover {
     background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.2) !important;
+    transform: translateY(-2px);
   }
+  .card-no:active { transform: scale(0.96); }
   .card .card-icon {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .card .card-icon svg {
-    width: 28px;
-    height: 28px;
-  }
+  .card .card-icon svg { width: 26px; height: 26px; }
 
-  /* ── Social Proof Badges ──────────────────────────────────────── */
-  .social-proof { text-align: center; }
-  .badges {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+  /* ── Trades Ticker ──────────────────────────────────────────────── */
+  .ticker-section {
+    margin: 0 -20px;
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 4px 0;
   }
-  .badge {
+  .ticker-label {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 10px 0 6px;
+  }
+  .ticker-wrapper {
+    overflow: hidden;
+    width: 100%;
+    padding: 8px 0;
+    position: relative;
+  }
+  .ticker-wrapper::before,
+  .ticker-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 60px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .ticker-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #0d0d0d, transparent);
+  }
+  .ticker-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #0d0d0d, transparent);
+  }
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: tickerScroll 28s linear infinite;
+    will-change: transform;
+  }
+  .ticker-track.reverse {
+    animation: tickerScrollReverse 28s linear infinite;
+  }
+  .ticker-item {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.7);
     white-space: nowrap;
-  }
-  .badge-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #22c55e;
+    padding: 6px 16px;
+    margin: 0 5px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
     flex-shrink: 0;
   }
 
-  /* ── Exit Message ─────────────────────────────────────────────── */
+  /* ── Exit Message ───────────────────────────────────────────────── */
   .exit-message {
     display: none;
     text-align: center;
     padding: 48px 20px;
-    max-width: 480px;
-    margin: 0 auto;
   }
   .exit-message.active { display: block; }
   .exit-message p {
     font-size: 17px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.5);
     line-height: 1.6;
     margin-bottom: 24px;
   }
   .exit-message a {
     font-size: 15px;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.35);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.15s ease;
   }
-  .exit-message a:hover { color: rgba(255,255,255,0.7); }
+  .exit-message a:hover { color: rgba(255,255,255,0.65); }
 
-  /* ── Multi-choice Buttons ─────────────────────────────────────── */
+  /* ── Choice Buttons ─────────────────────────────────────────────── */
   .btn-stack {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
   .choice-btn {
     display: flex;
     align-items: center;
-    gap: 12px;
-    min-height: 64px;
+    gap: 14px;
+    min-height: 62px;
     padding: 14px 20px;
     font-family: 'Urbanist', sans-serif;
     font-size: 16px;
     font-weight: 700;
-    background: rgba(255,255,255,0.03);
+    background: rgba(255,255,255,0.04);
     color: #ffffff;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.09);
     border-radius: 12px;
     cursor: pointer;
     width: 100%;
     text-align: left;
-    transition: all 0.2s ease;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
     line-height: 1.3;
   }
   .choice-btn:hover {
+    background: rgba(255,90,31,0.12);
+    border-color: rgba(255,90,31,0.4);
+  }
+  .choice-btn.selected {
     background: #FF5A1F;
     border-color: #FF5A1F;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255,90,31,0.3);
+    transform: scale(0.98);
   }
-  .choice-btn:active { transform: scale(0.97); }
   .choice-btn .choice-icon {
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0.5;
   }
-  .choice-btn .choice-icon svg {
-    width: 24px;
-    height: 24px;
-  }
+  .choice-btn:hover .choice-icon,
+  .choice-btn.selected .choice-icon { opacity: 1; }
+  .choice-btn .choice-icon svg { width: 22px; height: 22px; }
 
-  /* ── Form ─────────────────────────────────────────────────────── */
+  /* ── Form ───────────────────────────────────────────────────────── */
   .prequalified-label {
-    display: inline-block;
-    background: #FF5A1F;
-    color: #ffffff;
-    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,90,31,0.15);
+    border: 1px solid rgba(255,90,31,0.3);
+    color: #FF5A1F;
+    font-size: 14px;
     font-weight: 700;
-    padding: 10px 18px;
-    border-radius: 10px;
+    padding: 9px 16px;
+    border-radius: 50px;
     margin-bottom: 20px;
-    line-height: 1.4;
-    text-align: center;
+    letter-spacing: 0.01em;
   }
-  .form-group {
-    margin-bottom: 14px;
-  }
+  .form-group { margin-bottom: 12px; }
   .form-group input {
     width: 100%;
     height: 52px;
-    padding: 0 16px 0 44px;
+    padding: 0 16px 0 46px;
     font-family: 'Urbanist', sans-serif;
     font-size: 16px;
-    border: 2px solid rgba(255,255,255,0.1);
+    font-weight: 500;
+    border: 1.5px solid rgba(255,255,255,0.09);
     border-radius: 10px;
-    background: #1a1a1a;
+    background: rgba(255,255,255,0.04);
     color: #ffffff;
     transition: border-color 0.15s ease, background 0.15s ease;
     -webkit-appearance: none;
@@ -345,19 +387,12 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   .form-group input:focus {
     outline: none;
     border-color: #FF5A1F;
-    background: #1f1f1f;
+    background: rgba(255,90,31,0.05);
   }
   .form-group input.error { border-color: #ef4444; }
-  .form-group input::placeholder { color: rgba(255,255,255,0.35); }
-  .form-error {
-    font-size: 13px;
-    color: #ef4444;
-    margin-top: 4px;
-    display: none;
-  }
-  .input-wrap {
-    position: relative;
-  }
+  .form-group input::placeholder { color: rgba(255,255,255,0.28); }
+  .form-error { font-size: 12px; color: #ef4444; margin-top: 4px; display: none; }
+  .input-wrap { position: relative; }
   .input-wrap .input-icon {
     position: absolute;
     left: 14px;
@@ -367,11 +402,9 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0.3;
   }
-  .input-wrap .input-icon svg {
-    width: 20px;
-    height: 20px;
-  }
+  .input-wrap .input-icon svg { width: 20px; height: 20px; }
 
   .checkbox-wrap {
     display: flex;
@@ -381,21 +414,17 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     margin-bottom: 20px;
   }
   .checkbox-wrap input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
+    width: 18px; height: 18px;
     flex-shrink: 0;
     margin-top: 2px;
     accent-color: #FF5A1F;
   }
   .checkbox-wrap label {
     font-size: 13px;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.35);
     line-height: 1.5;
   }
-  .checkbox-wrap label a {
-    color: #FF5A1F;
-    text-decoration: underline;
-  }
+  .checkbox-wrap label a { color: #FF5A1F; text-decoration: underline; }
 
   .submit-btn {
     display: flex;
@@ -406,33 +435,38 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     padding: 14px 20px;
     font-family: 'Urbanist', sans-serif;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 800;
     background: #FF5A1F;
     color: #ffffff;
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    animation: pulseGlow 2s infinite;
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    animation: pulseGlow 2.5s ease infinite;
+    letter-spacing: -0.2px;
   }
   .submit-btn:hover {
-    background: #e04a10;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255,90,31,0.4);
+    background: #e64d17;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255,90,31,0.4);
   }
-  .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; animation: none; }
+  .submit-btn:disabled { opacity: 0.55; cursor: not-allowed; animation: none; transform: none; }
 
-  /* ── Book Call ────────────────────────────────────────────────── */
+  /* ── Book Call ──────────────────────────────────────────────────── */
   .book-section { text-align: center; padding-top: 8px; }
-  .book-label {
-    display: inline-block;
-    background: #FF5A1F;
-    color: #ffffff;
-    font-size: 15px;
+  .market-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(34,197,94,0.12);
+    border: 1px solid rgba(34,197,94,0.3);
+    color: #22c55e;
+    font-size: 14px;
     font-weight: 700;
-    padding: 10px 18px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    padding: 9px 16px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    letter-spacing: 0.01em;
   }
   .book-btn {
     display: flex;
@@ -445,261 +479,383 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     color: #ffffff;
     font-family: 'Urbanist', sans-serif;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 800;
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     cursor: pointer;
     text-decoration: none;
-    transition: all 0.3s ease;
-    margin: 0 auto;
-    animation: pulseGlow 2s infinite;
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    animation: pulseGlow 2.5s ease infinite;
+    letter-spacing: -0.2px;
   }
   .book-btn:hover {
-    background: #e04a10;
+    background: #e64d17;
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255,90,31,0.4);
+    box-shadow: 0 12px 32px rgba(255,90,31,0.45);
   }
   .book-btn:active { transform: scale(0.97); }
   .secondary-text {
     font-size: 14px;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.3);
     margin-top: 16px;
     line-height: 1.5;
-    text-align: center;
   }
 
-  /* ── Spinner ──────────────────────────────────────────────────── */
+  /* ── Spinner ────────────────────────────────────────────────────── */
   .spinner {
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255,255,255,0.3);
+    width: 18px; height: 18px;
+    border: 2.5px solid rgba(255,255,255,0.3);
     border-top-color: #ffffff;
     border-radius: 50%;
     animation: spin 0.6s linear infinite;
     margin-right: 8px;
+    flex-shrink: 0;
   }
-  @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
 
-<!-- Progress Bar (fixed bottom) -->
+<!-- Progress Bar -->
 <div class="progress-bar"><div class="progress-bar-fill" id="progressFill"></div></div>
 
 <!-- Logo -->
-<div class="logo-wrap"><img src="/logo-white.jpg" alt="Scale National"></div>
+<div class="logo-wrap">
+  <img src="/logo-transparent.png" alt="Scale National">
+</div>
 
-<!-- Progress Label (hidden on step 1, 7, 8) -->
+<!-- Progress Label -->
 <div class="progress-label" id="progressLabel" style="display:none;"></div>
 
 <div class="funnel-wrap">
 
   <!-- Back Button -->
-  <button class="back-btn" id="backBtn" style="display:none;" onclick="goBack()">&larr; Back</button>
+  <button class="back-btn" id="backBtn" style="display:none;" onclick="goBack()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Back
+  </button>
 
-  <!-- ════════ STEP 1 — Initial Qualifier ════════ -->
+  <!-- ════════ STEP 1 ════════ -->
   <div class="step active" id="step1" data-step="1">
-    <h1 class="headline">We Get Contractors 20+ Exclusive Leads In 30 Days &mdash; Or You Don't Pay.</h1>
+    <h1 class="headline">We Get Contractors 20+ Exclusive Leads In 30 Days. Or You Don't Pay.</h1>
     <p class="subtext">Are you a contractor or home service business owner?</p>
     <div class="card-row">
       <button class="card card-yes" onclick="goToStep(2)">
-        <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
         Yes
       </button>
       <button class="card card-no" onclick="showExit()">
-        <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+        <span class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </span>
         No
       </button>
     </div>
-    <div class="social-proof">
-      <div class="badges">
-        <div class="badge"><span class="badge-dot"></span>Apex Roofing &middot; NJ</div>
-        <div class="badge"><span class="badge-dot"></span>Blue Ridge HVAC &middot; VA</div>
-        <div class="badge"><span class="badge-dot"></span>Summit Plumbing &middot; TX</div>
+
+    <!-- Trades Ticker -->
+    <div class="ticker-section">
+      <div class="ticker-label">Trades we work with</div>
+      <div class="ticker-wrapper">
+        <div class="ticker-track">
+          <span class="ticker-item">Roofing</span>
+          <span class="ticker-item">HVAC</span>
+          <span class="ticker-item">Plumbing</span>
+          <span class="ticker-item">Electrical</span>
+          <span class="ticker-item">Landscaping</span>
+          <span class="ticker-item">Lawn Care</span>
+          <span class="ticker-item">Pest Control</span>
+          <span class="ticker-item">Cleaning Services</span>
+          <span class="ticker-item">Pool Service</span>
+          <span class="ticker-item">Pressure Washing</span>
+          <span class="ticker-item">Painters</span>
+          <span class="ticker-item">Carpet Cleaning</span>
+          <span class="ticker-item">Handyman</span>
+          <span class="ticker-item">Gutter Cleaning</span>
+          <span class="ticker-item">Junk Removal</span>
+          <span class="ticker-item">Tree Service</span>
+          <span class="ticker-item">Flooring</span>
+          <span class="ticker-item">Fence Companies</span>
+          <span class="ticker-item">Concrete</span>
+          <span class="ticker-item">Deck Building</span>
+          <span class="ticker-item">General Contracting</span>
+          <!-- duplicate for seamless loop -->
+          <span class="ticker-item">Roofing</span>
+          <span class="ticker-item">HVAC</span>
+          <span class="ticker-item">Plumbing</span>
+          <span class="ticker-item">Electrical</span>
+          <span class="ticker-item">Landscaping</span>
+          <span class="ticker-item">Lawn Care</span>
+          <span class="ticker-item">Pest Control</span>
+          <span class="ticker-item">Cleaning Services</span>
+          <span class="ticker-item">Pool Service</span>
+          <span class="ticker-item">Pressure Washing</span>
+          <span class="ticker-item">Painters</span>
+          <span class="ticker-item">Carpet Cleaning</span>
+          <span class="ticker-item">Handyman</span>
+          <span class="ticker-item">Gutter Cleaning</span>
+          <span class="ticker-item">Junk Removal</span>
+          <span class="ticker-item">Tree Service</span>
+          <span class="ticker-item">Flooring</span>
+          <span class="ticker-item">Fence Companies</span>
+          <span class="ticker-item">Concrete</span>
+          <span class="ticker-item">Deck Building</span>
+          <span class="ticker-item">General Contracting</span>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Exit Message -->
   <div class="exit-message" id="exitMessage">
-    <p>This system is built for contractors and home service business owners. If that ever changes, we'll be here.</p>
-    <a href="#" onclick="hideExit(); return false;">&larr; Go Back</a>
+    <p>This system is built for contractors and home service business owners. If that changes, we'll be here.</p>
+    <a href="#" onclick="hideExit(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><polyline points="15 18 9 12 15 6"/></svg>
+      Go Back
+    </a>
   </div>
 
-  <!-- ════════ STEP 2 — Owner Qualifier (Question 1 of 5) ════════ -->
+  <!-- ════════ STEP 2 — Owner (Q1 of 5) ════════ -->
   <div class="step" id="step2" data-step="2">
     <h2 class="question-text">Are you the owner of your contracting business?</h2>
     <div class="btn-stack">
-      <button class="choice-btn" onclick="selectOwner(this, 'I own my business / I am the primary decision maker')">
-        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">1</text></svg></span> I own my business / I am the primary decision maker
+      <button class="choice-btn" onclick="selectOwner(this, 'Owner / Primary decision maker')">
+        <span class="choice-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        Yes, I own it
       </button>
-      <button class="choice-btn" onclick="selectOwner(this, 'I work for a contracting company')">
-        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">2</text></svg></span> I work for a contracting company
+      <button class="choice-btn" onclick="selectOwner(this, 'Employee / Not the decision maker')">
+        <span class="choice-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </span>
+        No, I work for a company
       </button>
     </div>
   </div>
 
-  <!-- ════════ STEP 3 — Trade Type (Question 2 of 5) ════════ -->
+  <!-- ════════ STEP 3 — Trade (Q2 of 5) ════════ -->
   <div class="step" id="step3" data-step="3">
     <h2 class="question-text">What trade are you in?</h2>
     <div class="btn-stack">
-      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">1</text></svg></span> Roofing</button>
-      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">2</text></svg></span> HVAC</button>
-      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">3</text></svg></span> Plumbing</button>
-      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">4</text></svg></span> Electrical</button>
-      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">5</text></svg></span> General Contracting</button>
-      <button class="choice-btn" onclick="selectTrade(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">6</text></svg></span> Other</button>
+      <button class="choice-btn" onclick="selectTrade(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+        Roofing
+      </button>
+      <button class="choice-btn" onclick="selectTrade(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1010 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"/></svg></span>
+        HVAC
+      </button>
+      <button class="choice-btn" onclick="selectTrade(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+        Plumbing
+      </button>
+      <button class="choice-btn" onclick="selectTrade(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+        Electrical
+      </button>
+      <button class="choice-btn" onclick="selectTrade(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></span>
+        General Contracting
+      </button>
+      <button class="choice-btn" onclick="selectTrade(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></span>
+        Other Trade
+      </button>
     </div>
   </div>
 
-  <!-- ════════ STEP 4 — Monthly Revenue (Question 3 of 5) ════════ -->
+  <!-- ════════ STEP 4 — Revenue (Q3 of 5) ════════ -->
   <div class="step" id="step4" data-step="4">
     <h2 class="question-text">What's your current monthly revenue?</h2>
     <div class="btn-stack">
-      <button class="choice-btn" onclick="selectRevenue(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">1</text></svg></span> Under $10k/month</button>
-      <button class="choice-btn" onclick="selectRevenue(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">2</text></svg></span> $10k &ndash; $30k/month</button>
-      <button class="choice-btn" onclick="selectRevenue(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">3</text></svg></span> $30k &ndash; $75k/month</button>
-      <button class="choice-btn" onclick="selectRevenue(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">4</text></svg></span> $75k+/month</button>
+      <button class="choice-btn" onclick="selectRevenue(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+        Under $10k / month
+      </button>
+      <button class="choice-btn" onclick="selectRevenue(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+        $10k to $30k / month
+      </button>
+      <button class="choice-btn" onclick="selectRevenue(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+        $30k to $75k / month
+      </button>
+      <button class="choice-btn" onclick="selectRevenue(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+        $75k+ / month
+      </button>
     </div>
   </div>
 
-  <!-- ════════ STEP 5 — Pain Point (Question 4 of 5) ════════ -->
+  <!-- ════════ STEP 5 — Pain Point (Q4 of 5) ════════ -->
   <div class="step" id="step5" data-step="5">
     <h2 class="question-text">What's your biggest challenge right now?</h2>
     <div class="btn-stack">
-      <button class="choice-btn" onclick="selectPain(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span> Not enough leads coming in</button>
-      <button class="choice-btn" onclick="selectPain(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span> Leads are too expensive or low quality</button>
-      <button class="choice-btn" onclick="selectPain(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></span> I get leads but can't convert them to jobs</button>
-      <button class="choice-btn" onclick="selectPain(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></span> Things are good &mdash; I just want to scale faster</button>
+      <button class="choice-btn" onclick="selectPain(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        Not enough leads coming in
+      </button>
+      <button class="choice-btn" onclick="selectPain(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+        Leads are too expensive or low quality
+      </button>
+      <button class="choice-btn" onclick="selectPain(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></span>
+        I get leads but can't close them
+      </button>
+      <button class="choice-btn" onclick="selectPain(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></span>
+        Things are good. I just want to scale faster.
+      </button>
     </div>
   </div>
 
-  <!-- ════════ STEP 6 — Investment Qualifier (Question 5 of 5) ════════ -->
+  <!-- ════════ STEP 6 — Investment (Q5 of 5) ════════ -->
   <div class="step" id="step6" data-step="6">
-    <h2 class="question-text">What are you looking to invest to grow your business?</h2>
+    <h2 class="question-text">What are you looking to invest to grow?</h2>
     <div class="btn-stack">
-      <button class="choice-btn" onclick="selectInvestment(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">1</text></svg></span> Under $500/month</button>
-      <button class="choice-btn" onclick="selectInvestment(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">2</text></svg></span> $500 &ndash; $1,000/month</button>
-      <button class="choice-btn" onclick="selectInvestment(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">3</text></svg></span> $1,000 &ndash; $2,500/month</button>
-      <button class="choice-btn" onclick="selectInvestment(this)"><span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" stroke="none" font-size="12" font-family="Urbanist,sans-serif" font-weight="700">4</text></svg></span> $2,500+/month</button>
+      <button class="choice-btn" onclick="selectInvestment(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+        Under $500 / month
+      </button>
+      <button class="choice-btn" onclick="selectInvestment(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+        $500 to $1,000 / month
+      </button>
+      <button class="choice-btn" onclick="selectInvestment(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+        $1,000 to $2,500 / month
+      </button>
+      <button class="choice-btn" onclick="selectInvestment(this)">
+        <span class="choice-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+        $2,500+ / month
+      </button>
     </div>
   </div>
 
   <!-- ════════ STEP 7 — Contact Form ════════ -->
   <div class="step" id="step7" data-step="7">
-    <div style="text-align:center;">
-      <div class="prequalified-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;display:inline-block;"><polyline points="20 6 9 17 4 12"/></svg>Great news! You're pre-qualified for our done-for-you marketing system.</div>
+    <div style="text-align:center;margin-bottom:20px;">
+      <span class="prequalified-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        You're pre-qualified
+      </span>
     </div>
-    <h2 class="headline" style="font-size:22px; margin-bottom:24px;">Fill in your info below so we can build your free market analysis and flood your calendar with contractor jobs.</h2>
+    <h2 class="headline" style="font-size:22px;margin-bottom:8px;">Last step. Drop your info and we'll build your free market analysis.</h2>
+    <p class="subtext" style="margin-bottom:20px;font-size:15px;">We'll show you exactly what your first 30 days would look like.</p>
 
     <form id="leadForm" onsubmit="return handleSubmit(event)" novalidate>
       <div class="form-group">
         <div class="input-wrap">
-          <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-          <input type="text" id="firstName" name="firstName" placeholder="Your first name" autocomplete="given-name" required>
+          <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <input type="text" id="firstName" name="firstName" placeholder="First name" autocomplete="given-name" required>
         </div>
         <div class="form-error" id="firstNameError">First name is required</div>
       </div>
       <div class="form-group">
         <div class="input-wrap">
-          <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-          <input type="text" id="lastName" name="lastName" placeholder="Your last name" autocomplete="family-name" required>
+          <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <input type="text" id="lastName" name="lastName" placeholder="Last name" autocomplete="family-name" required>
         </div>
         <div class="form-error" id="lastNameError">Last name is required</div>
       </div>
       <div class="form-group">
         <div class="input-wrap">
-          <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
-          <input type="email" id="email" name="email" placeholder="E-mail address" autocomplete="email" required>
+          <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <input type="email" id="email" name="email" placeholder="Email address" autocomplete="email" required>
         </div>
         <div class="form-error" id="emailError">Email is required</div>
       </div>
       <div class="form-group">
         <div class="input-wrap">
-          <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></span>
-          <input type="tel" id="phone" name="phone" placeholder="Your phone number" autocomplete="tel" required>
+          <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></span>
+          <input type="tel" id="phone" name="phone" placeholder="Phone number" autocomplete="tel" required>
         </div>
         <div class="form-error" id="phoneError">Phone number is required</div>
       </div>
 
       <div class="checkbox-wrap">
         <input type="checkbox" id="termsCheck">
-        <label for="termsCheck">I have read and agree to the <a href="https://scalenational.com/terms" target="_blank">Terms of Use</a> and <a href="https://scalenational.com/privacy" target="_blank">Privacy Policy</a></label>
+        <label for="termsCheck">I agree to the <a href="https://scalenational.com/terms" target="_blank">Terms of Use</a> and <a href="https://scalenational.com/privacy" target="_blank">Privacy Policy</a></label>
       </div>
-      <div class="form-error" id="termsError" style="margin-top:-12px;margin-bottom:12px;">You must agree to the terms to continue</div>
+      <div class="form-error" id="termsError" style="margin-top:-12px;margin-bottom:14px;">You must agree to continue</div>
 
-      <button type="submit" class="submit-btn" id="submitBtn">Submit &rarr;</button>
+      <button type="submit" class="submit-btn" id="submitBtn">Get My Market Analysis &rarr;</button>
     </form>
   </div>
 
-  <!-- ════════ STEP 8 — Book Call ════════ -->
+  <!-- ════════ STEP 8 — Book Call (fallback, redirected to /start/thanks) ════════ -->
   <div class="step" id="step8" data-step="8">
     <div class="book-section">
-      <div class="book-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;display:inline-block;"><polyline points="20 6 9 17 4 12"/></svg>Your market is available!</div>
-      <h2 class="headline" style="margin-bottom:12px;">Book your free 15-minute strategy call</h2>
+      <div class="market-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Your market is available
+      </div>
+      <h2 class="headline" style="margin-bottom:12px;">Book your free strategy call</h2>
       <p class="subtext">We'll show you the exact system we'd build for your business and what your first 30 days would look like.</p>
       <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" class="book-btn" onclick="if(typeof fbq!=='undefined')fbq('track','Schedule')">Book My Free Call &rarr;</a>
-      <p class="secondary-text">No pressure. No pitch. Just clarity on what's possible.</p>
+      <p class="secondary-text">No pitch. Just a real conversation about what's possible.</p>
     </div>
   </div>
 
 </div>
 
 <script>
-  // ── State ──────────────────────────────────────────────────────────
   let currentStep = 1;
   const totalSteps = 8;
-  const answers = {
-    isOwner: '',
-    trade: '',
-    revenue: '',
-    painPoint: '',
-    investment: '',
-  };
-
+  const answers = { isOwner: '', trade: '', revenue: '', painPoint: '', investment: '' };
   const stepHistory = [1];
+  let isAnimating = false;
 
-  // ── Progress Bar ───────────────────────────────────────────────────
+  // ── Progress ─────────────────────────────────────────────────────
   function updateProgress() {
-    const pct = (currentStep / totalSteps) * 100;
-    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressFill').style.width = ((currentStep / totalSteps) * 100) + '%';
   }
-
-  // ── Progress Label ─────────────────────────────────────────────────
-  const stepToQuestion = { 2: 1, 3: 2, 4: 3, 5: 4, 6: 5 };
+  const stepToQuestion = { 2:1, 3:2, 4:3, 5:4, 6:5 };
   function updateLabel() {
     const label = document.getElementById('progressLabel');
     const q = stepToQuestion[currentStep];
-    if (q) {
-      label.textContent = 'Question ' + q + ' of 5';
-      label.style.display = 'block';
-    } else {
-      label.style.display = 'none';
-    }
+    if (q) { label.textContent = 'Question ' + q + ' of 5'; label.style.display = 'block'; }
+    else { label.style.display = 'none'; }
   }
-
-  // ── Back Button ────────────────────────────────────────────────────
   function updateBackBtn() {
-    const btn = document.getElementById('backBtn');
-    // Show on steps 2-7
-    btn.style.display = (currentStep >= 2 && currentStep <= 7) ? 'block' : 'none';
+    document.getElementById('backBtn').style.display =
+      (currentStep >= 2 && currentStep <= 7) ? 'flex' : 'none';
   }
 
-  function goBack() {
-    if (stepHistory.length > 1) {
-      stepHistory.pop();
-      const prev = stepHistory[stepHistory.length - 1];
-      navigateToStep(prev, false);
-    }
+  // ── Transitions ──────────────────────────────────────────────────
+  function animateOut(el, dir) {
+    el.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+    el.style.opacity = '0';
+    el.style.transform = dir === 1 ? 'translateX(-20px)' : 'translateX(20px)';
+  }
+  function animateIn(el, dir) {
+    el.style.transition = 'none';
+    el.style.opacity = '0';
+    el.style.transform = dir === 1 ? 'translateX(20px)' : 'translateX(-20px)';
+    el.classList.add('active');
+    el.offsetHeight; // reflow
+    el.style.transition = 'opacity 0.28s ease, transform 0.28s ease';
+    el.style.opacity = '1';
+    el.style.transform = 'translateX(0)';
+    setTimeout(() => {
+      el.style.transition = '';
+      el.style.opacity = '';
+      el.style.transform = '';
+    }, 300);
   }
 
-  // ── Step Navigation ────────────────────────────────────────────────
   function navigateToStep(n, addToHistory) {
-    const prev = document.getElementById('step' + currentStep);
-    if (prev) {
-      prev.classList.remove('visible');
-      setTimeout(() => { prev.classList.remove('active'); }, 350);
+    if (isAnimating) return;
+    isAnimating = true;
+    const dir = addToHistory !== false ? 1 : -1;
+    const prevEl = document.getElementById('step' + currentStep);
+
+    if (prevEl) {
+      animateOut(prevEl, dir);
+      setTimeout(() => { prevEl.classList.remove('active'); }, 210);
     }
 
     currentStep = n;
@@ -709,105 +865,95 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     updateBackBtn();
 
     setTimeout(() => {
-      const next = document.getElementById('step' + n);
-      if (next) {
-        next.classList.add('active');
-        next.offsetHeight;
-        next.classList.add('visible');
+      const nextEl = document.getElementById('step' + n);
+      if (nextEl) {
+        animateIn(nextEl, dir);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    }, 380);
+      setTimeout(() => { isAnimating = false; }, 310);
+    }, 220);
   }
 
-  function goToStep(n) {
-    navigateToStep(n, true);
+  function goToStep(n) { navigateToStep(n, true); }
+
+  function goBack() {
+    if (stepHistory.length > 1) {
+      stepHistory.pop();
+      navigateToStep(stepHistory[stepHistory.length - 1], false);
+    }
   }
 
-  // ── Exit / Go Back ─────────────────────────────────────────────────
+  // ── Exit ─────────────────────────────────────────────────────────
   function showExit() {
-    document.getElementById('step1').classList.remove('visible');
+    const s1 = document.getElementById('step1');
+    animateOut(s1, 1);
     setTimeout(() => {
-      document.getElementById('step1').classList.remove('active');
+      s1.classList.remove('active');
+      s1.style.opacity = '';
+      s1.style.transform = '';
       document.getElementById('exitMessage').classList.add('active');
-    }, 350);
+    }, 220);
   }
   function hideExit() {
-    document.getElementById('exitMessage').classList.remove('active');
+    const em = document.getElementById('exitMessage');
+    em.classList.remove('active');
     const s1 = document.getElementById('step1');
-    s1.classList.add('active');
-    s1.offsetHeight;
-    s1.classList.add('visible');
+    animateIn(s1, -1);
   }
 
-  // ── Helper: get button text without the icon ──────────────────────
+  // ── Text extraction (strip icons) ────────────────────────────────
   function btnText(btn) {
-    // Get text content, trim, remove leading emoji/number sequences
-    let t = btn.textContent.trim();
-    // Remove leading numbered emoji like "1️⃣ " or emoji chars
-    t = t.replace(/^[\d\uFE0F\u20E3]+\s*/, '').trim();
-    return t || btn.textContent.trim();
+    const clone = btn.cloneNode(true);
+    clone.querySelectorAll('.choice-icon').forEach(el => el.remove());
+    return clone.textContent.trim();
   }
 
-  // ── Option Selectors ──────────────────────────────────────────────
+  // ── Selectors with feedback ───────────────────────────────────────
+  function selectWithFeedback(btn, callback) {
+    btn.classList.add('selected');
+    setTimeout(callback, 130);
+  }
+
   function selectOwner(btn, val) {
-    answers.isOwner = val;
-    goToStep(3);
+    selectWithFeedback(btn, () => { answers.isOwner = val; goToStep(3); });
   }
   function selectTrade(btn) {
-    answers.trade = btnText(btn);
-    goToStep(4);
+    selectWithFeedback(btn, () => { answers.trade = btnText(btn); goToStep(4); });
   }
   function selectRevenue(btn) {
-    answers.revenue = btnText(btn);
-    goToStep(5);
+    selectWithFeedback(btn, () => { answers.revenue = btnText(btn); goToStep(5); });
   }
   function selectPain(btn) {
-    answers.painPoint = btnText(btn);
-    goToStep(6);
+    selectWithFeedback(btn, () => { answers.painPoint = btnText(btn); goToStep(6); });
   }
   function selectInvestment(btn) {
-    answers.investment = btnText(btn);
-    goToStep(7);
+    selectWithFeedback(btn, () => { answers.investment = btnText(btn); goToStep(7); });
   }
 
-  // ── Form Submit ────────────────────────────────────────────────────
+  // ── Form Submit ──────────────────────────────────────────────────
   async function handleSubmit(e) {
     e.preventDefault();
-
     const fields = ['firstName', 'lastName', 'email', 'phone'];
     let valid = true;
-
     fields.forEach(f => {
       const input = document.getElementById(f);
       const error = document.getElementById(f + 'Error');
-      const val = input.value.trim();
-      if (!val) {
-        input.classList.add('error');
-        error.style.display = 'block';
-        valid = false;
+      if (!input.value.trim()) {
+        input.classList.add('error'); error.style.display = 'block'; valid = false;
       } else {
-        input.classList.remove('error');
-        error.style.display = 'none';
+        input.classList.remove('error'); error.style.display = 'none';
       }
     });
-
-    // Checkbox validation
     const termsCheck = document.getElementById('termsCheck');
     const termsError = document.getElementById('termsError');
-    if (!termsCheck.checked) {
-      termsError.style.display = 'block';
-      valid = false;
-    } else {
-      termsError.style.display = 'none';
-    }
-
+    if (!termsCheck.checked) { termsError.style.display = 'block'; valid = false; }
+    else { termsError.style.display = 'none'; }
     if (!valid) return false;
 
     const btn = document.getElementById('submitBtn');
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span>Submitting...';
 
-    // Fire Lead pixel event
     if (typeof fbq === 'function') fbq('track', 'Lead');
 
     const payload = {
@@ -830,27 +976,28 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
       });
       const data = await res.json();
       if (data.ok) {
-        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
         window.location.href = '/start/thanks';
       } else {
         btn.disabled = false;
-        btn.textContent = 'Submit \u2192';
+        btn.textContent = 'Get My Market Analysis \u2192';
         alert('Something went wrong. Please try again.');
       }
     } catch {
-      // Still advance on network error so user isn't stuck
-      if (typeof fbq !== 'undefined') fbq('track', 'Lead');
       window.location.href = '/start/thanks';
     }
-
     return false;
   }
 
-  // ── Init ───────────────────────────────────────────────────────────
+  // ── Init ─────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     const s1 = document.getElementById('step1');
+    s1.style.opacity = '0';
+    s1.style.transform = 'translateY(10px)';
     s1.offsetHeight;
-    s1.classList.add('visible');
+    s1.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    s1.style.opacity = '1';
+    s1.style.transform = 'translateY(0)';
+    setTimeout(() => { s1.style.transition = ''; s1.style.opacity = ''; s1.style.transform = ''; }, 420);
     updateProgress();
     updateLabel();
     updateBackBtn();
