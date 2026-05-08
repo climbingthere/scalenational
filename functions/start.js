@@ -8,7 +8,8 @@
  *   2. Create GHL contact with tags and custom fields.
  *   3. Create opportunity in Marketing Pipeline at New Lead stage.
  *   4. Add note with all qualifying answers.
- *   5. Return { ok: true }.
+ *   5. Send confirmation email to the lead via GHL.
+ *   6. Return { ok: true }.
  */
 
 const GHL_TOKEN    = 'pit-0f6cdeea-ddbf-4c1e-bdd7-5b1bd0d919d6';
@@ -149,7 +150,6 @@ export async function onRequest(context) {
       `MONTHLY REVENUE: ${revenue || 'Not specified'}`,
       `CURRENT LEAD SOURCE: ${leadSource || 'Not specified'}`,
       `BIGGEST CHALLENGE: ${painPoint || 'Not specified'}`,
-      `INVESTMENT RANGE: ${investment || 'Not specified'}`,
       ``,
       `SOURCE: Meta Ads Qualifying Funnel (/start)`,
     ].join('\n');
@@ -158,6 +158,34 @@ export async function onRequest(context) {
       method:  'POST',
       headers: ghlHeaders,
       body:    JSON.stringify({ body: noteBody }),
+    });
+
+    // ── 4. Send confirmation email to lead ──────────────────────────
+    const emailHtml = `
+<div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a;">
+  <div style="background:#0d0d0d;padding:24px 32px;border-radius:8px 8px 0 0;text-align:center;">
+    <span style="color:#ffffff;font-size:20px;font-weight:700;letter-spacing:-0.3px;">Scale <span style="color:#C84B00;">National</span></span>
+  </div>
+  <div style="background:#ffffff;padding:32px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 8px 8px;">
+    <p style="font-size:16px;margin:0 0 16px;">Hey ${firstName},</p>
+    <p style="font-size:16px;margin:0 0 16px;">We got your info. Our team is reviewing your market and will be reaching out shortly to walk you through what we can build for your business.</p>
+    <p style="font-size:16px;margin:0 0 24px;">Expect a call from us soon.</p>
+    <p style="font-size:14px;color:#6b7280;margin:0;">
+      Scale National<br>
+      <a href="https://scalenational.com" style="color:#C84B00;text-decoration:none;">scalenational.com</a>
+    </p>
+  </div>
+</div>`.trim();
+
+    await fetch(`${GHL_BASE}/conversations/messages`, {
+      method:  'POST',
+      headers: ghlHeaders,
+      body:    JSON.stringify({
+        type:      'Email',
+        contactId,
+        subject:   'We received your info - Scale National',
+        html:      emailHtml,
+      }),
     });
 
   } catch (err) {
