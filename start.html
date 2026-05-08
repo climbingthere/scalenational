@@ -838,11 +838,22 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   const stepHistory = [1];
   let isAnimating = false;
 
+  // ── Nuclear: one step at a time, always ──────────────────────────
+  function hideAll() {
+    document.querySelectorAll('.step').forEach(s => {
+      s.classList.remove('active');
+      s.style.cssText = '';
+    });
+    document.getElementById('exitMessage').classList.remove('active');
+    document.getElementById('authExit').classList.remove('active');
+  }
+
   // ── Progress ─────────────────────────────────────────────────────
   function updateProgress() {
-    document.getElementById('progressFill').style.width = ((currentStep / totalSteps) * 100) + '%';
+    const numStep = typeof currentStep === 'string' ? 2 : currentStep;
+    document.getElementById('progressFill').style.width = ((numStep / totalSteps) * 100) + '%';
   }
-  const stepToQuestion = { 2:1, 3:2, 4:3, 5:4, 6:5 };
+  const stepToQuestion = { 2:1, '2b':1, 3:2, 4:3, 5:4, 6:5 };
   function updateLabel() {
     const label = document.getElementById('progressLabel');
     const q = stepToQuestion[currentStep];
@@ -850,8 +861,8 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     else { label.style.display = 'none'; }
   }
   function updateBackBtn() {
-    document.getElementById('backBtn').style.display =
-      (currentStep >= 2 && currentStep <= 7) ? 'flex' : 'none';
+    const hide = (currentStep === 1 || currentStep === 8);
+    document.getElementById('backBtn').style.display = hide ? 'none' : 'flex';
   }
 
   // ── Transitions ──────────────────────────────────────────────────
@@ -865,26 +876,29 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     el.style.opacity = '0';
     el.style.transform = dir === 1 ? 'translateX(20px)' : 'translateX(-20px)';
     el.classList.add('active');
-    el.offsetHeight; // reflow
+    el.offsetHeight;
     el.style.transition = 'opacity 0.28s ease, transform 0.28s ease';
     el.style.opacity = '1';
     el.style.transform = 'translateX(0)';
-    setTimeout(() => {
-      el.style.transition = '';
-      el.style.opacity = '';
-      el.style.transform = '';
-    }, 300);
+    setTimeout(() => { el.style.cssText = ''; }, 300);
   }
 
   function navigateToStep(n, addToHistory) {
     if (isAnimating) return;
     isAnimating = true;
     const dir = addToHistory !== false ? 1 : -1;
+
+    // Grab prev element before hiding everything
     const prevEl = document.getElementById('step' + currentStep);
 
+    // Hide all — nuclear, prevents any zombie step from showing
+    hideAll();
+
+    // Animate previous out (re-add active briefly for animation)
     if (prevEl) {
+      prevEl.classList.add('active');
       animateOut(prevEl, dir);
-      setTimeout(() => { prevEl.classList.remove('active'); }, 210);
+      setTimeout(() => { prevEl.classList.remove('active'); prevEl.style.cssText = ''; }, 210);
     }
 
     currentStep = n;
@@ -912,29 +926,22 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     }
   }
 
-  // ── Auth Step ─────────────────────────────────────────────────────
+  // ── Employee / Auth flow ──────────────────────────────────────────
   function selectEmployee(btn) {
     selectWithFeedback(btn, () => {
       answers.isOwner = 'Employee';
-      // Animate step 2 out, show step2b
-      const s2 = document.getElementById('step2');
-      animateOut(s2, 1);
-      setTimeout(() => {
-        s2.classList.remove('active');
-        s2.style.opacity = ''; s2.style.transform = '';
-        const s2b = document.getElementById('step2b');
-        animateIn(s2b, 1);
-        updateBackBtn();
-      }, 220);
+      goToStep('2b');
     });
   }
   function showAuthExit() {
+    if (isAnimating) return;
+    isAnimating = true;
     const s2b = document.getElementById('step2b');
     animateOut(s2b, 1);
     setTimeout(() => {
-      s2b.classList.remove('active');
-      s2b.style.opacity = ''; s2b.style.transform = '';
+      hideAll();
       document.getElementById('authExit').classList.add('active');
+      isAnimating = false;
     }, 220);
   }
   function hideAuthExit() {
