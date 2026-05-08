@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4492167721031623');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scale National — Get 10–30 Exclusive Leads Every Month</title>
+<meta name="description" content="Exclusive contractor leads in your area. Get 10–30 leads every month or you don't pay. Limited to one contractor per trade per area.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scalenational.com/qualify">
+<meta property="og:title" content="Scale National — Get 10–30 Exclusive Leads Every Month">
+<meta property="og:description" content="Exclusive contractor leads in your area. Limited to one contractor per trade per area.">
+<meta property="og:image" content="https://scalenational.com/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0D0D0D;
+    color: #fff;
+    min-height: 100vh;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Logo */
+  .logo {
+    text-align: center;
+    padding: 0 0 24px;
+  }
+  .logo img {
+    height: 28px;
+    opacity: 0.9;
+  }
+
+  /* Progress bar */
+  .progress-wrap {
+    width: 100%;
+    height: 6px;
+    background: #1a1a1a;
+    border-radius: 3px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .progress-wrap.visible { opacity: 1; }
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #FF5A1F;
+    border-radius: 3px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Steps */
+  .step {
+    display: none;
+    flex-direction: column;
+    flex: 1;
+    animation: fadeIn 0.35s ease;
+  }
+  .step.active { display: flex; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Back button */
+  .back-btn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .back-btn:hover { color: #999; }
+  .back-btn svg { width: 16px; height: 16px; }
+
+  /* Typography */
+  .label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #FF5A1F;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 12px;
+  }
+  .headline {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .subtext {
+    font-size: 16px;
+    color: #999;
+    line-height: 1.5;
+    margin-bottom: 28px;
+  }
+  .question {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.3;
+  }
+
+  /* Buttons */
+  .btn-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .btn-choice {
+    flex: 1;
+    min-height: 60px;
+    border: 2px solid #222;
+    border-radius: 12px;
+    background: #111;
+    color: #fff;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-choice:active { transform: scale(0.97); }
+  .btn-choice.yes:hover, .btn-choice.yes:focus { border-color: #FF5A1F; background: rgba(255,90,31,0.1); }
+  .btn-choice.no:hover, .btn-choice.no:focus { border-color: #444; background: #1a1a1a; }
+
+  /* Option grid */
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .option-btn {
+    min-height: 60px;
+    border: 2px solid #222;
+    border-radius: 12px;
+    background: #111;
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 16px 12px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .option-btn:hover, .option-btn:focus {
+    border-color: #FF5A1F;
+    background: rgba(255,90,31,0.1);
+  }
+  .option-btn:active { transform: scale(0.97); }
+
+  /* Stacked options (revenue, lead source) */
+  .options-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .options-stack .option-btn {
+    text-align: left;
+    padding: 18px 20px;
+  }
+
+  /* Social proof */
+  .social-proof {
+    margin-top: auto;
+    text-align: center;
+    padding-top: 32px;
+  }
+  .social-proof p {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 16px;
+  }
+  .trade-badges {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .trade-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #666;
+    background: #151515;
+    border: 1px solid #222;
+    border-radius: 6px;
+    padding: 6px 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  /* Disqualified */
+  .dq-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    animation: fadeIn 0.35s ease;
+    padding: 40px 0;
+  }
+  .dq-screen.active { display: flex; }
+  .dq-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .dq-screen h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .dq-screen p {
+    color: #777;
+    font-size: 15px;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .dq-back-btn {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .dq-back-btn:hover { background: #222; }
+
+  /* Form */
+  .form-group {
+    margin-bottom: 16px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .form-group input {
+    width: 100%;
+    height: 52px;
+    background: #111;
+    border: 2px solid #222;
+    border-radius: 10px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 0 16px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus { border-color: #FF5A1F; }
+  .form-group input::placeholder { color: #444; }
+  .form-group .error-msg {
+    color: #ff4444;
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+  }
+  .form-group.has-error input { border-color: #ff4444; }
+  .form-group.has-error .error-msg { display: block; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  /* CTA button */
+  .cta-btn {
+    width: 100%;
+    min-height: 56px;
+    background: #FF5A1F;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .cta-btn:hover { background: #e6501a; }
+  .cta-btn:active { transform: scale(0.98); }
+  .cta-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Thank you */
+  .thank-you {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    animation: fadeIn 0.35s ease;
+    padding: 40px 0;
+  }
+  .thank-you.active { display: flex; }
+  .ty-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(255,90,31,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .ty-icon svg { width: 36px; height: 36px; color: #FF5A1F; }
+  .thank-you h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .thank-you p {
+    color: #888;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .thank-you .redirect-note {
+    font-size: 13px;
+    color: #555;
+    margin-top: 24px;
+  }
+
+  /* Spinner */
+  .spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <!-- Logo -->
+  <div class="logo">
+    <img src="logo-transparent.png" alt="Scale National">
+  </div>
+
+  <!-- Progress bar -->
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Step 1: Hook + Qualifier -->
+  <div class="step active" id="step1">
+    <div class="label">For Local Contractors Only...</div>
+    <h1 class="headline">Get 10–30 Exclusive Leads Every Month — Or You Don't Pay.</h1>
+    <p class="subtext">Are you a contractor or home service business owner?</p>
+    <div class="btn-row">
+      <button class="btn-choice yes" onclick="answerContractor(true)">&#10003; Yes</button>
+      <button class="btn-choice no" onclick="answerContractor(false)">&#10007; No</button>
+    </div>
+    <div class="social-proof">
+      <p>Trusted by contractors across the US</p>
+      <div class="trade-badges">
+        <span class="trade-badge">Roofing</span>
+        <span class="trade-badge">HVAC</span>
+        <span class="trade-badge">Plumbing</span>
+        <span class="trade-badge">Electrical</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disqualification Screen -->
+  <div class="dq-screen" id="dqScreen">
+    <div class="dq-icon">&#128683;</div>
+    <h2>Sorry, this is only for contractors.</h2>
+    <p>This program is designed specifically for local contractors and home service businesses.</p>
+    <button class="dq-back-btn" onclick="goToStep(1)">&larr; Go Back</button>
+  </div>
+
+  <!-- Step 2: Trade -->
+  <div class="step" id="step2">
+    <button class="back-btn" onclick="goToStep(1)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Back
+    </button>
+    <p class="question">What's your trade?</p>
+    <div class="options-grid">
+      <button class="option-btn" onclick="selectTrade('Roofing')">Roofing</button>
+      <button class="option-btn" onclick="selectTrade('HVAC')">HVAC</button>
+      <button class="option-btn" onclick="selectTrade('Plumbing')">Plumbing</button>
+      <button class="option-btn" onclick="selectTrade('Electrical')">Electrical</button>
+      <button class="option-btn" onclick="selectTrade('General Contracting')">General Contracting</button>
+      <button class="option-btn" onclick="selectTrade('Other')">Other</button>
+    </div>
+  </div>
+
+  <!-- Step 3: Revenue -->
+  <div class="step" id="step3">
+    <button class="back-btn" onclick="goToStep(2)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Back
+    </button>
+    <p class="question">What's your current monthly revenue?</p>
+    <div class="options-stack">
+      <button class="option-btn" onclick="selectRevenue('Under $10k')">Under $10k</button>
+      <button class="option-btn" onclick="selectRevenue('$10k–$30k')">$10k – $30k</button>
+      <button class="option-btn" onclick="selectRevenue('$30k–$100k')">$30k – $100k</button>
+      <button class="option-btn" onclick="selectRevenue('$100k+')">$100k+</button>
+    </div>
+  </div>
+
+  <!-- Step 4: Lead Source -->
+  <div class="step" id="step4">
+    <button class="back-btn" onclick="goToStep(3)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Back
+    </button>
+    <p class="question">How are you currently getting leads?</p>
+    <div class="options-stack">
+      <button class="option-btn" onclick="selectLeadSource('Referrals Only')">Referrals Only</button>
+      <button class="option-btn" onclick="selectLeadSource('HomeAdvisor/Angi')">HomeAdvisor / Angi</button>
+      <button class="option-btn" onclick="selectLeadSource('Google Ads')">Google Ads</button>
+      <button class="option-btn" onclick="selectLeadSource('Not getting enough leads')">I'm not getting enough leads</button>
+    </div>
+  </div>
+
+  <!-- Step 5: Contact Form -->
+  <div class="step" id="step5">
+    <button class="back-btn" onclick="goToStep(4)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Back
+    </button>
+    <h2 class="headline" style="font-size:22px;">Great — let's see if your market is available.</h2>
+    <p class="subtext" style="font-size:14px;">We only work with one contractor per trade per area. Enter your info and we'll check availability.</p>
+
+    <form id="qualifyForm" onsubmit="return handleSubmit(event)" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="John" required autocomplete="given-name">
+          <div class="error-msg">Required</div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name">
+          <div class="error-msg">Required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required autocomplete="tel">
+        <div class="error-msg">Enter a valid phone number (10+ digits)</div>
+      </div>
+      <div class="form-group">
+        <label for="businessName">Business Name</label>
+        <input type="text" id="businessName" name="businessName" placeholder="Smith Roofing LLC" required autocomplete="organization">
+        <div class="error-msg">Required</div>
+      </div>
+      <div class="form-group">
+        <label for="city">City / State</label>
+        <input type="text" id="city" name="city" placeholder="Dallas, TX" required autocomplete="address-level2">
+        <div class="error-msg">Required</div>
+      </div>
+      <button type="submit" class="cta-btn" id="submitBtn">Check My Market Availability &rarr;</button>
+    </form>
+  </div>
+
+  <!-- Thank You -->
+  <div class="thank-you" id="thankYou">
+    <div class="ty-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h2>We're checking your market now.</h2>
+    <p>Expect a call within 24 hours.</p>
+    <p class="redirect-note">Redirecting you to book a time...</p>
+  </div>
+</div>
+
+<script>
+  // ── Funnel State ──────────────────────────────────────────────────────
+  const answers = {
+    trade: '',
+    revenue: '',
+    leadSource: '',
+    firstName: '',
+    lastName: '',
+    phone: '',
+    businessName: '',
+    city: ''
+  };
+
+  let currentStep = 1;
+
+  // ── Navigation ────────────────────────────────────────────────────────
+  function goToStep(n) {
+    // Hide everything
+    document.querySelectorAll('.step, .dq-screen, .thank-you').forEach(el => el.classList.remove('active'));
+
+    // Show target step
+    const target = document.getElementById('step' + n);
+    if (target) target.classList.add('active');
+
+    currentStep = n;
+
+    // Progress bar
+    const progressWrap = document.getElementById('progressWrap');
+    const progressBar = document.getElementById('progressBar');
+    if (n === 1) {
+      progressWrap.classList.remove('visible');
+      progressBar.style.width = '0%';
+    } else {
+      progressWrap.classList.add('visible');
+      const pct = { 2: 25, 3: 50, 4: 75, 5: 100 };
+      progressBar.style.width = (pct[n] || 0) + '%';
+    }
+  }
+
+  function showDQ() {
+    document.querySelectorAll('.step, .thank-you').forEach(el => el.classList.remove('active'));
+    document.getElementById('dqScreen').classList.add('active');
+    document.getElementById('progressWrap').classList.remove('visible');
+  }
+
+  function showThankYou() {
+    document.querySelectorAll('.step, .dq-screen').forEach(el => el.classList.remove('active'));
+    document.getElementById('thankYou').classList.add('active');
+    document.getElementById('progressWrap').classList.add('visible');
+    document.getElementById('progressBar').style.width = '100%';
+  }
+
+  // ── Step Handlers ─────────────────────────────────────────────────────
+  function answerContractor(isYes) {
+    if (isYes) {
+      goToStep(2);
+    } else {
+      showDQ();
+    }
+  }
+
+  function selectTrade(value) {
+    answers.trade = value;
+    goToStep(3);
+  }
+
+  function selectRevenue(value) {
+    answers.revenue = value;
+    goToStep(4);
+  }
+
+  function selectLeadSource(value) {
+    answers.leadSource = value;
+    goToStep(5);
+  }
+
+  // ── Form Validation & Submit ──────────────────────────────────────────
+  function validateForm() {
+    let valid = true;
+    const fields = ['firstName', 'lastName', 'phone', 'businessName', 'city'];
+
+    fields.forEach(name => {
+      const input = document.getElementById(name);
+      const group = input.closest('.form-group');
+      const val = input.value.trim();
+
+      if (!val) {
+        group.classList.add('has-error');
+        valid = false;
+        return;
+      }
+
+      // Phone: strip non-digits and check 10+
+      if (name === 'phone') {
+        const digits = val.replace(/\D/g, '');
+        if (digits.length < 10) {
+          group.classList.add('has-error');
+          valid = false;
+          return;
+        }
+      }
+
+      group.classList.remove('has-error');
+    });
+
+    return valid;
+  }
+
+  // Clear errors on input
+  document.querySelectorAll('#qualifyForm input').forEach(input => {
+    input.addEventListener('input', () => {
+      input.closest('.form-group').classList.remove('has-error');
+    });
+  });
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!validateForm()) return false;
+
+    // Collect form data
+    answers.firstName = document.getElementById('firstName').value.trim();
+    answers.lastName = document.getElementById('lastName').value.trim();
+    answers.phone = document.getElementById('phone').value.trim();
+    answers.businessName = document.getElementById('businessName').value.trim();
+    answers.city = document.getElementById('city').value.trim();
+
+    // Disable button
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>Checking...';
+
+    // Fire Meta Pixel events
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead');
+      fbq('track', 'CompleteRegistration');
+    }
+
+    // POST to backend
+    try {
+      await fetch('/qualify-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(answers)
+      });
+    } catch (err) {
+      console.error('Submit error:', err);
+    }
+
+    // Show thank you regardless of API response
+    showThankYou();
+
+    // Redirect after 3 seconds
+    setTimeout(() => {
+      window.location.href = 'https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm';
+    }, 3000);
+
+    return false;
+  }
+</script>
+</body>
+</html>
