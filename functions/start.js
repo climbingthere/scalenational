@@ -82,7 +82,7 @@ export async function onRequest(context) {
     const createData = await createRes.json();
     let contactId = createData?.contact?.id || createData?.meta?.contactId;
 
-    // If contact already exists, search for it
+    // If contact still not found, search by email then phone
     if (!contactId) {
       for (const query of [email, phone].filter(Boolean)) {
         const searchRes = await fetch(
@@ -93,26 +93,26 @@ export async function onRequest(context) {
         const match = searchData?.contacts?.[0];
         if (match?.id) { contactId = match.id; break; }
       }
+    }
 
-      // Update existing contact with new data
-      if (contactId) {
-        await fetch(`${GHL_BASE}/contacts/${contactId}`, {
-          method:  'PUT',
-          headers: ghlHeaders,
-          body:    JSON.stringify({
-            firstName,
-            lastName,
-            email,
-            phone,
-            tags:   ['meta-ad-lead', 'qualified-lead'],
-            source: 'meta-ads-funnel',
-            customFields: [
-              { id: 'nMLwyym5kB1IDELNCQ0x', field_value: trade || '' },
-              { id: '5UKidYH3nEkQZhYwh4vY', field_value: revenue || '' },
-            ],
-          }),
-        });
-      }
+    // Always update contact with meta-ad-lead tag + latest data (new or existing)
+    if (contactId) {
+      await fetch(`${GHL_BASE}/contacts/${contactId}`, {
+        method:  'PUT',
+        headers: ghlHeaders,
+        body:    JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          phone,
+          tags:   ['meta-ad-lead', 'qualified-lead'],
+          source: 'meta-ads-funnel',
+          customFields: [
+            { id: 'nMLwyym5kB1IDELNCQ0x', field_value: trade || '' },
+            { id: '5UKidYH3nEkQZhYwh4vY', field_value: revenue || '' },
+          ],
+        }),
+      });
     }
 
     if (!contactId) {
