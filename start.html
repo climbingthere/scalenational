@@ -766,7 +766,8 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
       });
       const data = await res.json();
       if (data.ok) {
-        goToStep(8);
+        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+        window.location.href = '/start/thanks';
       } else {
         btn.disabled = false;
         btn.textContent = 'Submit \u2192';
@@ -774,7 +775,8 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
       }
     } catch {
       // Still advance on network error so user isn't stuck
-      goToStep(8);
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+      window.location.href = '/start/thanks';
     }
 
     return false;
