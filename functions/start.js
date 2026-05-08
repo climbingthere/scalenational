@@ -16,8 +16,8 @@ const GHL_LOCATION = 'bxAx2g1z6Dd09kSdJZYt';
 const GHL_BASE     = 'https://services.leadconnectorhq.com';
 const GHL_VERSION  = '2021-07-28';
 
-const PIPELINE_ID  = 'VxsnPyFkv6rjjHDA30M7';
-const STAGE_NEW    = 'a3e90324-df2f-4593-9d74-160b2d9c5f81';
+const PIPELINE_ID  = 'mwGmH9gfYnkvX19LeXHw';   // Meta Ads pipeline
+const STAGE_NEW    = '2d0793c2-bdd0-49ce-83cb-9060f31938a7'; // New Lead
 
 const CORS = {
   'Access-Control-Allow-Origin':  '*',
