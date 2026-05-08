@@ -911,6 +911,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
           throw new Error(result.error || 'Something went wrong. Please try again.');
         }
 
+        if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
         formWrap.style.display = 'none';
         success.style.display = 'block';
       } catch (err) {
