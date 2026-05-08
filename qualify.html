@@ -41,8 +41,8 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #0D0D0D;
-    color: #fff;
+    background: #FFFFFF;
+    color: #0D0D0D;
     min-height: 100vh;
     min-height: 100dvh;
     -webkit-font-smoothing: antialiased;
@@ -52,7 +52,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   .wrapper {
     max-width: 480px;
     margin: 0 auto;
-    padding: 24px 20px 40px;
+    padding: 24px 20px 60px;
     min-height: 100vh;
     min-height: 100dvh;
     display: flex;
@@ -62,21 +62,32 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   /* Logo */
   .logo {
     text-align: center;
-    padding: 0 0 24px;
+    padding: 0 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
-  .logo img {
-    height: 28px;
-    opacity: 0.9;
+  .logo svg {
+    width: 24px;
+    height: 24px;
+  }
+  .logo-text {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0D0D0D;
+    letter-spacing: -0.3px;
   }
 
-  /* Progress bar */
+  /* Progress bar — fixed bottom */
   .progress-wrap {
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 6px;
-    background: #1a1a1a;
-    border-radius: 3px;
-    margin-bottom: 32px;
-    overflow: hidden;
+    height: 5px;
+    background: #F0F0F0;
+    z-index: 100;
     opacity: 0;
     transition: opacity 0.3s;
   }
@@ -85,7 +96,6 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     height: 100%;
     width: 0%;
     background: #FF5A1F;
-    border-radius: 3px;
     transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -107,7 +117,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   .back-btn {
     background: none;
     border: none;
-    color: #666;
+    color: #999;
     font-size: 14px;
     font-family: inherit;
     cursor: pointer;
@@ -117,13 +127,13 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     gap: 6px;
     transition: color 0.2s;
   }
-  .back-btn:hover { color: #999; }
+  .back-btn:hover { color: #666; }
   .back-btn svg { width: 16px; height: 16px; }
 
   /* Typography */
   .label {
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     color: #FF5A1F;
     text-transform: uppercase;
     letter-spacing: 1.2px;
@@ -135,82 +145,166 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     line-height: 1.2;
     margin-bottom: 12px;
     letter-spacing: -0.5px;
+    color: #0D0D0D;
   }
   .subtext {
     font-size: 16px;
-    color: #999;
+    color: #666;
     line-height: 1.5;
     margin-bottom: 28px;
   }
-  .question {
-    font-size: 22px;
+  .question-counter {
+    font-size: 13px;
     font-weight: 700;
+    color: #FF5A1F;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .question {
+    font-size: 24px;
+    font-weight: 800;
     margin-bottom: 24px;
     line-height: 1.3;
+    color: #0D0D0D;
   }
 
-  /* Buttons */
-  .btn-row {
-    display: flex;
-    gap: 12px;
+  /* Yes/No card layout */
+  .card-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
     margin-bottom: 32px;
   }
-  .btn-choice {
-    flex: 1;
-    min-height: 60px;
-    border: 2px solid #222;
-    border-radius: 12px;
-    background: #111;
-    color: #fff;
-    font-family: inherit;
-    font-size: 17px;
-    font-weight: 600;
+  .card-choice {
+    border: 2px solid #E8E8E8;
+    border-radius: 14px;
+    background: #fff;
     cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: inherit;
+    padding: 0;
+  }
+  .card-choice:active { transform: scale(0.97); }
+  .card-choice:hover { border-color: #FF5A1F; }
+  .card-icon-area {
+    padding: 28px 20px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    transition: all 0.2s;
   }
-  .btn-choice:active { transform: scale(0.97); }
-  .btn-choice.yes:hover, .btn-choice.yes:focus { border-color: #FF5A1F; background: rgba(255,90,31,0.1); }
-  .btn-choice.no:hover, .btn-choice.no:focus { border-color: #444; background: #1a1a1a; }
-
-  /* Option grid */
-  .options-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+  .card-icon-area svg {
+    width: 36px;
+    height: 36px;
   }
-  .option-btn {
-    min-height: 60px;
-    border: 2px solid #222;
-    border-radius: 12px;
-    background: #111;
-    color: #fff;
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 16px 12px;
+  .card-label {
+    width: 100%;
+    padding: 12px;
     text-align: center;
-    transition: all 0.2s;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background: #FF5A1F;
   }
-  .option-btn:hover, .option-btn:focus {
-    border-color: #FF5A1F;
-    background: rgba(255,90,31,0.1);
+  .card-choice.no-card .card-label {
+    background: #E0E0E0;
+    color: #666;
   }
-  .option-btn:active { transform: scale(0.97); }
+  .card-choice.no-card:hover { border-color: #CCC; }
 
-  /* Stacked options (revenue, lead source) */
+  /* Stacked orange buttons */
   .options-stack {
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
-  .options-stack .option-btn {
+  .option-btn {
+    width: 100%;
+    min-height: 58px;
+    border: none;
+    border-radius: 12px;
+    background: #FF5A1F;
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 16px 20px;
     text-align: left;
-    padding: 18px 20px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .option-btn:hover {
+    background: #e6501a;
+  }
+  .option-btn:active { transform: scale(0.98); }
+  .option-badge {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .option-emoji {
+    font-size: 22px;
+    flex-shrink: 0;
+    width: 32px;
+    text-align: center;
+  }
+
+  /* Owner step: two-column cards with description */
+  .owner-card-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .owner-card {
+    border: 2px solid #E8E8E8;
+    border-radius: 14px;
+    background: #fff;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: inherit;
+    padding: 0;
+  }
+  .owner-card:active { transform: scale(0.97); }
+  .owner-card:hover { border-color: #FF5A1F; }
+  .owner-card-top {
+    padding: 24px 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .owner-card-top svg {
+    width: 32px;
+    height: 32px;
+    color: #FF5A1F;
+  }
+  .owner-card-bottom {
+    width: 100%;
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    background: #FF5A1F;
+    line-height: 1.3;
   }
 
   /* Social proof */
@@ -221,25 +315,23 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   }
   .social-proof p {
     font-size: 13px;
-    color: #555;
-    margin-bottom: 16px;
+    color: #999;
+    margin-bottom: 14px;
   }
   .trade-badges {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
   }
   .trade-badge {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
-    color: #666;
-    background: #151515;
-    border: 1px solid #222;
-    border-radius: 6px;
-    padding: 6px 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
+    color: #999;
+  }
+  .trade-badge + .trade-badge::before {
+    content: "\00b7";
+    margin-right: 8px;
   }
 
   /* Disqualified */
@@ -258,7 +350,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background: #1a1a1a;
+    background: #FFF0EB;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -269,17 +361,18 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 12px;
+    color: #0D0D0D;
   }
   .dq-screen p {
-    color: #777;
+    color: #888;
     font-size: 15px;
     margin-bottom: 28px;
     line-height: 1.5;
   }
   .dq-back-btn {
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #fff;
+    background: #F5F5F5;
+    border: 1px solid #E0E0E0;
+    color: #0D0D0D;
     font-family: inherit;
     font-size: 15px;
     font-weight: 600;
@@ -288,48 +381,78 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     cursor: pointer;
     transition: background 0.2s;
   }
-  .dq-back-btn:hover { background: #222; }
+  .dq-back-btn:hover { background: #EBEBEB; }
 
   /* Form */
   .form-group {
-    margin-bottom: 16px;
-  }
-  .form-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: #888;
-    margin-bottom: 6px;
+    margin-bottom: 14px;
   }
   .form-group input {
     width: 100%;
-    height: 52px;
-    background: #111;
-    border: 2px solid #222;
-    border-radius: 10px;
-    color: #fff;
+    height: 54px;
+    background: #F7F7F7;
+    border: 2px solid #E8E8E8;
+    border-radius: 12px;
+    color: #0D0D0D;
     font-family: inherit;
     font-size: 16px;
-    padding: 0 16px;
+    padding: 0 16px 0 48px;
     outline: none;
     transition: border-color 0.2s;
   }
   .form-group input:focus { border-color: #FF5A1F; }
-  .form-group input::placeholder { color: #444; }
+  .form-group input::placeholder { color: #AAA; }
   .form-group .error-msg {
-    color: #ff4444;
+    color: #E53E3E;
     font-size: 12px;
     margin-top: 4px;
     display: none;
   }
-  .form-group.has-error input { border-color: #ff4444; }
+  .form-group.has-error input { border-color: #E53E3E; }
   .form-group.has-error .error-msg { display: block; }
 
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+  .input-wrap {
+    position: relative;
   }
+  .input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    pointer-events: none;
+  }
+
+  /* Checkbox */
+  .checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 16px 0 20px;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+  }
+  .checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    flex-shrink: 0;
+    accent-color: #FF5A1F;
+    cursor: pointer;
+  }
+  .checkbox-group a {
+    color: #FF5A1F;
+    text-decoration: underline;
+  }
+  .checkbox-error {
+    color: #E53E3E;
+    font-size: 12px;
+    margin-top: -12px;
+    margin-bottom: 12px;
+    display: none;
+  }
+  .checkbox-error.visible { display: block; }
 
   /* CTA button */
   .cta-btn {
@@ -343,7 +466,6 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     font-size: 17px;
     font-weight: 700;
     cursor: pointer;
-    margin-top: 8px;
     transition: background 0.2s, transform 0.1s;
   }
   .cta-btn:hover { background: #e6501a; }
@@ -351,6 +473,28 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   .cta-btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+
+  /* Pre-qualified label */
+  .prequalified-label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #FF5A1F;
+    margin-bottom: 8px;
+  }
+  .form-subtext {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .form-headline {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #0D0D0D;
+    margin-bottom: 24px;
   }
 
   /* Thank you */
@@ -369,7 +513,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     width: 72px;
     height: 72px;
     border-radius: 50%;
-    background: rgba(255,90,31,0.15);
+    background: #FFF0EB;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -378,19 +522,32 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   .ty-icon svg { width: 36px; height: 36px; color: #FF5A1F; }
   .thank-you h2 {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 12px;
+    color: #0D0D0D;
   }
   .thank-you p {
     color: #888;
     font-size: 15px;
     line-height: 1.6;
+    margin-bottom: 8px;
   }
-  .thank-you .redirect-note {
-    font-size: 13px;
-    color: #555;
-    margin-top: 24px;
+  .thank-you .book-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background: #FF5A1F;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 32px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
   }
+  .thank-you .book-btn:hover { background: #e6501a; }
 
   /* Spinner */
   .spinner {
@@ -409,25 +566,38 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 </head>
 <body>
 
+<!-- Progress bar — fixed at bottom -->
+<div class="progress-wrap" id="progressWrap">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+
 <div class="wrapper">
   <!-- Logo -->
   <div class="logo">
-    <img src="logo-transparent.png" alt="Scale National">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13 2L4.09 12.64a1 1 0 00.77 1.64H11v6.72a.5.5 0 00.9.32L20.91 11.36a1 1 0 00-.77-1.64H13V3.28a.5.5 0 00-.9-.32L13 2z" fill="#FF5A1F"/>
+    </svg>
+    <span class="logo-text">Scale National</span>
   </div>
 
-  <!-- Progress bar -->
-  <div class="progress-wrap" id="progressWrap">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
-
-  <!-- Step 1: Hook + Qualifier -->
+  <!-- Step 1: Hook -->
   <div class="step active" id="step1">
-    <div class="label">For Local Contractors Only...</div>
+    <div class="label">For Contractors Only...</div>
     <h1 class="headline">Get 10–30 Exclusive Leads Every Month — Or You Don't Pay.</h1>
     <p class="subtext">Are you a contractor or home service business owner?</p>
-    <div class="btn-row">
-      <button class="btn-choice yes" onclick="answerContractor(true)">&#10003; Yes</button>
-      <button class="btn-choice no" onclick="answerContractor(false)">&#10007; No</button>
+    <div class="card-row">
+      <button class="card-choice yes-card" onclick="answerContractor(true)">
+        <div class="card-icon-area">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF5A1F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div class="card-label">Yes</div>
+      </button>
+      <button class="card-choice no-card" onclick="answerContractor(false)">
+        <div class="card-icon-area">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </div>
+        <div class="card-label">No</div>
+      </button>
     </div>
     <div class="social-proof">
       <p>Trusted by contractors across the US</p>
@@ -443,96 +613,146 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   <!-- Disqualification Screen -->
   <div class="dq-screen" id="dqScreen">
     <div class="dq-icon">&#128683;</div>
-    <h2>Sorry, this is only for contractors.</h2>
-    <p>This program is designed specifically for local contractors and home service businesses.</p>
+    <h2>Sorry, this is built for contractors only.</h2>
+    <p>This program is designed specifically for contractors and home service business owners.</p>
     <button class="dq-back-btn" onclick="goToStep(1)">&larr; Go Back</button>
   </div>
 
-  <!-- Step 2: Trade -->
+  <!-- Step 2: Owner -->
   <div class="step" id="step2">
     <button class="back-btn" onclick="goToStep(1)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
       Back
     </button>
-    <p class="question">What's your trade?</p>
-    <div class="options-grid">
-      <button class="option-btn" onclick="selectTrade('Roofing')">Roofing</button>
-      <button class="option-btn" onclick="selectTrade('HVAC')">HVAC</button>
-      <button class="option-btn" onclick="selectTrade('Plumbing')">Plumbing</button>
-      <button class="option-btn" onclick="selectTrade('Electrical')">Electrical</button>
-      <button class="option-btn" onclick="selectTrade('General Contracting')">General Contracting</button>
-      <button class="option-btn" onclick="selectTrade('Other')">Other</button>
+    <div class="question-counter">Question 1 of 4</div>
+    <p class="question">Are you the owner of your contracting business?</p>
+    <div class="owner-card-row">
+      <button class="owner-card" onclick="selectOwner('I own my business')">
+        <div class="owner-card-top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div class="owner-card-bottom">I own my business / I am the decision maker</div>
+      </button>
+      <button class="owner-card" onclick="selectOwner('I work for a contractor')">
+        <div class="owner-card-top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a8.38 8.38 0 0113 0"/></svg>
+        </div>
+        <div class="owner-card-bottom">I work for a contractor</div>
+      </button>
     </div>
   </div>
 
-  <!-- Step 3: Revenue -->
+  <!-- Step 3: Trade -->
   <div class="step" id="step3">
     <button class="back-btn" onclick="goToStep(2)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
       Back
     </button>
-    <p class="question">What's your current monthly revenue?</p>
+    <div class="question-counter">Question 2 of 4</div>
+    <p class="question">What's your trade?</p>
     <div class="options-stack">
-      <button class="option-btn" onclick="selectRevenue('Under $10k')">Under $10k</button>
-      <button class="option-btn" onclick="selectRevenue('$10k–$30k')">$10k – $30k</button>
-      <button class="option-btn" onclick="selectRevenue('$30k–$100k')">$30k – $100k</button>
-      <button class="option-btn" onclick="selectRevenue('$100k+')">$100k+</button>
+      <button class="option-btn" onclick="selectTrade('Roofing')"><span class="option-badge">1</span> Roofing</button>
+      <button class="option-btn" onclick="selectTrade('HVAC')"><span class="option-badge">2</span> HVAC</button>
+      <button class="option-btn" onclick="selectTrade('Plumbing')"><span class="option-badge">3</span> Plumbing</button>
+      <button class="option-btn" onclick="selectTrade('Electrical')"><span class="option-badge">4</span> Electrical</button>
+      <button class="option-btn" onclick="selectTrade('General Contracting')"><span class="option-badge">5</span> General Contracting</button>
+      <button class="option-btn" onclick="selectTrade('Other')"><span class="option-badge">6</span> Other</button>
     </div>
   </div>
 
-  <!-- Step 4: Lead Source -->
+  <!-- Step 4: Revenue -->
   <div class="step" id="step4">
     <button class="back-btn" onclick="goToStep(3)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
       Back
     </button>
-    <p class="question">How are you currently getting leads?</p>
+    <div class="question-counter">Question 3 of 4</div>
+    <p class="question">What's your current monthly revenue?</p>
     <div class="options-stack">
-      <button class="option-btn" onclick="selectLeadSource('Referrals Only')">Referrals Only</button>
-      <button class="option-btn" onclick="selectLeadSource('HomeAdvisor/Angi')">HomeAdvisor / Angi</button>
-      <button class="option-btn" onclick="selectLeadSource('Google Ads')">Google Ads</button>
-      <button class="option-btn" onclick="selectLeadSource('Not getting enough leads')">I'm not getting enough leads</button>
+      <button class="option-btn" onclick="selectRevenue('Under $10k')"><span class="option-badge">1</span> Under $10k</button>
+      <button class="option-btn" onclick="selectRevenue('$10k–$30k')"><span class="option-badge">2</span> $10k – $30k</button>
+      <button class="option-btn" onclick="selectRevenue('$30k–$100k')"><span class="option-badge">3</span> $30k – $100k</button>
+      <button class="option-btn" onclick="selectRevenue('$100k+')"><span class="option-badge">4</span> $100k+</button>
     </div>
   </div>
 
-  <!-- Step 5: Contact Form -->
+  <!-- Step 5: Challenge -->
   <div class="step" id="step5">
     <button class="back-btn" onclick="goToStep(4)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
       Back
     </button>
-    <h2 class="headline" style="font-size:22px;">Great — let's see if your market is available.</h2>
-    <p class="subtext" style="font-size:14px;">We only work with one contractor per trade per area. Enter your info and we'll check availability.</p>
+    <div class="question-counter">Question 4 of 4</div>
+    <p class="question">What's your biggest challenge right now?</p>
+    <div class="options-stack">
+      <button class="option-btn" onclick="selectChallenge('Not enough leads coming in')"><span class="option-emoji">&#128548;</span> Not enough leads coming in</button>
+      <button class="option-btn" onclick="selectChallenge('Leads are too expensive / low quality')"><span class="option-emoji">&#128184;</span> Leads are too expensive / low quality</button>
+      <button class="option-btn" onclick="selectChallenge('I have leads but want to scale faster')"><span class="option-emoji">&#128640;</span> I have leads but want to scale faster</button>
+      <button class="option-btn" onclick="selectChallenge('Just exploring my options')"><span class="option-emoji">&#128064;</span> Just exploring my options</button>
+    </div>
+  </div>
+
+  <!-- Step 6: Contact Form -->
+  <div class="step" id="step6">
+    <button class="back-btn" onclick="goToStep(5)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Back
+    </button>
+    <div class="prequalified-label">&#127881; Great news!</div>
+    <p class="form-subtext">You're pre-qualified for Scale National's marketing system.</p>
+    <h2 class="form-headline">Fill in your info below so we can check if your market is available.</h2>
 
     <form id="qualifyForm" onsubmit="return handleSubmit(event)" novalidate>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" placeholder="John" required autocomplete="given-name">
-          <div class="error-msg">Required</div>
+      <div class="form-group">
+        <div class="input-wrap">
+          <span class="input-icon">&#128075;</span>
+          <input type="text" id="firstName" name="firstName" placeholder="Your first name" required autocomplete="given-name">
         </div>
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name">
-          <div class="error-msg">Required</div>
-        </div>
+        <div class="error-msg">Required</div>
       </div>
       <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required autocomplete="tel">
+        <div class="input-wrap">
+          <span class="input-icon">&#128075;</span>
+          <input type="text" id="lastName" name="lastName" placeholder="Your last name" required autocomplete="family-name">
+        </div>
+        <div class="error-msg">Required</div>
+      </div>
+      <div class="form-group">
+        <div class="input-wrap">
+          <span class="input-icon">&#128231;</span>
+          <input type="email" id="email" name="email" placeholder="Email address" required autocomplete="email">
+        </div>
+        <div class="error-msg">Enter a valid email address</div>
+      </div>
+      <div class="form-group">
+        <div class="input-wrap">
+          <span class="input-icon">&#128241;</span>
+          <input type="tel" id="phone" name="phone" placeholder="Phone number" required autocomplete="tel">
+        </div>
         <div class="error-msg">Enter a valid phone number (10+ digits)</div>
       </div>
       <div class="form-group">
-        <label for="businessName">Business Name</label>
-        <input type="text" id="businessName" name="businessName" placeholder="Smith Roofing LLC" required autocomplete="organization">
+        <div class="input-wrap">
+          <span class="input-icon">&#127970;</span>
+          <input type="text" id="businessName" name="businessName" placeholder="Business name" required autocomplete="organization">
+        </div>
         <div class="error-msg">Required</div>
       </div>
       <div class="form-group">
-        <label for="city">City / State</label>
-        <input type="text" id="city" name="city" placeholder="Dallas, TX" required autocomplete="address-level2">
+        <div class="input-wrap">
+          <span class="input-icon">&#128205;</span>
+          <input type="text" id="city" name="city" placeholder="City, State" required autocomplete="address-level2">
+        </div>
         <div class="error-msg">Required</div>
       </div>
-      <button type="submit" class="cta-btn" id="submitBtn">Check My Market Availability &rarr;</button>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="agreeTerms">
+        <label for="agreeTerms">I have read and agree to the <a href="/terms">Terms of Use</a> and <a href="/privacy">Privacy Policy</a></label>
+      </div>
+      <div class="checkbox-error" id="checkboxError">You must agree to continue</div>
+
+      <button type="submit" class="cta-btn" id="submitBtn">Submit</button>
     </form>
   </div>
 
@@ -541,20 +761,22 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     <div class="ty-icon">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
     </div>
-    <h2>We're checking your market now.</h2>
-    <p>Expect a call within 24 hours.</p>
-    <p class="redirect-note">Redirecting you to book a time...</p>
+    <h2>We're checking your market now!</h2>
+    <p>Expect a call from our team within 24 hours. In the meantime, you can book a time that works for you.</p>
+    <a class="book-btn" href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm">Book Your Call Now &rarr;</a>
   </div>
 </div>
 
 <script>
-  // ── Funnel State ──────────────────────────────────────────────────────
+  // -- Funnel State --
   const answers = {
+    owner: '',
     trade: '',
     revenue: '',
-    leadSource: '',
+    challenge: '',
     firstName: '',
     lastName: '',
+    email: '',
     phone: '',
     businessName: '',
     city: ''
@@ -562,18 +784,15 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 
   let currentStep = 1;
 
-  // ── Navigation ────────────────────────────────────────────────────────
+  // -- Navigation --
   function goToStep(n) {
-    // Hide everything
     document.querySelectorAll('.step, .dq-screen, .thank-you').forEach(el => el.classList.remove('active'));
 
-    // Show target step
     const target = document.getElementById('step' + n);
     if (target) target.classList.add('active');
 
     currentStep = n;
 
-    // Progress bar
     const progressWrap = document.getElementById('progressWrap');
     const progressBar = document.getElementById('progressBar');
     if (n === 1) {
@@ -581,9 +800,11 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
       progressBar.style.width = '0%';
     } else {
       progressWrap.classList.add('visible');
-      const pct = { 2: 25, 3: 50, 4: 75, 5: 100 };
+      const pct = { 2: 25, 3: 50, 4: 75, 5: 100, 6: 100 };
       progressBar.style.width = (pct[n] || 0) + '%';
     }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function showDQ() {
@@ -599,7 +820,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     document.getElementById('progressBar').style.width = '100%';
   }
 
-  // ── Step Handlers ─────────────────────────────────────────────────────
+  // -- Step Handlers --
   function answerContractor(isYes) {
     if (isYes) {
       goToStep(2);
@@ -608,25 +829,30 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     }
   }
 
+  function selectOwner(value) {
+    answers.owner = value;
+    goToStep(3);
+  }
+
   function selectTrade(value) {
     answers.trade = value;
-    goToStep(3);
+    goToStep(4);
   }
 
   function selectRevenue(value) {
     answers.revenue = value;
-    goToStep(4);
-  }
-
-  function selectLeadSource(value) {
-    answers.leadSource = value;
     goToStep(5);
   }
 
-  // ── Form Validation & Submit ──────────────────────────────────────────
+  function selectChallenge(value) {
+    answers.challenge = value;
+    goToStep(6);
+  }
+
+  // -- Form Validation & Submit --
   function validateForm() {
     let valid = true;
-    const fields = ['firstName', 'lastName', 'phone', 'businessName', 'city'];
+    const fields = ['firstName', 'lastName', 'email', 'phone', 'businessName', 'city'];
 
     fields.forEach(name => {
       const input = document.getElementById(name);
@@ -639,7 +865,15 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
         return;
       }
 
-      // Phone: strip non-digits and check 10+
+      if (name === 'email') {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(val)) {
+          group.classList.add('has-error');
+          valid = false;
+          return;
+        }
+      }
+
       if (name === 'phone') {
         const digits = val.replace(/\D/g, '');
         if (digits.length < 10) {
@@ -652,14 +886,28 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
       group.classList.remove('has-error');
     });
 
+    // Checkbox validation
+    const checkbox = document.getElementById('agreeTerms');
+    const checkboxError = document.getElementById('checkboxError');
+    if (!checkbox.checked) {
+      checkboxError.classList.add('visible');
+      valid = false;
+    } else {
+      checkboxError.classList.remove('visible');
+    }
+
     return valid;
   }
 
   // Clear errors on input
-  document.querySelectorAll('#qualifyForm input').forEach(input => {
+  document.querySelectorAll('#qualifyForm input[type="text"], #qualifyForm input[type="email"], #qualifyForm input[type="tel"]').forEach(input => {
     input.addEventListener('input', () => {
       input.closest('.form-group').classList.remove('has-error');
     });
+  });
+
+  document.getElementById('agreeTerms').addEventListener('change', () => {
+    document.getElementById('checkboxError').classList.remove('visible');
   });
 
   async function handleSubmit(e) {
@@ -670,6 +918,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     // Collect form data
     answers.firstName = document.getElementById('firstName').value.trim();
     answers.lastName = document.getElementById('lastName').value.trim();
+    answers.email = document.getElementById('email').value.trim();
     answers.phone = document.getElementById('phone').value.trim();
     answers.businessName = document.getElementById('businessName').value.trim();
     answers.city = document.getElementById('city').value.trim();
@@ -677,7 +926,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     // Disable button
     const btn = document.getElementById('submitBtn');
     btn.disabled = true;
-    btn.innerHTML = '<span class="spinner"></span>Checking...';
+    btn.innerHTML = '<span class="spinner"></span>Submitting...';
 
     // Fire Meta Pixel events
     if (typeof fbq === 'function') {
