@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4492167721031623');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Roofing Co — Get a Free Quote</title>
+<meta name="description" content="Request a free roofing quote from Apex Roofing Co. Tell us about your project and we'll get back to you within 1 business day.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #0D0D0D;
+    min-height: 100vh;
+  }
+
+  body {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(200,75,0,0.4); }
+    50%       { box-shadow: 0 0 20px 4px rgba(200,75,0,0.2); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 48px 20px 60px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Logo */
+  .logo-wrap {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .logo-wrap img {
+    height: 60px;
+    width: auto;
+    display: inline-block;
+  }
+
+  /* Heading */
+  .headline {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1.15;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+  }
+
+  .subtext {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  /* Form */
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1.5px solid rgba(255,255,255,0.09);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.04);
+    color: #ffffff;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    -webkit-appearance: none;
+  }
+
+  .form-group input {
+    height: 48px;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.5;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #C84B00;
+    background: rgba(200,75,0,0.05);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.28);
+  }
+
+  .form-group input.error,
+  .form-group textarea.error {
+    border-color: #ef4444;
+  }
+
+  .form-error {
+    font-size: 12px;
+    color: #ef4444;
+    margin-top: 4px;
+    display: none;
+  }
+
+  /* Submit button */
+  .submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 56px;
+    padding: 14px 20px;
+    margin-top: 8px;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    background: #C84B00;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    animation: pulseGlow 2.5s ease infinite;
+    letter-spacing: -0.2px;
+  }
+
+  .submit-btn:hover {
+    background: #a83e00;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(200,75,0,0.4);
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    animation: none;
+    transform: none;
+  }
+
+  /* Inline error */
+  .inline-error {
+    text-align: center;
+    font-size: 14px;
+    color: #ef4444;
+    margin-top: 12px;
+    display: none;
+  }
+
+  /* Success state */
+  .success-wrap {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 0;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .success-badge {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .success-badge svg {
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+  }
+
+  .success-heading {
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+
+  .success-subtext {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  /* Spinner */
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 2.5px solid rgba(255,255,255,0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-right: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="logo-wrap">
+    <img src="/apex-roofing-co.png" alt="Apex Roofing Co">
+  </div>
+
+  <h1 class="headline">Get a Free Quote</h1>
+  <p class="subtext">Tell us about your project and we'll get back to you within 1 business day.</p>
+
+  <form id="quoteForm" novalidate>
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" placeholder="John Smith" autocomplete="name" required>
+      <div class="form-error" id="fullNameError">Full name is required</div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" required>
+      <div class="form-error" id="phoneError">Phone number is required</div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description of Needs</label>
+      <textarea id="description" name="description" rows="4" placeholder="Describe your roofing needs..." required></textarea>
+      <div class="form-error" id="descriptionError">Please describe your roofing needs</div>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submitBtn">Get My Free Quote &rarr;</button>
+
+    <div class="inline-error" id="inlineError">Something went wrong. Please try again.</div>
+  </form>
+
+  <div class="success-wrap" id="successWrap">
+    <div class="success-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <div class="success-heading">We'll be in touch soon!</div>
+    <p class="success-subtext">Thanks for reaching out. A member of our team will contact you within 1 business day.</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  const form = document.getElementById('quoteForm');
+  const btn = document.getElementById('submitBtn');
+  const inlineError = document.getElementById('inlineError');
+  const successWrap = document.getElementById('successWrap');
+
+  const fields = [
+    { id: 'fullName', errorId: 'fullNameError' },
+    { id: 'phone', errorId: 'phoneError' },
+    { id: 'description', errorId: 'descriptionError' },
+  ];
+
+  function clearErrors() {
+    fields.forEach(function(f) {
+      document.getElementById(f.id).classList.remove('error');
+      document.getElementById(f.errorId).style.display = 'none';
+    });
+    inlineError.style.display = 'none';
+  }
+
+  function validate() {
+    var valid = true;
+    fields.forEach(function(f) {
+      var el = document.getElementById(f.id);
+      if (!el.value.trim()) {
+        el.classList.add('error');
+        document.getElementById(f.errorId).style.display = 'block';
+        valid = false;
+      }
+    });
+    return valid;
+  }
+
+  function parseName(fullName) {
+    var trimmed = fullName.trim();
+    var spaceIdx = trimmed.indexOf(' ');
+    if (spaceIdx === -1) {
+      return { firstName: trimmed, lastName: '' };
+    }
+    return {
+      firstName: trimmed.substring(0, spaceIdx),
+      lastName: trimmed.substring(spaceIdx + 1).trim()
+    };
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    clearErrors();
+
+    if (!validate()) return;
+
+    var fullName = document.getElementById('fullName').value;
+    var phone = document.getElementById('phone').value.trim();
+    var description = document.getElementById('description').value.trim();
+    var parsed = parseName(fullName);
+
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Submitting...';
+    inlineError.style.display = 'none';
+
+    try {
+      var res = await fetch('/apex-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: parsed.firstName,
+          lastName: parsed.lastName,
+          phone: phone,
+          description: description
+        })
+      });
+
+      var data = await res.json();
+
+      if (data.ok) {
+        form.style.display = 'none';
+        successWrap.style.display = 'flex';
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead');
+        }
+      } else {
+        inlineError.textContent = data.error || 'Something went wrong. Please try again.';
+        inlineError.style.display = 'block';
+        btn.disabled = false;
+        btn.innerHTML = 'Get My Free Quote &rarr;';
+      }
+    } catch (err) {
+      inlineError.textContent = 'Something went wrong. Please try again.';
+      inlineError.style.display = 'block';
+      btn.disabled = false;
+      btn.innerHTML = 'Get My Free Quote &rarr;';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
