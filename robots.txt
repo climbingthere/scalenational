@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+Disallow: /start/thanks/
+Disallow: /onboarding
+Disallow: /leads
+Disallow: /review
+Disallow: /review-trigger
+Disallow: /onboard
+Disallow: /intake
+Disallow: /qualify
+
+Sitemap: https://scalenational.com/sitemap.xml

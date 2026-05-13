@@ -1469,6 +1469,33 @@ html {
             transform: scale(1) translateY(0);
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://scalenational.com/#organization",
+          "name": "Scale National",
+          "url": "https://scalenational.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://scalenational.com/logo.png"
+          },
+          "description": "Done-for-you marketing systems for contractors and home service businesses. Website, CRM, review automation, missed call text back, and SEO.",
+          "email": "info@scalenational.com",
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://scalenational.com/#website",
+          "url": "https://scalenational.com",
+          "name": "Scale National",
+          "publisher": {"@id": "https://scalenational.com/#organization"}
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
