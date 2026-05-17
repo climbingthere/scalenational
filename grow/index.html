@@ -22,11 +22,11 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scale National — See What We Build For You</title>
-    <meta name="description" content="Watch the short video to see the full marketing system we build for roofing, HVAC, and general contractors. No contracts, no setup fees.">
+    <title>Scale National — HVAC Contractor Marketing System</title>
+    <meta name="description" content="We help HVAC contractors get more calls, more reviews, and a website that actually works — for just $298/mo. No contracts, no setup fees.">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         *, *::before, *::after {
@@ -74,22 +74,29 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
             font-size: clamp(28px, 5vw, 42px);
             font-weight: 800;
             line-height: 1.2;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
         }
 
-        .subheadline {
+        .price-line {
+            font-size: clamp(32px, 6vw, 52px);
+            font-weight: 900;
+            color: #C84B00;
+            margin-bottom: 40px;
+        }
+
+        .step-instruction {
             font-size: clamp(16px, 2.5vw, 19px);
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 600px;
-            margin: 0 auto 40px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 640px;
+            margin: 0 auto 24px;
         }
 
         .video-placeholder {
             position: relative;
             width: 100%;
             max-width: 720px;
-            margin: 0 auto 56px;
+            margin: 0 auto 12px;
             aspect-ratio: 16 / 9;
             background: #1a1a1a;
             border-radius: 12px;
@@ -126,41 +133,82 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
             font-weight: 500;
         }
 
-        .features-section h2 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
+        .video-duration {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
             margin-bottom: 56px;
         }
 
-        .feature-badge {
-            background: #1a1a1a;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 100px;
-            padding: 12px 22px;
-            font-size: 15px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.9);
-            white-space: nowrap;
+        /* What's Included Section */
+        .included-section {
+            margin-bottom: 56px;
+            text-align: left;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .feature-badge .check {
-            color: #C84B00;
-            margin-right: 6px;
+        .included-section h2 {
+            font-size: 22px;
             font-weight: 700;
+            margin-bottom: 28px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .included-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .included-item .check-icon {
+            color: #C84B00;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+
+        .included-item .item-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .included-item .item-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .included-item .item-desc {
+            font-size: 13px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.4;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            margin-top: 16px;
         }
 
         .cta-section h2 {
             font-size: clamp(22px, 3.5vw, 28px);
             font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .cta-subtext {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 24px;
         }
 
@@ -189,6 +237,39 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
             font-weight: 400;
         }
 
+        /* Footer */
+        .footer {
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.35);
+            margin-bottom: 8px;
+        }
+
+        .footer-links {
+            font-size: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.35);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-links .sep {
+            color: rgba(255, 255, 255, 0.2);
+            margin: 0 8px;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 32px 16px 48px;
@@ -198,9 +279,9 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
                 width: 140px;
             }
 
-            .feature-badge {
-                font-size: 14px;
-                padding: 10px 18px;
+            .included-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
 
             .cta-button {
@@ -216,11 +297,13 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     <div class="container">
         <img src="/logo-white-clean.png" alt="Scale National" class="logo">
 
-        <div class="badge">Exclusively for contractors</div>
+        <div class="badge">For HVAC Contractors Only</div>
 
-        <h1>Here's Exactly What We Build For Your Business — Free</h1>
+        <h1>We Help HVAC Contractors Get More Calls, More Reviews, and a Website That Actually Works — For Just</h1>
 
-        <p class="subheadline">Watch the short video below to see the full system we set up for roofing, HVAC, and general contractors.</p>
+        <div class="price-line">$298/mo 👇</div>
+
+        <p class="step-instruction">Step 1: Watch this short video to see exactly what we set up for your HVAC business 👇</p>
 
         <div class="video-placeholder">
             <div class="play-icon">
@@ -228,22 +311,63 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
             </div>
             <span>Video coming soon</span>
         </div>
+        <p class="video-duration">⏱ Takes less than 3 minutes</p>
 
-        <div class="features-section">
-            <h2>What's included:</h2>
-            <div class="features">
-                <div class="feature-badge"><span class="check">&#10003;</span>Professional website built for you</div>
-                <div class="feature-badge"><span class="check">&#10003;</span>Google review automation</div>
-                <div class="feature-badge"><span class="check">&#10003;</span>Missed call text back</div>
-                <div class="feature-badge"><span class="check">&#10003;</span>Live chat widget</div>
-                <div class="feature-badge"><span class="check">&#10003;</span>Local SEO setup</div>
+        <div class="included-section">
+            <h2>Here's everything we build and set up for you:</h2>
+            <div class="included-grid">
+                <div class="included-item">
+                    <span class="check-icon">✓</span>
+                    <div class="item-content">
+                        <span class="item-title">Custom HVAC Website</span>
+                        <span class="item-desc">Built, hosted, and optimized for local search</span>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <span class="check-icon">✓</span>
+                    <div class="item-content">
+                        <span class="item-title">Google Review Automation</span>
+                        <span class="item-desc">Automatically texts your customers asking for a review</span>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <span class="check-icon">✓</span>
+                    <div class="item-content">
+                        <span class="item-title">Missed Call Text Back</span>
+                        <span class="item-desc">Texts leads back instantly when you miss a call</span>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <span class="check-icon">✓</span>
+                    <div class="item-content">
+                        <span class="item-title">Live Chat Widget</span>
+                        <span class="item-desc">Captures leads from your website 24/7</span>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <span class="check-icon">✓</span>
+                    <div class="item-content">
+                        <span class="item-title">Local SEO Setup</span>
+                        <span class="item-desc">Get found when people search for HVAC near them</span>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="cta-section">
-            <h2>Ready to get started?</h2>
+            <h2>Ready to see it in action?</h2>
+            <p class="cta-subtext">Book a free 15-minute call. We'll show you the system live.</p>
             <a id="cta-link" href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" class="cta-button">Book Your Free Strategy Call &rarr;</a>
             <p class="disclaimer">No contracts. No setup fees. Cancel anytime.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 Scale National. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/privacy">Privacy Policy</a>
+                <span class="sep">|</span>
+                <a href="/terms">Terms</a>
+            </div>
         </div>
     </div>
 
