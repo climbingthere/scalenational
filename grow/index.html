@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4492167721031623');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scale National — See What We Build For You</title>
+    <meta name="description" content="Watch the short video to see the full marketing system we build for roofing, HVAC, and general contractors. No contracts, no setup fees.">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #0d0d0d;
+            color: #ffffff;
+            font-family: 'Urbanist', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 20px 64px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 180px;
+            margin-bottom: 32px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(200, 75, 0, 0.12);
+            border: 1px solid rgba(200, 75, 0, 0.3);
+            color: #C84B00;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .subheadline {
+            font-size: clamp(16px, 2.5vw, 19px);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .video-placeholder {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto 56px;
+            aspect-ratio: 16 / 9;
+            background: #1a1a1a;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            overflow: hidden;
+        }
+
+        .play-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(200, 75, 0, 0.15);
+            border: 2px solid #C84B00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #C84B00;
+            margin-left: 3px;
+        }
+
+        .video-placeholder span {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 500;
+        }
+
+        .features-section h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 56px;
+        }
+
+        .feature-badge {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 100px;
+            padding: 12px 22px;
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            white-space: nowrap;
+        }
+
+        .feature-badge .check {
+            color: #C84B00;
+            margin-right: 6px;
+            font-weight: 700;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(22px, 3.5vw, 28px);
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #C84B00;
+            color: #fff;
+            font-family: 'Urbanist', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .cta-button:hover {
+            background: #a33d00;
+            transform: translateY(-1px);
+        }
+
+        .disclaimer {
+            margin-top: 16px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 400;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 32px 16px 48px;
+            }
+
+            .logo {
+                width: 140px;
+            }
+
+            .feature-badge {
+                font-size: 14px;
+                padding: 10px 18px;
+            }
+
+            .cta-button {
+                font-size: 16px;
+                padding: 16px 32px;
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/logo-white-clean.png" alt="Scale National" class="logo">
+
+        <div class="badge">Exclusively for contractors</div>
+
+        <h1>Here's Exactly What We Build For Your Business — Free</h1>
+
+        <p class="subheadline">Watch the short video below to see the full system we set up for roofing, HVAC, and general contractors.</p>
+
+        <div class="video-placeholder">
+            <div class="play-icon">
+                <svg viewBox="0 0 24 24"><polygon points="8,5 20,12 8,19"/></svg>
+            </div>
+            <span>Video coming soon</span>
+        </div>
+
+        <div class="features-section">
+            <h2>What's included:</h2>
+            <div class="features">
+                <div class="feature-badge"><span class="check">&#10003;</span>Professional website built for you</div>
+                <div class="feature-badge"><span class="check">&#10003;</span>Google review automation</div>
+                <div class="feature-badge"><span class="check">&#10003;</span>Missed call text back</div>
+                <div class="feature-badge"><span class="check">&#10003;</span>Live chat widget</div>
+                <div class="feature-badge"><span class="check">&#10003;</span>Local SEO setup</div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to get started?</h2>
+            <a id="cta-link" href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" class="cta-button">Book Your Free Strategy Call &rarr;</a>
+            <p class="disclaimer">No contracts. No setup fees. Cancel anytime.</p>
+        </div>
+    </div>
+
+    <script>
+        // Preserve UTM params on the booking link
+        (function() {
+            var search = window.location.search;
+            if (search) {
+                var link = document.getElementById('cta-link');
+                var href = link.getAttribute('href');
+                link.setAttribute('href', href + (href.indexOf('?') > -1 ? '&' : '?') + search.substring(1));
+            }
+        })();
+    </script>
+</body>
+</html>

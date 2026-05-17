@@ -2,3 +2,7 @@
 https://review.scalenational.com/* https://scalenational.com/review/:splat 301
 https://review.scalenational.com https://scalenational.com/review 301
 
+# grow.scalenational.com → /grow/
+https://grow.scalenational.com/* /grow/:splat 200
+https://grow.scalenational.com /grow/index.html 200
+
