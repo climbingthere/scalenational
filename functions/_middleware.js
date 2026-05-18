@@ -1,21 +1,16 @@
-/**
- * Cloudflare Pages Middleware — subdomain routing
- * Maps short subdomains to the correct page on scalenational.com
- */
-export async function onRequest({ request, next }) {
-  const url = new URL(request.url);
-  const host = url.hostname;
+export async function onRequest(context) {
+  const url = new URL(context.request.url);
 
-  const subdomainMap = {
-    'onboarding.scalenational.com': 'https://scalenational.com/onboarding',
-    'sample.scalenational.com':     'https://scalenational.com/sample/',
-    'leads.scalenational.com':      'https://scalenational.com/leads',
-  };
-
-  const target = subdomainMap[host];
-  if (target && url.pathname === '/') {
-    return Response.redirect(target, 302);
+  if (url.hostname === 'grow.scalenational.com') {
+    const assetUrl = new URL(context.request.url);
+    // Serve /grow/index.html for root, otherwise rewrite path under /grow/
+    if (url.pathname === '/' || url.pathname === '') {
+      assetUrl.pathname = '/grow/index.html';
+    } else {
+      assetUrl.pathname = '/grow' + url.pathname;
+    }
+    return context.env.ASSETS.fetch(assetUrl.toString());
   }
 
-  return next();
+  return context.next();
 }
