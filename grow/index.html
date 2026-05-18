@@ -446,19 +446,6 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
             </div>
         </section>
 
-        <!-- CTA Block 1 -->
-        <section class="cta-block">
-            <a id="cta-link" href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" class="cta-button">Book Your Free Strategy Call &rarr;</a>
-            <p class="cta-trust">
-                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" fill="none" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" fill="none" stroke-width="2"/></svg>
-                No contracts. No setup fees. Cancel anytime.
-            </p>
-            <p class="cta-urgency">We only take on a limited number of contractors per area.</p>
-        </section>
-
-        <!-- Divider -->
-        <hr class="divider">
-
         <!-- What's Included -->
         <section class="included-section">
             <h2>Here's Everything We Build For You:</h2>
@@ -503,7 +490,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 
         <!-- Meet the Team + CTA -->
         <section class="cta-block fade-in">
-            <div style="display:flex; justify-content:center; gap:20px; margin-bottom:24px; align-items:flex-start;">
+            <div style="display:flex; justify-content:center; gap:20px; margin-bottom:12px; align-items:flex-start;">
                 <div style="text-align:center;">
                     <img src="/eric.jpg" alt="Eric" style="width:120px; height:120px; border-radius:50%; border:3px solid #C84B00; object-fit:cover; object-position:center top;">
                     <p style="font-size:14px; color:#fff; font-weight:600; margin-top:10px;">Eric</p>
@@ -513,6 +500,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
                     <p style="font-size:14px; color:#fff; font-weight:600; margin-top:10px;">Tima</p>
                 </div>
             </div>
+            <p style="font-size:13px; color:rgba(255,255,255,0.4); text-align:center; margin-bottom:24px; letter-spacing:0.5px;">Co-Founders, Scale National</p>
             <p style="font-size:16px; color:rgba(255,255,255,0.55); max-width:480px; margin:0 auto 32px; text-align:center; line-height:1.5;">We personally oversee every client account. Book a call and talk to us directly.</p>
             <a id="cta-link-2" href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" class="cta-button">Book Your Free Strategy Call &rarr;</a>
             <p class="cta-trust">
@@ -534,7 +522,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
             var search = window.location.search;
             if (search) {
                 var qs = search.substring(1);
-                ['cta-link', 'cta-link-2'].forEach(function(id) {
+                ['cta-link-2'].forEach(function(id) {
                     var el = document.getElementById(id);
                     if (el) {
                         var href = el.getAttribute('href');
