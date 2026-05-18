@@ -502,7 +502,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
         </section>
 
         <!-- Meet the Team + CTA -->
-        <section class="cta-block">
+        <section class="cta-block fade-in">
             <div style="display:flex; justify-content:center; gap:20px; margin-bottom:24px; align-items:flex-start;">
                 <div style="text-align:center;">
                     <img src="/eric.jpg" alt="Eric" style="width:120px; height:120px; border-radius:50%; border:3px solid #C84B00; object-fit:cover; object-position:center top;">
@@ -542,21 +542,16 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
                     }
                 });
             }
-
-            // Scroll fade-in animations
-            var fadeEls = document.querySelectorAll('.hero, .video-section, .features-section, .cta-block');
-            fadeEls.forEach(function(el) { el.classList.add('fade-init'); });
-
+            // Fade-in on scroll
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
+                        entry.target.classList.add('visible');
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.08 });
-
-            fadeEls.forEach(function(el) { observer.observe(el); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
         });
     </script>
 </body>
