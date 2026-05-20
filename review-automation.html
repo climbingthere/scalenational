@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4492167721031623');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Review Automation for Contractors | Get More 5-Star Reviews | Scale National</title>
+<meta name="description" content="Automatically request Google reviews after every job. More 5-star reviews means higher rankings and more trust. Built for contractors who are too busy to ask.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="canonical" href="https://scalenational.com/review-automation">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scalenational.com/review-automation">
+<meta property="og:title" content="Google Review Automation for Contractors | Scale National">
+<meta property="og:description" content="Automatically request Google reviews after every job. More 5-star reviews means higher rankings and more trust.">
+<meta property="og:image" content="https://scalenational.com/og-image.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    background: #0d0d0d;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 24px;
+  }
+  .nav-logo img { height: 60px; width: auto; display: block; }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 22px;
+    background: #C84B00;
+    color: #ffffff;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .nav-cta:hover { background: #a83e00; transform: translateY(-1px); }
+
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200,75,0,0.12);
+    border: 1px solid rgba(200,75,0,0.3);
+    color: #C84B00;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+  }
+  .hero h1 .highlight { color: #C84B00; }
+  .hero-sub {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: rgba(255,255,255,0.55);
+    max-width: 640px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    background: #C84B00;
+    color: #ffffff;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 4px 20px rgba(200,75,0,0.3);
+  }
+  .hero-cta:hover { background: #a83e00; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,75,0,0.4); }
+
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+  .section-divider { border-top: 1px solid rgba(255,255,255,0.06); }
+  .section h2 {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+  }
+  .section p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.75;
+    max-width: 700px;
+    margin-bottom: 16px;
+  }
+  .section .orange { color: #C84B00; }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .feature-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 28px 24px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .feature-card:hover { border-color: rgba(200,75,0,0.3); background: rgba(200,75,0,0.04); }
+  .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: #ffffff; }
+  .feature-card p { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 0; }
+
+  .review-example {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 28px 24px;
+    margin-top: 24px;
+    max-width: 500px;
+  }
+  .review-stars { color: #fbbf24; font-size: 22px; margin-bottom: 10px; letter-spacing: 2px; }
+  .review-text { font-size: 15px; color: rgba(255,255,255,0.6); font-style: italic; line-height: 1.6; margin-bottom: 8px; }
+  .review-author { font-size: 13px; color: rgba(255,255,255,0.35); font-weight: 600; }
+
+  .cta-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    text-align: center;
+  }
+  .cta-section h2 {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 900;
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
+  }
+  .cta-section p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.5);
+    max-width: 560px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 40px;
+    background: #C84B00;
+    color: #ffffff;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 4px 20px rgba(200,75,0,0.3);
+  }
+  .cta-btn:hover { background: #a83e00; transform: translateY(-3px); box-shadow: 0 12px 32px rgba(200,75,0,0.45); }
+
+  .footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .footer-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .footer-links a:hover { color: #C84B00; }
+  .footer-copy { text-align: center; font-size: 13px; color: rgba(255,255,255,0.3); }
+
+  @media (max-width: 600px) {
+    .hero { padding: 40px 20px 60px; }
+    .section { padding: 40px 20px; }
+    .features { grid-template-columns: 1fr; }
+    .nav-cta { padding: 8px 16px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo"><img src="/logo.png" alt="Scale National"></a>
+  <a href="/start" class="nav-cta">Get Started</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">Automated 5-Star Reviews</div>
+  <h1><span class="highlight">Google Review Automation</span> for Contractors</h1>
+  <p class="hero-sub">Your best marketing is what other people say about you. We automate the process of collecting Google reviews after every job — so your reputation grows on autopilot.</p>
+  <a href="/start" class="hero-cta">Start Getting More Reviews &rarr;</a>
+</section>
+
+<div class="section-divider"></div>
+<section class="section">
+  <h2>Reviews Are the New <span class="orange">Word of Mouth</span></h2>
+  <p>90% of homeowners read Google reviews before hiring a contractor. If you have 12 reviews and your competitor has 87, guess who gets the call? It's not about being the best at your trade anymore — it's about proving it publicly.</p>
+  <p>The problem is, asking for reviews is awkward, easy to forget, and inconsistent. Happy customers mean to leave a review but life gets in the way. Without a system, your review count grows painfully slow while competitors stack theirs up.</p>
+
+  <div class="review-example">
+    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="review-text">"Showed up on time, explained everything clearly, and did amazing work. Highly recommend to anyone looking for a quality contractor."</p>
+    <p class="review-author">— Satisfied homeowner (the kind of review you'll get automatically)</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+<section class="section">
+  <h2>How Review Automation Works</h2>
+  <p>Set it up once. Get reviews after every job. No more awkward asks or hoping customers remember.</p>
+  <div class="features">
+    <div class="feature-card">
+      <h3>Automatic Review Requests</h3>
+      <p>After a job is marked complete, the customer gets a text and email asking them to leave a review. Timed perfectly for when they're happiest.</p>
+    </div>
+    <div class="feature-card">
+      <h3>One-Tap Review Link</h3>
+      <p>No confusing instructions. They tap one link and it opens Google Reviews directly. Friction-free = higher completion rate.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Smart Follow-Up</h3>
+      <p>If they don't leave a review the first time, the system sends a friendly reminder a few days later. Persistent without being pushy.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Negative Review Protection</h3>
+      <p>Unhappy customers are routed to a private feedback form instead of Google. Handle issues offline before they become public.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Review Monitoring</h3>
+      <p>Get notified instantly when a new review comes in. Respond quickly and show future customers you care.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Reputation Dashboard</h3>
+      <p>Track your review count, average rating, and growth over time. See the direct impact on your lead flow.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+<section class="section">
+  <h2>Why Reviews Matter More Than <span class="orange">Any Other Marketing</span></h2>
+  <p>Google reviews directly impact three things: your ranking in local search (Google Map Pack), the trust a homeowner feels before calling you, and your conversion rate from search to booked job.</p>
+  <p>Contractors using our review automation system typically go from 2-3 new reviews per month to 10-15+ — without changing anything about how they run their business. The system does the asking for you.</p>
+</section>
+
+<section class="cta-section">
+  <h2>Stack Up 5-Star Reviews on Autopilot</h2>
+  <p>Review automation is included in your $298/month system. We set it up, connect it to your CRM, and it runs forever.</p>
+  <a href="/start" class="cta-btn">Check Availability &rarr;</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/website-development">Free Website</a>
+    <a href="/crm-for-contractors">CRM & Lead Management</a>
+    <a href="/missed-call-text-back">Missed Call Text Back</a>
+    <a href="/review-automation">Review Automation</a>
+    <a href="/seo-for-contractors">SEO for Contractors</a>
+    <a href="/start">Get Started</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Scale National. The done-for-you digital system for contractors.</p>
+</footer>
+
+</body>
+</html>
