@@ -25,8 +25,8 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     <!-- Primary Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scale National — Bring Your Meta Ads In-House</title>
-    <meta name="description" content="Founder-led Meta ads in-housing. I train your team inside your own ad account — architecture, tracking, creative, media buying. You own the account, the data, and the skill.">
+    <title>Scale National | We Build and Run Your Meta Ads With Your Team</title>
+    <meta name="description" content="Founder-led Meta ads. Eric builds and runs your campaigns inside your own ad account: architecture, Pixel and CAPI tracking, creative, launches, and management alongside your team. You own everything.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -35,8 +35,8 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     <!-- Open Graph (Facebook, iMessage, Slack, etc.) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://scalenational.com">
-    <meta property="og:title" content="Bring Your Meta Ads In-House">
-    <meta property="og:description" content="Your team, trained by the founder, in your own ad account. Own the data, the skill, and the results — no agency in the middle.">
+    <meta property="og:title" content="We Build and Run Your Meta Ads. In Your Account, With Your Team.">
+    <meta property="og:description" content="Eric sets up the account, tracking, and creative, launches the campaigns, and manages them with your in-house team until they can run it without him. You own the account, the data, and the skill.">
     <meta property="og:image" content="https://scalenational.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -44,8 +44,8 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bring Your Meta Ads In-House">
-    <meta name="twitter:description" content="Your team, trained by the founder, in your own ad account. Own the data, the skill, and the results — no agency in the middle.">
+    <meta name="twitter:title" content="We Build and Run Your Meta Ads. In Your Account, With Your Team.">
+    <meta name="twitter:description" content="Eric sets up the account, tracking, and creative, launches the campaigns, and manages them with your in-house team until they can run it without him.">
     <meta name="twitter:image" content="https://scalenational.com/og-image.png">
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -330,12 +330,12 @@ html {
         }
 
         .hero h1 {
-            font-size: clamp(56px, 10vw, 96px);
+            font-size: clamp(40px, 6.5vw, 76px);
             font-weight: 900;
             letter-spacing: -1px;
-            line-height: 1.05;
+            line-height: 1.06;
             margin-bottom: 24px;
-            max-width: 900px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
             color: #ffffff;
@@ -350,7 +350,7 @@ html {
         .hero .sub {
             font-size: clamp(18px, 2.5vw, 22px);
             color: rgba(255,255,255,0.6);
-            max-width: 640px;
+            max-width: 680px;
             margin: 0 auto 40px;
             font-weight: 400;
             line-height: 1.7;
@@ -398,6 +398,7 @@ html {
             font-size: 15px;
             color: rgba(255,255,255,0.7);
             font-weight: 500;
+            text-align: left;
         }
 
         .avatar-cta-text strong {
@@ -406,7 +407,7 @@ html {
             font-size: 16px;
         }
 
-        /* ========== STATS BAR ========== */
+        /* ========== PROOF BAR ========== */
         .stats-bar {
             background: #111111;
             padding: 0;
@@ -447,10 +448,10 @@ html {
         }
 
         .stat-item .stat-number {
-            font-size: 42px;
+            font-size: 28px;
             font-weight: 900;
             color: #ffffff;
-            line-height: 1;
+            line-height: 1.1;
             margin-bottom: 6px;
             font-family: 'Urbanist', sans-serif;
         }
@@ -461,7 +462,7 @@ html {
             font-weight: 400;
         }
 
-        /* ========== SERVICES ========== */
+        /* ========== WHAT WE DO ========== */
         .services {
             background: #ffffff;
             padding: 100px 0;
@@ -494,11 +495,14 @@ html {
             order: 1;
         }
 
-        .service-content .icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 20px;
+        .phase-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
             color: #FF5A1F;
+            margin-bottom: 10px;
         }
 
         .service-content h3 {
@@ -546,13 +550,82 @@ html {
         .section-header p {
             font-size: 16px;
             color: #666666;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section-header.dark p {
             color: rgba(255,255,255,0.6);
         }
 
-        /* legacy service-card styles removed — using service-row layout */
+        .section-eyebrow {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #FF5A1F;
+            margin-bottom: 12px;
+        }
+
+        /* ========== FOUNDER ========== */
+        .founder {
+            background: #f7f7f7;
+            padding: 100px 0;
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 64px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .founder-photo img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            object-fit: cover;
+        }
+
+        .founder-text h2 {
+            font-size: 40px;
+            font-weight: 900;
+            color: #0d0d0d;
+            margin-bottom: 20px;
+        }
+
+        .founder-text p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .founder-facts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 4px 0 24px;
+        }
+
+        .founder-facts span {
+            display: inline-block;
+            border: 1px solid #e3e3e3;
+            background: #ffffff;
+            border-radius: 50px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #0d0d0d;
+        }
+
+        .founder-text .btn-ghost {
+            margin-top: 8px;
+        }
 
         /* ========== COMPARISON ========== */
         .comparison {
@@ -620,6 +693,15 @@ html {
             color: #FF5A1F;
         }
 
+        .comparison-col.highlight ul li {
+            color: rgba(255,255,255,0.8);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .comparison-col ul li:last-child {
+            border-bottom: none;
+        }
+
         .comparison-cta {
             text-align: center;
             max-width: 640px;
@@ -639,212 +721,6 @@ html {
             line-height: 1.7;
             margin-bottom: 28px;
         }
-
-        .section-eyebrow {
-            display: block;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #FF5A1F;
-            margin-bottom: 12px;
-        }
-
-        .comparison-col.highlight ul li {
-            color: rgba(255,255,255,0.8);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .comparison-col ul li:last-child {
-            border-bottom: none;
-        }
-
-        /* ========== WHO IT'S FOR ========== */
-        .who-section {
-            background: #0d0d0d;
-            padding: 100px 0;
-        }
-
-        .who-section .section-header {
-            text-align: center;
-        }
-
-        .who-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .who-card {
-            background: #111111;
-            border: 1px solid rgba(255,255,255,0.09);
-            border-radius: 16px;
-            padding: 32px 28px;
-            transition: border-color 0.2s, transform 0.2s;
-        }
-
-        .who-card:hover {
-            border-color: rgba(255, 90, 31, 0.4);
-            transform: translateY(-3px);
-        }
-
-        .who-card h3 {
-            font-size: 19px;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .who-card p {
-            font-size: 14px;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.7;
-        }
-
-        .who-badge {
-            display: inline-block;
-            background: rgba(255, 90, 31, 0.15);
-            border: 1px solid rgba(255, 90, 31, 0.4);
-            color: #FF5A1F;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 4px 10px;
-            border-radius: 50px;
-        }
-
-        /* ========== FOUNDER ========== */
-        .founder {
-            background: #f7f7f7;
-            padding: 100px 0;
-        }
-
-        .founder-grid {
-            display: grid;
-            grid-template-columns: 360px 1fr;
-            gap: 64px;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .founder-photo img {
-            width: 100%;
-            border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            object-fit: cover;
-        }
-
-        .founder-text h2 {
-            font-size: 40px;
-            font-weight: 900;
-            color: #0d0d0d;
-            margin-bottom: 20px;
-        }
-
-        .founder-text p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 18px;
-        }
-
-        .founder-text .btn-ghost {
-            margin-top: 8px;
-        }
-                .logos-section {
-                    background: #0d0d0d;
-                    padding: clamp(40px, 6vw, 60px) 0;
-                    position: relative;
-                    overflow: hidden;
-                    border-top: 1px solid rgba(255,255,255,0.06);
-                    border-bottom: 1px solid rgba(255,255,255,0.06);
-                }
-                .logos-sub {
-                    text-align: center;
-                    font-size: 15px;
-                    color: rgba(255,255,255,0.45);
-                    margin-bottom: 28px;
-                    margin-top: -16px;
-                }
-                .logos-label {
-                    text-align: center;
-                    font-size: clamp(14px, 3vw, 18px);
-                    font-weight: 700;
-                    color: #ffffff;
-                    text-transform: uppercase;
-                    letter-spacing: 0.1em;
-                    margin-bottom: 32px;
-                }
-                .logos-carousel {
-                    position: relative;
-                    overflow: hidden;
-                    margin: 0 calc(-1 * clamp(16px, 5vw, 48px));
-                    padding: 32px clamp(16px, 5vw, 48px);
-                    background: rgba(255,255,255,0.04);
-                    border-radius: 20px;
-                    border: 1px solid rgba(255,255,255,0.09);
-                    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-                }
-                .logos-track {
-                    display: flex;
-                    gap: 12px;
-                    will-change: transform;
-                    width: max-content;
-                    animation: logoScroll 30s linear infinite;
-                }
-                .logos-track:hover {
-                    animation-play-state: paused;
-                }
-                .logo-item {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
-                    flex-shrink: 0;
-                    min-width: 120px;
-                }
-                .logo-box {
-                    width: 80px;
-                    height: 80px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: rgba(255,255,255,0.07);
-                    border: 1px solid rgba(255,255,255,0.1);
-                    border-radius: 20px;
-                    padding: 10px;
-                    transition: background 0.2s;
-                }
-                .logo-item:hover .logo-box {
-                    background: rgba(255,255,255,0.13);
-                }
-                .logo-box img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                    opacity: 1;
-                    filter: none;
-                }
-                .logo-box img.logo-white {
-                    filter: brightness(0) invert(1);
-                }
-                .logo-name {
-                    font-size: 12px;
-                    font-weight: 600;
-                    color: rgba(255,255,255,0.5);
-                    text-align: center;
-                    letter-spacing: 0.03em;
-                }
-                @keyframes logoScroll {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
-                }
 
         /* ========== HOW IT WORKS ========== */
         .how-it-works {
@@ -1193,10 +1069,6 @@ html {
                 max-width: 560px;
             }
 
-            .who-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .founder-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -1236,7 +1108,7 @@ html {
             }
 
             .hero h1 {
-                font-size: clamp(36px, 8vw, 56px);
+                font-size: clamp(34px, 8vw, 48px);
             }
 
             .section-header h2 {
@@ -1265,13 +1137,17 @@ html {
                 gap: 12px;
             }
 
+            .avatar-cta-text {
+                text-align: center;
+            }
+
             .avatar-circle {
                 width: 56px;
                 height: 56px;
             }
 
             .stat-item .stat-number {
-                font-size: 32px;
+                font-size: 24px;
             }
 
             .stat-item:not(:last-child)::after {
@@ -1319,16 +1195,16 @@ html {
                 justify-content: center;
             }
 
-            .who-grid {
-                grid-template-columns: 1fr;
-            }
-
             .founder-text {
                 text-align: center;
             }
 
             .founder-text h2 {
                 font-size: 32px;
+            }
+
+            .founder-facts {
+                justify-content: center;
             }
         }
 
@@ -1353,7 +1229,7 @@ html {
             }
 
             .stat-item .stat-number {
-                font-size: 28px;
+                font-size: 20px;
             }
 
             .stat-item {
@@ -1401,7 +1277,12 @@ html {
             "@type": "ImageObject",
             "url": "https://scalenational.com/logo.png"
           },
-          "description": "Founder-led consultancy that trains in-house teams to run Meta ads — account architecture, Pixel and Conversions API tracking, creative strategy, and media buying — inside the client's own ad account.",
+          "description": "Founder-led Meta ads consultancy. Eric builds and runs client campaigns inside the client's own ad account, alongside their in-house team: account architecture, Pixel and Conversions API tracking, creative strategy, and campaign management. The client owns the account, the data, and the skill.",
+          "founder": {
+            "@type": "Person",
+            "name": "Eric",
+            "jobTitle": "Founder"
+          },
           "email": "info@scalenational.com",
           "telephone": "+19179822327",
           "sameAs": [
@@ -1429,10 +1310,9 @@ html {
                 <img src="logo.png" alt="Scale National" style="height:38px;width:auto;">
             </a>
             <ul class="nav-links">
-                <li><a href="#engagement">The Engagement</a></li>
-                <li><a href="#who-its-for">Who It's For</a></li>
+                <li><a href="#what-we-do">What We Do</a></li>
+                <li><a href="#founder">Who You Work With</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#comparison">Why In-House</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
             <div class="nav-right">
@@ -1448,10 +1328,9 @@ html {
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#engagement" onclick="toggleMenu()">The Engagement</a>
-        <a href="#who-its-for" onclick="toggleMenu()">Who It's For</a>
+        <a href="#what-we-do" onclick="toggleMenu()">What We Do</a>
+        <a href="#founder" onclick="toggleMenu()">Who You Work With</a>
         <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
-        <a href="#comparison" onclick="toggleMenu()">Why In-House</a>
         <a href="#faq" onclick="toggleMenu()">FAQ</a>
         <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
     </div>
@@ -1461,10 +1340,10 @@ html {
         <div class="container">
             <div class="hero-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                Meta Ads In-Housing &middot; Founder-Led
+                Meta Ads &middot; Done With You, In Your Account
             </div>
-            <h1>Bring Your Meta Ads<br><span class="orange">In-House.</span></h1>
-            <p class="sub">I work hand-in-hand with your in-house team — account architecture, tracking, creative, media buying — until you run Meta ads confidently without me. You own the account, the data, and the skill. No agency in the middle.</p>
+            <h1>We build and run your Meta ads.<br><span class="orange">In your account, with your team.</span></h1>
+            <p class="sub">Eric, the founder, does the heavy lifting: account architecture, Pixel and CAPI tracking, creative planning, campaign builds, and launch. Then he manages the ads alongside your in-house team until they can run it without him. You own the account, the data, and the skill.</p>
 
             <div class="hero-ctas" style="justify-content:center;">
                 <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call with the Founder</a>
@@ -1476,169 +1355,101 @@ html {
                     <img class="avatar-circle" src="eric.jpg" alt="Eric, founder of Scale National">
                 </div>
                 <div class="avatar-cta-text">
-                    <strong>Book a call with Eric — founder &amp; trainer</strong>
-                    No sales team. No pressure. Just a straight answer.
+                    <strong>Book a call with Eric, the founder</strong>
+                    You'll talk to the person who'd actually be in your ad account.
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- STATS BAR -->
+    <!-- PROOF BAR -->
     <section class="stats-bar">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
-                    <div class="stat-number">1 Founder</div>
-                    <div class="stat-label">Every engagement, personally — no account managers</div>
+                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+                    <div class="stat-number">50k+ followers</div>
+                    <div class="stat-label">Combined audience on Eric's personal brand</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
-                    <div class="stat-number">100% Yours</div>
-                    <div class="stat-label">The ad account, pixel, and data — from day one</div>
+                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+                    <div class="stat-number">Multiple companies</div>
+                    <div class="stat-label">Meta ads run across different industries, legal to home services</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-                    <div class="stat-number">In-House</div>
-                    <div class="stat-label">Your team learns to run it, not rent it</div>
+                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                    <div class="stat-number">Founder-led</div>
+                    <div class="stat-label">Eric does the work himself, no account managers</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-                    <div class="stat-number">0 Lock-In</div>
-                    <div class="stat-label">Month-to-month. Leave with everything, anytime</div>
+                    <div class="stat-number">Month to month</div>
+                    <div class="stat-label">Flat fee, no lock-in, leave anytime with everything</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- THE ENGAGEMENT -->
-    <section class="services" id="engagement">
+    <!-- WHAT WE DO -->
+    <section class="services" id="what-we-do">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>What we build together</h2>
-                <p>Not a course. Not done-for-you. We work inside your ad account, on live campaigns, until your team can do every piece of this without me.</p>
+                <span class="section-eyebrow">What We Do</span>
+                <h2>We figure it out for you, in your account</h2>
+                <p>I do the heavy lifting. Your team works next to me on live campaigns and learns as we go. Four phases, all inside your Business Manager.</p>
             </div>
             <div class="services-features">
 
-                <!-- Engagement 1: Account architecture -->
+                <!-- Phase 1: Build -->
                 <div class="service-row" data-aos="fade-up">
                     <div class="service-content">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                        </div>
-                        <h3>Account architecture that scales</h3>
-                        <p>Most ad accounts are a junk drawer — duplicated campaigns, dead ad sets, names nobody can decode. We design a clean structure: campaigns, ad sets, naming, budget logic. Readable at a glance, scalable without breaking.</p>
+                        <span class="phase-label">01 &middot; Build</span>
+                        <h3>The account and the tracking, set up right</h3>
+                        <p>I start in your Business Manager. Clean account architecture first: campaign structure, naming, and budget logic that stays readable as spend grows. Then tracking: Pixel and Conversions API installed and deduplicated, with events mapped to what a lead is actually worth to you. Bad data quietly wastes ad budget, so this comes before anything else.</p>
                     </div>
                     <div class="service-feature-card">
                         <div style="width:100%;max-width:280px;">
                             <div style="background:#1a1a1a;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;">
-                                <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Campaigns</div>
+                                <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Your Business Manager</div>
                                 <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
                                     <span style="font-size:11px;color:#FF5A1F;font-weight:700;">01</span>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Prospecting — Advantage+</span>
+                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Prospecting &middot; Advantage+</span>
                                     <span style="margin-left:auto;background:#28a745;border-radius:50px;padding:2px 8px;font-size:9px;color:#fff;font-weight:600;">Active</span>
                                 </div>
                                 <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
                                     <span style="font-size:11px;color:#FF5A1F;font-weight:700;">02</span>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Retargeting — Engaged 30d</span>
+                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Retargeting &middot; Engaged 30d</span>
                                     <span style="margin-left:auto;background:#28a745;border-radius:50px;padding:2px 8px;font-size:9px;color:#fff;font-weight:600;">Active</span>
                                 </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="font-size:11px;color:#FF5A1F;font-weight:700;">03</span>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Creative Testing — Sandbox</span>
-                                    <span style="margin-left:auto;background:#28a745;border-radius:50px;padding:2px 8px;font-size:9px;color:#fff;font-weight:600;">Active</span>
-                                </div>
-                            </div>
-                            <div style="font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:12px;">Readable at a glance. Scalable without breaking.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Engagement 2: Tracking -->
-                <div class="service-row reverse" data-aos="fade-up">
-                    <div class="service-content">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                        </div>
-                        <h3>Tracking you can actually trust</h3>
-                        <p>Pixel plus Conversions API, set up right and deduplicated, with events mapped to what a lead is actually worth. Built in your Business Manager and documented so your team understands every event. Optimization is only as good as the data feeding it.</p>
-                    </div>
-                    <div class="service-feature-card">
-                        <div style="width:100%;max-width:280px;">
-                            <div style="background:#1a1a1a;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;">
-                                <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Events Manager</div>
                                 <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
                                     <span style="font-size:11px;color:#fff;font-weight:700;">Lead</span>
                                     <span style="font-size:10px;color:rgba(255,255,255,0.5);">Pixel + CAPI &middot; Deduplicated</span>
                                     <span style="margin-left:auto;color:#28a745;font-size:12px;font-weight:700;">&#10003;</span>
                                 </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="font-size:11px;color:#fff;font-weight:700;">Schedule</span>
-                                    <span style="font-size:10px;color:rgba(255,255,255,0.5);">Pixel + CAPI</span>
-                                    <span style="margin-left:auto;color:#28a745;font-size:12px;font-weight:700;">&#10003;</span>
-                                </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="font-size:11px;color:#fff;font-weight:700;">Qualified</span>
-                                    <span style="font-size:10px;color:rgba(255,255,255,0.5);">Custom conversion</span>
-                                    <span style="margin-left:auto;color:#28a745;font-size:12px;font-weight:700;">&#10003;</span>
-                                </div>
                             </div>
-                            <div style="font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:12px;">Every event mapped, documented, owned by you.</div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:12px;">Structure and tracking, built to stay readable.</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Engagement 3: Creative system -->
-                <div class="service-row" data-aos="fade-up">
-                    <div class="service-content">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        </div>
-                        <h3>A creative system, not random ads</h3>
-                        <p>On Meta, the ad is the targeting. We build your testing system — hooks, angles, formats, iteration cadence — so your team always knows what to make next and why it's next.</p>
-                    </div>
-                    <div class="service-feature-card">
-                        <div style="width:100%;max-width:280px;">
-                            <div style="background:#1a1a1a;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;">
-                                <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Testing board</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Angle A — Problem-first</span>
-                                    <span style="margin-left:auto;background:#FF5A1F;border-radius:50px;padding:2px 8px;font-size:9px;color:#fff;font-weight:600;">testing</span>
-                                </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Angle B — Proof-first</span>
-                                    <span style="margin-left:auto;background:rgba(255,255,255,0.12);border-radius:50px;padding:2px 8px;font-size:9px;color:rgba(255,255,255,0.8);font-weight:600;">iterate</span>
-                                </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Angle C — Question hook</span>
-                                    <span style="margin-left:auto;background:rgba(255,255,255,0.12);border-radius:50px;padding:2px 8px;font-size:9px;color:rgba(255,255,255,0.5);font-weight:600;">next up</span>
-                                </div>
-                            </div>
-                            <div style="font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:12px;">Your team always knows what to make next.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Engagement 4: First campaigns -->
+                <!-- Phase 2: Launch -->
                 <div class="service-row reverse" data-aos="fade-up">
                     <div class="service-content">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-                        </div>
-                        <h3>First campaigns, built side by side</h3>
-                        <p>Screen share, your account, real budget. Audiences, placements, bidding, budget structure — your team does the clicks with me next to them. Reps, not tutorials.</p>
+                        <span class="phase-label">02 &middot; Launch</span>
+                        <h3>Creative planned, first campaigns live</h3>
+                        <p>We plan the creative together: hooks, angles, formats, and what to test first. Then I build the campaigns and we launch them on a screen share, in your account, with real budget. Your team is next to me for every decision, from audiences to bids to budget structure.</p>
                     </div>
                     <div class="service-feature-card">
                         <div style="width:100%;max-width:280px;">
                             <div style="background:#1a1a1a;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;">
-                                <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Launch checklist</div>
+                                <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Launch day</div>
                                 <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
                                     <span style="color:#28a745;font-size:12px;font-weight:700;">&#9745;</span>
                                     <span style="font-size:11px;color:rgba(255,255,255,0.8);">Objective &amp; budget</span>
                                 </div>
                                 <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
                                     <span style="color:#28a745;font-size:12px;font-weight:700;">&#9745;</span>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Audience &amp; placements</span>
+                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Audiences &amp; placements</span>
                                 </div>
                                 <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
                                     <span style="color:#28a745;font-size:12px;font-weight:700;">&#9745;</span>
@@ -1646,58 +1457,56 @@ html {
                                 </div>
                                 <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
                                     <span style="color:#28a745;font-size:12px;font-weight:700;">&#9745;</span>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">UTMs &amp; tracking check</span>
+                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Tracking check</span>
                                 </div>
                                 <div style="background:#FF5A1F;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
                                     <span style="color:#fff;font-size:12px;font-weight:700;">&#8594;</span>
-                                    <span style="font-size:11px;color:#fff;font-weight:600;">Publish — together, screen to screen</span>
+                                    <span style="font-size:11px;color:#fff;font-weight:600;">Publish, live in your account</span>
                                 </div>
                             </div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:12px;">Launched together on a screen share.</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Engagement 5: Media buying -->
+                <!-- Phase 3: Run -->
                 <div class="service-row" data-aos="fade-up">
                     <div class="service-content">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-                        </div>
-                        <h3>Media buying: the daily judgment</h3>
-                        <p>Which metrics matter, when to kill an ad, when to scale, when to do nothing. Your team learns to make budget decisions from data instead of panic — the judgment agencies never hand over.</p>
+                        <span class="phase-label">03 &middot; Run</span>
+                        <h3>I manage the ads with your team</h3>
+                        <p>Launch isn't a handoff. I manage the account alongside your in-house person: weekly working sessions on live campaigns, budget moves, creative refreshes, and the kill or scale calls. They learn the judgment by making real decisions with me, on your data, while the ads keep producing.</p>
                     </div>
                     <div class="service-feature-card">
                         <div style="width:100%;max-width:280px;">
                             <div style="background:#1a1a1a;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;">
-                                <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Decision rules</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,0.8);"><span style="color:#fff;font-weight:700;">CPM up</span> — auction, not you. Hold.</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,0.8);"><span style="color:#fff;font-weight:700;">CTR down</span> — creative fatigue. Refresh.</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,0.8);"><span style="color:#fff;font-weight:700;">CPL over target 7 days</span> — kill it.</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,0.8);"><span style="color:#fff;font-weight:700;">CPL under target, stable</span> — scale 20%.</div>
+                                <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Weekly working session</div>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,0.8);"><span style="color:#fff;font-weight:700;">CPM up:</span> auction pressure. Hold steady.</div>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,0.8);"><span style="color:#fff;font-weight:700;">CTR down:</span> creative fatigue. Refresh it.</div>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,0.8);"><span style="color:#fff;font-weight:700;">CPL over target 7 days:</span> kill it.</div>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,0.8);"><span style="color:#fff;font-weight:700;">CPL under target, stable:</span> scale 20%.</div>
                             </div>
-                            <div style="font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:12px;">Judgment, written down.</div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:12px;">Real calls, made together on live spend.</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Engagement 6: Scaling playbook -->
+                <!-- Phase 4: Own -->
                 <div class="service-row reverse" data-aos="fade-up">
                     <div class="service-content">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-                        </div>
-                        <h3>The scaling playbook — then I step back</h3>
-                        <p>How to raise budgets without wrecking delivery, when to expand audiences, what to do when performance dips. All documented in a playbook your team owns. The goal of this engagement is to end it.</p>
+                        <span class="phase-label">04 &middot; Own</span>
+                        <h3>Your team takes the wheel</h3>
+                        <p>As your person gets confident, I hand over more of the account. I go from builder to reviewer to advisor, on purpose. You end up with a trained team, a written playbook, and an ad account you fully own. I stay available after that, but you won't be dependent on me.</p>
                     </div>
                     <div class="service-feature-card">
                         <div style="width:100%;max-width:280px;">
                             <div style="background:#1a1a1a;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px;">
-                                <div style="font-size:12px;font-weight:700;color:#fff;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.1);">Scaling SOP — your playbook</div>
-                                <div style="font-size:11px;color:rgba(255,255,255,0.7);"><span style="color:#FF5A1F;font-weight:700;">1.</span> Budget steps without resetting learning</div>
+                                <div style="font-size:12px;font-weight:700;color:#fff;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.1);">The handoff playbook</div>
+                                <div style="font-size:11px;color:rgba(255,255,255,0.7);"><span style="color:#FF5A1F;font-weight:700;">1.</span> Budget steps that don't reset learning</div>
                                 <div style="font-size:11px;color:rgba(255,255,255,0.7);"><span style="color:#FF5A1F;font-weight:700;">2.</span> Duplicate winners vs. raise budgets</div>
                                 <div style="font-size:11px;color:rgba(255,255,255,0.7);"><span style="color:#FF5A1F;font-weight:700;">3.</span> Creative refresh cadence</div>
                                 <div style="font-size:11px;color:rgba(255,255,255,0.7);"><span style="color:#FF5A1F;font-weight:700;">4.</span> What to do when performance dips</div>
                             </div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:12px;">Documented as we go. Yours to keep.</div>
                         </div>
                     </div>
                 </div>
@@ -1706,173 +1515,7 @@ html {
         </div>
     </section>
 
-    <!-- VIDEO SECTION (hidden until video is recorded) -->
-
-    <section class="logos-section">
-        <div class="container">
-            <p class="logos-label">The Stack We Work In</p>
-            <p class="logos-sub">No proprietary dashboard between you and your data. Your team learns the real tools — Meta's own platform, plus the analytics and workflow tools around it — inside your own Business Manager.</p>
-            <div class="logos-carousel">
-                <div class="logos-track" id="logos-track">
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/meta.svg" alt="Meta" class="logo-white"></div>
-                        <span class="logo-name">Meta</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/facebook.png" alt="Facebook"></div>
-                        <span class="logo-name">Facebook</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/instagram.png" alt="Instagram"></div>
-                        <span class="logo-name">Instagram</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/google.png" alt="Google"></div>
-                        <span class="logo-name">Google</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/slack.png" alt="Slack"></div>
-                        <span class="logo-name">Slack</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/zapier.svg" alt="Zapier"></div>
-                        <span class="logo-name">Zapier</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/openai.svg" alt="OpenAI" class="logo-white"></div>
-                        <span class="logo-name">OpenAI</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHO IT'S FOR -->
-    <section class="who-section" id="who-its-for">
-        <div class="container">
-            <div class="section-header dark" data-aos="fade-up">
-                <span class="section-eyebrow">Who It's For</span>
-                <h2>For companies that run on lead flow</h2>
-                <p>If paid social is — or should be — your primary growth engine, owning the skill beats renting it.</p>
-            </div>
-            <div class="who-grid">
-                <div class="who-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Law firms &amp; class action intake <span class="who-badge">Current Focus</span></h3>
-                    <p>Mass tort and class action intake runs on Meta. Same tort, same platform — one firm can pay double what another pays per qualified claimant, and the gap is pure execution. Add bar advertising rules and platform policies that shift underneath you, and this is the last channel a firm should rent. It's where I work most deeply today.</p>
-                </div>
-                <div class="who-card" data-aos="fade-up" data-aos-delay="150">
-                    <h3>Local &amp; home services</h3>
-                    <p>Where Scale National started. High job volume, tight margins — the business lives and dies on cost per lead. An in-house buyer who knows your market beats an account manager who's never seen it.</p>
-                </div>
-                <div class="who-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Clinics &amp; practices</h3>
-                    <p>Health runs into Meta's health-data restrictions fast — restricted events, limited targeting. A trained internal team keeps campaigns compliant and keeps patient acquisition data where it belongs — with you.</p>
-                </div>
-                <div class="who-card" data-aos="fade-up" data-aos-delay="250">
-                    <h3>B2B &amp; professional services</h3>
-                    <p>Longer sales cycles demand tracking that ties spend to pipeline, not just form fills. We build that plumbing once — then it's yours forever.</p>
-                </div>
-                <div class="who-card" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Ecommerce &amp; DTC</h3>
-                    <p>Creative velocity decides winners on Meta. I set up the testing system; your team runs it daily — a cadence no monthly retainer can match.</p>
-                </div>
-                <div class="who-card" data-aos="fade-up" data-aos-delay="350">
-                    <h3>Not sure you fit?</h3>
-                    <p>Then ask me. If in-housing is wrong for your stage or spend, I'll say so on the call and point you somewhere better. I'd rather lose an engagement than sign a bad one.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-            <!-- HOW IT WORKS -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>One engagement. Five phases. Then it's yours.</h2>
-                <p>Built around your ad account, not a course curriculum.</p>
-            </div>
-            <div class="steps">
-                <div class="step" data-aos="fade-up" data-aos-delay="100">
-                    <div class="step-number">1</div>
-                    <h3>The audit</h3>
-                    <p>Before our first working session I go through your ad account, pixel, and spend history. We open with findings, not theory: what's broken, what's salvageable, what we build first.</p>
-                </div>
-                <div class="step" data-aos="fade-up" data-aos-delay="200">
-                    <div class="step-number">2</div>
-                    <h3>The foundation</h3>
-                    <p>Account architecture, Pixel + Conversions API, events mapped to what a lead is actually worth. Set up together in your Business Manager, documented as we go.</p>
-                </div>
-                <div class="step" data-aos="fade-up" data-aos-delay="300">
-                    <div class="step-number">3</div>
-                    <h3>First builds, side by side</h3>
-                    <p>Screen share, your account, real budget. We design the creative strategy and launch the first campaigns together — your team clicks the buttons, I'm there for every decision.</p>
-                </div>
-                <div class="step" data-aos="fade-up" data-aos-delay="400">
-                    <div class="step-number">4</div>
-                    <h3>Weekly working sessions</h3>
-                    <p>Training happens on live campaigns and real data — plus async support between sessions for the questions that can't wait a week.</p>
-                </div>
-                <div class="step" data-aos="fade-up" data-aos-delay="500">
-                    <div class="step-number">5</div>
-                    <h3>Scale, then step back</h3>
-                    <p>As your team gets confident, my role shrinks by design: builder, then reviewer, then advisor. You end with a trained team, a written playbook, and an account you fully own.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMPARISON -->
-    <section class="comparison" id="comparison">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-eyebrow">Why In-House</span>
-                <h2>Agency, DIY, or in-house — side by side</h2>
-                <p>In-housing isn't a fringe idea: 82% of major brands (per the ANA) now run in-house teams, up from 42% in 2008. A big reason the rest hold back is that media buying feels too complex. Closing that gap is exactly what this engagement is for.</p>
-            </div>
-            <div class="comparison-grid">
-                <div class="comparison-col" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Figure it out yourself</h3>
-                    <ul>
-                        <li><strong class="row-label">Who runs your ads</strong>You, alone — learning from YouTube between everything else you do</li>
-                        <li><strong class="row-label">Who owns the account, pixel &amp; data</strong>You</li>
-                        <li><strong class="row-label">The incentive</strong>Aligned — but you don't know what you don't know</li>
-                        <li><strong class="row-label">Contract</strong>None</li>
-                        <li><strong class="row-label">Visibility</strong>Total — but no one to tell you what the numbers mean</li>
-                        <li><strong class="row-label">What you're left with when it ends</strong>Burned budget and half-learned lessons</li>
-                    </ul>
-                </div>
-                <div class="comparison-col" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Hire an agency</h3>
-                    <ul>
-                        <li><strong class="row-label">Who runs your ads</strong>An account manager juggling 15&ndash;20 clients</li>
-                        <li><strong class="row-label">Who owns the account, pixel &amp; data</strong>Often the agency's Business Manager — leave, and the pixel history, audiences, and conversion data stay behind</li>
-                        <li><strong class="row-label">The incentive</strong>Usually paid a % of ad spend: they earn more when you spend more</li>
-                        <li><strong class="row-label">Contract</strong>Typically 6&ndash;12 months, locked in</li>
-                        <li><strong class="row-label">Visibility</strong>A weekly slide deck, built by the people it evaluates</li>
-                        <li><strong class="row-label">What you're left with when it ends</strong>Nothing. The playbook leaves with them</li>
-                    </ul>
-                </div>
-                <div class="comparison-col highlight" data-aos="fade-up" data-aos-delay="300">
-                    <h3>In-house with Scale National</h3>
-                    <ul>
-                        <li><strong class="row-label">Who runs your ads</strong>Your team, trained by the founder, inside your own account</li>
-                        <li><strong class="row-label">Who owns the account, pixel &amp; data</strong>You. Everything is built in your Business Manager from day one</li>
-                        <li><strong class="row-label">The incentive</strong>Flat engagement — I'm paid to make you independent, not to grow your budget</li>
-                        <li><strong class="row-label">Contract</strong>Month-to-month. I re-earn the engagement every 30 days</li>
-                        <li><strong class="row-label">Visibility</strong>Total — it's your account. There's nothing to "report" because nothing is hidden</li>
-                        <li><strong class="row-label">What you're left with when it ends</strong>A trained team, a documented playbook, and an account you fully own</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="comparison-cta" data-aos="fade-up">
-                <h3>See it against your own account.</h3>
-                <p>30 minutes with the founder. I'll audit what you're running, show you what I'd change, and tell you straight whether in-housing fits.</p>
-                <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call with the Founder</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- THE FOUNDER -->
+    <!-- WHO YOU'RE WORKING WITH -->
     <section class="founder" id="founder">
         <div class="container">
             <div class="founder-grid">
@@ -1880,12 +1523,99 @@ html {
                     <img src="eric-profile.jpg" alt="Eric, founder of Scale National">
                 </div>
                 <div class="founder-text" data-aos="fade-up" data-aos-delay="100">
-                    <span class="section-eyebrow">The Founder</span>
-                    <h2>One founder. No layers.</h2>
-                    <p>I'm Eric. I run Scale National alone, and I work every engagement personally — the audit, the tracking setup, the campaign builds, the weekly sessions. There's no account manager, no junior media buyer, no handoff after the sales call. The person you talk to on the first call is the person in your ad account.</p>
-                    <p>Scale National exists because of a simple observation: agencies are built to keep you dependent. Percentage-of-spend pricing, your pixel inside their Business Manager, reporting decks instead of logins — it all points one direction. I'd rather train your team to run Meta ads so well you don't need me. That's the whole business model.</p>
-                    <p>I keep the roster small on purpose — very few engagements at a time, deep in each account. No highlight reel, no wall of logos, no invented screenshots. What I'll show you is your own account, and what I'd change.</p>
+                    <span class="section-eyebrow">Who You're Working With</span>
+                    <h2>I'm Eric. It's just me, on purpose.</h2>
+                    <p>Scale National is a one-person company. When you book a call, you talk to me. When campaigns get built, I build them. There's no sales team and no junior media buyer behind the curtain. The person who sells the work is the person who does it.</p>
+                    <p>I run a personal brand with over 50k combined followers. I grew that audience myself, making content and studying what makes people stop scrolling. That's the same muscle that makes ads perform, and it goes into every creative plan I write for a client.</p>
+                    <p>On the paid side, I've run Meta ads for multiple companies across different industries. My deepest work right now is legal intake for class action and mass tort campaigns, where execution decides what a qualified claimant costs. Before that it was home services and other lead-driven businesses.</p>
+                    <div class="founder-facts">
+                        <span>50k+ combined followers</span>
+                        <span>Multi-industry media buyer</span>
+                        <span>Current focus: class action intake</span>
+                        <span>Solo founder</span>
+                    </div>
+                    <p>I keep the roster small so I can go deep in each account. If what you need isn't a fit for how I work, I'll tell you on the first call and point you somewhere better.</p>
                     <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-ghost">Book a Call with Eric</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY THIS BEATS THE ALTERNATIVES -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-eyebrow">The Alternatives</span>
+                <h2>Built for you, run with you, owned by you</h2>
+                <p>An agency rents you results. Building in-house alone means paying for every lesson out of your own ad budget. This engagement is the third option.</p>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-col" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Hire an agency</h3>
+                    <ul>
+                        <li><strong class="row-label">Who does the work</strong>An account manager juggling a long client list</li>
+                        <li><strong class="row-label">Where it's built</strong>Often their Business Manager. Leave, and pixel history and audiences stay behind</li>
+                        <li><strong class="row-label">What your team learns</strong>Very little. The playbook is their product, and it leaves with them</li>
+                        <li><strong class="row-label">How it's priced</strong>Usually a percentage of ad spend, so bigger budgets pay them more</li>
+                        <li><strong class="row-label">What's left when it ends</strong>A gap where your marketing engine used to be</li>
+                    </ul>
+                </div>
+                <div class="comparison-col" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Build in-house alone</h3>
+                    <ul>
+                        <li><strong class="row-label">Who does the work</strong>Whoever you can spare, learning by trial and error</li>
+                        <li><strong class="row-label">Where it's built</strong>Your account, but usually set up wrong at the foundation</li>
+                        <li><strong class="row-label">What your team learns</strong>Eventually a lot, but every lesson is billed to your own ad budget</li>
+                        <li><strong class="row-label">How it's priced</strong>Free on paper. Wasted spend and slow months are the real price</li>
+                        <li><strong class="row-label">What's left when it ends</strong>Some hard-won lessons and a messy account</li>
+                    </ul>
+                </div>
+                <div class="comparison-col highlight" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Scale National</h3>
+                    <ul>
+                        <li><strong class="row-label">Who does the work</strong>I do, with your in-house person working next to me</li>
+                        <li><strong class="row-label">Where it's built</strong>Your account and your Business Manager, from day one</li>
+                        <li><strong class="row-label">What your team learns</strong>Everything, on live campaigns, while the ads are producing</li>
+                        <li><strong class="row-label">How it's priced</strong>A flat monthly fee, month to month. Never a percentage of spend</li>
+                        <li><strong class="row-label">What's left when it ends</strong>A trained team, a documented playbook, and an account you fully own</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="comparison-cta" data-aos="fade-up">
+                <h3>See it against your own account.</h3>
+                <p>Book 30 minutes with me. I'll look at what you're running, tell you what I'd build first, and give you a straight answer on whether this fits.</p>
+                <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call with the Founder</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>How an engagement runs</h2>
+                <p>Four phases, from first call to full ownership.</p>
+            </div>
+            <div class="steps">
+                <div class="step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <h3>Call and audit</h3>
+                    <p>We talk, then I go through your ad account, pixel, and spend history. You get a straight read on what's broken, what's fine, and what I'd build first.</p>
+                </div>
+                <div class="step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <h3>Build</h3>
+                    <p>I set up the account architecture, the Pixel and Conversions API tracking, and the creative plan inside your Business Manager. Your team sees every step go in.</p>
+                </div>
+                <div class="step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <h3>Launch and run together</h3>
+                    <p>First campaigns go live on a screen share. Then weekly working sessions: I manage the account with your in-house person, on live campaigns and real budget.</p>
+                </div>
+                <div class="step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <h3>Your team owns it</h3>
+                    <p>My role shrinks by design, from builder to reviewer to advisor. You end with a trained team, a written playbook, and an account that's fully yours.</p>
                 </div>
             </div>
         </div>
@@ -1895,80 +1625,70 @@ html {
     <section class="faq" id="faq">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Straight answers.</h2>
-                <p>The questions people actually ask on the first call.</p>
+                <h2>Questions I get on the first call</h2>
+                <p>Straight answers, before you book.</p>
             </div>
             <div class="faq-list">
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        Do you run the ads for us?
+                        Do you run the ads or just teach us?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">With you, not for you — that's the point. In the early weeks I'm hands-on in your account: architecture, tracking, first builds. But every session moves work from my side of the screen to yours. If you want someone to take it off your plate forever, hire an agency — the comparison above shows what that trade costs.</div>
+                    <div class="faq-answer">I do both. I set up the account, build the campaigns, and manage them myself, inside your ad account. Your team learns by working next to me on those live campaigns, not from recordings. By the end they can run it without me, and everything we built stays with you.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        Who owns the ad account?
+                        What if we don't have an in-house person yet?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">You. From day one. The account, pixel, Conversions API, audiences, and creative all live inside your Business Manager. If we stop working together tomorrow, you lose none of it. Nothing gets held hostage.</div>
+                    <div class="faq-answer">That's fine, and it's common. I carry the account while you hire, and I'll help you write the role and screen candidates for real signal. A sharp marketer with no ads experience often beats a self-taught expert with bad habits. Building the skill is my job.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        What if we don't have anyone to train yet?
+                        Who owns the ad account?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">Common, and it's part of the engagement. I'll help you write the role, screen candidates for real signal versus buzzwords, and pick someone trainable. A smart marketer with no ads experience often beats a "Meta expert" with bad habits — the expertise is what I'm there to build.</div>
+                    <div class="faq-answer">You do, from day one. Everything gets built in your Business Manager: the account, pixel, Conversions API, audiences, and creative. If we stop working together tomorrow, you keep all of it.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        How long until we run ads ourselves?
+                        What do you need from us?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">Honest answer: it depends on your team's reps and your spend. The foundation — architecture, tracking, first campaigns — comes together in the first few weeks. Real independence, your team scaling confidently without me, takes months, not days. Anyone promising mastery in two weeks is selling a course.</div>
+                    <div class="faq-answer">Three things. A real ad budget you control. Someone whose job this will be, or the intent to hire them. And a few hours a week for working sessions. If any of those are missing, the first call will surface it.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        Why not just hire an agency?
+                        How is it priced?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">Sometimes you should — if ads are a side channel and you never want the skill internal, an agency is fine. But if lead flow is the heart of your business, renting the engine is fragile: percentage-of-spend pricing rewards higher budgets, contracts lock you in, and when you leave, the knowledge — often the pixel data itself — leaves with them.</div>
+                    <div class="faq-answer">A flat monthly fee, month to month, with no long-term contract. Never a percentage of your ad spend, so I have no reason to push your budget up. The exact number depends on scope, and you'll have it in writing after the first call.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        What does it cost?
+                        How long until our team runs it without you?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">A flat monthly engagement — never a percentage of your ad spend, so I have zero incentive to inflate your budget. Month-to-month, no long-term contract. The exact number depends on scope: team size, account state, whether hiring help is included. You'll have it in writing after the first call.</div>
+                    <div class="faq-answer">It depends on your team's reps and your spend. The foundation is live within the first few weeks: account, tracking, first campaigns. Real independence takes months of reps on live campaigns, not days, and anyone promising mastery in two weeks is selling a course. What I can promise is that my role shrinks every month.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        What do you need from us?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">Three things: someone whose job this will be (or the intent to hire them), a real ad budget you control, and a few hours a week for working sessions. I bring the process; you bring the commitment. If those aren't there yet, the call will tell us.</div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="450">
-                    <div class="faq-question" onclick="toggleFaq(this)">
                         Who is this wrong for?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">If you can't fund a consistent ad budget, want to stay fully hands-off, or need someone to blame when a campaign dips — this isn't the fit, and I'll say so on the call. I'd rather turn down an engagement than train a team that was set up to fail.</div>
+                    <div class="faq-answer">If you can't fund a consistent ad budget, want to stay completely hands-off forever, or are shopping for someone to blame when a campaign dips, we're not a fit. I'd rather tell you that on the call than sign a bad engagement.</div>
                 </div>
 
             </div>
         </div>
     </section>
-
-
 
     <!-- FINAL CTA -->
     <section class="final-cta cta-section">
@@ -1983,8 +1703,8 @@ html {
                             <span class="avail-dot"></span>
                             <span class="avail-text">Taking new engagements</span>
                         </div>
-                        <h2>Ready to own your Meta ads?</h2>
-                        <p>Book a free 30-minute call with Eric — the founder, and the person who'd be in your account. I'll look at what you're running, tell you what I'd change, and give you a straight answer on whether in-housing fits. If it doesn't, you keep the audit notes anyway.</p>
+                        <h2>Let's look at your account.</h2>
+                        <p>A free 30-minute call with me, Eric. I'll go through what you're running, tell you what I'd build first, and give you a straight answer on whether this fits. If it doesn't, you keep the notes anyway.</p>
                     </div>
                     <div class="final-cta-right cta-actions">
                         <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-cta">Book a Call with the Founder</a>
@@ -2003,17 +1723,16 @@ html {
                     <div class="footer-logo">
                         <img src="logo.png" alt="Scale National" style="height:38px;width:auto;">
                     </div>
-                    <div class="tagline">Founder-led Meta ads in-housing. Your team, your account, your data.</div>
+                    <div class="tagline">Meta ads built and run with your team, by the founder. Your account, your data, your skill.</div>
                 </div>
                 <div class="footer-contact">
                     Email: <a href="mailto:info@scalenational.com">info@scalenational.com</a><br>
                     Call/Text: <a href="tel:+19179822327">(917) 982-2327</a>
                 </div>
                 <div class="footer-links">
-                    <a href="#engagement">The Engagement</a>
-                    <a href="#who-its-for">Who It's For</a>
+                    <a href="#what-we-do">What We Do</a>
+                    <a href="#founder">Who You Work With</a>
                     <a href="#how-it-works">How It Works</a>
-                    <a href="#comparison">Why In-House</a>
                     <a href="#faq">FAQ</a>
                     <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}">Book a Call</a>
                 </div>
@@ -2031,9 +1750,6 @@ html {
             </div>
         </div>
     </footer>
-
-    <!-- GHL Chat Widget -->
-    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69f5f917bf76611a222d6a71"></script>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -2058,14 +1774,6 @@ html {
             item.classList.toggle('open');
         }
 
-        // Logo carousel — clone items for seamless infinite loop
-        (function() {
-            var track = document.querySelector('.logos-track');
-            if (!track) return;
-            var items = track.innerHTML;
-            track.innerHTML = items + items; // exact clone = translateX(-50%) always works
-        })();
-
         // CTA section slide-in animation
         (function() {
             var ctaSection = document.querySelector('.cta-section');
@@ -2087,9 +1795,6 @@ html {
             observer.observe(ctaSection);
         })();
     </script>
-
-  <!-- GHL Chat Widget loaded via platform -->
-
 
 </body>
 </html>
