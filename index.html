@@ -216,15 +216,6 @@ html {
             gap: 16px;
         }
 
-        .nav-phone {
-            color: #FF5A1F;
-            font-weight: 600;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
         .nav-btn {
             display: inline-block;
             background: #FF5A1F;
@@ -525,20 +516,6 @@ html {
             margin-bottom: 18px;
         }
 
-        .service-content .learn-more {
-            color: #FF5A1F;
-            font-weight: 600;
-            font-size: 14px;
-            transition: color 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .service-content .learn-more:hover {
-            color: #e04a10;
-        }
-
         .service-feature-card {
             background: #111;
             border-radius: 16px;
@@ -549,153 +526,6 @@ html {
             align-items: center;
             justify-content: center;
             color: #fff;
-        }
-
-        .service-feature-card .mini-browser {
-            width: 100%;
-            max-width: 260px;
-        }
-
-        .service-feature-card .mini-browser .browser-bar {
-            display: flex;
-            gap: 5px;
-            padding: 10px 12px;
-            background: #1a1a1a;
-            border-radius: 8px 8px 0 0;
-        }
-
-        .service-feature-card .mini-browser .browser-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #333;
-        }
-
-        .service-feature-card .mini-browser .browser-content {
-            background: #1a1a1a;
-            padding: 16px;
-            border-radius: 0 0 8px 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .service-feature-card .mini-browser .browser-line {
-            height: 8px;
-            background: #2a2a2a;
-            border-radius: 4px;
-        }
-
-        .service-feature-card .mini-browser .browser-line.short {
-            width: 60%;
-        }
-
-        .service-feature-card .mini-browser .browser-line.med {
-            width: 80%;
-        }
-
-        .service-feature-card .phone-notif {
-            position: relative;
-            width: 180px;
-        }
-
-        .service-feature-card .phone-outline {
-            width: 180px;
-            height: 260px;
-            border: 2px solid #333;
-            border-radius: 24px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px 12px;
-        }
-
-        .service-feature-card .text-bubble {
-            background: #FF5A1F;
-            color: #fff;
-            font-size: 12px;
-            padding: 12px 14px;
-            border-radius: 12px 12px 12px 4px;
-            line-height: 1.4;
-            max-width: 150px;
-        }
-
-        .service-feature-card .stars-display {
-            text-align: center;
-        }
-
-        .service-feature-card .stars-row {
-            display: flex;
-            justify-content: center;
-            gap: 4px;
-            margin-bottom: 12px;
-        }
-
-        .service-feature-card .stars-row svg {
-            width: 28px;
-            height: 28px;
-            fill: #FF5A1F;
-        }
-
-        .service-feature-card .reviews-count {
-            font-size: 32px;
-            font-weight: 900;
-            color: #FF5A1F;
-            font-family: 'Urbanist', sans-serif;
-        }
-
-        .service-feature-card .flow-diagram {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .service-feature-card .flow-step {
-            background: #1a1a1a;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 11px;
-            color: rgba(255,255,255,0.8);
-            text-align: center;
-        }
-
-        .service-feature-card .flow-arrow {
-            color: #FF5A1F;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .service-feature-card .chat-ui {
-            width: 100%;
-            max-width: 260px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .service-feature-card .chat-bubble {
-            padding: 12px 16px;
-            border-radius: 12px;
-            font-size: 13px;
-            line-height: 1.4;
-            max-width: 85%;
-        }
-
-        .service-feature-card .chat-bubble.incoming {
-            background: #1a1a1a;
-            color: rgba(255,255,255,0.8);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
-
-        .service-feature-card .chat-bubble.outgoing {
-            background: #FF5A1F;
-            color: #fff;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
         }
 
         .section-header {
@@ -724,18 +554,6 @@ html {
         }
 
         /* legacy service-card styles removed — using service-row layout */
-
-        /* ========== VIDEO ========== */
-        .video-section {
-            background: #0d0d0d;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .video-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-        }
 
         /* ========== COMPARISON ========== */
         .comparison {
@@ -1615,6 +1433,7 @@ html {
                 <li><a href="#engagement">The Engagement</a></li>
                 <li><a href="#who-its-for">Who It's For</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#comparison">Why In-House</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
             <div class="nav-right">
@@ -1633,6 +1452,7 @@ html {
         <a href="#engagement" onclick="toggleMenu()">The Engagement</a>
         <a href="#who-its-for" onclick="toggleMenu()">Who It's For</a>
         <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
+        <a href="#comparison" onclick="toggleMenu()">Why In-House</a>
         <a href="#faq" onclick="toggleMenu()">FAQ</a>
         <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
     </div>
@@ -1645,7 +1465,7 @@ html {
                 Meta Ads In-Housing &middot; Founder-Led
             </div>
             <h1>Bring Your Meta Ads<br><span class="orange">In-House.</span></h1>
-            <p class="sub">I work hand-in-hand with your in-house team — account architecture, tracking, creative, media buying — until you run Meta ads at an expert level. You own the account, the data, and the skill. No agency in the middle.</p>
+            <p class="sub">I work hand-in-hand with your in-house team — account architecture, tracking, creative, media buying — until you run Meta ads confidently without me. You own the account, the data, and the skill. No agency in the middle.</p>
 
             <div class="hero-ctas" style="justify-content:center;">
                 <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call with the Founder</a>
@@ -1892,7 +1712,7 @@ html {
     <section class="logos-section">
         <div class="container">
             <p class="logos-label">The Stack We Work In</p>
-            <p class="logos-sub">No proprietary dashboard between you and your data. Your team learns the real tools, inside your own Business Manager.</p>
+            <p class="logos-sub">No proprietary dashboard between you and your data. Your team learns the real tools — Meta's own platform, plus the analytics and workflow tools around it — inside your own Business Manager.</p>
             <div class="logos-carousel">
                 <div class="logos-track" id="logos-track">
                     <div class="logo-item">
@@ -1939,7 +1759,7 @@ html {
             <div class="who-grid">
                 <div class="who-card" data-aos="fade-up" data-aos-delay="100">
                     <h3>Law firms &amp; class action intake <span class="who-badge">Current Focus</span></h3>
-                    <p>Mass tort and class action intake runs on Meta. Same tort, same platform: one firm pays $120 per qualified claimant, another pays $280 — the gap is pure execution. Add bar advertising rules and platform policies that shift underneath you, and this is the last channel a firm should rent. It's where I work most deeply today.</p>
+                    <p>Mass tort and class action intake runs on Meta. Same tort, same platform — one firm can pay double what another pays per qualified claimant, and the gap is pure execution. Add bar advertising rules and platform policies that shift underneath you, and this is the last channel a firm should rent. It's where I work most deeply today.</p>
                 </div>
                 <div class="who-card" data-aos="fade-up" data-aos-delay="150">
                     <h3>Local &amp; home services</h3>
@@ -1947,7 +1767,7 @@ html {
                 </div>
                 <div class="who-card" data-aos="fade-up" data-aos-delay="200">
                     <h3>Clinics &amp; practices</h3>
-                    <p>Health runs into Meta's special ad category rules fast. A trained internal team keeps targeting compliant and keeps patient acquisition data where it belongs — with you.</p>
+                    <p>Health runs into Meta's health-data restrictions fast — restricted events, limited targeting. A trained internal team keeps campaigns compliant and keeps patient acquisition data where it belongs — with you.</p>
                 </div>
                 <div class="who-card" data-aos="fade-up" data-aos-delay="250">
                     <h3>B2B &amp; professional services</h3>
@@ -2008,7 +1828,7 @@ html {
             <div class="section-header" data-aos="fade-up">
                 <span class="section-eyebrow">Why In-House</span>
                 <h2>Agency, DIY, or in-house — side by side</h2>
-                <p>In-housing isn't a fringe idea: 82% of major brands (per the ANA) now run in-house teams, up from 42% in 2008. The #1 reason the rest hold back is that media buying feels too complex. Closing that gap is exactly what this engagement is for.</p>
+                <p>In-housing isn't a fringe idea: 82% of major brands (per the ANA) now run in-house teams, up from 42% in 2008. A big reason the rest hold back is that media buying feels too complex. Closing that gap is exactly what this engagement is for.</p>
             </div>
             <div class="comparison-grid">
                 <div class="comparison-col" data-aos="fade-up" data-aos-delay="100">
@@ -2065,7 +1885,7 @@ html {
                     <h2>One founder. No layers.</h2>
                     <p>I'm Eric. I run Scale National alone, and I work every engagement personally — the audit, the tracking setup, the campaign builds, the weekly sessions. There's no account manager, no junior media buyer, no handoff after the sales call. The person you talk to on the first call is the person in your ad account.</p>
                     <p>Scale National exists because of a simple observation: agencies are built to keep you dependent. Percentage-of-spend pricing, your pixel inside their Business Manager, reporting decks instead of logins — it all points one direction. I'd rather train your team to run Meta ads so well you don't need me. That's the whole business model.</p>
-                    <p>I keep the roster small on purpose — a few engagements at a time, deep in each account. No highlight reel, no wall of logos, no invented screenshots. What I'll show you is your own account, and what I'd change.</p>
+                    <p>I keep the roster small on purpose — very few engagements at a time, deep in each account. No highlight reel, no wall of logos, no invented screenshots. What I'll show you is your own account, and what I'd change.</p>
                     <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-ghost">Book a Call with Eric</a>
                 </div>
             </div>
@@ -2198,7 +2018,8 @@ html {
                     <a href="#faq">FAQ</a>
                     <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}">Book a Call</a>
                 </div>
-                <div class="footer-links" style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);">
+                <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.35);">Legacy tools for contractors</div>
+                <div class="footer-links" style="margin-top:8px;opacity:0.55;">
                     <a href="/website-development">Free Website</a>
                     <a href="/crm-for-contractors">CRM & Lead Management</a>
                     <a href="/missed-call-text-back">Missed Call Text Back</a>
