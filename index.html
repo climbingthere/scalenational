@@ -129,25 +129,6 @@ html {
             transform: translateY(-3px);
         }
 
-        .btn-dark {
-            display: inline-block;
-            background: #0d0d0d;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 16px;
-            padding: 16px 32px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-dark:hover {
-            background: #222222;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
         /* ========== ANIMATIONS ========== */
         @keyframes pulseGlow {
             0%, 100% { box-shadow: 0 0 0 0 rgba(255, 90, 31, 0.4); }
@@ -543,20 +524,12 @@ html {
             margin-bottom: 12px;
         }
 
-        .section-header.dark h2 {
-            color: #ffffff;
-        }
-
         .section-header p {
             font-size: 16px;
             color: #666666;
             max-width: 640px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .section-header.dark p {
-            color: rgba(255,255,255,0.6);
         }
 
         .section-eyebrow {
@@ -1242,7 +1215,7 @@ html {
         .cta-card h2,
         .cta-card p,
         .cta-actions,
-        .cta-phone-link {
+        .phone-cta {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1252,7 +1225,7 @@ html {
         .cta-card.animated h2               { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
         .cta-card.animated p                { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
         .cta-card.animated .cta-actions     { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
-        .cta-card.animated .cta-phone-link  { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+        .cta-card.animated .phone-cta       { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
 
         .cta-section .cta-card-wrap {
             opacity: 0;
@@ -1396,7 +1369,7 @@ html {
             <div class="section-header" data-aos="fade-up">
                 <span class="section-eyebrow">What We Do</span>
                 <h2>We figure it out for you, in your account</h2>
-                <p>I do the heavy lifting. Your team works next to me on live campaigns and learns as we go. Four phases, all inside your Business Manager.</p>
+                <p>I build and run it. Your team works next to me on live campaigns and learns as we go. Four phases, all inside your Business Manager.</p>
             </div>
             <div class="services-features">
 
@@ -1583,7 +1556,7 @@ html {
             </div>
             <div class="comparison-cta" data-aos="fade-up">
                 <h3>See it against your own account.</h3>
-                <p>Book 30 minutes with me. I'll look at what you're running, tell you what I'd build first, and give you a straight answer on whether this fits.</p>
+                <p>Book 30 minutes with me. Bring your ad account, and I'll show you exactly where I'd start in it.</p>
                 <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call with the Founder</a>
             </div>
         </div>
@@ -1615,7 +1588,7 @@ html {
                 <div class="step" data-aos="fade-up" data-aos-delay="400">
                     <div class="step-number">4</div>
                     <h3>Your team owns it</h3>
-                    <p>My role shrinks by design, from builder to reviewer to advisor. You end with a trained team, a written playbook, and an account that's fully yours.</p>
+                    <p>My role shrinks by design. By the end, your person is making the calls and I'm the one reviewing their work, not the other way around.</p>
                 </div>
             </div>
         </div>
