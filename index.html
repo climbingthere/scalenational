@@ -25,8 +25,8 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     <!-- Primary Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scale National | We Build and Run Your Meta Ads With Your Team</title>
-    <meta name="description" content="Founder-led Meta ads. Eric builds and runs your campaigns inside your own ad account: architecture, Pixel and CAPI tracking, creative, launches, and management alongside your team. You own everything.">
+    <title>Scale National | Your Team Runs Your Meta Ads. I Show Them How.</title>
+    <meta name="description" content="Hands-on Meta ads coaching in live working sessions. Your team runs the campaigns inside your own ad account, and Eric shows them exactly how: architecture, Pixel and CAPI tracking, creative, launches, and scaling. You own everything.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -35,8 +35,8 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
     <!-- Open Graph (Facebook, iMessage, Slack, etc.) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://scalenational.com">
-    <meta property="og:title" content="We Build and Run Your Meta Ads. In Your Account, With Your Team.">
-    <meta property="og:description" content="Eric sets up the account, tracking, and creative, launches the campaigns, and manages them with your in-house team until they can run it without him. You own the account, the data, and the skill.">
+    <meta property="og:title" content="Your Team Runs Your Meta Ads. I Show Them Exactly How.">
+    <meta property="og:description" content="Live working sessions inside your own ad account. Your team's hands on the keyboard, Eric guiding every move: tracking, creative, campaign builds, launches, and scaling decisions. You own the account, the data, and the skill.">
     <meta property="og:image" content="https://scalenational.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -44,8 +44,8 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="We Build and Run Your Meta Ads. In Your Account, With Your Team.">
-    <meta name="twitter:description" content="Eric sets up the account, tracking, and creative, launches the campaigns, and manages them with your in-house team until they can run it without him.">
+    <meta name="twitter:title" content="Your Team Runs Your Meta Ads. I Show Them Exactly How.">
+    <meta name="twitter:description" content="Live working sessions inside your own ad account. Your team runs the campaigns, Eric shows them exactly how, and you own the account, the data, and the skill.">
     <meta name="twitter:image" content="https://scalenational.com/og-image.png">
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -167,9 +167,15 @@ html {
             padding: 0 24px;
         }
 
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+
         .nav-logo img {
-            height: 40px;
+            height: 48px;
             width: auto;
+            display: block;
         }
 
         .nav-links {
@@ -202,7 +208,7 @@ html {
             color: #ffffff;
             font-weight: 700;
             font-size: 14px;
-            padding: 10px 20px;
+            padding: 13px 22px;
             border-radius: 10px;
             transition: all 0.3s ease;
         }
@@ -216,9 +222,12 @@ html {
         .hamburger {
             display: none;
             flex-direction: column;
+            justify-content: center;
             gap: 5px;
             cursor: pointer;
             z-index: 1001;
+            padding: 14px 10px;
+            margin: -14px -10px;
         }
 
         .hamburger span {
@@ -418,16 +427,6 @@ html {
             background: rgba(255,255,255,0.07);
         }
 
-        .stat-item .stat-icon {
-            margin-bottom: 12px;
-        }
-
-        .stat-item .stat-icon svg {
-            width: 24px;
-            height: 24px;
-            color: #FF5A1F;
-        }
-
         .stat-item .stat-number {
             font-size: 28px;
             font-weight: 900;
@@ -501,8 +500,9 @@ html {
         }
 
         .service-feature-card {
-            background: #111;
-            border-radius: 16px;
+            background: linear-gradient(160deg, #161616 0%, #0d0d0d 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
             padding: 40px 32px;
             min-height: 280px;
             display: flex;
@@ -702,54 +702,45 @@ html {
         }
 
         .steps {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 32px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
             max-width: 1140px;
             margin: 0 auto;
-            position: relative;
-        }
-
-        .steps::before {
-            display: none;
         }
 
         .step {
-            flex: 1;
-            text-align: center;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 28px 26px 34px;
+            text-align: left;
             position: relative;
-            z-index: 1;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
         .step-number {
-            font-size: 64px;
-            font-weight: 700;
-            color: #FF5A1F;
-            line-height: 1;
-            margin-bottom: 16px;
-        }
-
-        .step:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            top: 28px;
-            right: -26px;
-            width: 14px;
-            height: 14px;
-            border-top: 3px solid #FF5A1F;
-            border-right: 3px solid #FF5A1F;
-            transform: rotate(45deg);
+            font-size: 88px;
+            font-weight: 900;
+            line-height: 0.85;
+            letter-spacing: -4px;
+            color: rgba(255, 90, 31, 0.15);
+            margin-bottom: -26px;
+            user-select: none;
         }
 
         .step h3 {
+            position: relative;
+            z-index: 1;
             font-size: 20px;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 12px;
             color: #0d0d0d;
         }
 
         .step p {
+            position: relative;
+            z-index: 1;
             font-size: 15px;
             color: #666666;
             line-height: 1.7;
@@ -964,9 +955,10 @@ html {
         }
 
         .footer-brand .footer-logo img {
-            height: 40px;
+            height: 44px;
             width: auto;
             margin-bottom: 12px;
+            display: block;
         }
 
         .footer-brand .tagline {
@@ -1057,16 +1049,8 @@ html {
             }
 
             .steps {
-                flex-wrap: wrap;
-                gap: 40px;
-            }
-
-            .step {
-                flex: 1 1 260px;
-            }
-
-            .step:not(:last-child)::after {
-                display: none;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
             }
         }
 
@@ -1092,17 +1076,25 @@ html {
                 grid-template-columns: 1fr;
             }
 
+            .nav-logo img {
+                height: 40px;
+            }
+
+            .footer-brand .footer-logo img {
+                height: 38px;
+            }
+
+            .footer-links a {
+                padding: 11px 0;
+            }
+
             .steps {
-                flex-direction: column;
-                gap: 40px;
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            .steps::before {
-                display: none;
-            }
-
-            .step:not(:last-child)::after {
-                display: none;
+            .step-number {
+                font-size: 80px;
             }
 
             .avatar-cta-row {
@@ -1183,7 +1175,7 @@ html {
 
         @media (max-width: 480px) {
             .hero {
-                padding: 140px 0 80px;
+                padding: 132px 0 72px;
             }
 
             .hero-ctas {
@@ -1193,6 +1185,14 @@ html {
 
             .hero-ctas .btn-orange,
             .hero-ctas .btn-ghost {
+                text-align: center;
+            }
+
+            .comparison-cta .btn-orange,
+            .founder-text .btn-ghost,
+            .final-cta .btn-cta {
+                display: block;
+                width: 100%;
                 text-align: center;
             }
 
@@ -1207,6 +1207,26 @@ html {
 
             .stat-item {
                 padding: 28px 16px;
+            }
+
+            .services,
+            .founder,
+            .comparison,
+            .how-it-works,
+            .faq {
+                padding: 72px 0;
+            }
+
+            .service-row {
+                padding: 44px 0;
+            }
+
+            .final-cta {
+                padding: 64px 16px;
+            }
+
+            .final-cta-card {
+                padding: 36px 20px;
             }
         }
         /* CTA Section Animations */
@@ -1250,7 +1270,7 @@ html {
             "@type": "ImageObject",
             "url": "https://scalenational.com/logo.png"
           },
-          "description": "Founder-led Meta ads consultancy. Eric builds and runs client campaigns inside the client's own ad account, alongside their in-house team: account architecture, Pixel and Conversions API tracking, creative strategy, and campaign management. The client owns the account, the data, and the skill.",
+          "description": "Founder-led Meta ads coaching. Eric works alongside client teams in live sessions inside their own ad account, showing them how to run account architecture, Pixel and Conversions API tracking, creative strategy, and campaign management. The client owns the account, the data, and the skill.",
           "founder": {
             "@type": "Person",
             "name": "Eric",
@@ -1280,11 +1300,11 @@ html {
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#" class="nav-logo">
-                <img src="logo.png" alt="Scale National" style="height:38px;width:auto;">
+                <img src="logo-nav.png" alt="Scale National">
             </a>
             <ul class="nav-links">
                 <li><a href="#what-we-do">What We Do</a></li>
-                <li><a href="#founder">Who You Work With</a></li>
+                <li><a href="#founder">Who You'll Work With</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
@@ -1302,7 +1322,7 @@ html {
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#what-we-do" onclick="toggleMenu()">What We Do</a>
-        <a href="#founder" onclick="toggleMenu()">Who You Work With</a>
+        <a href="#founder" onclick="toggleMenu()">Who You'll Work With</a>
         <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
         <a href="#faq" onclick="toggleMenu()">FAQ</a>
         <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
@@ -1313,10 +1333,10 @@ html {
         <div class="container">
             <div class="hero-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                Meta Ads &middot; Done With You, In Your Account
+                Meta Ads &middot; Live Working Sessions, In Your Account
             </div>
-            <h1>We build and run your Meta ads.<br><span class="orange">In your account, with your team.</span></h1>
-            <p class="sub">Eric, the founder, does the heavy lifting: account architecture, Pixel and CAPI tracking, creative planning, campaign builds, and launch. Then he manages the ads alongside your in-house team until they can run it without him. You own the account, the data, and the skill.</p>
+            <h1>Your team runs your Meta ads.<br><span class="orange">I show them exactly how.</span></h1>
+            <p class="sub">Not a done-for-you black box. Not a video course. I work alongside your team in live sessions, inside your own ad account: architecture, Pixel and CAPI tracking, creative, campaign builds, launches, and scaling calls. Their hands on the keyboard, my eyes on every move. You own the account, the data, and the skill.</p>
 
             <div class="hero-ctas" style="justify-content:center;">
                 <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call with the Founder</a>
@@ -1329,7 +1349,7 @@ html {
                 </div>
                 <div class="avatar-cta-text">
                     <strong>Book a call with Eric, the founder</strong>
-                    You'll talk to the person who'd actually be in your ad account.
+                    You'll talk to the person who'll be in the working sessions with your team.
                 </div>
             </div>
         </div>
@@ -1340,22 +1360,18 @@ html {
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
                     <div class="stat-number">50k+ followers</div>
                     <div class="stat-label">Combined audience on Eric's personal brand</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
                     <div class="stat-number">Multiple companies</div>
                     <div class="stat-label">Meta ads run across different industries, legal to home services</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
                     <div class="stat-number">Founder-led</div>
-                    <div class="stat-label">Eric does the work himself, no account managers</div>
+                    <div class="stat-label">Every working session is with Eric, no account managers</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
                     <div class="stat-number">Month to month</div>
                     <div class="stat-label">Flat fee, no lock-in, leave anytime with everything</div>
                 </div>
@@ -1368,8 +1384,8 @@ html {
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-eyebrow">What We Do</span>
-                <h2>We figure it out for you, in your account</h2>
-                <p>I build and run it. Your team works next to me on live campaigns and learns as we go. Four phases, all inside your Business Manager.</p>
+                <h2>Your team learns it by doing it, in your account</h2>
+                <p>Your team's hands are on the keyboard. I sit with them on live campaigns and show them exactly what to do. Four phases, all inside your Business Manager.</p>
             </div>
             <div class="services-features">
 
@@ -1378,29 +1394,29 @@ html {
                     <div class="service-content">
                         <span class="phase-label">01 &middot; Build</span>
                         <h3>The account and the tracking, set up right</h3>
-                        <p>I start in your Business Manager. Clean account architecture first: campaign structure, naming, and budget logic that stays readable as spend grows. Then tracking: Pixel and Conversions API installed and deduplicated, with events mapped to what a lead is actually worth to you. Bad data quietly wastes ad budget, so this comes before anything else.</p>
+                        <p>We start in your Business Manager, on a screen share. Your person builds the account architecture while I direct every step: campaign structure, naming, and budget logic that stays readable as spend grows. Then tracking: they install the Pixel and Conversions API with me checking every event, deduplicated and mapped to what a lead is actually worth to you. Bad data quietly wastes ad budget, so this comes first.</p>
                     </div>
                     <div class="service-feature-card">
-                        <div style="width:100%;max-width:280px;">
-                            <div style="background:#1a1a1a;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;">
-                                <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Your Business Manager</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="font-size:11px;color:#FF5A1F;font-weight:700;">01</span>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Prospecting &middot; Advantage+</span>
-                                    <span style="margin-left:auto;background:#28a745;border-radius:50px;padding:2px 8px;font-size:9px;color:#fff;font-weight:600;">Active</span>
+                        <div style="width:100%;max-width:300px;">
+                            <div style="background:#1c1c1c;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;">
+                                <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Your Business Manager</div>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
+                                    <span style="font-size:12px;color:#FF5A1F;font-weight:700;">01</span>
+                                    <span style="font-size:12px;color:rgba(255,255,255,0.85);">Prospecting &middot; Advantage+</span>
+                                    <span style="margin-left:auto;background:#28a745;border-radius:50px;padding:3px 9px;font-size:10px;color:#fff;font-weight:600;">Active</span>
                                 </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="font-size:11px;color:#FF5A1F;font-weight:700;">02</span>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Retargeting &middot; Engaged 30d</span>
-                                    <span style="margin-left:auto;background:#28a745;border-radius:50px;padding:2px 8px;font-size:9px;color:#fff;font-weight:600;">Active</span>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
+                                    <span style="font-size:12px;color:#FF5A1F;font-weight:700;">02</span>
+                                    <span style="font-size:12px;color:rgba(255,255,255,0.85);">Retargeting &middot; Engaged 30d</span>
+                                    <span style="margin-left:auto;background:#28a745;border-radius:50px;padding:3px 9px;font-size:10px;color:#fff;font-weight:600;">Active</span>
                                 </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="font-size:11px;color:#fff;font-weight:700;">Lead</span>
-                                    <span style="font-size:10px;color:rgba(255,255,255,0.5);">Pixel + CAPI &middot; Deduplicated</span>
-                                    <span style="margin-left:auto;color:#28a745;font-size:12px;font-weight:700;">&#10003;</span>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
+                                    <span style="font-size:12px;color:#fff;font-weight:700;">Lead</span>
+                                    <span style="font-size:11px;color:rgba(255,255,255,0.55);">Pixel + CAPI &middot; Deduplicated</span>
+                                    <span style="margin-left:auto;color:#28a745;font-size:13px;font-weight:700;">&#10003;</span>
                                 </div>
                             </div>
-                            <div style="font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:12px;">Structure and tracking, built to stay readable.</div>
+                            <div style="font-size:12px;color:rgba(255,255,255,0.5);text-align:center;margin-top:12px;">Your team builds it. I check every line.</div>
                         </div>
                     </div>
                 </div>
@@ -1410,34 +1426,34 @@ html {
                     <div class="service-content">
                         <span class="phase-label">02 &middot; Launch</span>
                         <h3>Creative planned, first campaigns live</h3>
-                        <p>We plan the creative together: hooks, angles, formats, and what to test first. Then I build the campaigns and we launch them on a screen share, in your account, with real budget. Your team is next to me for every decision, from audiences to bids to budget structure.</p>
+                        <p>We plan the creative together: hooks, angles, formats, and what to test first. Then your team builds the campaigns in live sessions with my eyes on every setting, and hits publish with real budget. I explain every decision as it happens, from audiences to bids to budget structure, so they know why, not just what.</p>
                     </div>
                     <div class="service-feature-card">
-                        <div style="width:100%;max-width:280px;">
-                            <div style="background:#1a1a1a;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;">
-                                <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Launch day</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="color:#28a745;font-size:12px;font-weight:700;">&#9745;</span>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Objective &amp; budget</span>
+                        <div style="width:100%;max-width:300px;">
+                            <div style="background:#1c1c1c;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;">
+                                <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Launch day</div>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
+                                    <span style="color:#28a745;font-size:13px;font-weight:700;">&#10003;</span>
+                                    <span style="font-size:12px;color:rgba(255,255,255,0.85);">Objective &amp; budget</span>
                                 </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="color:#28a745;font-size:12px;font-weight:700;">&#9745;</span>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Audiences &amp; placements</span>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
+                                    <span style="color:#28a745;font-size:13px;font-weight:700;">&#10003;</span>
+                                    <span style="font-size:12px;color:rgba(255,255,255,0.85);">Audiences &amp; placements</span>
                                 </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="color:#28a745;font-size:12px;font-weight:700;">&#9745;</span>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Creative &amp; copy</span>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
+                                    <span style="color:#28a745;font-size:13px;font-weight:700;">&#10003;</span>
+                                    <span style="font-size:12px;color:rgba(255,255,255,0.85);">Creative &amp; copy</span>
                                 </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="color:#28a745;font-size:12px;font-weight:700;">&#9745;</span>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.8);">Tracking check</span>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
+                                    <span style="color:#28a745;font-size:13px;font-weight:700;">&#10003;</span>
+                                    <span style="font-size:12px;color:rgba(255,255,255,0.85);">Tracking check</span>
                                 </div>
-                                <div style="background:#FF5A1F;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="color:#fff;font-size:12px;font-weight:700;">&#8594;</span>
-                                    <span style="font-size:11px;color:#fff;font-weight:600;">Publish, live in your account</span>
+                                <div style="background:#FF5A1F;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
+                                    <span style="color:#fff;font-size:13px;font-weight:700;">&#8594;</span>
+                                    <span style="font-size:12px;color:#fff;font-weight:600;">Publish, live in your account</span>
                                 </div>
                             </div>
-                            <div style="font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:12px;">Launched together on a screen share.</div>
+                            <div style="font-size:12px;color:rgba(255,255,255,0.5);text-align:center;margin-top:12px;">Your person hits publish. I'm on the call.</div>
                         </div>
                     </div>
                 </div>
@@ -1446,19 +1462,19 @@ html {
                 <div class="service-row" data-aos="fade-up">
                     <div class="service-content">
                         <span class="phase-label">03 &middot; Run</span>
-                        <h3>I manage the ads with your team</h3>
-                        <p>Launch isn't a handoff. I manage the account alongside your in-house person: weekly working sessions on live campaigns, budget moves, creative refreshes, and the kill or scale calls. They learn the judgment by making real decisions with me, on your data, while the ads keep producing.</p>
+                        <h3>Your team runs it, I keep it sharp</h3>
+                        <p>Launch isn't the finish line. Weekly working sessions on live campaigns: your person proposes the budget moves, creative refreshes, and the kill or scale calls, and I confirm or correct them before anything goes in. They build real judgment on your data, while the ads keep producing.</p>
                     </div>
                     <div class="service-feature-card">
-                        <div style="width:100%;max-width:280px;">
-                            <div style="background:#1a1a1a;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;">
-                                <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Weekly working session</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,0.8);"><span style="color:#fff;font-weight:700;">CPM up:</span> auction pressure. Hold steady.</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,0.8);"><span style="color:#fff;font-weight:700;">CTR down:</span> creative fatigue. Refresh it.</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,0.8);"><span style="color:#fff;font-weight:700;">CPL over target 7 days:</span> kill it.</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,0.8);"><span style="color:#fff;font-weight:700;">CPL under target, stable:</span> scale 20%.</div>
+                        <div style="width:100%;max-width:300px;">
+                            <div style="background:#1c1c1c;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;">
+                                <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Weekly working session</div>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;font-size:12px;color:rgba(255,255,255,0.85);"><span style="color:#fff;font-weight:700;">CPM up:</span> auction pressure. Hold steady.</div>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;font-size:12px;color:rgba(255,255,255,0.85);"><span style="color:#fff;font-weight:700;">CTR down:</span> creative fatigue. Refresh it.</div>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;font-size:12px;color:rgba(255,255,255,0.85);"><span style="color:#fff;font-weight:700;">CPL over target 7 days:</span> kill it.</div>
+                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;font-size:12px;color:rgba(255,255,255,0.85);"><span style="color:#fff;font-weight:700;">CPL under target, stable:</span> scale 20%.</div>
                             </div>
-                            <div style="font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:12px;">Real calls, made together on live spend.</div>
+                            <div style="font-size:12px;color:rgba(255,255,255,0.5);text-align:center;margin-top:12px;">Their call first, my check, then it ships.</div>
                         </div>
                     </div>
                 </div>
@@ -1468,18 +1484,18 @@ html {
                     <div class="service-content">
                         <span class="phase-label">04 &middot; Own</span>
                         <h3>Your team takes the wheel</h3>
-                        <p>As your person gets confident, I hand over more of the account. I go from builder to reviewer to advisor, on purpose. You end up with a trained team, a written playbook, and an ad account you fully own. I stay available after that, but you won't be dependent on me.</p>
+                        <p>As your person gets confident, they need me less. I go from guide to reviewer to advisor, on purpose. You end up with a trained team, a written playbook, and an ad account you fully own. I stay available after that, but you won't be dependent on me.</p>
                     </div>
                     <div class="service-feature-card">
-                        <div style="width:100%;max-width:280px;">
-                            <div style="background:#1a1a1a;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px;">
-                                <div style="font-size:12px;font-weight:700;color:#fff;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.1);">The handoff playbook</div>
-                                <div style="font-size:11px;color:rgba(255,255,255,0.7);"><span style="color:#FF5A1F;font-weight:700;">1.</span> Budget steps that don't reset learning</div>
-                                <div style="font-size:11px;color:rgba(255,255,255,0.7);"><span style="color:#FF5A1F;font-weight:700;">2.</span> Duplicate winners vs. raise budgets</div>
-                                <div style="font-size:11px;color:rgba(255,255,255,0.7);"><span style="color:#FF5A1F;font-weight:700;">3.</span> Creative refresh cadence</div>
-                                <div style="font-size:11px;color:rgba(255,255,255,0.7);"><span style="color:#FF5A1F;font-weight:700;">4.</span> What to do when performance dips</div>
+                        <div style="width:100%;max-width:300px;">
+                            <div style="background:#1c1c1c;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:11px;">
+                                <div style="font-size:13px;font-weight:700;color:#fff;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,0.1);">Your playbook</div>
+                                <div style="font-size:12px;color:rgba(255,255,255,0.75);"><span style="color:#FF5A1F;font-weight:700;">1.</span> Budget steps that don't reset learning</div>
+                                <div style="font-size:12px;color:rgba(255,255,255,0.75);"><span style="color:#FF5A1F;font-weight:700;">2.</span> Duplicate winners vs. raise budgets</div>
+                                <div style="font-size:12px;color:rgba(255,255,255,0.75);"><span style="color:#FF5A1F;font-weight:700;">3.</span> Creative refresh cadence</div>
+                                <div style="font-size:12px;color:rgba(255,255,255,0.75);"><span style="color:#FF5A1F;font-weight:700;">4.</span> What to do when performance dips</div>
                             </div>
-                            <div style="font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:12px;">Documented as we go. Yours to keep.</div>
+                            <div style="font-size:12px;color:rgba(255,255,255,0.5);text-align:center;margin-top:12px;">Documented as we go. Yours to keep.</div>
                         </div>
                     </div>
                 </div>
@@ -1496,18 +1512,17 @@ html {
                     <img src="eric-profile.jpg" alt="Eric, founder of Scale National">
                 </div>
                 <div class="founder-text" data-aos="fade-up" data-aos-delay="100">
-                    <span class="section-eyebrow">Who You're Working With</span>
-                    <h2>I'm Eric. It's just me, on purpose.</h2>
-                    <p>Scale National is a one-person company. When you book a call, you talk to me. When campaigns get built, I build them. There's no sales team and no junior media buyer behind the curtain. The person who sells the work is the person who does it.</p>
-                    <p>I run a personal brand with over 50k combined followers. I grew that audience myself, making content and studying what makes people stop scrolling. That's the same muscle that makes ads perform, and it goes into every creative plan I write for a client.</p>
+                    <span class="section-eyebrow">Who You'll Be Working With</span>
+                    <h2>I'm Eric. You'll work with me directly.</h2>
+                    <p>When you book a call, you talk to me. When your team is in a working session, I'm the one on the other side of the screen. No sales team, no junior media buyer behind the curtain. The person who sells the engagement is the person who shows up to every session.</p>
+                    <p>I run a personal brand with over 50k combined followers. I grew that audience myself, making content and studying what makes people stop scrolling. That's the same muscle that makes ads perform, and it goes into every creative plan we build together.</p>
                     <p>On the paid side, I've run Meta ads for multiple companies across different industries. My deepest work right now is legal intake for class action and mass tort campaigns, where execution decides what a qualified claimant costs. Before that it was home services and other lead-driven businesses.</p>
                     <div class="founder-facts">
                         <span>50k+ combined followers</span>
                         <span>Multi-industry media buyer</span>
                         <span>Current focus: class action intake</span>
-                        <span>Solo founder</span>
                     </div>
-                    <p>I keep the roster small so I can go deep in each account. If what you need isn't a fit for how I work, I'll tell you on the first call and point you somewhere better.</p>
+                    <p>I keep the roster small so I can go deep with each team. If what you need isn't a fit for how I work, I'll tell you on the first call and point you somewhere better.</p>
                     <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-ghost">Book a Call with Eric</a>
                 </div>
             </div>
@@ -1519,7 +1534,7 @@ html {
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-eyebrow">The Alternatives</span>
-                <h2>Built for you, run with you, owned by you</h2>
+                <h2>Run by your team, guided by me, owned by you</h2>
                 <p>An agency rents you results. Building in-house alone means paying for every lesson out of your own ad budget. This engagement is the third option.</p>
             </div>
             <div class="comparison-grid">
@@ -1546,7 +1561,7 @@ html {
                 <div class="comparison-col highlight" data-aos="fade-up" data-aos-delay="300">
                     <h3>Scale National</h3>
                     <ul>
-                        <li><strong class="row-label">Who does the work</strong>I do, with your in-house person working next to me</li>
+                        <li><strong class="row-label">Who does the work</strong>Your in-house person, with me guiding them in every session</li>
                         <li><strong class="row-label">Where it's built</strong>Your account and your Business Manager, from day one</li>
                         <li><strong class="row-label">What your team learns</strong>Everything, on live campaigns, while the ads are producing</li>
                         <li><strong class="row-label">How it's priced</strong>A flat monthly fee, month to month. Never a percentage of spend</li>
@@ -1556,7 +1571,7 @@ html {
             </div>
             <div class="comparison-cta" data-aos="fade-up">
                 <h3>See it against your own account.</h3>
-                <p>Book 30 minutes with me. Bring your ad account, and I'll show you exactly where I'd start in it.</p>
+                <p>Book 30 minutes with me. Bring your ad account, and I'll show you exactly where we'd start in it.</p>
                 <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call with the Founder</a>
             </div>
         </div>
@@ -1571,22 +1586,22 @@ html {
             </div>
             <div class="steps">
                 <div class="step" data-aos="fade-up" data-aos-delay="100">
-                    <div class="step-number">1</div>
+                    <div class="step-number">01</div>
                     <h3>Call and audit</h3>
-                    <p>We talk, then I go through your ad account, pixel, and spend history. You get a straight read on what's broken, what's fine, and what I'd build first.</p>
+                    <p>We talk, then I go through your ad account, pixel, and spend history. You get a straight read on what's broken, what's fine, and what we'd tackle first.</p>
                 </div>
                 <div class="step" data-aos="fade-up" data-aos-delay="200">
-                    <div class="step-number">2</div>
-                    <h3>Build</h3>
-                    <p>I set up the account architecture, the Pixel and Conversions API tracking, and the creative plan inside your Business Manager. Your team sees every step go in.</p>
+                    <div class="step-number">02</div>
+                    <h3>Build together</h3>
+                    <p>Your team sets up the account architecture, the Pixel and Conversions API tracking, and the creative plan inside your Business Manager, with me directing every step on screen shares.</p>
                 </div>
                 <div class="step" data-aos="fade-up" data-aos-delay="300">
-                    <div class="step-number">3</div>
-                    <h3>Launch and run together</h3>
-                    <p>First campaigns go live on a screen share. Then weekly working sessions: I manage the account with your in-house person, on live campaigns and real budget.</p>
+                    <div class="step-number">03</div>
+                    <h3>Launch and run</h3>
+                    <p>First campaigns go live in a session together. Then weekly working sessions: your person makes the moves on live campaigns and real budget, and I make sure they're the right ones.</p>
                 </div>
                 <div class="step" data-aos="fade-up" data-aos-delay="400">
-                    <div class="step-number">4</div>
+                    <div class="step-number">04</div>
                     <h3>Your team owns it</h3>
                     <p>My role shrinks by design. By the end, your person is making the calls and I'm the one reviewing their work, not the other way around.</p>
                 </div>
@@ -1608,7 +1623,7 @@ html {
                         Do you run the ads or just teach us?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">I do both. I set up the account, build the campaigns, and manage them myself, inside your ad account. Your team learns by working next to me on those live campaigns, not from recordings. By the end they can run it without me, and everything we built stays with you.</div>
+                    <div class="faq-answer">I teach by working alongside you on your live campaigns. You run them, I make sure you run them right. Your team makes every change in your own ad account with me in the session, guiding and course-correcting in real time, so the skill actually sticks. Nothing here is a recorded course, and nothing gets done behind your back.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
@@ -1616,7 +1631,7 @@ html {
                         What if we don't have an in-house person yet?
                         <span class="icon">+</span>
                     </div>
-                    <div class="faq-answer">That's fine, and it's common. I carry the account while you hire, and I'll help you write the role and screen candidates for real signal. A sharp marketer with no ads experience often beats a self-taught expert with bad habits. Building the skill is my job.</div>
+                    <div class="faq-answer">That's fine, and it's common. We start the working sessions with whoever will touch the account for now, often that's the founder, and I'll help you write the role and screen candidates for real signal when you hire. A sharp marketer with no ads experience often beats a self-taught expert with bad habits. Building the skill is my job.</div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
@@ -1677,7 +1692,7 @@ html {
                             <span class="avail-text">Taking new engagements</span>
                         </div>
                         <h2>Let's look at your account.</h2>
-                        <p>A free 30-minute call with me, Eric. I'll go through what you're running, tell you what I'd build first, and give you a straight answer on whether this fits. If it doesn't, you keep the notes anyway.</p>
+                        <p>A free 30-minute call with me, Eric. I'll go through what you're running, tell you what we'd fix first, and give you a straight answer on whether this fits. If it doesn't, you keep the notes anyway.</p>
                     </div>
                     <div class="final-cta-right cta-actions">
                         <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-cta">Book a Call with the Founder</a>
@@ -1694,9 +1709,9 @@ html {
             <div class="footer-inner">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="logo.png" alt="Scale National" style="height:38px;width:auto;">
+                        <img src="logo-nav.png" alt="Scale National">
                     </div>
-                    <div class="tagline">Meta ads built and run with your team, by the founder. Your account, your data, your skill.</div>
+                    <div class="tagline">Your team runs your Meta ads. I show them how.<br>Your account, your data, your skill.</div>
                 </div>
                 <div class="footer-contact">
                     Email: <a href="mailto:info@scalenational.com">info@scalenational.com</a><br>
@@ -1704,7 +1719,7 @@ html {
                 </div>
                 <div class="footer-links">
                     <a href="#what-we-do">What We Do</a>
-                    <a href="#founder">Who You Work With</a>
+                    <a href="#founder">Who You'll Work With</a>
                     <a href="#how-it-works">How It Works</a>
                     <a href="#faq">FAQ</a>
                     <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}">Book a Call</a>
