@@ -260,6 +260,7 @@ html {
             color: #ffffff;
             font-size: 20px;
             font-weight: 600;
+            padding: 8px 16px;
         }
 
         .mobile-menu a:hover {
@@ -777,6 +778,11 @@ html {
             color: #FF5A1F;
         }
 
+        .faq-question:focus-visible {
+            outline: 2px solid #FF5A1F;
+            outline-offset: 4px;
+        }
+
         .faq-question .icon {
             font-size: 24px;
             color: #FF5A1F;
@@ -1170,6 +1176,13 @@ html {
 
             .founder-facts {
                 justify-content: center;
+            }
+
+            .final-cta .phone-cta a,
+            .footer-contact a {
+                display: inline-block;
+                padding: 10px 4px;
+                margin: -6px 0;
             }
         }
 
@@ -1582,7 +1595,7 @@ html {
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2>How an engagement runs</h2>
-                <p>Four phases, from first call to full ownership.</p>
+                <p>From first call to full ownership, step by step.</p>
             </div>
             <div class="steps">
                 <div class="step" data-aos="fade-up" data-aos-delay="100">
@@ -1619,7 +1632,7 @@ html {
             <div class="faq-list">
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
                         Do you run the ads or just teach us?
                         <span class="icon">+</span>
                     </div>
@@ -1627,7 +1640,7 @@ html {
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
-                    <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
                         What if we don't have an in-house person yet?
                         <span class="icon">+</span>
                     </div>
@@ -1635,7 +1648,7 @@ html {
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
                         Who owns the ad account?
                         <span class="icon">+</span>
                     </div>
@@ -1643,7 +1656,7 @@ html {
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
-                    <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
                         What do you need from us?
                         <span class="icon">+</span>
                     </div>
@@ -1651,7 +1664,7 @@ html {
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
                         How is it priced?
                         <span class="icon">+</span>
                     </div>
@@ -1659,7 +1672,7 @@ html {
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
-                    <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
                         How long until our team runs it without you?
                         <span class="icon">+</span>
                     </div>
@@ -1667,7 +1680,7 @@ html {
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
                         Who is this wrong for?
                         <span class="icon">+</span>
                     </div>
@@ -1757,9 +1770,13 @@ html {
         function toggleFaq(el) {
             const item = el.parentElement;
             document.querySelectorAll('.faq-item.open').forEach(i => {
-                if (i !== item) i.classList.remove('open');
+                if (i !== item) {
+                    i.classList.remove('open');
+                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                }
             });
             item.classList.toggle('open');
+            el.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
         }
 
         // CTA section slide-in animation
