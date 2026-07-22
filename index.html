@@ -137,18 +137,15 @@ body.menu-open{overflow:hidden;}
 .hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px);background-size:26px 26px;pointer-events:none;}
 .hero-inner{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;}
 .hero-solo{grid-template-columns:1fr;max-width:780px;text-align:center;}
-.hero-solo .kicker{justify-content:center;}
 .hero-solo .hero-sub{margin-inline:auto;}
-.hero-solo .hero-ctas{flex-direction:column;justify-content:center;}
-.kicker{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:12px;letter-spacing:2.5px;color:var(--orange);text-transform:uppercase;margin-bottom:18px;}
-.kicker::before{content:'';width:26px;height:3px;background:var(--orange);border-radius:2px;}
+.hero-solo .hero-ctas{justify-content:center;align-items:center;gap:22px;margin-bottom:22px;}
 .hero h1{font-size:clamp(38px,4.8vw,60px);color:#fff;margin-bottom:20px;letter-spacing:-1.5px;}
 .hero h1 .orange{color:var(--orange);}
 .hero-sub{font-size:clamp(17px,1.6vw,19px);color:rgba(255,255,255,0.72);max-width:480px;margin-bottom:32px;line-height:1.65;}
 .hero-ctas{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
 .hero-tel{font-size:15px;color:rgba(255,255,255,0.6);font-weight:600;}
 .hero-tel a{color:#fff;font-weight:700;border-bottom:2px solid var(--orange);padding-bottom:1px;}
-.avatar-cta{display:flex;align-items:center;gap:14px;justify-content:center;margin-top:28px;margin-bottom:22px;text-align:left;}
+.avatar-cta{display:flex;align-items:center;gap:12px;text-align:left;}
 .avatar-circle{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex-shrink:0;}
 .avatar-text strong{display:block;color:#fff;font-size:15px;font-weight:700;}
 .avatar-text span{color:rgba(255,255,255,0.6);font-size:13.5px;font-weight:600;}
@@ -188,7 +185,6 @@ body.menu-open{overflow:hidden;}
 .sec-head h2{font-size:clamp(30px,4vw,44px);margin-bottom:12px;letter-spacing:-1px;}
 .sec-head p{font-size:17px;color:var(--gray);}
 .sec-head.center{text-align:center;margin-inline:auto;}
-.sec-head.center .kicker{justify-content:center;}
 .how-row{display:flex;justify-content:center;align-items:flex-start;gap:18px;max-width:960px;margin:0 auto;}
 .how-step{flex:1;text-align:center;padding:0 10px;}
 .how-circle{width:58px;height:58px;border-radius:50%;background:var(--orange);color:#fff;font-weight:900;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 10px 24px rgba(255,90,31,0.3);}
@@ -292,15 +288,14 @@ body.menu-open{overflow:hidden;}
 <header class="hero">
   <div class="hero-inner hero-solo">
     <div>
-      <span class="kicker" data-aos="fade-up">Meta Ads Lead Generation</span>
       <h1 data-aos="fade-up" data-aos-delay="50">Get leads with Meta ads. <span class="orange">We teach your team how.</span></h1>
       <p class="hero-sub" data-aos="fade-up" data-aos-delay="100">Hands-on training in your own ad account until your team runs lead campaigns without us.</p>
       <div class="hero-ctas" data-aos="fade-up" data-aos-delay="150">
         <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Call</a>
-      </div>
-      <div class="avatar-cta" data-aos="fade-up" data-aos-delay="200">
-        <img class="avatar-circle" src="eric.jpg" alt="Eric, founder of Scale National" width="1280" height="1273">
-        <span class="avatar-text"><strong>You'll talk with Eric.</strong><span>No pressure, just a thoughtful chat.</span></span>
+        <div class="avatar-cta">
+          <img class="avatar-circle" src="eric.jpg" alt="Eric, founder of Scale National" width="1280" height="1273">
+          <span class="avatar-text"><strong>You'll talk with Eric.</strong><span>No pressure, just a thoughtful chat.</span></span>
+        </div>
       </div>
       <p class="hero-tel" data-aos="fade-up" data-aos-delay="250">Or call/text <a href="tel:+18887744290">(888) 774-4290</a></p>
     </div>
@@ -338,7 +333,6 @@ body.menu-open{overflow:hidden;}
 <section class="what" id="what">
   <div class="container">
     <div class="sec-head" data-aos="fade-up">
-      <span class="kicker">01 &middot; The Process</span>
       <h2>How our Meta ads training works</h2>
       <p>Three steps from zero to your own lead machine.</p>
     </div>
@@ -372,7 +366,6 @@ body.menu-open{overflow:hidden;}
         <img src="eric-profile.jpg" alt="Eric, founder of Scale National" width="1280" height="1279" loading="lazy">
       </div>
       <div>
-        <span class="kicker">02 &middot; Your Coach</span>
         <h2>Learn from an expert marketer</h2>
         <p class="team-name">Eric &middot; Founder, Scale National</p>
         <ul class="team-facts">
@@ -395,7 +388,6 @@ body.menu-open{overflow:hidden;}
 <section class="faq" id="faq">
   <div class="container">
     <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker">03 &middot; FAQ</span>
       <h2>Meta ads training FAQ</h2>
     </div>
     <div class="faq-list" data-aos="fade-up">
