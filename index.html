@@ -190,11 +190,9 @@ body.menu-open{overflow:hidden;}
 
 /* ---------- Team ---------- */
 .team{background:var(--off);padding:96px 0;}
-.team-panel{background:var(--black);border-radius:26px;padding:clamp(32px,5vw,56px);display:grid;grid-template-columns:300px 1fr;gap:clamp(32px,5vw,56px);align-items:center;color:#fff;position:relative;overflow:hidden;}
+.team-panel{background:var(--black);border-radius:26px;padding:clamp(36px,5vw,56px);color:#fff;position:relative;overflow:hidden;}
 .team-panel::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.05) 1px,transparent 1px);background-size:26px 26px;pointer-events:none;}
 .team-panel>*{position:relative;z-index:1;}
-.team-photo{border-radius:18px;overflow:hidden;box-shadow:10px 10px 0 rgba(255,90,31,0.9);}
-.team-photo img{width:100%;height:auto;display:block;}
 .team-panel h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:8px;color:#fff;}
 .team-name{font-weight:700;font-size:16px;color:var(--orange);margin-bottom:20px;}
 .team-facts{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:26px;}
@@ -248,8 +246,6 @@ body.menu-open{overflow:hidden;}
 @media(max-width:900px){
         .how-row{flex-direction:column;align-items:center;gap:32px;}
   .how-arrow{transform:rotate(135deg);margin:0;}
-  .team-panel{grid-template-columns:1fr;gap:32px;}
-  .team-photo{max-width:260px;}
   .footer-grid{grid-template-columns:1fr;gap:32px;}
   .hero{padding:64px 0 64px;}
   .final-cta-card{padding:40px 24px;}
@@ -372,9 +368,6 @@ body.menu-open{overflow:hidden;}
 <section class="team" id="team">
   <div class="container">
     <div class="team-panel" data-aos="fade-up">
-      <div class="team-photo">
-        <img src="eric-profile.jpg" alt="Eric, founder of Scale National" width="1280" height="1279" loading="lazy">
-      </div>
       <div>
         <h2>Learn from an expert marketer</h2>
         <p class="team-name">Eric &middot; Founder, Scale National</p>
