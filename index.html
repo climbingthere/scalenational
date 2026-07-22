@@ -56,7 +56,26 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   "description": "We teach companies to get leads with Meta ads and scale their business. Hands-on training in your own ad account.",
   "email": "info@scalenational.com",
   "telephone": "+18887744290",
-  "sameAs": ["https://www.facebook.com/scalenational", "https://www.instagram.com/scalenational"]
+  "sameAs": ["https://www.facebook.com/scalenational", "https://www.instagram.com/scalenational"],
+  "founder": { "@type": "Person", "name": "Eric", "jobTitle": "Founder", "description": "Expert marketer with 50k+ followers across all platforms. Teaches companies to generate leads with Meta ads." }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do you run the ads for us or teach us?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We run them with you. Your team makes the changes and we guide every move. That's how they learn." } },
+    { "@type": "Question", "name": "What if we don't have a team yet?",
+      "acceptedAnswer": { "@type": "Answer", "text": "One person is enough. If you need to hire, we'll help you pick the right one." } },
+    { "@type": "Question", "name": "What do we need to start?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A Business Manager, an ad budget, and a few hours a week. We handle the rest of the setup with you." } },
+    { "@type": "Question", "name": "How much does Meta ads training cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Flat monthly fee, month to month. You get the exact number on the call." } },
+    { "@type": "Question", "name": "How long does it take to learn Meta ads?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most teams run their own lead campaigns within a few months. You keep everything either way." } }
+  ]
 }
 </script>
 
@@ -115,6 +134,7 @@ body.menu-open{overflow:hidden;}
 
 /* ---------- Hero ---------- */
 .hero{background:var(--black);color:#fff;position:relative;overflow:hidden;padding:88px 0 92px;}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px);background-size:26px 26px;pointer-events:none;}
 .hero-inner{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;}
 .hero-solo{grid-template-columns:1fr;max-width:780px;text-align:center;}
 .hero-solo .kicker{justify-content:center;}
@@ -128,6 +148,13 @@ body.menu-open{overflow:hidden;}
 .hero-ctas{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
 .hero-tel{font-size:15px;color:rgba(255,255,255,0.6);font-weight:600;}
 .hero-tel a{color:#fff;font-weight:700;border-bottom:2px solid var(--orange);padding-bottom:1px;}
+.avatar-cta{display:flex;align-items:center;gap:14px;justify-content:center;margin-top:30px;text-align:left;}
+.avatar-wrap{position:relative;width:52px;height:52px;flex-shrink:0;}
+.avatar-wrap img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--orange);}
+.avatar-wrap .dot{position:absolute;right:-1px;bottom:-1px;width:14px;height:14px;border-radius:50%;background:#2ecc71;border:2.5px solid var(--black);animation:blink 1.8s infinite;}
+.avatar-text strong{display:block;color:#fff;font-size:15px;font-weight:700;}
+.avail-txt{display:inline-flex;align-items:center;gap:6px;color:#2ecc71;font-size:12.5px;font-weight:700;}
+.avail-txt i{width:7px;height:7px;border-radius:50%;background:#2ecc71;box-shadow:0 0 8px rgba(46,204,113,0.9);animation:blink 1.8s infinite;}
 /* Ads Manager window */
 .win{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 34px 90px rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.08);}
 .win-bar{background:#1b1b1d;padding:11px 14px;display:flex;align-items:center;gap:7px;}
@@ -186,6 +213,8 @@ body.menu-open{overflow:hidden;}
 .stats .sec-head{margin-bottom:44px;}
 .proof-panel{background:var(--white);border:1px solid var(--line);border-radius:24px;box-shadow:0 16px 40px rgba(13,13,13,0.05);display:grid;grid-template-columns:repeat(3,1fr);padding:12px;}
 .proof-cell{padding:36px 20px;text-align:center;position:relative;}
+.proof-ico{width:46px;height:46px;border-radius:13px;background:rgba(255,90,31,0.1);color:var(--orange);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.proof-ico svg{width:24px;height:24px;}
 .proof-cell + .proof-cell::before{content:'';position:absolute;left:0;top:26%;bottom:26%;width:1px;background:var(--line);}
 .quote-card{max-width:720px;margin:36px auto 0;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px 40px;box-shadow:0 16px 40px rgba(13,13,13,0.05);position:relative;}
 .quote-card::before{content:'\201C';position:absolute;top:6px;left:22px;font-size:84px;font-weight:900;color:rgba(255,90,31,0.25);line-height:1;font-family:Georgia,serif;}
@@ -204,38 +233,51 @@ body.menu-open{overflow:hidden;}
 .sec-head.center{text-align:center;margin-inline:auto;}
 .sec-head.center .kicker{justify-content:center;}
 .how-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-.how-card{background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;box-shadow:0 8px 24px rgba(13,13,13,0.04);}
-.how-card:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(13,13,13,0.1);}
-.how-viz{height:132px;background:var(--off);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;}
-.how-body{padding:24px 26px 28px;}
-.step-chip{display:inline-block;background:rgba(255,90,31,0.12);color:var(--orange);font-weight:800;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;border-radius:999px;padding:5px 13px;margin-bottom:12px;}
-.how-body h3{font-weight:800;font-size:20px;margin-bottom:6px;letter-spacing:-0.3px;}
-.how-body p{font-size:15px;color:var(--gray);line-height:1.6;}
-.viz-tree{display:flex;flex-direction:column;gap:8px;width:150px;}
-.viz-tree i{height:15px;border-radius:5px;background:#e2e2e2;display:block;}
-.viz-tree .t1{width:100%;background:#c9c9c9;}
-.viz-tree .t2{width:76%;margin-left:12%;}
-.viz-tree .t3{width:76%;margin-left:12%;background:rgba(255,90,31,0.2);border:1.5px solid var(--orange);}
-.viz-launch{width:172px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 8px 18px rgba(13,13,13,0.07);}
-.viz-pill{font-size:12px;font-weight:800;color:#1a7f37;background:rgba(26,127,55,0.12);padding:3px 11px;border-radius:999px;}
-.viz-toggle{width:40px;height:22px;border-radius:999px;background:var(--orange);position:relative;}
-.viz-toggle::after{content:'';position:absolute;right:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;}
-.viz-bars{display:flex;align-items:flex-end;gap:9px;height:72px;}
-.viz-bars i{width:21px;border-radius:6px 6px 3px 3px;background:#d9d9d9;display:block;}
-.viz-bars .hot{background:var(--orange);}
+.how-card{background:#131316;border:1px solid rgba(255,255,255,0.07);border-radius:20px;overflow:hidden;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;}
+.how-card:hover{transform:translateY(-5px);border-color:rgba(255,90,31,0.5);box-shadow:0 26px 54px rgba(13,13,13,0.28);}
+.how-viz{height:158px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% -20%,rgba(255,90,31,0.12),transparent 70%);border-bottom:1px solid rgba(255,255,255,0.06);}
+.how-body{padding:22px 26px 28px;}
+.step-chip{display:inline-block;background:rgba(255,90,31,0.14);color:var(--orange);font-weight:800;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;border-radius:999px;padding:5px 13px;margin-bottom:12px;}
+.how-body h3{font-weight:800;font-size:20px;margin-bottom:6px;letter-spacing:-0.3px;color:#fff;}
+.how-body p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.6;}
+.mu{width:210px;background:#1c1c20;border:1px solid rgba(255,255,255,0.09);border-radius:13px;padding:11px;display:flex;flex-direction:column;gap:8px;box-shadow:0 16px 34px rgba(0,0,0,0.45);}
+.mu-head{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;color:#fff;padding:1px 3px 3px;}
+.mu-live{display:inline-flex;align-items:center;gap:5px;color:#2ecc71;font-size:10px;font-weight:800;}
+.mu-live i{width:6px;height:6px;border-radius:50%;background:#2ecc71;box-shadow:0 0 7px rgba(46,204,113,0.9);animation:blink 1.8s infinite;}
+.mu-row{display:flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;color:#cfd2d6;background:#26262b;border-radius:9px;padding:8px 10px;}
+.mu-row i{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.mu-row .ok{background:#2ecc71;box-shadow:0 0 7px rgba(46,204,113,0.8);}
+.mu-row .pend{background:#febc2e;}
+.mu-row b{margin-left:auto;font-size:9.5px;color:#2ecc71;font-weight:800;letter-spacing:0.3px;}
+.mu-row b.warm{color:#febc2e;}
+.mu-row b.dim2{color:#8a8f98;}
+.mu-toggle{width:27px;height:15px;border-radius:999px;background:var(--orange);position:relative;flex-shrink:0;}
+.mu-toggle::after{content:'';position:absolute;right:2px;top:2px;width:11px;height:11px;border-radius:50%;background:#fff;}
+.mu-toggle.off{background:#3a3a40;}
+.mu-toggle.off::after{right:auto;left:2px;}
+.mu-bars{display:flex;align-items:flex-end;gap:7px;height:58px;padding:4px 3px 0;}
+.mu-bars i{flex:1;border-radius:4px 4px 2px 2px;background:#33333a;}
+.mu-bars .b1{height:34%;}.mu-bars .b2{height:52%;}.mu-bars .b3{height:44%;}
+.mu-bars .hot1{height:70%;background:linear-gradient(180deg,#ff7a45,var(--orange));}
+.mu-bars .hot2{height:100%;background:linear-gradient(180deg,#ff7a45,var(--orange));box-shadow:0 0 14px rgba(255,90,31,0.45);}
 .what-cta{text-align:center;margin-top:48px;}
 
 /* ---------- Team ---------- */
 .team{background:var(--off);padding:96px 0;}
-.team-grid{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center;}
+.team-panel{background:var(--black);border-radius:26px;padding:clamp(32px,5vw,56px);display:grid;grid-template-columns:300px 1fr;gap:clamp(32px,5vw,56px);align-items:center;color:#fff;position:relative;overflow:hidden;}
+.team-panel::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.05) 1px,transparent 1px);background-size:26px 26px;pointer-events:none;}
+.team-panel>*{position:relative;z-index:1;}
 .team-photo{border-radius:18px;overflow:hidden;box-shadow:10px 10px 0 rgba(255,90,31,0.9);}
 .team-photo img{width:100%;height:auto;display:block;}
-.team h2{font-size:clamp(30px,4vw,44px);margin-bottom:8px;}
-.team-name{font-weight:700;font-size:17px;color:var(--orange);margin-bottom:20px;}
-.team-facts{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
-.team-facts li{font-size:16.5px;font-weight:600;padding-left:26px;position:relative;}
+.team-panel h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:8px;color:#fff;}
+.team-name{font-weight:700;font-size:16px;color:var(--orange);margin-bottom:20px;}
+.team-facts{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:26px;}
+.team-facts li{font-size:16px;font-weight:600;padding-left:26px;position:relative;color:rgba(255,255,255,0.85);}
 .team-facts li::before{content:'';position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:var(--orange);}
-.team-note{font-size:15px;color:var(--gray);margin-bottom:28px;max-width:520px;}
+.avail{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px;color:#2ecc71;background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.3);border-radius:999px;padding:8px 18px;margin-bottom:24px;}
+.avail i{width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 10px rgba(46,204,113,0.9);animation:blink 1.8s infinite;}
+.team-panel .btn-ghost{border-color:#fff;color:#fff;}
+.team-panel .btn-ghost:hover{background:rgba(255,255,255,0.08);}
 
 /* ---------- FAQ ---------- */
 .faq{background:var(--white);padding:96px 0;}
@@ -273,8 +315,8 @@ body.menu-open{overflow:hidden;}
   .proof-cell{padding:28px 20px;}
   .proof-cell + .proof-cell::before{left:24px;right:24px;top:0;bottom:auto;width:auto;height:1px;}
   .how-cards{grid-template-columns:1fr;max-width:460px;margin:0 auto;}
-  .team-grid{grid-template-columns:1fr;gap:36px;}
-  .team-photo{max-width:280px;}
+  .team-panel{grid-template-columns:1fr;gap:32px;}
+  .team-photo{max-width:260px;}
   .footer-grid{grid-template-columns:1fr;gap:32px;}
   .hero{padding:64px 0 64px;}
   .hero-inner{grid-template-columns:1fr;gap:44px;}
@@ -328,6 +370,10 @@ body.menu-open{overflow:hidden;}
         <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Call</a>
         <p class="hero-tel">Or call/text <a href="tel:+18887744290">(888) 774-4290</a></p>
       </div>
+      <div class="avatar-cta" data-aos="fade-up" data-aos-delay="220">
+        <span class="avatar-wrap"><img src="eric.jpg" alt="Eric, founder of Scale National" width="1280" height="1273"><i class="dot"></i></span>
+        <span class="avatar-text"><strong>Book a call with Eric</strong><span class="avail-txt"><i></i>Taking new clients</span></span>
+      </div>
     </div>
   </div>
 </header>
@@ -364,20 +410,23 @@ body.menu-open{overflow:hidden;}
   <div class="container">
     <div class="sec-head" data-aos="fade-up">
       <span class="kicker">01 &middot; Proof</span>
-      <h2>Why teams trust us</h2>
+      <h2>Why companies learn Meta ads with us</h2>
     </div>
     <div class="proof-panel" data-aos="fade-up">
       <div class="proof-cell">
+        <span class="proof-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
         <div class="stat-num" data-count="50" data-suffix="k+">0k+</div>
         <div class="stat-label">Followers</div>
-        <div class="stat-sub">Across all platforms</div>
+        <div class="stat-sub">An expert marketer in your corner</div>
       </div>
       <div class="proof-cell">
+        <span class="proof-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
         <div class="stat-num" data-count="100" data-suffix="%">0%</div>
         <div class="stat-label">Yours</div>
-        <div class="stat-sub">Account, data, and skills stay with you</div>
+        <div class="stat-sub">The ad account, the data, the skill</div>
       </div>
       <div class="proof-cell">
+        <span class="proof-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg></span>
         <div class="stat-num">$0</div>
         <div class="stat-label">Lock-in</div>
         <div class="stat-sub">Month to month, leave anytime</div>
@@ -402,12 +451,19 @@ body.menu-open{overflow:hidden;}
   <div class="container">
     <div class="sec-head" data-aos="fade-up">
       <span class="kicker">02 &middot; The Process</span>
-      <h2>How it works</h2>
+      <h2>How our Meta ads training works</h2>
       <p>Three steps from zero to your own lead machine.</p>
     </div>
     <div class="how-cards">
       <div class="how-card" data-aos="fade-up">
-        <div class="how-viz" aria-hidden="true"><div class="viz-tree"><i class="t1"></i><i class="t2"></i><i class="t3"></i></div></div>
+        <div class="how-viz" aria-hidden="true">
+          <div class="mu">
+            <div class="mu-head"><span>Tracking setup</span></div>
+            <div class="mu-row"><i class="ok"></i><span>Pixel installed</span><b>Verified</b></div>
+            <div class="mu-row"><i class="ok"></i><span>Conversions API</span><b>Verified</b></div>
+            <div class="mu-row"><i class="pend"></i><span>Lead event</span><b class="warm">Testing</b></div>
+          </div>
+        </div>
         <div class="how-body">
           <span class="step-chip">Step 1</span>
           <h3>Set up</h3>
@@ -415,7 +471,13 @@ body.menu-open{overflow:hidden;}
         </div>
       </div>
       <div class="how-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="how-viz" aria-hidden="true"><div class="viz-launch"><span class="viz-pill">Active</span><span class="viz-toggle"></span></div></div>
+        <div class="how-viz" aria-hidden="true">
+          <div class="mu">
+            <div class="mu-head"><span>Lead campaign</span><span class="mu-live"><i></i>Active</span></div>
+            <div class="mu-row"><span class="mu-toggle"></span><span>Instant form</span><b>On</b></div>
+            <div class="mu-row"><span class="mu-toggle off"></span><span>Retargeting</span><b class="dim2">Draft</b></div>
+          </div>
+        </div>
         <div class="how-body">
           <span class="step-chip">Step 2</span>
           <h3>Launch</h3>
@@ -423,7 +485,12 @@ body.menu-open{overflow:hidden;}
         </div>
       </div>
       <div class="how-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="how-viz" aria-hidden="true"><div class="viz-bars"><i style="height:26px"></i><i style="height:42px"></i><i style="height:34px"></i><i class="hot" style="height:58px"></i></div></div>
+        <div class="how-viz" aria-hidden="true">
+          <div class="mu">
+            <div class="mu-head"><span>Leads</span><span class="mu-live"><i></i>This week</span></div>
+            <div class="mu-bars"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="hot1"></i><i class="hot2"></i></div>
+          </div>
+        </div>
         <div class="how-body">
           <span class="step-chip">Step 3</span>
           <h3>Run</h3>
@@ -439,21 +506,23 @@ body.menu-open{overflow:hidden;}
 
 <!-- TEAM -->
 <section class="team" id="team">
-  <div class="container team-grid">
-    <div class="team-photo" data-aos="fade-up">
-      <img src="eric-profile.jpg" alt="Eric, founder of Scale National" width="1280" height="1279" loading="lazy">
-    </div>
-    <div data-aos="fade-up" data-aos-delay="100">
-      <span class="kicker">03 &middot; The Person</span>
-      <h2>Meet Eric</h2>
-      <p class="team-name">Founder &middot; Scale National</p>
-      <ul class="team-facts">
-        <li>Expert marketer with 50k+ followers across all platforms</li>
-        <li>Teaches companies to run their own lead campaigns</li>
-        <li>In every session. No account managers, no handoffs.</li>
-      </ul>
-      <p class="team-note">A few engagements at a time. Every account gets real attention.</p>
-      <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-ghost">Book a Call</a>
+  <div class="container">
+    <div class="team-panel" data-aos="fade-up">
+      <div class="team-photo">
+        <img src="eric-profile.jpg" alt="Eric, founder of Scale National" width="1280" height="1279" loading="lazy">
+      </div>
+      <div>
+        <span class="kicker">03 &middot; Your Coach</span>
+        <h2>Learn from an expert marketer</h2>
+        <p class="team-name">Eric &middot; Founder, Scale National</p>
+        <ul class="team-facts">
+          <li>50k+ followers across all platforms</li>
+          <li>Teaches companies to run their own lead campaigns</li>
+          <li>In every session. No account managers, no handoffs.</li>
+        </ul>
+        <div class="avail"><i></i>Taking new clients</div><br>
+        <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-ghost">Book a Call</a>
+      </div>
     </div>
   </div>
 </section>
@@ -463,11 +532,11 @@ body.menu-open{overflow:hidden;}
   <div class="container">
     <div class="sec-head center" data-aos="fade-up">
       <span class="kicker">04 &middot; FAQ</span>
-      <h2>Questions we get</h2>
+      <h2>Meta ads training FAQ</h2>
     </div>
     <div class="faq-list" data-aos="fade-up">
       <details class="faq-item">
-        <summary>Do you run the ads for us?<span class="faq-plus">+</span></summary>
+        <summary>Do you run the ads for us or teach us?<span class="faq-plus">+</span></summary>
         <div class="faq-a"><p>We run them with you. Your team makes the changes and we guide every move. That's how they learn.</p></div>
       </details>
       <details class="faq-item">
@@ -479,12 +548,12 @@ body.menu-open{overflow:hidden;}
         <div class="faq-a"><p>A Business Manager, an ad budget, and a few hours a week. We handle the rest of the setup with you.</p></div>
       </details>
       <details class="faq-item">
-        <summary>How does pricing work?<span class="faq-plus">+</span></summary>
+        <summary>How much does Meta ads training cost?<span class="faq-plus">+</span></summary>
         <div class="faq-a"><p>Flat monthly fee, month to month. You get the exact number on the call.</p></div>
       </details>
       <details class="faq-item">
-        <summary>How long until we run it alone?<span class="faq-plus">+</span></summary>
-        <div class="faq-a"><p>Most teams run independently within a few months. You keep everything either way.</p></div>
+        <summary>How long does it take to learn Meta ads?<span class="faq-plus">+</span></summary>
+        <div class="faq-a"><p>Most teams run their own lead campaigns within a few months. You keep everything either way.</p></div>
       </details>
     </div>
   </div>
@@ -494,8 +563,9 @@ body.menu-open{overflow:hidden;}
 <section class="cta">
   <div class="cta-inner">
     <div class="cta-photo" data-aos="fade-up"><img src="eric.jpg" alt="Eric, founder of Scale National" width="1280" height="1273" loading="lazy"></div>
-    <h2 data-aos="fade-up">Ready to bring your ads in-house?</h2>
+    <h2 data-aos="fade-up">Ready to get your own leads?</h2>
     <p data-aos="fade-up" data-aos-delay="100">Book a free call. We'll tell you straight if this fits.</p>
+    <div class="avail" data-aos="fade-up" data-aos-delay="120"><i></i>Taking new clients</div>
     <div data-aos="fade-up" data-aos-delay="150">
       <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Call</a>
     </div>
@@ -509,7 +579,7 @@ body.menu-open{overflow:hidden;}
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="logo-nav.png" alt="Scale National">
-        <p class="footer-tag">Meta ads, in-house. Your team, your account, your data.</p>
+        <p class="footer-tag">We teach companies to get leads with Meta ads.</p>
       </div>
       <div>
         <h4>Explore</h4>
