@@ -149,12 +149,9 @@ body.menu-open{overflow:hidden;}
 .hero-tel{font-size:15px;color:rgba(255,255,255,0.6);font-weight:600;}
 .hero-tel a{color:#fff;font-weight:700;border-bottom:2px solid var(--orange);padding-bottom:1px;}
 .avatar-cta{display:flex;align-items:center;gap:14px;justify-content:center;margin-top:30px;text-align:left;}
-.avatar-wrap{position:relative;width:52px;height:52px;flex-shrink:0;}
-.avatar-wrap img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--orange);}
-.avatar-wrap .dot{position:absolute;right:-1px;bottom:-1px;width:14px;height:14px;border-radius:50%;background:#2ecc71;border:2.5px solid var(--black);animation:blink 1.8s infinite;}
+.avatar-circle{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex-shrink:0;}
 .avatar-text strong{display:block;color:#fff;font-size:15px;font-weight:700;}
-.avail-txt{display:inline-flex;align-items:center;gap:6px;color:#2ecc71;font-size:12.5px;font-weight:700;}
-.avail-txt i{width:7px;height:7px;border-radius:50%;background:#2ecc71;box-shadow:0 0 8px rgba(46,204,113,0.9);animation:blink 1.8s infinite;}
+.avatar-text span{color:rgba(255,255,255,0.6);font-size:13.5px;font-weight:600;}
 /* Ads Manager window */
 .win{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 34px 90px rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.08);}
 .win-bar{background:#1b1b1d;padding:11px 14px;display:flex;align-items:center;gap:7px;}
@@ -208,22 +205,11 @@ body.menu-open{overflow:hidden;}
   .wheel-set[aria-hidden]{display:none;}
 }
 
-/* ---------- Stats / proof ---------- */
-.stats{background:var(--off);padding:80px 0;}
-.stats .sec-head{margin-bottom:44px;}
-.proof-panel{background:var(--white);border:1px solid var(--line);border-radius:24px;box-shadow:0 16px 40px rgba(13,13,13,0.05);display:grid;grid-template-columns:repeat(3,1fr);padding:12px;}
-.proof-cell{padding:36px 20px;text-align:center;position:relative;}
-.proof-ico{width:46px;height:46px;border-radius:13px;background:rgba(255,90,31,0.1);color:var(--orange);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
-.proof-ico svg{width:24px;height:24px;}
-.proof-cell + .proof-cell::before{content:'';position:absolute;left:0;top:26%;bottom:26%;width:1px;background:var(--line);}
 .quote-card{max-width:720px;margin:36px auto 0;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px 40px;box-shadow:0 16px 40px rgba(13,13,13,0.05);position:relative;}
 .quote-card::before{content:'\201C';position:absolute;top:6px;left:22px;font-size:84px;font-weight:900;color:rgba(255,90,31,0.25);line-height:1;font-family:Georgia,serif;}
 .quote-card blockquote{font-size:19px;font-weight:600;line-height:1.6;margin-bottom:18px;border:0;}
 .quote-card figcaption{font-size:14.5px;color:var(--gray);}
 .quote-card figcaption strong{color:var(--black);display:block;font-size:15.5px;}
-.stat-num{font-weight:900;font-size:clamp(40px,5vw,56px);color:var(--orange);line-height:1;letter-spacing:-1px;}
-.stat-label{font-weight:700;font-size:16px;margin-top:10px;}
-.stat-sub{font-size:14px;color:var(--gray);margin-top:4px;}
 
 /* ---------- What we do ---------- */
 .what{background:var(--white);padding:96px 0;}
@@ -232,34 +218,12 @@ body.menu-open{overflow:hidden;}
 .sec-head p{font-size:17px;color:var(--gray);}
 .sec-head.center{text-align:center;margin-inline:auto;}
 .sec-head.center .kicker{justify-content:center;}
-.how-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-.how-card{background:#131316;border:1px solid rgba(255,255,255,0.07);border-radius:20px;overflow:hidden;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;}
-.how-card:hover{transform:translateY(-5px);border-color:rgba(255,90,31,0.5);box-shadow:0 26px 54px rgba(13,13,13,0.28);}
-.how-viz{height:158px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% -20%,rgba(255,90,31,0.12),transparent 70%);border-bottom:1px solid rgba(255,255,255,0.06);}
-.how-body{padding:22px 26px 28px;}
-.step-chip{display:inline-block;background:rgba(255,90,31,0.14);color:var(--orange);font-weight:800;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;border-radius:999px;padding:5px 13px;margin-bottom:12px;}
-.how-body h3{font-weight:800;font-size:20px;margin-bottom:6px;letter-spacing:-0.3px;color:#fff;}
-.how-body p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.6;}
-.mu{width:210px;background:#1c1c20;border:1px solid rgba(255,255,255,0.09);border-radius:13px;padding:11px;display:flex;flex-direction:column;gap:8px;box-shadow:0 16px 34px rgba(0,0,0,0.45);}
-.mu-head{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;color:#fff;padding:1px 3px 3px;}
-.mu-live{display:inline-flex;align-items:center;gap:5px;color:#2ecc71;font-size:10px;font-weight:800;}
-.mu-live i{width:6px;height:6px;border-radius:50%;background:#2ecc71;box-shadow:0 0 7px rgba(46,204,113,0.9);animation:blink 1.8s infinite;}
-.mu-row{display:flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;color:#cfd2d6;background:#26262b;border-radius:9px;padding:8px 10px;}
-.mu-row i{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-.mu-row .ok{background:#2ecc71;box-shadow:0 0 7px rgba(46,204,113,0.8);}
-.mu-row .pend{background:#febc2e;}
-.mu-row b{margin-left:auto;font-size:9.5px;color:#2ecc71;font-weight:800;letter-spacing:0.3px;}
-.mu-row b.warm{color:#febc2e;}
-.mu-row b.dim2{color:#8a8f98;}
-.mu-toggle{width:27px;height:15px;border-radius:999px;background:var(--orange);position:relative;flex-shrink:0;}
-.mu-toggle::after{content:'';position:absolute;right:2px;top:2px;width:11px;height:11px;border-radius:50%;background:#fff;}
-.mu-toggle.off{background:#3a3a40;}
-.mu-toggle.off::after{right:auto;left:2px;}
-.mu-bars{display:flex;align-items:flex-end;gap:7px;height:58px;padding:4px 3px 0;}
-.mu-bars i{flex:1;border-radius:4px 4px 2px 2px;background:#33333a;}
-.mu-bars .b1{height:34%;}.mu-bars .b2{height:52%;}.mu-bars .b3{height:44%;}
-.mu-bars .hot1{height:70%;background:linear-gradient(180deg,#ff7a45,var(--orange));}
-.mu-bars .hot2{height:100%;background:linear-gradient(180deg,#ff7a45,var(--orange));box-shadow:0 0 14px rgba(255,90,31,0.45);}
+.how-row{display:flex;justify-content:center;align-items:flex-start;gap:18px;max-width:960px;margin:0 auto;}
+.how-step{flex:1;text-align:center;padding:0 10px;}
+.how-circle{width:58px;height:58px;border-radius:50%;background:var(--orange);color:#fff;font-weight:900;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 10px 24px rgba(255,90,31,0.3);}
+.how-step h3{font-weight:800;font-size:20px;margin-bottom:8px;letter-spacing:-0.3px;}
+.how-step p{font-size:15px;color:var(--gray);line-height:1.6;max-width:280px;margin:0 auto;}
+.how-arrow{width:15px;height:15px;border-top:3px solid #d9d9d9;border-right:3px solid #d9d9d9;transform:rotate(45deg);margin-top:22px;flex-shrink:0;}
 .what-cta{text-align:center;margin-top:48px;}
 
 /* ---------- Team ---------- */
@@ -311,10 +275,8 @@ body.menu-open{overflow:hidden;}
 
 /* ---------- Responsive ---------- */
 @media(max-width:900px){
-  .proof-panel{grid-template-columns:1fr;padding:8px;}
-  .proof-cell{padding:28px 20px;}
-  .proof-cell + .proof-cell::before{left:24px;right:24px;top:0;bottom:auto;width:auto;height:1px;}
-  .how-cards{grid-template-columns:1fr;max-width:460px;margin:0 auto;}
+        .how-row{flex-direction:column;align-items:center;gap:32px;}
+  .how-arrow{transform:rotate(135deg);margin:0;}
   .team-panel{grid-template-columns:1fr;gap:32px;}
   .team-photo{max-width:260px;}
   .footer-grid{grid-template-columns:1fr;gap:32px;}
@@ -371,8 +333,8 @@ body.menu-open{overflow:hidden;}
         <p class="hero-tel">Or call/text <a href="tel:+18887744290">(888) 774-4290</a></p>
       </div>
       <div class="avatar-cta" data-aos="fade-up" data-aos-delay="220">
-        <span class="avatar-wrap"><img src="eric.jpg" alt="Eric, founder of Scale National" width="1280" height="1273"><i class="dot"></i></span>
-        <span class="avatar-text"><strong>Book a call with Eric</strong><span class="avail-txt"><i></i>Taking new clients</span></span>
+        <img class="avatar-circle" src="eric.jpg" alt="Eric, founder of Scale National" width="1280" height="1273">
+        <span class="avatar-text"><strong>Book a call with Eric</strong><span>No pressure, just a thoughtful chat.</span></span>
       </div>
     </div>
   </div>
@@ -405,97 +367,31 @@ body.menu-open{overflow:hidden;}
   </div>
 </div>
 
-<!-- PROOF -->
-<section class="stats" id="proof">
-  <div class="container">
-    <div class="sec-head" data-aos="fade-up">
-      <span class="kicker">01 &middot; Proof</span>
-      <h2>Why companies learn Meta ads with us</h2>
-    </div>
-    <div class="proof-panel" data-aos="fade-up">
-      <div class="proof-cell">
-        <span class="proof-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-        <div class="stat-num" data-count="50" data-suffix="k+">0k+</div>
-        <div class="stat-label">Followers</div>
-        <div class="stat-sub">An expert marketer in your corner</div>
-      </div>
-      <div class="proof-cell">
-        <span class="proof-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
-        <div class="stat-num" data-count="100" data-suffix="%">0%</div>
-        <div class="stat-label">Yours</div>
-        <div class="stat-sub">The ad account, the data, the skill</div>
-      </div>
-      <div class="proof-cell">
-        <span class="proof-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg></span>
-        <div class="stat-num">$0</div>
-        <div class="stat-label">Lock-in</div>
-        <div class="stat-sub">Month to month, leave anytime</div>
-      </div>
-    </div>
-    <figure class="quote-card" hidden data-aos="fade-up">
-      <blockquote>Client quote goes here.</blockquote>
-      <figcaption><strong>Name</strong><span>Title, Firm</span></figcaption>
-    </figure>
-    <!-- OWNER: when the law firm testimonial arrives, paste the quote and name above and delete the `hidden` attribute. Done. -->
-    <!-- OWNER TODO: when the first client review lands, drop it in here:
-    <figure class="quote-card">
-      <blockquote>"Quote goes here."</blockquote>
-      <figcaption>Name, Company</figcaption>
-    </figure>
-    -->
-  </div>
-</section>
-
 <!-- WHAT WE DO -->
 <section class="what" id="what">
   <div class="container">
     <div class="sec-head" data-aos="fade-up">
-      <span class="kicker">02 &middot; The Process</span>
+      <span class="kicker">01 &middot; The Process</span>
       <h2>How our Meta ads training works</h2>
       <p>Three steps from zero to your own lead machine.</p>
     </div>
-    <div class="how-cards">
-      <div class="how-card" data-aos="fade-up">
-        <div class="how-viz" aria-hidden="true">
-          <div class="mu">
-            <div class="mu-head"><span>Tracking setup</span></div>
-            <div class="mu-row"><i class="ok"></i><span>Pixel installed</span><b>Verified</b></div>
-            <div class="mu-row"><i class="ok"></i><span>Conversions API</span><b>Verified</b></div>
-            <div class="mu-row"><i class="pend"></i><span>Lead event</span><b class="warm">Testing</b></div>
-          </div>
-        </div>
-        <div class="how-body">
-          <span class="step-chip">Step 1</span>
-          <h3>Set up</h3>
-          <p>Account structure, pixel, and tracking, built with your team.</p>
-        </div>
+    <div class="how-row">
+      <div class="how-step" data-aos="fade-up">
+        <div class="how-circle">1</div>
+        <h3>Set up</h3>
+        <p>Account structure, pixel, and tracking, built with your team.</p>
       </div>
-      <div class="how-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="how-viz" aria-hidden="true">
-          <div class="mu">
-            <div class="mu-head"><span>Lead campaign</span><span class="mu-live"><i></i>Active</span></div>
-            <div class="mu-row"><span class="mu-toggle"></span><span>Instant form</span><b>On</b></div>
-            <div class="mu-row"><span class="mu-toggle off"></span><span>Retargeting</span><b class="dim2">Draft</b></div>
-          </div>
-        </div>
-        <div class="how-body">
-          <span class="step-chip">Step 2</span>
-          <h3>Launch</h3>
-          <p>Creative plan and first lead campaigns live in your account.</p>
-        </div>
+      <div class="how-arrow" aria-hidden="true"></div>
+      <div class="how-step" data-aos="fade-up" data-aos-delay="100">
+        <div class="how-circle">2</div>
+        <h3>Launch</h3>
+        <p>Creative plan and first lead campaigns live in your account.</p>
       </div>
-      <div class="how-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="how-viz" aria-hidden="true">
-          <div class="mu">
-            <div class="mu-head"><span>Leads</span><span class="mu-live"><i></i>This week</span></div>
-            <div class="mu-bars"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="hot1"></i><i class="hot2"></i></div>
-          </div>
-        </div>
-        <div class="how-body">
-          <span class="step-chip">Step 3</span>
-          <h3>Run</h3>
-          <p>Weekly sessions on live campaigns until your team brings in leads on its own.</p>
-        </div>
+      <div class="how-arrow" aria-hidden="true"></div>
+      <div class="how-step" data-aos="fade-up" data-aos-delay="200">
+        <div class="how-circle">3</div>
+        <h3>Run</h3>
+        <p>Weekly sessions on live campaigns until your team brings in leads on its own.</p>
       </div>
     </div>
     <div class="what-cta" data-aos="fade-up">
@@ -512,7 +408,7 @@ body.menu-open{overflow:hidden;}
         <img src="eric-profile.jpg" alt="Eric, founder of Scale National" width="1280" height="1279" loading="lazy">
       </div>
       <div>
-        <span class="kicker">03 &middot; Your Coach</span>
+        <span class="kicker">02 &middot; Your Coach</span>
         <h2>Learn from an expert marketer</h2>
         <p class="team-name">Eric &middot; Founder, Scale National</p>
         <ul class="team-facts">
@@ -520,10 +416,14 @@ body.menu-open{overflow:hidden;}
           <li>Teaches companies to run their own lead campaigns</li>
           <li>In every session. No account managers, no handoffs.</li>
         </ul>
-        <div class="avail"><i></i>Taking new clients</div><br>
         <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-ghost">Book a Call</a>
       </div>
     </div>
+    <figure class="quote-card" hidden data-aos="fade-up">
+      <blockquote>Client quote goes here.</blockquote>
+      <figcaption><strong>Name</strong><span>Title, Firm</span></figcaption>
+    </figure>
+    <!-- OWNER: when the law firm testimonial arrives, paste the quote and name above and delete the `hidden` attribute. -->
   </div>
 </section>
 
@@ -531,7 +431,7 @@ body.menu-open{overflow:hidden;}
 <section class="faq" id="faq">
   <div class="container">
     <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker">04 &middot; FAQ</span>
+      <span class="kicker">03 &middot; FAQ</span>
       <h2>Meta ads training FAQ</h2>
     </div>
     <div class="faq-list" data-aos="fade-up">
@@ -608,27 +508,6 @@ body.menu-open{overflow:hidden;}
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 AOS.init({duration:600,easing:'ease-out',once:true,offset:80});
-(function(){
-  var els=document.querySelectorAll('.stat-num[data-count]');
-  if(!els.length)return;
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(!e.isIntersecting)return;
-      io.unobserve(e.target);
-      var el=e.target,target=parseInt(el.getAttribute('data-count'),10),suf=el.getAttribute('data-suffix')||'';
-      if(reduce){el.textContent=target+suf;return;}
-      var t0=null;
-      requestAnimationFrame(function step(ts){
-        if(!t0)t0=ts;
-        var k=Math.min(1,(ts-t0)/900);k=1-Math.pow(1-k,3);
-        el.textContent=Math.round(target*k)+suf;
-        if(k<1)requestAnimationFrame(step);
-      });
-    });
-  },{threshold:0.5});
-  els.forEach(function(el){io.observe(el);});
-})();
 function toggleMenu(){
   var m=document.getElementById('mobileMenu');
   var open=m.classList.toggle('open');
