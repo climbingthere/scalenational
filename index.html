@@ -148,40 +148,11 @@ body.menu-open{overflow:hidden;}
 .hero-ctas{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
 .hero-tel{font-size:15px;color:rgba(255,255,255,0.6);font-weight:600;}
 .hero-tel a{color:#fff;font-weight:700;border-bottom:2px solid var(--orange);padding-bottom:1px;}
-.avatar-cta{display:flex;align-items:center;gap:14px;justify-content:center;margin-top:30px;text-align:left;}
+.avatar-cta{display:flex;align-items:center;gap:14px;justify-content:center;margin-top:28px;margin-bottom:22px;text-align:left;}
 .avatar-circle{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex-shrink:0;}
 .avatar-text strong{display:block;color:#fff;font-size:15px;font-weight:700;}
 .avatar-text span{color:rgba(255,255,255,0.6);font-size:13.5px;font-weight:600;}
-/* Ads Manager window */
-.win{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 34px 90px rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.08);}
-.win-bar{background:#1b1b1d;padding:11px 14px;display:flex;align-items:center;gap:7px;}
-.win-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
-.wd-r{background:#ff5f57;}.wd-y{background:#febc2e;}.wd-g{background:#28c840;}
-.win-url{margin-left:10px;background:rgba(255,255,255,0.09);color:#a9adb4;font-size:11px;font-weight:600;padding:4px 14px;border-radius:6px;letter-spacing:0.3px;}
-.win-tabs{display:flex;gap:20px;padding:13px 20px 0;border-bottom:1px solid #ececef;font-size:12.5px;font-weight:700;color:#8a8f98;background:#fafafa;}
-.win-tabs span{padding-bottom:11px;}
-.win-tabs .on{color:var(--black);border-bottom:2.5px solid var(--orange);}
-.win-row{display:grid;grid-template-columns:34px 1fr 76px 64px;gap:14px;align-items:center;padding:14px 20px;border-bottom:1px solid #f2f2f4;}
-.win-row.hot{background:rgba(255,90,31,0.05);box-shadow:inset 3px 0 0 var(--orange);}
-.w-tog{width:30px;height:17px;border-radius:999px;background:var(--orange);position:relative;}
-.w-tog::after{content:'';position:absolute;right:2.5px;top:2.5px;width:12px;height:12px;border-radius:50%;background:#fff;}
-.w-tog.off{background:#d7d9dd;}
-.w-tog.off::after{right:auto;left:2.5px;}
-.w-name{height:12px;border-radius:4px;background:#e6e7ea;}
-.w-name.n1{width:82%;}.w-name.n2{width:64%;}.w-name.n3{width:72%;}
-.w-pill{font-size:10.5px;font-weight:800;text-align:center;padding:3.5px 0;border-radius:999px;}
-.wp-a{color:#1a7f37;background:rgba(26,127,55,0.12);}
-.wp-l{color:#9a6700;background:rgba(154,103,0,0.12);}
-.wp-o{color:#6e7178;background:#eef0f2;}
-.w-val{height:10px;border-radius:4px;background:#eceef0;}
-.w-val.v1{width:100%;background:linear-gradient(90deg,var(--orange) 72%,#eceef0 72%);}
-.w-val.v2{width:100%;background:linear-gradient(90deg,var(--orange) 46%,#eceef0 46%);}
-.w-val.v3{width:100%;background:linear-gradient(90deg,#d7d9dd 30%,#eceef0 30%);}
-.win-foot{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:#fafafa;font-size:11px;font-weight:700;color:#8a8f98;}
-.win-live{display:inline-flex;align-items:center;gap:7px;color:#1a7f37;}
-.win-live i{width:7px;height:7px;border-radius:50%;background:#28c840;display:inline-block;animation:blink 1.8s infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
-@media(prefers-reduced-motion:reduce){.win-live i{animation:none;}}
 
 /* ---------- Logo wheel ---------- */
 .wheel{background:var(--white);border-bottom:1px solid var(--line);padding:44px 0 52px;overflow:hidden;}
@@ -224,7 +195,6 @@ body.menu-open{overflow:hidden;}
 .how-step h3{font-weight:800;font-size:20px;margin-bottom:8px;letter-spacing:-0.3px;}
 .how-step p{font-size:15px;color:var(--gray);line-height:1.6;max-width:280px;margin:0 auto;}
 .how-arrow{width:15px;height:15px;border-top:3px solid #d9d9d9;border-right:3px solid #d9d9d9;transform:rotate(45deg);margin-top:22px;flex-shrink:0;}
-.what-cta{text-align:center;margin-top:48px;}
 
 /* ---------- Team ---------- */
 .team{background:var(--off);padding:96px 0;}
@@ -256,8 +226,6 @@ body.menu-open{overflow:hidden;}
 /* ---------- Final CTA ---------- */
 .cta{background:var(--black);color:#fff;padding:96px 0;position:relative;overflow:hidden;}
 .cta-inner{position:relative;z-index:2;max-width:660px;margin:0 auto;padding:0 24px;text-align:center;}
-.cta-photo{width:76px;height:76px;border-radius:50%;overflow:hidden;margin:0 auto 20px;border:2px solid var(--orange);}
-.cta-photo img{width:100%;height:100%;object-fit:cover;}
 .cta h2{font-size:clamp(30px,4.5vw,46px);color:#fff;margin-bottom:16px;}
 .cta p{font-size:17px;color:rgba(255,255,255,0.72);margin-bottom:32px;}
 .cta .hero-tel{display:block;margin-top:16px;}
@@ -283,7 +251,6 @@ body.menu-open{overflow:hidden;}
   .hero{padding:64px 0 64px;}
   .hero-inner{grid-template-columns:1fr;gap:44px;}
   .hero-sub{max-width:none;}
-  .win{max-width:480px;margin:0 auto;}
   .what,.team,.faq,.cta{padding:72px 0;}
   .hero-ctas .btn-orange,.hero-ctas .btn-ghost{width:100%;}
 }
@@ -330,12 +297,12 @@ body.menu-open{overflow:hidden;}
       <p class="hero-sub" data-aos="fade-up" data-aos-delay="100">Hands-on training in your own ad account until your team runs lead campaigns without us.</p>
       <div class="hero-ctas" data-aos="fade-up" data-aos-delay="150">
         <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Call</a>
-        <p class="hero-tel">Or call/text <a href="tel:+18887744290">(888) 774-4290</a></p>
       </div>
-      <div class="avatar-cta" data-aos="fade-up" data-aos-delay="220">
+      <div class="avatar-cta" data-aos="fade-up" data-aos-delay="200">
         <img class="avatar-circle" src="eric.jpg" alt="Eric, founder of Scale National" width="1280" height="1273">
-        <span class="avatar-text"><strong>Book a call with Eric</strong><span>No pressure, just a thoughtful chat.</span></span>
+        <span class="avatar-text"><strong>You'll talk with Eric.</strong><span>No pressure, just a thoughtful chat.</span></span>
       </div>
+      <p class="hero-tel" data-aos="fade-up" data-aos-delay="250">Or call/text <a href="tel:+18887744290">(888) 774-4290</a></p>
     </div>
   </div>
 </header>
@@ -393,9 +360,6 @@ body.menu-open{overflow:hidden;}
         <h3>Run</h3>
         <p>Weekly sessions on live campaigns until your team brings in leads on its own.</p>
       </div>
-    </div>
-    <div class="what-cta" data-aos="fade-up">
-      <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
     </div>
   </div>
 </section>
@@ -462,9 +426,8 @@ body.menu-open{overflow:hidden;}
 <!-- FINAL CTA -->
 <section class="cta">
   <div class="cta-inner">
-    <div class="cta-photo" data-aos="fade-up"><img src="eric.jpg" alt="Eric, founder of Scale National" width="1280" height="1273" loading="lazy"></div>
     <h2 data-aos="fade-up">Ready to get your own leads?</h2>
-    <p data-aos="fade-up" data-aos-delay="100">Book a free call. We'll tell you straight if this fits.</p>
+    <p data-aos="fade-up" data-aos-delay="100">We'll look at what you're doing and tell you straight if this fits.</p>
     <div class="avail" data-aos="fade-up" data-aos-delay="120"><i></i>Taking new clients</div>
     <div data-aos="fade-up" data-aos-delay="150">
       <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Call</a>
