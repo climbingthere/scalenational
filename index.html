@@ -138,17 +138,13 @@ body.menu-open{overflow:hidden;}
 .hero-inner{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;}
 .hero-solo{grid-template-columns:1fr;max-width:780px;text-align:center;}
 .hero-solo .hero-sub{margin-inline:auto;}
-.hero-solo .hero-ctas{justify-content:center;align-items:center;gap:22px;margin-bottom:22px;}
+.hero-solo .hero-ctas{justify-content:center;margin-bottom:20px;}
 .hero h1{font-size:clamp(38px,4.8vw,60px);color:#fff;margin-bottom:20px;letter-spacing:-1.5px;}
 .hero h1 .orange{color:var(--orange);}
 .hero-sub{font-size:clamp(17px,1.6vw,19px);color:rgba(255,255,255,0.72);max-width:480px;margin-bottom:32px;line-height:1.65;}
 .hero-ctas{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
 .hero-tel{font-size:15px;color:rgba(255,255,255,0.6);font-weight:600;}
 .hero-tel a{color:#fff;font-weight:700;border-bottom:2px solid var(--orange);padding-bottom:1px;}
-.avatar-cta{display:flex;align-items:center;gap:12px;text-align:left;}
-.avatar-circle{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex-shrink:0;}
-.avatar-text strong{display:block;color:#fff;font-size:15px;font-weight:700;}
-.avatar-text span{color:rgba(255,255,255,0.6);font-size:13.5px;font-weight:600;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
 
 /* ---------- Logo wheel ---------- */
@@ -204,8 +200,6 @@ body.menu-open{overflow:hidden;}
 .team-facts{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:26px;}
 .team-facts li{font-size:16px;font-weight:600;padding-left:26px;position:relative;color:rgba(255,255,255,0.85);}
 .team-facts li::before{content:'';position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:var(--orange);}
-.avail{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px;color:#2ecc71;background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.3);border-radius:999px;padding:8px 18px;margin-bottom:24px;}
-.avail i{width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 10px rgba(46,204,113,0.9);animation:blink 1.8s infinite;}
 .team-panel .btn-ghost{border-color:#fff;color:#fff;}
 .team-panel .btn-ghost:hover{background:rgba(255,255,255,0.08);}
 
@@ -221,10 +215,13 @@ body.menu-open{overflow:hidden;}
 
 /* ---------- Final CTA ---------- */
 .cta{background:var(--black);color:#fff;padding:96px 0;position:relative;overflow:hidden;}
-.cta-inner{position:relative;z-index:2;max-width:660px;margin:0 auto;padding:0 24px;text-align:center;}
+.cta-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:0 24px;}
+.cta-card{background:#131316;border:1px solid rgba(255,255,255,0.09);border-radius:26px;padding:clamp(40px,6vw,64px) clamp(24px,5vw,56px);text-align:center;}
+.cta-face{width:78px;height:78px;border-radius:50%;object-fit:cover;border:2.5px solid var(--orange);margin:0 auto 22px;}
+.cta-card .hero-tel{margin-top:18px;}
 .cta h2{font-size:clamp(30px,4.5vw,46px);color:#fff;margin-bottom:16px;}
 .cta p{font-size:17px;color:rgba(255,255,255,0.72);margin-bottom:32px;}
-.cta .hero-tel{display:block;margin-top:16px;}
+
 
 /* ---------- Footer ---------- */
 .footer{background:var(--black);color:#fff;border-top:1px solid var(--line-w);padding:56px 0 28px;}
@@ -292,12 +289,8 @@ body.menu-open{overflow:hidden;}
       <p class="hero-sub" data-aos="fade-up" data-aos-delay="100">Hands-on training in your own ad account until your team runs lead campaigns without us.</p>
       <div class="hero-ctas" data-aos="fade-up" data-aos-delay="150">
         <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Call</a>
-        <div class="avatar-cta">
-          <img class="avatar-circle" src="eric.jpg" alt="Eric, founder of Scale National" width="1280" height="1273">
-          <span class="avatar-text"><strong>You'll talk with Eric.</strong><span>No pressure, just a thoughtful chat.</span></span>
-        </div>
       </div>
-      <p class="hero-tel" data-aos="fade-up" data-aos-delay="250">Or call/text <a href="tel:+18887744290">(888) 774-4290</a></p>
+      <p class="hero-tel" data-aos="fade-up" data-aos-delay="200">Or call/text <a href="tel:+18887744290">(888) 774-4290</a></p>
     </div>
   </div>
 </header>
@@ -418,13 +411,13 @@ body.menu-open{overflow:hidden;}
 <!-- FINAL CTA -->
 <section class="cta">
   <div class="cta-inner">
-    <h2 data-aos="fade-up">Ready to get your own leads?</h2>
-    <p data-aos="fade-up" data-aos-delay="100">We'll look at what you're doing and tell you straight if this fits.</p>
-    <div class="avail" data-aos="fade-up" data-aos-delay="120"><i></i>Taking new clients</div>
-    <div data-aos="fade-up" data-aos-delay="150">
-      <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Call</a>
+    <div class="cta-card" data-aos="fade-up">
+      <img class="cta-face" src="eric.jpg" alt="Eric, founder of Scale National" width="1280" height="1273" loading="lazy">
+      <h2>Ready to scale your business?</h2>
+      <p>Book a free 15-minute call with Eric. We will walk you through the training and show you exactly what you get.</p>
+      <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Free Call</a>
+      <p class="hero-tel">Or call/text us: <a href="tel:+18887744290">(888) 774-4290</a></p>
     </div>
-    <p class="hero-tel" data-aos="fade-up" data-aos-delay="200">Or call/text <a href="tel:+18887744290">(888) 774-4290</a></p>
   </div>
 </section>
 
