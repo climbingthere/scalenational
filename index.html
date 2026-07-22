@@ -55,7 +55,7 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
   "logo": "https://scalenational.com/logo.png",
   "description": "Hands-on Meta ads training for in-house teams. Your team runs the ads, we show them how.",
   "email": "info@scalenational.com",
-  "telephone": "+19179822327",
+  "telephone": "+18887744290",
   "sameAs": ["https://www.facebook.com/scalenational", "https://www.instagram.com/scalenational"]
 }
 </script>
@@ -115,7 +115,6 @@ body.menu-open{overflow:hidden;}
 
 /* ---------- Hero ---------- */
 .hero{background:var(--black);color:#fff;position:relative;overflow:hidden;padding:96px 0 84px;}
-.hero::before{content:'';position:absolute;top:-240px;right:-180px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(255,90,31,0.16) 0%,transparent 65%);pointer-events:none;}
 .hero-inner{position:relative;z-index:2;max-width:820px;margin:0 auto;padding:0 24px;text-align:center;}
 .hero h1{font-size:clamp(38px,6vw,64px);color:#fff;margin-bottom:22px;}
 .hero h1 .orange{color:var(--orange);}
@@ -125,17 +124,19 @@ body.menu-open{overflow:hidden;}
 .hero-tel a{color:#fff;font-weight:700;border-bottom:2px solid var(--orange);padding-bottom:1px;}
 
 /* ---------- Logo wheel ---------- */
-.wheel{background:var(--black);border-top:1px solid var(--line-w);padding:44px 0 52px;overflow:hidden;}
-.wheel-label{text-align:center;font-weight:800;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:30px;}
+.wheel{background:var(--white);border-bottom:1px solid var(--line);padding:44px 0 52px;overflow:hidden;}
+.wheel-label{text-align:center;font-weight:800;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--gray-lt);margin-bottom:30px;}
 .wheel-mask{position:relative;overflow:hidden;}
 .wheel-mask::before,.wheel-mask::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;}
-.wheel-mask::before{left:0;background:linear-gradient(90deg,var(--black),transparent);}
-.wheel-mask::after{right:0;background:linear-gradient(270deg,var(--black),transparent);}
+.wheel-mask::before{left:0;background:linear-gradient(90deg,var(--white),transparent);}
+.wheel-mask::after{right:0;background:linear-gradient(270deg,var(--white),transparent);}
 .wheel-track{display:flex;width:max-content;animation:wheel 36s linear infinite;}
 .wheel-mask:hover .wheel-track{animation-play-state:paused;}
 .wheel-set{display:flex;align-items:center;gap:72px;padding-right:72px;}
-.wheel-set img{height:30px;width:auto;filter:brightness(0) invert(1);opacity:0.75;transition:opacity .2s;}
+.wheel-set img{width:auto;opacity:0.92;transition:opacity .2s;}
 .wheel-set img:hover{opacity:1;}
+.wheel-set .lg-word{height:28px;}
+.wheel-set .lg-icon{height:36px;}
 @keyframes wheel{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 @media(prefers-reduced-motion:reduce){
   .wheel-track{animation:none;flex-wrap:wrap;justify-content:center;width:100%;}
@@ -143,8 +144,10 @@ body.menu-open{overflow:hidden;}
   .wheel-set[aria-hidden]{display:none;}
 }
 
-/* ---------- Stats ---------- */
-.stats{background:var(--white);padding:72px 0;}
+/* ---------- Stats / proof ---------- */
+.stats{background:var(--white);padding:80px 0;}
+.stats .sec-head{margin-bottom:44px;}
+.proof-line{text-align:center;margin-top:44px;font-size:16px;font-weight:700;color:var(--black);background:var(--off);border:1px solid var(--line);border-radius:999px;padding:12px 26px;width:fit-content;margin-inline:auto;}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;text-align:center;}
 .stat-num{font-weight:900;font-size:clamp(40px,5vw,56px);color:var(--orange);line-height:1;letter-spacing:-1px;}
 .stat-label{font-weight:700;font-size:16px;margin-top:10px;}
@@ -187,7 +190,6 @@ body.menu-open{overflow:hidden;}
 
 /* ---------- Final CTA ---------- */
 .cta{background:var(--black);color:#fff;padding:96px 0;position:relative;overflow:hidden;}
-.cta::before{content:'';position:absolute;bottom:-260px;left:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,90,31,0.14) 0%,transparent 65%);pointer-events:none;}
 .cta-inner{position:relative;z-index:2;max-width:660px;margin:0 auto;padding:0 24px;text-align:center;}
 .cta-photo{width:76px;height:76px;border-radius:50%;overflow:hidden;margin:0 auto 20px;border:2px solid var(--orange);}
 .cta-photo img{width:100%;height:100%;object-fit:cover;}
@@ -249,7 +251,7 @@ body.menu-open{overflow:hidden;}
   <a href="#what" onclick="toggleMenu()">What We Do</a>
   <a href="#team" onclick="toggleMenu()">Who We Are</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
-  <a href="tel:+19179822327" onclick="toggleMenu()">Call (917) 982-2327</a>
+  <a href="tel:+18887744290" onclick="toggleMenu()">Call (888) 774-4290</a>
   <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
 </div>
 
@@ -259,11 +261,11 @@ body.menu-open{overflow:hidden;}
 <header class="hero">
   <div class="hero-inner">
     <h1 data-aos="fade-up">Your team runs the ads.<br><span class="orange">We show them how.</span></h1>
-    <p class="hero-sub" data-aos="fade-up" data-aos-delay="100">Hands-on Meta ads training inside your own ad account. We set it up together, launch together, and your team learns on live campaigns. You own everything.</p>
+    <p class="hero-sub" data-aos="fade-up" data-aos-delay="100">Hands-on Meta ads training inside your own ad account. You own everything.</p>
     <div class="hero-ctas" data-aos="fade-up" data-aos-delay="200">
       <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Call</a>
     </div>
-    <p class="hero-tel" data-aos="fade-up" data-aos-delay="250">Or call/text <a href="tel:+19179822327">(917) 982-2327</a></p>
+    <p class="hero-tel" data-aos="fade-up" data-aos-delay="250">Or call/text <a href="tel:+18887744290">(888) 774-4290</a></p>
   </div>
 </header>
 
@@ -273,41 +275,57 @@ body.menu-open{overflow:hidden;}
   <div class="wheel-mask">
     <div class="wheel-track">
       <div class="wheel-set">
-        <img src="logos/meta.svg" alt="Meta">
-        <img src="logos/google.png" alt="Google">
-        <img src="logos/slack.png" alt="Slack">
-        <img src="logos/zapier.svg" alt="Zapier">
-        <img src="logos/openai.svg" alt="OpenAI">
+        <img class="lg-word" src="logos/meta.svg" alt="Meta">
+        <img class="lg-word" src="logos/google.png" alt="Google">
+        <img class="lg-icon" src="logos/facebook.png" alt="Facebook">
+        <img class="lg-icon" src="logos/instagram.png" alt="Instagram">
+        <img class="lg-icon" src="logos/slack.png" alt="Slack">
+        <img class="lg-word" src="logos/zapier.svg" alt="Zapier">
+        <img class="lg-word" src="logos/openai.svg" alt="OpenAI">
       </div>
       <div class="wheel-set" aria-hidden="true">
-        <img src="logos/meta.svg" alt="">
-        <img src="logos/google.png" alt="">
-        <img src="logos/slack.png" alt="">
-        <img src="logos/zapier.svg" alt="">
-        <img src="logos/openai.svg" alt="">
+        <img class="lg-word" src="logos/meta.svg" alt="">
+        <img class="lg-word" src="logos/google.png" alt="">
+        <img class="lg-icon" src="logos/facebook.png" alt="">
+        <img class="lg-icon" src="logos/instagram.png" alt="">
+        <img class="lg-icon" src="logos/slack.png" alt="">
+        <img class="lg-word" src="logos/zapier.svg" alt="">
+        <img class="lg-word" src="logos/openai.svg" alt="">
       </div>
     </div>
   </div>
 </div>
 
-<!-- STATS -->
-<section class="stats">
-  <div class="container stats-grid">
-    <div data-aos="fade-up">
-      <div class="stat-num">50k+</div>
-      <div class="stat-label">Combined audience</div>
-      <div class="stat-sub">Across our socials</div>
+<!-- PROOF -->
+<section class="stats" id="proof">
+  <div class="container">
+    <div class="sec-head" data-aos="fade-up">
+      <h2>Why teams trust us</h2>
     </div>
-    <div data-aos="fade-up" data-aos-delay="100">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Yours</div>
-      <div class="stat-sub">Account, data, and skills stay with you</div>
+    <div class="stats-grid">
+      <div data-aos="fade-up">
+        <div class="stat-num">50k+</div>
+        <div class="stat-label">Follow our work</div>
+        <div class="stat-sub">Combined audience across our socials</div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Yours</div>
+        <div class="stat-sub">Account, data, and skills stay with you</div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Lock-in</div>
+        <div class="stat-sub">Month to month, leave anytime</div>
+      </div>
     </div>
-    <div data-aos="fade-up" data-aos-delay="200">
-      <div class="stat-num">0</div>
-      <div class="stat-label">Lock-in</div>
-      <div class="stat-sub">Month to month, leave anytime</div>
-    </div>
+    <p class="proof-line" data-aos="fade-up">In the room right now: training the intake team at a class action law firm.</p>
+    <!-- OWNER TODO: when the first client review lands, drop it in here:
+    <figure class="quote-card">
+      <blockquote>"Quote goes here."</blockquote>
+      <figcaption>Name, Company</figcaption>
+    </figure>
+    -->
   </div>
 </section>
 
@@ -355,7 +373,7 @@ body.menu-open{overflow:hidden;}
         <li>Meta ads for companies in legal, home services, and ecommerce</li>
         <li>In every session. No account managers, no handoffs.</li>
       </ul>
-      <p class="team-note">Current focus: class action intake for law firms. A few engagements at a time, so every account gets real attention.</p>
+      <p class="team-note">A few engagements at a time. Every account gets real attention.</p>
       <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-ghost">Book a Call</a>
     </div>
   </div>
@@ -397,11 +415,11 @@ body.menu-open{overflow:hidden;}
   <div class="cta-inner">
     <div class="cta-photo" data-aos="fade-up"><img src="eric.jpg" alt="Eric, founder of Scale National" width="1280" height="1273" loading="lazy"></div>
     <h2 data-aos="fade-up">Ready to bring your ads in-house?</h2>
-    <p data-aos="fade-up" data-aos-delay="100">Book a free call. We'll look at your account and tell you straight if this fits.</p>
+    <p data-aos="fade-up" data-aos-delay="100">Book a free call. We'll tell you straight if this fits.</p>
     <div data-aos="fade-up" data-aos-delay="150">
       <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Call</a>
     </div>
-    <p class="hero-tel" data-aos="fade-up" data-aos-delay="200">Or call/text <a href="tel:+19179822327">(917) 982-2327</a></p>
+    <p class="hero-tel" data-aos="fade-up" data-aos-delay="200">Or call/text <a href="tel:+18887744290">(888) 774-4290</a></p>
   </div>
 </section>
 
@@ -425,7 +443,7 @@ body.menu-open{overflow:hidden;}
       <div>
         <h4>Contact</h4>
         <ul>
-          <li><a href="tel:+19179822327">(917) 982-2327</a></li>
+          <li><a href="tel:+18887744290">(888) 774-4290</a></li>
           <li><a href="mailto:info@scalenational.com">info@scalenational.com</a></li>
         </ul>
       </div>
