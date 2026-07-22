@@ -158,12 +158,13 @@ body.menu-open{overflow:hidden;}
 .sec-head{text-align:center;max-width:640px;margin:0 auto 56px;}
 .sec-head h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;}
 .sec-head p{font-size:17px;color:var(--gray);}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-.step{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:34px 28px;position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;}
-.step:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(13,13,13,0.08);}
-.step-num{font-weight:900;font-size:64px;line-height:1;color:rgba(255,90,31,0.18);letter-spacing:-2px;margin-bottom:14px;}
-.step h3{font-weight:800;font-size:21px;margin-bottom:10px;letter-spacing:-0.3px;}
-.step p{font-size:15.5px;color:var(--gray);line-height:1.65;}
+.how-panel{background:var(--black);border-radius:24px;padding:16px;display:grid;grid-template-columns:repeat(3,1fr);}
+.how-step{padding:40px 34px;position:relative;border-radius:14px;transition:background .25s ease;}
+.how-step:hover{background:rgba(255,255,255,0.045);}
+.how-step + .how-step::before{content:'';position:absolute;left:0;top:26%;bottom:26%;width:1px;background:var(--line-w);}
+.how-num{width:44px;height:44px;border-radius:12px;background:var(--orange);color:#fff;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
+.how-step h3{color:#fff;font-weight:800;font-size:21px;margin-bottom:8px;letter-spacing:-0.3px;}
+.how-step p{color:rgba(255,255,255,0.68);font-size:15.5px;line-height:1.65;}
 .what-cta{text-align:center;margin-top:48px;}
 
 /* ---------- Team ---------- */
@@ -211,7 +212,9 @@ body.menu-open{overflow:hidden;}
 /* ---------- Responsive ---------- */
 @media(max-width:900px){
   .stats-grid{grid-template-columns:1fr;gap:36px;}
-  .steps{grid-template-columns:1fr;max-width:520px;margin:0 auto;}
+  .how-panel{grid-template-columns:1fr;max-width:520px;margin:0 auto;padding:10px;}
+  .how-step{padding:30px 26px;}
+  .how-step + .how-step::before{left:26px;right:26px;top:0;bottom:auto;width:auto;height:1px;}
   .team-grid{grid-template-columns:1fr;gap:36px;}
   .team-photo{max-width:280px;}
   .footer-grid{grid-template-columns:1fr;gap:32px;}
@@ -331,21 +334,21 @@ body.menu-open{overflow:hidden;}
       <h2>How it works</h2>
       <p>Three steps, all inside your Business Manager.</p>
     </div>
-    <div class="steps">
-      <div class="step" data-aos="fade-up">
-        <div class="step-num">01</div>
+    <div class="how-panel" data-aos="fade-up">
+      <div class="how-step">
+        <div class="how-num">1</div>
         <h3>Set up</h3>
-        <p>Account structure, pixel, and tracking done right. We build it with your team so they know every piece.</p>
+        <p>Account structure, pixel, and tracking, built with your team.</p>
       </div>
-      <div class="step" data-aos="fade-up" data-aos-delay="100">
-        <div class="step-num">02</div>
+      <div class="how-step">
+        <div class="how-num">2</div>
         <h3>Launch</h3>
-        <p>Creative plan and first campaigns go live fast. Your hands on the keyboard, our playbook on the screen.</p>
+        <p>Creative plan and first campaigns live in your account.</p>
       </div>
-      <div class="step" data-aos="fade-up" data-aos-delay="200">
-        <div class="step-num">03</div>
+      <div class="how-step">
+        <div class="how-num">3</div>
         <h3>Run</h3>
-        <p>Weekly working sessions on live campaigns. We stay until your team runs it without us.</p>
+        <p>Weekly sessions on live campaigns until your team runs it alone.</p>
       </div>
     </div>
     <div class="what-cta" data-aos="fade-up">
