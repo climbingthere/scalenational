@@ -19,1787 +19,449 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel -->
 
-    <!-- Facebook Domain Verification -->
-    <meta name="facebook-domain-verification" content="c7jj5r6v59ybbbes1dc43n2w4ikaho" />
-
-    <!-- Primary Meta -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scale National | Your Team Runs Your Meta Ads. I Show Them How.</title>
-    <meta name="description" content="Hands-on Meta ads coaching in live working sessions. Your team runs the campaigns inside your own ad account, and Eric shows them exactly how: architecture, Pixel and CAPI tracking, creative, launches, and scaling. You own everything.">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
-
-    <!-- Open Graph (Facebook, iMessage, Slack, etc.) -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://scalenational.com">
-    <meta property="og:title" content="Your Team Runs Your Meta Ads. I Show Them Exactly How.">
-    <meta property="og:description" content="Live working sessions inside your own ad account. Your team's hands on the keyboard, Eric guiding every move: tracking, creative, campaign builds, launches, and scaling decisions. You own the account, the data, and the skill.">
-    <meta property="og:image" content="https://scalenational.com/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Scale National">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Your Team Runs Your Meta Ads. I Show Them Exactly How.">
-    <meta name="twitter:description" content="Live working sessions inside your own ad account. Your team runs the campaigns, Eric shows them exactly how, and you own the account, the data, and the skill.">
-    <meta name="twitter:image" content="https://scalenational.com/og-image.png">
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body { background: #0d0d0d; }
-html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Urbanist', sans-serif; font-weight: 400;
-            color: #0d0d0d;
-            background: #ffffff;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Urbanist', sans-serif;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-        }
-
-        /* ========== BUTTONS ========== */
-        .btn-orange {
-            display: inline-block;
-            background: #FF5A1F;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 16px;
-            padding: 16px 32px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: pulseGlow 2s infinite;
-        }
-
-        .btn-orange:hover {
-            background: #e04a10;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 90, 31, 0.4);
-        }
-
-        .btn-ghost {
-            display: inline-block;
-            border: 2px solid #FF5A1F;
-            color: #FF5A1F;
-            font-weight: 700;
-            font-size: 16px;
-            padding: 14px 32px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: transparent;
-        }
-
-        .btn-ghost:hover {
-            background: rgba(255, 90, 31, 0.08);
-            transform: translateY(-3px);
-        }
-
-        /* ========== ANIMATIONS ========== */
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 90, 31, 0.4); }
-            50% { box-shadow: 0 0 20px 4px rgba(255, 90, 31, 0.2); }
-        }
-
-        @keyframes heroFadeIn {
-            0% { opacity: 0; transform: scale(0.95) translateY(20px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-
-        /* ========== STICKY NAV ========== */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 12px 0;
-            background: #0d0d0d;
-            box-shadow: 0 1px 0 rgba(255,255,255,0.07);
-        }
-
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-logo img {
-            height: 48px;
-            width: auto;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            font-size: 15px;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: #FF5A1F;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .nav-btn {
-            display: inline-block;
-            background: #FF5A1F;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 14px;
-            padding: 13px 22px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background: #e04a10;
-            transform: translateY(-2px);
-        }
-
-        /* Hamburger */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1001;
-            padding: 14px 10px;
-            margin: -14px -10px;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background: #ffffff;
-            transition: 0.3s;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #0d0d0d;
-            z-index: 999;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 32px;
-        }
-
-        .mobile-menu.open {
-            display: flex;
-        }
-
-        .mobile-menu a {
-            color: #ffffff;
-            font-size: 20px;
-            font-weight: 600;
-            padding: 8px 16px;
-        }
-
-        .mobile-menu a:hover {
-            color: #FF5A1F;
-        }
-
-        /* ========== HERO ========== */
-        .hero {
-            background: #0d0d0d;
-            padding: 160px 0 120px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 90, 31, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 18px;
-            border: 1px solid rgba(255, 90, 31, 0.4);
-            border-radius: 50px;
-            background: rgba(255, 90, 31, 0.08);
-            color: #FF5A1F;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            margin-bottom: 24px;
-            animation: heroFadeIn 0.8s ease 0.1s forwards;
-            opacity: 0;
-        }
-
-        .hero h1 {
-            font-size: clamp(40px, 6.5vw, 76px);
-            font-weight: 900;
-            letter-spacing: -1px;
-            line-height: 1.06;
-            margin-bottom: 24px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #ffffff;
-            animation: heroFadeIn 0.8s ease 0.2s forwards;
-            opacity: 0;
-        }
-
-        .hero h1 .orange {
-            color: #FF5A1F;
-        }
-
-        .hero .sub {
-            font-size: clamp(18px, 2.5vw, 22px);
-            color: rgba(255,255,255,0.6);
-            max-width: 680px;
-            margin: 0 auto 40px;
-            font-weight: 400;
-            line-height: 1.7;
-            animation: heroFadeIn 0.8s ease 0.4s forwards;
-            opacity: 0;
-        }
-
-        .hero-ctas {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            animation: heroFadeIn 0.8s ease 0.6s forwards;
-            opacity: 0;
-        }
-
-        /* ========== AVATAR CTA ROW ========== */
-        .avatar-cta-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 48px;
-            animation: heroFadeIn 0.8s ease 0.8s forwards;
-            opacity: 0;
-        }
-
-        .avatar-pair {
-            display: flex;
-            align-items: center;
-        }
-
-        .avatar-circle {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            border: 3px solid #FF5A1F;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        .avatar-cta-text {
-            font-size: 15px;
-            color: rgba(255,255,255,0.7);
-            font-weight: 500;
-            text-align: left;
-        }
-
-        .avatar-cta-text strong {
-            color: #ffffff;
-            display: block;
-            font-size: 16px;
-        }
-
-        /* ========== PROOF BAR ========== */
-        .stats-bar {
-            background: #111111;
-            padding: 0;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 40px 24px;
-            position: relative;
-        }
-
-        .stat-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 20%;
-            height: 60%;
-            width: 1px;
-            background: rgba(255,255,255,0.07);
-        }
-
-        .stat-item .stat-number {
-            font-size: 28px;
-            font-weight: 900;
-            color: #ffffff;
-            line-height: 1.1;
-            margin-bottom: 6px;
-            font-family: 'Urbanist', sans-serif;
-        }
-
-        .stat-item .stat-label {
-            font-size: 13px;
-            color: rgba(255,255,255,0.55);
-            font-weight: 400;
-        }
-
-        /* ========== WHAT WE DO ========== */
-        .services {
-            background: #ffffff;
-            padding: 100px 0;
-        }
-
-        .services-features {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .service-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            padding: 60px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .service-row:last-child {
-            border-bottom: none;
-        }
-
-        .service-row.reverse .service-content {
-            order: 2;
-        }
-
-        .service-row.reverse .service-feature-card {
-            order: 1;
-        }
-
-        .phase-label {
-            display: block;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #FF5A1F;
-            margin-bottom: 10px;
-        }
-
-        .service-content h3 {
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 14px;
-            color: #0d0d0d;
-        }
-
-        .service-content p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 18px;
-        }
-
-        .service-feature-card {
-            background: linear-gradient(160deg, #161616 0%, #0d0d0d 100%);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 40px 32px;
-            min-height: 280px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 40px;
-            font-weight: 900;
-            color: #0d0d0d;
-            margin-bottom: 12px;
-        }
-
-        .section-header p {
-            font-size: 16px;
-            color: #666666;
-            max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-eyebrow {
-            display: block;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #FF5A1F;
-            margin-bottom: 12px;
-        }
-
-        /* ========== FOUNDER ========== */
-        .founder {
-            background: #f7f7f7;
-            padding: 100px 0;
-        }
-
-        .founder-grid {
-            display: grid;
-            grid-template-columns: 360px 1fr;
-            gap: 64px;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .founder-photo img {
-            width: 100%;
-            border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            object-fit: cover;
-        }
-
-        .founder-text h2 {
-            font-size: 40px;
-            font-weight: 900;
-            color: #0d0d0d;
-            margin-bottom: 20px;
-        }
-
-        .founder-text p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 18px;
-        }
-
-        .founder-facts {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 4px 0 24px;
-        }
-
-        .founder-facts span {
-            display: inline-block;
-            border: 1px solid #e3e3e3;
-            background: #ffffff;
-            border-radius: 50px;
-            padding: 8px 16px;
-            font-size: 13px;
-            font-weight: 700;
-            color: #0d0d0d;
-        }
-
-        .founder-text .btn-ghost {
-            margin-top: 8px;
-        }
-
-        /* ========== COMPARISON ========== */
-        .comparison {
-            background: #ffffff;
-            padding: 100px 0;
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            max-width: 1140px;
-            margin: 0 auto;
-        }
-
-        .comparison-col {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 36px 28px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .comparison-col.highlight {
-            border: 2px solid #FF5A1F;
-            background: #0d0d0d;
-            color: #ffffff;
-        }
-
-        .comparison-col h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #0d0d0d;
-        }
-
-        .comparison-col.highlight h3 {
-            color: #FF5A1F;
-        }
-
-        .comparison-col ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .comparison-col ul li {
-            padding: 14px 0;
-            font-size: 14px;
-            display: block;
-            line-height: 1.6;
-            color: #666666;
-            border-bottom: 1px solid #eee;
-        }
-
-        .comparison-col .row-label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: #0d0d0d;
-            margin-bottom: 4px;
-        }
-
-        .comparison-col.highlight .row-label {
-            color: #FF5A1F;
-        }
-
-        .comparison-col.highlight ul li {
-            color: rgba(255,255,255,0.8);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .comparison-col ul li:last-child {
-            border-bottom: none;
-        }
-
-        .comparison-cta {
-            text-align: center;
-            max-width: 640px;
-            margin: 64px auto 0;
-        }
-
-        .comparison-cta h3 {
-            font-size: 26px;
-            font-weight: 800;
-            color: #0d0d0d;
-            margin-bottom: 12px;
-        }
-
-        .comparison-cta p {
-            font-size: 16px;
-            color: #666666;
-            line-height: 1.7;
-            margin-bottom: 28px;
-        }
-
-        /* ========== HOW IT WORKS ========== */
-        .how-it-works {
-            background: #f7f7f7;
-            padding: 100px 0;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 28px;
-            max-width: 1140px;
-            margin: 0 auto;
-        }
-
-        .step {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 28px 26px 34px;
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
-
-        .step-number {
-            font-size: 88px;
-            font-weight: 900;
-            line-height: 0.85;
-            letter-spacing: -4px;
-            color: rgba(255, 90, 31, 0.15);
-            margin-bottom: -26px;
-            user-select: none;
-        }
-
-        .step h3 {
-            position: relative;
-            z-index: 1;
-            font-size: 20px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            color: #0d0d0d;
-        }
-
-        .step p {
-            position: relative;
-            z-index: 1;
-            font-size: 15px;
-            color: #666666;
-            line-height: 1.7;
-        }
-
-        /* ========== FAQ ========== */
-        .faq {
-            background: #ffffff;
-            padding: 100px 0;
-        }
-
-        .faq-list {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid #eee;
-        }
-
-        .faq-question {
-            padding: 24px 0;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 17px;
-            color: #0d0d0d;
-            transition: color 0.2s;
-        }
-
-        .faq-question:hover {
-            color: #FF5A1F;
-        }
-
-        .faq-question:focus-visible {
-            outline: 2px solid #FF5A1F;
-            outline-offset: 4px;
-        }
-
-        .faq-question .icon {
-            font-size: 24px;
-            color: #FF5A1F;
-            transition: transform 0.3s;
-            font-weight: 300;
-        }
-
-        .faq-item.open .faq-question .icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-            color: #666666;
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        .faq-item.open .faq-answer {
-            max-height: 600px;
-            padding-bottom: 24px;
-        }
-
-        /* ========== FINAL CTA ========== */
-        @keyframes availPulse {
-            0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-            70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
-            100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
-        }
-
-        .final-cta {
-            background: #0d0d0d;
-            padding: 80px 24px;
-        }
-
-        .final-cta-card {
-            max-width: 900px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #161616 0%, #1a1a1a 50%, #0f0f0f 100%);
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
-            padding: 64px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .final-cta-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60%;
-            height: 60%;
-            background: radial-gradient(ellipse at top right, rgba(255,90,31,0.08) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .final-cta-inner {
-            display: flex;
-            align-items: center;
-            gap: 48px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .final-cta-left {
-            flex: 1;
-        }
-
-        .final-cta-right {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-            flex-shrink: 0;
-        }
-
-        .final-cta-photos {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .final-cta-photos img {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            border: 3px solid #FF5A1F;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        .avail-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .avail-dot {
-            width: 10px;
-            height: 10px;
-            background: #22c55e;
-            border-radius: 50%;
-            animation: availPulse 2s infinite;
-        }
-
-        .avail-text {
-            color: #22c55e;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .final-cta h2 {
-            font-family: 'Urbanist', sans-serif;
-            font-size: 48px;
-            font-weight: 900;
-            color: #ffffff;
-            margin-bottom: 16px;
-            line-height: 1.1;
-        }
-
-        .final-cta p {
-            color: rgba(255,255,255,0.7);
-            font-size: 17px;
-            max-width: 600px;
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-
-        .final-cta .btn-cta {
-            display: inline-block;
-            background: #FF5A1F;
-            color: #fff;
-            padding: 18px 40px;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 20px rgba(255,90,31,0.3);
-        }
-
-        .final-cta .btn-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255,90,31,0.4);
-        }
-
-        .final-cta .phone-cta {
-            color: rgba(255,255,255,0.5);
-            font-size: 15px;
-            margin-top: 12px;
-        }
-
-        .final-cta .phone-cta a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: underline;
-        }
-
-        /* ========== FOOTER ========== */
-        .footer {
-            background: #0d0d0d;
-            padding: 60px 0 32px;
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-brand .footer-logo img {
-            height: 44px;
-            width: auto;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .footer-brand .tagline {
-            color: rgba(255,255,255,0.6);
-            font-size: 14px;
-        }
-
-        .footer-contact {
-            color: rgba(255,255,255,0.6);
-            font-size: 14px;
-            line-height: 2;
-        }
-
-        .footer-contact a {
-            color: #FF5A1F;
-            transition: color 0.2s;
-        }
-
-        .footer-contact a:hover {
-            color: #e04a10;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,0.6);
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: #FF5A1F;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            color: rgba(255,255,255,0.4);
-            font-size: 13px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 1024px) {
-            .service-row {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .service-row.reverse .service-content {
-                order: 1;
-            }
-
-            .service-row.reverse .service-feature-card {
-                order: 2;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0;
-            }
-
-            .stat-item:nth-child(2)::after {
-                display: none;
-            }
-
-            .comparison-grid {
-                grid-template-columns: 1fr;
-                max-width: 560px;
-            }
-
-            .founder-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                max-width: 640px;
-            }
-
-            .founder-photo {
-                text-align: center;
-            }
-
-            .founder-photo img {
-                max-width: 320px;
-            }
-
-            .steps {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links,
-            .nav-right {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: clamp(34px, 8vw, 48px);
-            }
-
-            .section-header h2 {
-                font-size: 28px;
-            }
-
-            .service-row {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-logo img {
-                height: 40px;
-            }
-
-            .footer-brand .footer-logo img {
-                height: 38px;
-            }
-
-            .footer-links a {
-                padding: 11px 0;
-            }
-
-            .steps {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .step-number {
-                font-size: 80px;
-            }
-
-            .avatar-cta-row {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .avatar-cta-text {
-                text-align: center;
-            }
-
-            .avatar-circle {
-                width: 56px;
-                height: 56px;
-            }
-
-            .stat-item .stat-number {
-                font-size: 24px;
-            }
-
-            .stat-item:not(:last-child)::after {
-                display: none;
-            }
-
-            .final-cta-card {
-                padding: 40px 24px;
-            }
-
-            .final-cta-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .final-cta-left {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .final-cta-photos {
-                justify-content: center;
-            }
-
-            .avail-badge {
-                justify-content: center;
-            }
-
-            .final-cta h2 {
-                font-size: 32px;
-            }
-
-            .final-cta p {
-                text-align: center;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .footer-links {
-                justify-content: center;
-            }
-
-            .founder-text {
-                text-align: center;
-            }
-
-            .founder-text h2 {
-                font-size: 32px;
-            }
-
-            .founder-facts {
-                justify-content: center;
-            }
-
-            .final-cta .phone-cta a,
-            .footer-contact a {
-                display: inline-block;
-                padding: 10px 4px;
-                margin: -6px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 132px 0 72px;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .hero-ctas .btn-orange,
-            .hero-ctas .btn-ghost {
-                text-align: center;
-            }
-
-            .comparison-cta .btn-orange,
-            .founder-text .btn-ghost,
-            .final-cta .btn-cta {
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0;
-            }
-
-            .stat-item .stat-number {
-                font-size: 20px;
-            }
-
-            .stat-item {
-                padding: 28px 16px;
-            }
-
-            .services,
-            .founder,
-            .comparison,
-            .how-it-works,
-            .faq {
-                padding: 72px 0;
-            }
-
-            .service-row {
-                padding: 44px 0;
-            }
-
-            .final-cta {
-                padding: 64px 16px;
-            }
-
-            .final-cta-card {
-                padding: 36px 20px;
-            }
-        }
-        /* CTA Section Animations */
-        .cta-avatar-group,
-        .avail-row,
-        .cta-card h2,
-        .cta-card p,
-        .cta-actions,
-        .phone-cta {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .cta-card.animated .cta-avatar-group { opacity: 1; transform: translateY(0); transition-delay: 0s; }
-        .cta-card.animated .avail-row       { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
-        .cta-card.animated h2               { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
-        .cta-card.animated p                { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
-        .cta-card.animated .cta-actions     { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
-        .cta-card.animated .phone-cta       { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
-
-        .cta-section .cta-card-wrap {
-            opacity: 0;
-            transform: scale(0.96) translateY(40px);
-            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .cta-section.animated .cta-card-wrap {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-    </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://scalenational.com/#organization",
-          "name": "Scale National",
-          "url": "https://scalenational.com",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://scalenational.com/logo.png"
-          },
-          "description": "Founder-led Meta ads coaching. Eric works alongside client teams in live sessions inside their own ad account, showing them how to run account architecture, Pixel and Conversions API tracking, creative strategy, and campaign management. The client owns the account, the data, and the skill.",
-          "founder": {
-            "@type": "Person",
-            "name": "Eric",
-            "jobTitle": "Founder"
-          },
-          "email": "info@scalenational.com",
-          "telephone": "+19179822327",
-          "sameAs": [
-            "https://www.facebook.com/scalenational",
-            "https://www.instagram.com/scalenational"
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://scalenational.com/#website",
-          "url": "https://scalenational.com",
-          "name": "Scale National",
-          "publisher": {"@id": "https://scalenational.com/#organization"}
-        }
-      ]
-    }
-    </script>
+<!-- Facebook Domain Verification -->
+<meta name="facebook-domain-verification" content="c7jj5r6v59ybbbes1dc43n2w4ikaho" />
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scale National | Meta Ads Training for In-House Teams</title>
+<meta name="description" content="Your team runs the ads. We show them how. Hands-on Meta ads training inside your own ad account. Month to month, you own everything.">
+
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scalenational.com">
+<meta property="og:title" content="Scale National | Meta Ads Training for In-House Teams">
+<meta property="og:description" content="Your team runs the ads. We show them how. Hands-on Meta ads training inside your own ad account.">
+<meta property="og:image" content="https://scalenational.com/og-image.png">
+<meta property="og:site_name" content="Scale National">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scale National | Meta Ads Training for In-House Teams">
+<meta name="twitter:description" content="Your team runs the ads. We show them how.">
+<meta name="twitter:image" content="https://scalenational.com/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Scale National",
+  "url": "https://scalenational.com",
+  "logo": "https://scalenational.com/logo.png",
+  "description": "Hands-on Meta ads training for in-house teams. Your team runs the ads, we show them how.",
+  "email": "info@scalenational.com",
+  "telephone": "+19179822327",
+  "sameAs": ["https://www.facebook.com/scalenational", "https://www.instagram.com/scalenational"]
+}
+</script>
+
+<style>
+:root{
+  --black:#0d0d0d;
+  --dark2:#161616;
+  --orange:#FF5A1F;
+  --orange-press:#e04a10;
+  --white:#ffffff;
+  --off:#f7f7f7;
+  --gray:#555a60;
+  --gray-lt:#9aa0a6;
+  --line:rgba(13,13,13,0.1);
+  --line-w:rgba(255,255,255,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Urbanist',sans-serif;font-weight:400;color:var(--black);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+.container{max-width:1140px;margin:0 auto;padding:0 24px;}
+h1,h2{font-weight:900;letter-spacing:-0.5px;line-height:1.1;}
+section[id]{scroll-margin-top:90px;}
+
+/* ---------- Buttons ---------- */
+.btn-orange{display:inline-flex;align-items:center;justify-content:center;background:var(--orange);color:#fff;font-weight:700;font-size:16px;padding:16px 32px;border-radius:12px;border:none;cursor:pointer;transition:all .25s ease;min-height:52px;}
+.btn-orange:hover{background:var(--orange-press);transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,90,31,0.35);}
+.btn-ghost{display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--black);color:var(--black);font-weight:700;font-size:16px;padding:14px 32px;border-radius:12px;cursor:pointer;transition:all .25s ease;background:transparent;min-height:52px;}
+.btn-ghost:hover{background:rgba(13,13,13,0.05);transform:translateY(-2px);}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(255,90,31,0.35);}50%{box-shadow:0 0 0 12px rgba(255,90,31,0);}}
+.pulse{animation:pulseGlow 2.4s infinite;}
+:is(a,button,summary):focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:8px;}
+@media(prefers-reduced-motion:reduce){.pulse{animation:none;}html{scroll-behavior:auto;}}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:0;z-index:200;background:rgba(13,13,13,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-w);}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-logo img{height:32px;width:auto;display:block;}
+.nav-links{display:flex;gap:30px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.85);font-weight:600;font-size:15px;transition:color .2s;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{display:flex;align-items:center;gap:14px;}
+.nav-cta .btn-orange{min-height:44px;padding:10px 22px;font-size:15px;}
+.hamburger{display:none;background:none;border:0;cursor:pointer;padding:10px;min-width:44px;min-height:44px;}
+.hamburger span{display:block;width:24px;height:2.5px;background:#fff;border-radius:2px;margin:5px 0;transition:transform .25s,opacity .25s;}
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:block;}
+}
+.mobile-menu{display:none;position:fixed;inset:68px 0 0 0;background:var(--black);z-index:190;padding:36px 24px;flex-direction:column;gap:6px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:#fff;font-weight:700;font-size:22px;padding:14px 4px;border-bottom:1px solid var(--line-w);}
+.mobile-menu .btn-orange{margin-top:22px;border-bottom:none;font-size:17px;}
+body.menu-open{overflow:hidden;}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--black);color:#fff;position:relative;overflow:hidden;padding:96px 0 84px;}
+.hero::before{content:'';position:absolute;top:-240px;right:-180px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(255,90,31,0.16) 0%,transparent 65%);pointer-events:none;}
+.hero-inner{position:relative;z-index:2;max-width:820px;margin:0 auto;padding:0 24px;text-align:center;}
+.hero h1{font-size:clamp(38px,6vw,64px);color:#fff;margin-bottom:22px;}
+.hero h1 .orange{color:var(--orange);}
+.hero-sub{font-size:clamp(17px,2vw,20px);color:rgba(255,255,255,0.75);max-width:640px;margin:0 auto 34px;line-height:1.65;}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.hero-tel{font-size:15px;color:rgba(255,255,255,0.6);font-weight:600;}
+.hero-tel a{color:#fff;font-weight:700;border-bottom:2px solid var(--orange);padding-bottom:1px;}
+
+/* ---------- Logo wheel ---------- */
+.wheel{background:var(--black);border-top:1px solid var(--line-w);padding:44px 0 52px;overflow:hidden;}
+.wheel-label{text-align:center;font-weight:800;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:30px;}
+.wheel-mask{position:relative;overflow:hidden;}
+.wheel-mask::before,.wheel-mask::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;}
+.wheel-mask::before{left:0;background:linear-gradient(90deg,var(--black),transparent);}
+.wheel-mask::after{right:0;background:linear-gradient(270deg,var(--black),transparent);}
+.wheel-track{display:flex;width:max-content;animation:wheel 36s linear infinite;}
+.wheel-mask:hover .wheel-track{animation-play-state:paused;}
+.wheel-set{display:flex;align-items:center;gap:72px;padding-right:72px;}
+.wheel-set img{height:30px;width:auto;filter:brightness(0) invert(1);opacity:0.75;transition:opacity .2s;}
+.wheel-set img:hover{opacity:1;}
+@keyframes wheel{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@media(prefers-reduced-motion:reduce){
+  .wheel-track{animation:none;flex-wrap:wrap;justify-content:center;width:100%;}
+  .wheel-set{padding-right:0;gap:40px;flex-wrap:wrap;justify-content:center;}
+  .wheel-set[aria-hidden]{display:none;}
+}
+
+/* ---------- Stats ---------- */
+.stats{background:var(--white);padding:72px 0;}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;text-align:center;}
+.stat-num{font-weight:900;font-size:clamp(40px,5vw,56px);color:var(--orange);line-height:1;letter-spacing:-1px;}
+.stat-label{font-weight:700;font-size:16px;margin-top:10px;}
+.stat-sub{font-size:14px;color:var(--gray);margin-top:4px;}
+
+/* ---------- What we do ---------- */
+.what{background:var(--off);padding:96px 0;}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 56px;}
+.sec-head h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;}
+.sec-head p{font-size:17px;color:var(--gray);}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.step{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:34px 28px;position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;}
+.step:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(13,13,13,0.08);}
+.step-num{font-weight:900;font-size:64px;line-height:1;color:rgba(255,90,31,0.18);letter-spacing:-2px;margin-bottom:14px;}
+.step h3{font-weight:800;font-size:21px;margin-bottom:10px;letter-spacing:-0.3px;}
+.step p{font-size:15.5px;color:var(--gray);line-height:1.65;}
+.what-cta{text-align:center;margin-top:48px;}
+
+/* ---------- Team ---------- */
+.team{background:var(--white);padding:96px 0;}
+.team-grid{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center;}
+.team-photo{border-radius:18px;overflow:hidden;}
+.team-photo img{width:100%;height:auto;display:block;}
+.team h2{font-size:clamp(30px,4vw,44px);margin-bottom:8px;}
+.team-name{font-weight:700;font-size:17px;color:var(--orange);margin-bottom:20px;}
+.team-facts{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+.team-facts li{font-size:16.5px;font-weight:600;padding-left:26px;position:relative;}
+.team-facts li::before{content:'';position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:var(--orange);}
+.team-note{font-size:15px;color:var(--gray);margin-bottom:28px;max-width:520px;}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--off);padding:96px 0;}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+.faq-item{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;font-weight:700;font-size:17px;min-height:52px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-plus{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--off);color:var(--black);font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;transition:transform .25s,background .25s,color .25s;line-height:1;}
+.faq-item[open] .faq-plus{transform:rotate(45deg);background:var(--orange);color:#fff;}
+.faq-a{padding:0 24px 20px;font-size:15.5px;color:var(--gray);line-height:1.7;}
+
+/* ---------- Final CTA ---------- */
+.cta{background:var(--black);color:#fff;padding:96px 0;position:relative;overflow:hidden;}
+.cta::before{content:'';position:absolute;bottom:-260px;left:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,90,31,0.14) 0%,transparent 65%);pointer-events:none;}
+.cta-inner{position:relative;z-index:2;max-width:660px;margin:0 auto;padding:0 24px;text-align:center;}
+.cta-photo{width:76px;height:76px;border-radius:50%;overflow:hidden;margin:0 auto 20px;border:2px solid var(--orange);}
+.cta-photo img{width:100%;height:100%;object-fit:cover;}
+.cta h2{font-size:clamp(30px,4.5vw,46px);color:#fff;margin-bottom:16px;}
+.cta p{font-size:17px;color:rgba(255,255,255,0.72);margin-bottom:32px;}
+.cta .hero-tel{display:block;margin-top:16px;}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--black);color:#fff;border-top:1px solid var(--line-w);padding:56px 0 28px;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-brand img{height:28px;margin-bottom:14px;}
+.footer-tag{font-size:14px;color:var(--gray-lt);}
+.footer h4{font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--gray-lt);margin-bottom:14px;}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer a{color:rgba(255,255,255,0.85);font-size:15px;font-weight:600;display:inline-block;padding:4px 0;}
+.footer a:hover{color:var(--orange);}
+.footer-legacy{border-top:1px solid var(--line-w);padding-top:20px;margin-bottom:20px;}
+.footer-legacy span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--gray-lt);margin-bottom:10px;}
+.footer-legacy ul{flex-direction:row;flex-wrap:wrap;gap:18px;opacity:0.55;}
+.footer-legacy a{font-size:13.5px;font-weight:500;}
+.footer-bottom{border-top:1px solid var(--line-w);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13.5px;color:var(--gray-lt);}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .stats-grid{grid-template-columns:1fr;gap:36px;}
+  .steps{grid-template-columns:1fr;max-width:520px;margin:0 auto;}
+  .team-grid{grid-template-columns:1fr;gap:36px;}
+  .team-photo{max-width:280px;}
+  .footer-grid{grid-template-columns:1fr;gap:32px;}
+  .hero{padding:72px 0 64px;}
+  .what,.team,.faq,.cta{padding:72px 0;}
+  .hero-ctas .btn-orange,.hero-ctas .btn-ghost{width:100%;}
+}
+</style>
 </head>
 <body>
 
-    <!-- STICKY NAV -->
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="#" class="nav-logo">
-                <img src="logo-nav.png" alt="Scale National">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#what-we-do">What We Do</a></li>
-                <li><a href="#founder">Who You'll Work With</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-            <div class="nav-right">
-                <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="nav-btn">Book a Call</a>
-            </div>
-            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#what-we-do" onclick="toggleMenu()">What We Do</a>
-        <a href="#founder" onclick="toggleMenu()">Who You'll Work With</a>
-        <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
-        <a href="#faq" onclick="toggleMenu()">FAQ</a>
-        <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
+<!-- NAV -->
+<nav class="nav" aria-label="Main">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Scale National home">
+      <img src="logo-nav.png" alt="Scale National" width="1108" height="248">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#what">What We Do</a></li>
+      <li><a href="#team">Who We Are</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
     </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                Meta Ads &middot; Live Working Sessions, In Your Account
-            </div>
-            <h1>Your team runs your Meta ads.<br><span class="orange">I show them exactly how.</span></h1>
-            <p class="sub">Not a done-for-you black box. Not a video course. I work alongside your team in live sessions, inside your own ad account: architecture, Pixel and CAPI tracking, creative, campaign builds, launches, and scaling calls. Their hands on the keyboard, my eyes on every move. You own the account, the data, and the skill.</p>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#what" onclick="toggleMenu()">What We Do</a>
+  <a href="#team" onclick="toggleMenu()">Who We Are</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="tel:+19179822327" onclick="toggleMenu()">Call (917) 982-2327</a>
+  <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
+</div>
 
-            <div class="hero-ctas" style="justify-content:center;">
-                <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call with the Founder</a>
-            </div>
+<span id="top"></span>
 
-            <!-- Avatar circle + Book a call CTA -->
-            <div class="avatar-cta-row" data-aos="fade-up" data-aos-delay="200">
-                <div class="avatar-pair">
-                    <img class="avatar-circle" src="eric.jpg" alt="Eric, founder of Scale National">
-                </div>
-                <div class="avatar-cta-text">
-                    <strong>Book a call with Eric, the founder</strong>
-                    You'll talk to the person who'll be in the working sessions with your team.
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <h1 data-aos="fade-up">Your team runs the ads.<br><span class="orange">We show them how.</span></h1>
+    <p class="hero-sub" data-aos="fade-up" data-aos-delay="100">Hands-on Meta ads training inside your own ad account. We set it up together, launch together, and your team learns on live campaigns. You own everything.</p>
+    <div class="hero-ctas" data-aos="fade-up" data-aos-delay="200">
+      <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Call</a>
+    </div>
+    <p class="hero-tel" data-aos="fade-up" data-aos-delay="250">Or call/text <a href="tel:+19179822327">(917) 982-2327</a></p>
+  </div>
+</header>
 
-    <!-- PROOF BAR -->
-    <section class="stats-bar">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">50k+ followers</div>
-                    <div class="stat-label">Combined audience on Eric's personal brand</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">Multiple companies</div>
-                    <div class="stat-label">Meta ads run across different industries, legal to home services</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">Founder-led</div>
-                    <div class="stat-label">Every working session is with Eric, no account managers</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">Month to month</div>
-                    <div class="stat-label">Flat fee, no lock-in, leave anytime with everything</div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- LOGO WHEEL -->
+<div class="wheel" aria-label="Platforms we work in">
+  <p class="wheel-label">We work with the best</p>
+  <div class="wheel-mask">
+    <div class="wheel-track">
+      <div class="wheel-set">
+        <img src="logos/meta.svg" alt="Meta">
+        <img src="logos/google.png" alt="Google">
+        <img src="logos/slack.png" alt="Slack">
+        <img src="logos/zapier.svg" alt="Zapier">
+        <img src="logos/openai.svg" alt="OpenAI">
+      </div>
+      <div class="wheel-set" aria-hidden="true">
+        <img src="logos/meta.svg" alt="">
+        <img src="logos/google.png" alt="">
+        <img src="logos/slack.png" alt="">
+        <img src="logos/zapier.svg" alt="">
+        <img src="logos/openai.svg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- WHAT WE DO -->
-    <section class="services" id="what-we-do">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-eyebrow">What We Do</span>
-                <h2>Your team learns it by doing it, in your account</h2>
-                <p>Your team's hands are on the keyboard. I sit with them on live campaigns and show them exactly what to do. Four phases, all inside your Business Manager.</p>
-            </div>
-            <div class="services-features">
+<!-- STATS -->
+<section class="stats">
+  <div class="container stats-grid">
+    <div data-aos="fade-up">
+      <div class="stat-num">50k+</div>
+      <div class="stat-label">Combined audience</div>
+      <div class="stat-sub">Across our socials</div>
+    </div>
+    <div data-aos="fade-up" data-aos-delay="100">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Yours</div>
+      <div class="stat-sub">Account, data, and skills stay with you</div>
+    </div>
+    <div data-aos="fade-up" data-aos-delay="200">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Lock-in</div>
+      <div class="stat-sub">Month to month, leave anytime</div>
+    </div>
+  </div>
+</section>
 
-                <!-- Phase 1: Build -->
-                <div class="service-row" data-aos="fade-up">
-                    <div class="service-content">
-                        <span class="phase-label">01 &middot; Build</span>
-                        <h3>The account and the tracking, set up right</h3>
-                        <p>We start in your Business Manager, on a screen share. Your person builds the account architecture while I direct every step: campaign structure, naming, and budget logic that stays readable as spend grows. Then tracking: they install the Pixel and Conversions API with me checking every event, deduplicated and mapped to what a lead is actually worth to you. Bad data quietly wastes ad budget, so this comes first.</p>
-                    </div>
-                    <div class="service-feature-card">
-                        <div style="width:100%;max-width:300px;">
-                            <div style="background:#1c1c1c;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;">
-                                <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Your Business Manager</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="font-size:12px;color:#FF5A1F;font-weight:700;">01</span>
-                                    <span style="font-size:12px;color:rgba(255,255,255,0.85);">Prospecting &middot; Advantage+</span>
-                                    <span style="margin-left:auto;background:#28a745;border-radius:50px;padding:3px 9px;font-size:10px;color:#fff;font-weight:600;">Active</span>
-                                </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="font-size:12px;color:#FF5A1F;font-weight:700;">02</span>
-                                    <span style="font-size:12px;color:rgba(255,255,255,0.85);">Retargeting &middot; Engaged 30d</span>
-                                    <span style="margin-left:auto;background:#28a745;border-radius:50px;padding:3px 9px;font-size:10px;color:#fff;font-weight:600;">Active</span>
-                                </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="font-size:12px;color:#fff;font-weight:700;">Lead</span>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.55);">Pixel + CAPI &middot; Deduplicated</span>
-                                    <span style="margin-left:auto;color:#28a745;font-size:13px;font-weight:700;">&#10003;</span>
-                                </div>
-                            </div>
-                            <div style="font-size:12px;color:rgba(255,255,255,0.5);text-align:center;margin-top:12px;">Your team builds it. I check every line.</div>
-                        </div>
-                    </div>
-                </div>
+<!-- WHAT WE DO -->
+<section class="what" id="what">
+  <div class="container">
+    <div class="sec-head" data-aos="fade-up">
+      <h2>Simple by design</h2>
+      <p>Three steps. All of it inside your Business Manager.</p>
+    </div>
+    <div class="steps">
+      <div class="step" data-aos="fade-up">
+        <div class="step-num">01</div>
+        <h3>Set up</h3>
+        <p>Account structure, pixel, and tracking done right. We build it with your team so they know every piece.</p>
+      </div>
+      <div class="step" data-aos="fade-up" data-aos-delay="100">
+        <div class="step-num">02</div>
+        <h3>Launch</h3>
+        <p>Creative plan and first campaigns go live fast. Your hands on the keyboard, our playbook on the screen.</p>
+      </div>
+      <div class="step" data-aos="fade-up" data-aos-delay="200">
+        <div class="step-num">03</div>
+        <h3>Run</h3>
+        <p>Weekly working sessions on live campaigns. We stay until your team runs it without us.</p>
+      </div>
+    </div>
+    <div class="what-cta" data-aos="fade-up">
+      <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
+    </div>
+  </div>
+</section>
 
-                <!-- Phase 2: Launch -->
-                <div class="service-row reverse" data-aos="fade-up">
-                    <div class="service-content">
-                        <span class="phase-label">02 &middot; Launch</span>
-                        <h3>Creative planned, first campaigns live</h3>
-                        <p>We plan the creative together: hooks, angles, formats, and what to test first. Then your team builds the campaigns in live sessions with my eyes on every setting, and hits publish with real budget. I explain every decision as it happens, from audiences to bids to budget structure, so they know why, not just what.</p>
-                    </div>
-                    <div class="service-feature-card">
-                        <div style="width:100%;max-width:300px;">
-                            <div style="background:#1c1c1c;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;">
-                                <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Launch day</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="color:#28a745;font-size:13px;font-weight:700;">&#10003;</span>
-                                    <span style="font-size:12px;color:rgba(255,255,255,0.85);">Objective &amp; budget</span>
-                                </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="color:#28a745;font-size:13px;font-weight:700;">&#10003;</span>
-                                    <span style="font-size:12px;color:rgba(255,255,255,0.85);">Audiences &amp; placements</span>
-                                </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="color:#28a745;font-size:13px;font-weight:700;">&#10003;</span>
-                                    <span style="font-size:12px;color:rgba(255,255,255,0.85);">Creative &amp; copy</span>
-                                </div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="color:#28a745;font-size:13px;font-weight:700;">&#10003;</span>
-                                    <span style="font-size:12px;color:rgba(255,255,255,0.85);">Tracking check</span>
-                                </div>
-                                <div style="background:#FF5A1F;border-radius:8px;padding:11px 12px;display:flex;align-items:center;gap:8px;">
-                                    <span style="color:#fff;font-size:13px;font-weight:700;">&#8594;</span>
-                                    <span style="font-size:12px;color:#fff;font-weight:600;">Publish, live in your account</span>
-                                </div>
-                            </div>
-                            <div style="font-size:12px;color:rgba(255,255,255,0.5);text-align:center;margin-top:12px;">Your person hits publish. I'm on the call.</div>
-                        </div>
-                    </div>
-                </div>
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container team-grid">
+    <div class="team-photo" data-aos="fade-up">
+      <img src="eric-profile.jpg" alt="Eric, founder of Scale National" width="1280" height="1279" loading="lazy">
+    </div>
+    <div data-aos="fade-up" data-aos-delay="100">
+      <h2>Who you'll work with</h2>
+      <p class="team-name">Eric &middot; Founder</p>
+      <ul class="team-facts">
+        <li>50k+ combined audience on social</li>
+        <li>Meta ads for companies in legal, home services, and ecommerce</li>
+        <li>In every session. No account managers, no handoffs.</li>
+      </ul>
+      <p class="team-note">Current focus: class action intake for law firms. A few engagements at a time, so every account gets real attention.</p>
+      <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-ghost">Book a Call</a>
+    </div>
+  </div>
+</section>
 
-                <!-- Phase 3: Run -->
-                <div class="service-row" data-aos="fade-up">
-                    <div class="service-content">
-                        <span class="phase-label">03 &middot; Run</span>
-                        <h3>Your team runs it, I keep it sharp</h3>
-                        <p>Launch isn't the finish line. Weekly working sessions on live campaigns: your person proposes the budget moves, creative refreshes, and the kill or scale calls, and I confirm or correct them before anything goes in. They build real judgment on your data, while the ads keep producing.</p>
-                    </div>
-                    <div class="service-feature-card">
-                        <div style="width:100%;max-width:300px;">
-                            <div style="background:#1c1c1c;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;">
-                                <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Weekly working session</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;font-size:12px;color:rgba(255,255,255,0.85);"><span style="color:#fff;font-weight:700;">CPM up:</span> auction pressure. Hold steady.</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;font-size:12px;color:rgba(255,255,255,0.85);"><span style="color:#fff;font-weight:700;">CTR down:</span> creative fatigue. Refresh it.</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;font-size:12px;color:rgba(255,255,255,0.85);"><span style="color:#fff;font-weight:700;">CPL over target 7 days:</span> kill it.</div>
-                                <div style="background:#2a2a2a;border-radius:8px;padding:11px 12px;font-size:12px;color:rgba(255,255,255,0.85);"><span style="color:#fff;font-weight:700;">CPL under target, stable:</span> scale 20%.</div>
-                            </div>
-                            <div style="font-size:12px;color:rgba(255,255,255,0.5);text-align:center;margin-top:12px;">Their call first, my check, then it ships.</div>
-                        </div>
-                    </div>
-                </div>
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="sec-head" data-aos="fade-up">
+      <h2>Questions we get</h2>
+    </div>
+    <div class="faq-list" data-aos="fade-up">
+      <details class="faq-item">
+        <summary>Do you run the ads for us?<span class="faq-plus">+</span></summary>
+        <div class="faq-a"><p>We run them with you. Your team makes the changes and we guide every move. That's how they learn.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What if we don't have a team yet?<span class="faq-plus">+</span></summary>
+        <div class="faq-a"><p>One person is enough. If you need to hire, we'll help you pick the right one.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What do we need to start?<span class="faq-plus">+</span></summary>
+        <div class="faq-a"><p>A Business Manager, an ad budget, and a few hours a week. We handle the rest of the setup with you.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How does pricing work?<span class="faq-plus">+</span></summary>
+        <div class="faq-a"><p>Flat monthly fee, month to month. You get the exact number on the call.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How long until we run it alone?<span class="faq-plus">+</span></summary>
+        <div class="faq-a"><p>Most teams run independently within a few months. You keep everything either way.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
 
-                <!-- Phase 4: Own -->
-                <div class="service-row reverse" data-aos="fade-up">
-                    <div class="service-content">
-                        <span class="phase-label">04 &middot; Own</span>
-                        <h3>Your team takes the wheel</h3>
-                        <p>As your person gets confident, they need me less. I go from guide to reviewer to advisor, on purpose. You end up with a trained team, a written playbook, and an ad account you fully own. I stay available after that, but you won't be dependent on me.</p>
-                    </div>
-                    <div class="service-feature-card">
-                        <div style="width:100%;max-width:300px;">
-                            <div style="background:#1c1c1c;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:11px;">
-                                <div style="font-size:13px;font-weight:700;color:#fff;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,0.1);">Your playbook</div>
-                                <div style="font-size:12px;color:rgba(255,255,255,0.75);"><span style="color:#FF5A1F;font-weight:700;">1.</span> Budget steps that don't reset learning</div>
-                                <div style="font-size:12px;color:rgba(255,255,255,0.75);"><span style="color:#FF5A1F;font-weight:700;">2.</span> Duplicate winners vs. raise budgets</div>
-                                <div style="font-size:12px;color:rgba(255,255,255,0.75);"><span style="color:#FF5A1F;font-weight:700;">3.</span> Creative refresh cadence</div>
-                                <div style="font-size:12px;color:rgba(255,255,255,0.75);"><span style="color:#FF5A1F;font-weight:700;">4.</span> What to do when performance dips</div>
-                            </div>
-                            <div style="font-size:12px;color:rgba(255,255,255,0.5);text-align:center;margin-top:12px;">Documented as we go. Yours to keep.</div>
-                        </div>
-                    </div>
-                </div>
+<!-- FINAL CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="cta-photo" data-aos="fade-up"><img src="eric.jpg" alt="Eric, founder of Scale National" width="1280" height="1273" loading="lazy"></div>
+    <h2 data-aos="fade-up">Ready to bring your ads in-house?</h2>
+    <p data-aos="fade-up" data-aos-delay="100">Book a free call. We'll look at your account and tell you straight if this fits.</p>
+    <div data-aos="fade-up" data-aos-delay="150">
+      <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Call</a>
+    </div>
+    <p class="hero-tel" data-aos="fade-up" data-aos-delay="200">Or call/text <a href="tel:+19179822327">(917) 982-2327</a></p>
+  </div>
+</section>
 
-            </div>
-        </div>
-    </section>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo-nav.png" alt="Scale National">
+        <p class="footer-tag">Meta ads, in-house. Your team, your account, your data.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#what">What We Do</a></li>
+          <li><a href="#team">Who We Are</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}">Book a Call</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+19179822327">(917) 982-2327</a></li>
+          <li><a href="mailto:info@scalenational.com">info@scalenational.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legacy">
+      <span>Legacy tools for contractors</span>
+      <ul>
+        <li><a href="/website-development">Website Development</a></li>
+        <li><a href="/crm-for-contractors">CRM</a></li>
+        <li><a href="/missed-call-text-back">Missed Call Text Back</a></li>
+        <li><a href="/review-automation">Review Automation</a></li>
+        <li><a href="/seo-for-contractors">SEO</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Scale National. All rights reserved.</span>
+      <span>New York, NY</span>
+    </div>
+  </div>
+</footer>
 
-    <!-- WHO YOU'RE WORKING WITH -->
-    <section class="founder" id="founder">
-        <div class="container">
-            <div class="founder-grid">
-                <div class="founder-photo" data-aos="fade-up">
-                    <img src="eric-profile.jpg" alt="Eric, founder of Scale National">
-                </div>
-                <div class="founder-text" data-aos="fade-up" data-aos-delay="100">
-                    <span class="section-eyebrow">Who You'll Be Working With</span>
-                    <h2>I'm Eric. You'll work with me directly.</h2>
-                    <p>When you book a call, you talk to me. When your team is in a working session, I'm the one on the other side of the screen. No sales team, no junior media buyer behind the curtain. The person who sells the engagement is the person who shows up to every session.</p>
-                    <p>I run a personal brand with over 50k combined followers. I grew that audience myself, making content and studying what makes people stop scrolling. That's the same muscle that makes ads perform, and it goes into every creative plan we build together.</p>
-                    <p>On the paid side, I've run Meta ads for multiple companies across different industries. My deepest work right now is legal intake for class action and mass tort campaigns, where execution decides what a qualified claimant costs. Before that it was home services and other lead-driven businesses.</p>
-                    <div class="founder-facts">
-                        <span>50k+ combined followers</span>
-                        <span>Multi-industry media buyer</span>
-                        <span>Current focus: class action intake</span>
-                    </div>
-                    <p>I keep the roster small so I can go deep with each team. If what you need isn't a fit for how I work, I'll tell you on the first call and point you somewhere better.</p>
-                    <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-ghost">Book a Call with Eric</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY THIS BEATS THE ALTERNATIVES -->
-    <section class="comparison" id="comparison">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-eyebrow">The Alternatives</span>
-                <h2>Run by your team, guided by me, owned by you</h2>
-                <p>An agency rents you results. Building in-house alone means paying for every lesson out of your own ad budget. This engagement is the third option.</p>
-            </div>
-            <div class="comparison-grid">
-                <div class="comparison-col" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Hire an agency</h3>
-                    <ul>
-                        <li><strong class="row-label">Who does the work</strong>An account manager juggling a long client list</li>
-                        <li><strong class="row-label">Where it's built</strong>Often their Business Manager. Leave, and pixel history and audiences stay behind</li>
-                        <li><strong class="row-label">What your team learns</strong>Very little. The playbook is their product, and it leaves with them</li>
-                        <li><strong class="row-label">How it's priced</strong>Usually a percentage of ad spend, so bigger budgets pay them more</li>
-                        <li><strong class="row-label">What's left when it ends</strong>A gap where your marketing engine used to be</li>
-                    </ul>
-                </div>
-                <div class="comparison-col" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Build in-house alone</h3>
-                    <ul>
-                        <li><strong class="row-label">Who does the work</strong>Whoever you can spare, learning by trial and error</li>
-                        <li><strong class="row-label">Where it's built</strong>Your account, but usually set up wrong at the foundation</li>
-                        <li><strong class="row-label">What your team learns</strong>Eventually a lot, but every lesson is billed to your own ad budget</li>
-                        <li><strong class="row-label">How it's priced</strong>Free on paper. Wasted spend and slow months are the real price</li>
-                        <li><strong class="row-label">What's left when it ends</strong>Some hard-won lessons and a messy account</li>
-                    </ul>
-                </div>
-                <div class="comparison-col highlight" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Scale National</h3>
-                    <ul>
-                        <li><strong class="row-label">Who does the work</strong>Your in-house person, with me guiding them in every session</li>
-                        <li><strong class="row-label">Where it's built</strong>Your account and your Business Manager, from day one</li>
-                        <li><strong class="row-label">What your team learns</strong>Everything, on live campaigns, while the ads are producing</li>
-                        <li><strong class="row-label">How it's priced</strong>A flat monthly fee, month to month. Never a percentage of spend</li>
-                        <li><strong class="row-label">What's left when it ends</strong>A trained team, a documented playbook, and an account you fully own</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="comparison-cta" data-aos="fade-up">
-                <h3>See it against your own account.</h3>
-                <p>Book 30 minutes with me. Bring your ad account, and I'll show you exactly where we'd start in it.</p>
-                <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call with the Founder</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>How an engagement runs</h2>
-                <p>From first call to full ownership, step by step.</p>
-            </div>
-            <div class="steps">
-                <div class="step" data-aos="fade-up" data-aos-delay="100">
-                    <div class="step-number">01</div>
-                    <h3>Call and audit</h3>
-                    <p>We talk, then I go through your ad account, pixel, and spend history. You get a straight read on what's broken, what's fine, and what we'd tackle first.</p>
-                </div>
-                <div class="step" data-aos="fade-up" data-aos-delay="200">
-                    <div class="step-number">02</div>
-                    <h3>Build together</h3>
-                    <p>Your team sets up the account architecture, the Pixel and Conversions API tracking, and the creative plan inside your Business Manager, with me directing every step on screen shares.</p>
-                </div>
-                <div class="step" data-aos="fade-up" data-aos-delay="300">
-                    <div class="step-number">03</div>
-                    <h3>Launch and run</h3>
-                    <p>First campaigns go live in a session together. Then weekly working sessions: your person makes the moves on live campaigns and real budget, and I make sure they're the right ones.</p>
-                </div>
-                <div class="step" data-aos="fade-up" data-aos-delay="400">
-                    <div class="step-number">04</div>
-                    <h3>Your team owns it</h3>
-                    <p>My role shrinks by design. By the end, your person is making the calls and I'm the one reviewing their work, not the other way around.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Questions I get on the first call</h2>
-                <p>Straight answers, before you book.</p>
-            </div>
-            <div class="faq-list">
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
-                        Do you run the ads or just teach us?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">I teach by working alongside you on your live campaigns. You run them, I make sure you run them right. Your team makes every change in your own ad account with me in the session, guiding and course-correcting in real time, so the skill actually sticks. Nothing here is a recorded course, and nothing gets done behind your back.</div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
-                        What if we don't have an in-house person yet?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">That's fine, and it's common. We start the working sessions with whoever will touch the account for now, often that's the founder, and I'll help you write the role and screen candidates for real signal when you hire. A sharp marketer with no ads experience often beats a self-taught expert with bad habits. Building the skill is my job.</div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
-                        Who owns the ad account?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">You do, from day one. Everything gets built in your Business Manager: the account, pixel, Conversions API, audiences, and creative. If we stop working together tomorrow, you keep all of it.</div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
-                        What do you need from us?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">Three things. A real ad budget you control. Someone whose job this will be, or the intent to hire them. And a few hours a week for working sessions. If any of those are missing, the first call will surface it.</div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
-                        How is it priced?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">A flat monthly fee, month to month, with no long-term contract. Never a percentage of your ad spend, so I have no reason to push your budget up. The exact number depends on scope, and you'll have it in writing after the first call.</div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
-                        How long until our team runs it without you?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">It depends on your team's reps and your spend. The foundation is live within the first few weeks: account, tracking, first campaigns. Real independence takes months of reps on live campaigns, not days, and anyone promising mastery in two weeks is selling a course. What I can promise is that my role shrinks every month.</div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
-                        Who is this wrong for?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">If you can't fund a consistent ad budget, want to stay completely hands-off forever, or are shopping for someone to blame when a campaign dips, we're not a fit. I'd rather tell you that on the call than sign a bad engagement.</div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="final-cta cta-section">
-        <div class="cta-card-wrap">
-            <div class="final-cta-card cta-card">
-                <div class="final-cta-inner">
-                    <div class="final-cta-left">
-                        <div class="final-cta-photos cta-avatar-group">
-                            <img src="eric.jpg" alt="Eric, founder of Scale National">
-                        </div>
-                        <div class="avail-badge avail-row">
-                            <span class="avail-dot"></span>
-                            <span class="avail-text">Taking new engagements</span>
-                        </div>
-                        <h2>Let's look at your account.</h2>
-                        <p>A free 30-minute call with me, Eric. I'll go through what you're running, tell you what we'd fix first, and give you a straight answer on whether this fits. If it doesn't, you keep the notes anyway.</p>
-                    </div>
-                    <div class="final-cta-right cta-actions">
-                        <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-cta">Book a Call with the Founder</a>
-                        <p class="phone-cta">Or call/text me directly: <a href="tel:+19179822327">(917) 982-2327</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-inner">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="logo-nav.png" alt="Scale National">
-                    </div>
-                    <div class="tagline">Your team runs your Meta ads. I show them how.<br>Your account, your data, your skill.</div>
-                </div>
-                <div class="footer-contact">
-                    Email: <a href="mailto:info@scalenational.com">info@scalenational.com</a><br>
-                    Call/Text: <a href="tel:+19179822327">(917) 982-2327</a>
-                </div>
-                <div class="footer-links">
-                    <a href="#what-we-do">What We Do</a>
-                    <a href="#founder">Who You'll Work With</a>
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}">Book a Call</a>
-                </div>
-                <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.35);">Legacy tools for contractors</div>
-                <div class="footer-links" style="margin-top:8px;opacity:0.55;">
-                    <a href="/website-development">Free Website</a>
-                    <a href="/crm-for-contractors">CRM & Lead Management</a>
-                    <a href="/missed-call-text-back">Missed Call Text Back</a>
-                    <a href="/review-automation">Review Automation</a>
-                    <a href="/seo-for-contractors">SEO for Contractors</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 Scale National. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-
-        // Mobile menu
-        function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('open');
-        }
-
-        // FAQ accordion
-        function toggleFaq(el) {
-            const item = el.parentElement;
-            document.querySelectorAll('.faq-item.open').forEach(i => {
-                if (i !== item) {
-                    i.classList.remove('open');
-                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-                }
-            });
-            item.classList.toggle('open');
-            el.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
-        }
-
-        // CTA section slide-in animation
-        (function() {
-            var ctaSection = document.querySelector('.cta-section');
-            var ctaCard = document.querySelector('.cta-card');
-            if (!ctaSection || !ctaCard) return;
-
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        ctaSection.classList.add('animated');
-                        setTimeout(function() {
-                            ctaCard.classList.add('animated');
-                        }, 100);
-                        observer.disconnect();
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            observer.observe(ctaSection);
-        })();
-    </script>
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({duration:600,easing:'ease-out',once:true,offset:80});
+function toggleMenu(){
+  var m=document.getElementById('mobileMenu');
+  var open=m.classList.toggle('open');
+  document.body.classList.toggle('menu-open',open);
+  document.querySelector('.hamburger').setAttribute('aria-expanded',open?'true':'false');
+}
+addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    var m=document.getElementById('mobileMenu');
+    if(m.classList.contains('open')) toggleMenu();
+  }
+});
+</script>
 </body>
 </html>
