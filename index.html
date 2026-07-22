@@ -19,2184 +19,482 @@ src="https://www.facebook.com/tr?id=4492167721031623&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel -->
 
-    <!-- Facebook Domain Verification -->
-    <meta name="facebook-domain-verification" content="c7jj5r6v59ybbbes1dc43n2w4ikaho" />
-
-    <!-- Primary Meta -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scale National — Built for High-Volume Trades &amp; Home Services</title>
-    <meta name="description" content="A complete, pre-built marketing system for high-volume trades and home service businesses. Quote forms, chat widget, automated review funnel, mobile app, missed call text back, and text remarketing. Plug in and grow.">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
-
-    <!-- Open Graph (Facebook, iMessage, Slack, etc.) -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://scalenational.com">
-    <meta property="og:title" content="Scale National — Built for High-Volume Trades &amp; Home Services">
-    <meta property="og:description" content="A complete, pre-built marketing system for local service businesses. Plug in and start growing.">
-    <meta property="og:image" content="https://scalenational.com/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Scale National">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Scale National — Built for High-Volume Trades &amp; Home Services">
-    <meta name="twitter:description" content="A complete, pre-built marketing system for local service businesses. Plug in and start growing.">
-    <meta name="twitter:image" content="https://scalenational.com/og-image.png">
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body { background: #0d0d0d; }
-html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Urbanist', sans-serif; font-weight: 400;
-            color: #0d0d0d;
-            background: #ffffff;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Urbanist', sans-serif;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-        }
-
-        /* ========== BUTTONS ========== */
-        .btn-orange {
-            display: inline-block;
-            background: #FF5A1F;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 16px;
-            padding: 16px 32px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: pulseGlow 2s infinite;
-        }
-
-        .btn-orange:hover {
-            background: #e04a10;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 90, 31, 0.4);
-        }
-
-        .btn-ghost {
-            display: inline-block;
-            border: 2px solid #FF5A1F;
-            color: #FF5A1F;
-            font-weight: 700;
-            font-size: 16px;
-            padding: 14px 32px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: transparent;
-        }
-
-        .btn-ghost:hover {
-            background: rgba(255, 90, 31, 0.08);
-            transform: translateY(-3px);
-        }
-
-        .btn-dark {
-            display: inline-block;
-            background: #0d0d0d;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 16px;
-            padding: 16px 32px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-dark:hover {
-            background: #222222;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        /* ========== ANIMATIONS ========== */
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 90, 31, 0.4); }
-            50% { box-shadow: 0 0 20px 4px rgba(255, 90, 31, 0.2); }
-        }
-
-        @keyframes heroFadeIn {
-            0% { opacity: 0; transform: scale(0.95) translateY(20px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-
-        /* ========== STICKY NAV ========== */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 12px 0;
-            background: #0d0d0d;
-            box-shadow: 0 1px 0 rgba(255,255,255,0.07);
-        }
-
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .nav-logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            font-size: 15px;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: #FF5A1F;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .nav-phone {
-            color: #FF5A1F;
-            font-weight: 600;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .nav-btn {
-            display: inline-block;
-            background: #FF5A1F;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 14px;
-            padding: 10px 20px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background: #e04a10;
-            transform: translateY(-2px);
-        }
-
-        /* Hamburger */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background: #ffffff;
-            transition: 0.3s;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #0d0d0d;
-            z-index: 999;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 32px;
-        }
-
-        .mobile-menu.open {
-            display: flex;
-        }
-
-        .mobile-menu a {
-            color: #ffffff;
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        .mobile-menu a:hover {
-            color: #FF5A1F;
-        }
-
-        /* ========== HERO ========== */
-        .hero {
-            background: #0d0d0d;
-            padding: 160px 0 120px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 90, 31, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-badge {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0,0,0,0);
-            white-space: nowrap;
-            border: 0;
-            animation: none;
-        }
-
-        .hero h1 {
-            font-size: clamp(56px, 10vw, 96px);
-            font-weight: 900;
-            letter-spacing: -1px;
-            line-height: 1.05;
-            margin-bottom: 24px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #ffffff;
-            animation: heroFadeIn 0.8s ease 0.2s forwards;
-            opacity: 0;
-        }
-
-        .hero h1 .orange {
-            color: #FF5A1F;
-        }
-
-        .hero .sub {
-            font-size: clamp(18px, 2.5vw, 22px);
-            color: rgba(255,255,255,0.6);
-            max-width: 640px;
-            margin: 0 auto 40px;
-            font-weight: 400;
-            line-height: 1.7;
-            animation: heroFadeIn 0.8s ease 0.4s forwards;
-            opacity: 0;
-        }
-
-        .hero-ctas {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            animation: heroFadeIn 0.8s ease 0.6s forwards;
-            opacity: 0;
-        }
-
-        /* ========== AVATAR CTA ROW ========== */
-        .avatar-cta-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 48px;
-            animation: heroFadeIn 0.8s ease 0.8s forwards;
-            opacity: 0;
-        }
-
-        .avatar-pair {
-            display: flex;
-            align-items: center;
-        }
-
-        .avatar-circle {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            border: 3px solid #FF5A1F;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        .avatar-circle + .avatar-circle {
-            margin-left: -12px;
-        }
-
-        .avatar-cta-text {
-            font-size: 15px;
-            color: rgba(255,255,255,0.7);
-            font-weight: 500;
-        }
-
-        .avatar-cta-text strong {
-            color: #ffffff;
-            display: block;
-            font-size: 16px;
-        }
-
-        /* ========== STATS BAR ========== */
-        .stats-bar {
-            background: #111111;
-            padding: 0;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 40px 24px;
-            position: relative;
-        }
-
-        .stat-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 20%;
-            height: 60%;
-            width: 1px;
-            background: rgba(255,255,255,0.07);
-        }
-
-        .stat-item .stat-icon {
-            margin-bottom: 12px;
-        }
-
-        .stat-item .stat-icon svg {
-            width: 24px;
-            height: 24px;
-            color: #FF5A1F;
-        }
-
-        .stat-item .stat-number {
-            font-size: 42px;
-            font-weight: 900;
-            color: #ffffff;
-            line-height: 1;
-            margin-bottom: 6px;
-            font-family: 'Urbanist', sans-serif;
-        }
-
-        .stat-item .stat-label {
-            font-size: 13px;
-            color: rgba(255,255,255,0.55);
-            font-weight: 400;
-        }
-
-        /* ========== SERVICES ========== */
-        .services {
-            background: #ffffff;
-            padding: 100px 0;
-        }
-
-        .services-features {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .service-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            padding: 60px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .service-row:last-child {
-            border-bottom: none;
-        }
-
-        .service-row.reverse .service-content {
-            order: 2;
-        }
-
-        .service-row.reverse .service-feature-card {
-            order: 1;
-        }
-
-        .service-content .icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 20px;
-            color: #FF5A1F;
-        }
-
-        .service-content h3 {
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 14px;
-            color: #0d0d0d;
-        }
-
-        .service-content p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 18px;
-        }
-
-        .service-content .learn-more {
-            color: #FF5A1F;
-            font-weight: 600;
-            font-size: 14px;
-            transition: color 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .service-content .learn-more:hover {
-            color: #e04a10;
-        }
-
-        .service-feature-card {
-            background: #111;
-            border-radius: 16px;
-            padding: 40px 32px;
-            min-height: 280px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-        }
-
-        .service-feature-card .mini-browser {
-            width: 100%;
-            max-width: 260px;
-        }
-
-        .service-feature-card .mini-browser .browser-bar {
-            display: flex;
-            gap: 5px;
-            padding: 10px 12px;
-            background: #1a1a1a;
-            border-radius: 8px 8px 0 0;
-        }
-
-        .service-feature-card .mini-browser .browser-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #333;
-        }
-
-        .service-feature-card .mini-browser .browser-content {
-            background: #1a1a1a;
-            padding: 16px;
-            border-radius: 0 0 8px 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .service-feature-card .mini-browser .browser-line {
-            height: 8px;
-            background: #2a2a2a;
-            border-radius: 4px;
-        }
-
-        .service-feature-card .mini-browser .browser-line.short {
-            width: 60%;
-        }
-
-        .service-feature-card .mini-browser .browser-line.med {
-            width: 80%;
-        }
-
-        .service-feature-card .phone-notif {
-            position: relative;
-            width: 180px;
-        }
-
-        .service-feature-card .phone-outline {
-            width: 180px;
-            height: 260px;
-            border: 2px solid #333;
-            border-radius: 24px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px 12px;
-        }
-
-        .service-feature-card .text-bubble {
-            background: #FF5A1F;
-            color: #fff;
-            font-size: 12px;
-            padding: 12px 14px;
-            border-radius: 12px 12px 12px 4px;
-            line-height: 1.4;
-            max-width: 150px;
-        }
-
-        .service-feature-card .stars-display {
-            text-align: center;
-        }
-
-        .service-feature-card .stars-row {
-            display: flex;
-            justify-content: center;
-            gap: 4px;
-            margin-bottom: 12px;
-        }
-
-        .service-feature-card .stars-row svg {
-            width: 28px;
-            height: 28px;
-            fill: #FF5A1F;
-        }
-
-        .service-feature-card .reviews-count {
-            font-size: 32px;
-            font-weight: 900;
-            color: #FF5A1F;
-            font-family: 'Urbanist', sans-serif;
-        }
-
-        .service-feature-card .flow-diagram {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .service-feature-card .flow-step {
-            background: #1a1a1a;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 11px;
-            color: rgba(255,255,255,0.8);
-            text-align: center;
-        }
-
-        .service-feature-card .flow-arrow {
-            color: #FF5A1F;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .service-feature-card .chat-ui {
-            width: 100%;
-            max-width: 260px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .service-feature-card .chat-bubble {
-            padding: 12px 16px;
-            border-radius: 12px;
-            font-size: 13px;
-            line-height: 1.4;
-            max-width: 85%;
-        }
-
-        .service-feature-card .chat-bubble.incoming {
-            background: #1a1a1a;
-            color: rgba(255,255,255,0.8);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
-
-        .service-feature-card .chat-bubble.outgoing {
-            background: #FF5A1F;
-            color: #fff;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 40px;
-            font-weight: 900;
-            color: #0d0d0d;
-            margin-bottom: 12px;
-        }
-
-        .section-header.dark h2 {
-            color: #ffffff;
-        }
-
-        .section-header p {
-            font-size: 16px;
-            color: #666666;
-        }
-
-        .section-header.dark p {
-            color: rgba(255,255,255,0.6);
-        }
-
-        /* legacy service-card styles removed — using service-row layout */
-
-        /* ========== VIDEO ========== */
-        .video-section {
-            background: #0d0d0d;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .video-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* ========== COMPARISON ========== */
-        .comparison {
-            background: #f7f7f7;
-            padding: 100px 0;
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .comparison-col {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 36px 28px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .comparison-col.highlight {
-            border: 2px solid #FF5A1F;
-            background: #0d0d0d;
-            color: #ffffff;
-        }
-
-        .comparison-col h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #0d0d0d;
-        }
-
-        .comparison-col.highlight h3 {
-            color: #FF5A1F;
-        }
-
-        .comparison-col ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .comparison-col ul li {
-            padding: 10px 0;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #666666;
-            border-bottom: 1px solid #eee;
-        }
-
-        .comparison-col.highlight ul li {
-            color: rgba(255,255,255,0.8);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .comparison-col ul li:last-child {
-            border-bottom: none;
-        }
-
-        /* ========== TRADES TICKER ========== */
-        .trades {
-            background: #0d0d0d;
-            padding: 100px 0;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .trades .section-header h2 {
-            color: #ffffff;
-        }
-
-        .ticker-wrapper {
-            overflow: hidden;
-            width: 100%;
-            padding: 12px 0;
-            background: #0d0d0d;
-            position: relative;
-        }
-
-        .ticker-wrapper::before,
-        .ticker-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 80px;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .ticker-wrapper::before {
-            left: 0;
-            background: linear-gradient(to right, #0d0d0d, transparent);
-        }
-
-        .ticker-wrapper::after {
-            right: 0;
-            background: linear-gradient(to left, #0d0d0d, transparent);
-        }
-
-        .ticker-track {
-            display: flex;
-            width: max-content;
-            animation: tickerScroll 30s linear infinite;
-            will-change: transform;
-        }
-
-        .ticker-track.reverse {
-            animation: tickerScrollReverse 30s linear infinite;
-        }
-
-        @keyframes tickerScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        @keyframes tickerScrollReverse {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-        }
-
-        .ticker-item {
-            display: inline-flex;
-            align-items: center;
-            white-space: nowrap;
-            padding: 8px 20px;
-            margin: 0 6px;
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 50px;
-            font-family: 'Urbanist', sans-serif; font-weight: 400;
-            font-size: 14px;
-            font-weight: 500;
-            color: rgba(255,255,255,0.8);
-            flex-shrink: 0;
-        }
-
-        /* Trades / Logo Strip */
-                .logos-section {
-                    background: #0d0d0d;
-                    padding: clamp(40px, 6vw, 60px) 0;
-                    position: relative;
-                    overflow: hidden;
-                    border-top: 1px solid rgba(255,255,255,0.06);
-                    border-bottom: 1px solid rgba(255,255,255,0.06);
-                }
-                .logos-sub {
-                    text-align: center;
-                    font-size: 15px;
-                    color: rgba(255,255,255,0.45);
-                    margin-bottom: 28px;
-                    margin-top: -16px;
-                }
-                .logos-label {
-                    text-align: center;
-                    font-size: clamp(14px, 3vw, 18px);
-                    font-weight: 700;
-                    color: #ffffff;
-                    text-transform: uppercase;
-                    letter-spacing: 0.1em;
-                    margin-bottom: 32px;
-                }
-                .logos-carousel {
-                    position: relative;
-                    overflow: hidden;
-                    margin: 0 calc(-1 * clamp(16px, 5vw, 48px));
-                    padding: 32px clamp(16px, 5vw, 48px);
-                    background: rgba(255,255,255,0.04);
-                    border-radius: 20px;
-                    border: 1px solid rgba(255,255,255,0.09);
-                    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-                }
-                .logos-track {
-                    display: flex;
-                    gap: 12px;
-                    will-change: transform;
-                    width: max-content;
-                    animation: logoScroll 30s linear infinite;
-                }
-                .logos-track:hover {
-                    animation-play-state: paused;
-                }
-                .logo-item {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
-                    flex-shrink: 0;
-                    min-width: 120px;
-                }
-                .logo-box {
-                    width: 80px;
-                    height: 80px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: rgba(255,255,255,0.07);
-                    border: 1px solid rgba(255,255,255,0.1);
-                    border-radius: 20px;
-                    padding: 10px;
-                    transition: background 0.2s;
-                }
-                .logo-item:hover .logo-box {
-                    background: rgba(255,255,255,0.13);
-                }
-                .logo-box img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                    opacity: 1;
-                    filter: none;
-                }
-                .logo-box img.logo-white {
-                    filter: brightness(0) invert(1);
-                }
-                .logo-name {
-                    font-size: 12px;
-                    font-weight: 600;
-                    color: rgba(255,255,255,0.5);
-                    text-align: center;
-                    letter-spacing: 0.03em;
-                }
-                @keyframes logoScroll {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
-                }
-
-        /* ========== HOW IT WORKS ========== */
-        .how-it-works {
-            background: #f7f7f7;
-            padding: 100px 0;
-        }
-
-        .steps {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 60px;
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .steps::before {
-            display: none;
-        }
-
-        .step {
-            flex: 1;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .step-number {
-            font-size: 64px;
-            font-weight: 700;
-            color: #FF5A1F;
-            line-height: 1;
-            margin-bottom: 16px;
-        }
-
-        .step:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            top: 28px;
-            right: -38px;
-            width: 16px;
-            height: 16px;
-            border-top: 3px solid #FF5A1F;
-            border-right: 3px solid #FF5A1F;
-            transform: rotate(45deg);
-        }
-
-        .step h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #0d0d0d;
-        }
-
-        .step p {
-            font-size: 15px;
-            color: #666666;
-            line-height: 1.7;
-        }
-
-        /* ========== FAQ ========== */
-        .faq {
-            background: #ffffff;
-            padding: 100px 0;
-        }
-
-        .faq-list {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid #eee;
-        }
-
-        .faq-question {
-            padding: 24px 0;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 17px;
-            color: #0d0d0d;
-            transition: color 0.2s;
-        }
-
-        .faq-question:hover {
-            color: #FF5A1F;
-        }
-
-        .faq-question .icon {
-            font-size: 24px;
-            color: #FF5A1F;
-            transition: transform 0.3s;
-            font-weight: 300;
-        }
-
-        .faq-item.open .faq-question .icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-            color: #666666;
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        .faq-item.open .faq-answer {
-            max-height: 200px;
-            padding-bottom: 24px;
-        }
-
-        /* ========== FINAL CTA ========== */
-        @keyframes availPulse {
-            0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-            70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
-            100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
-        }
-
-        .final-cta {
-            background: #0d0d0d;
-            padding: 80px 24px;
-        }
-
-        .final-cta-card {
-            max-width: 900px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #161616 0%, #1a1a1a 50%, #0f0f0f 100%);
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
-            padding: 64px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .final-cta-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60%;
-            height: 60%;
-            background: radial-gradient(ellipse at top right, rgba(255,90,31,0.08) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .final-cta-inner {
-            display: flex;
-            align-items: center;
-            gap: 48px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .final-cta-left {
-            flex: 1;
-        }
-
-        .final-cta-right {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-            flex-shrink: 0;
-        }
-
-        .final-cta-photos {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .final-cta-photos img {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            border: 3px solid #FF5A1F;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        .final-cta-photos img:nth-child(2) {
-            margin-left: -16px;
-            z-index: -1;
-            position: relative;
-        }
-
-        .avail-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .avail-dot {
-            width: 10px;
-            height: 10px;
-            background: #22c55e;
-            border-radius: 50%;
-            animation: availPulse 2s infinite;
-        }
-
-        .avail-text {
-            color: #22c55e;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .final-cta h2 {
-            font-family: 'Urbanist', sans-serif;
-            font-size: 48px;
-            font-weight: 900;
-            color: #ffffff;
-            margin-bottom: 16px;
-            line-height: 1.1;
-        }
-
-        .final-cta p {
-            color: rgba(255,255,255,0.7);
-            font-size: 17px;
-            max-width: 600px;
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-
-        .final-cta .btn-cta {
-            display: inline-block;
-            background: #FF5A1F;
-            color: #fff;
-            padding: 18px 40px;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 20px rgba(255,90,31,0.3);
-        }
-
-        .final-cta .btn-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255,90,31,0.4);
-        }
-
-        .final-cta .phone-cta {
-            color: rgba(255,255,255,0.5);
-            font-size: 15px;
-            margin-top: 12px;
-        }
-
-        .final-cta .phone-cta a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: underline;
-        }
-
-        /* ========== FOOTER ========== */
-        .footer {
-            background: #0d0d0d;
-            padding: 60px 0 32px;
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-brand .footer-logo img {
-            height: 40px;
-            width: auto;
-            margin-bottom: 12px;
-        }
-
-        .footer-brand .tagline {
-            color: rgba(255,255,255,0.6);
-            font-size: 14px;
-        }
-
-        .footer-contact {
-            color: rgba(255,255,255,0.6);
-            font-size: 14px;
-            line-height: 2;
-        }
-
-        .footer-contact a {
-            color: #FF5A1F;
-            transition: color 0.2s;
-        }
-
-        .footer-contact a:hover {
-            color: #e04a10;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,0.6);
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: #FF5A1F;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            color: rgba(255,255,255,0.4);
-            font-size: 13px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 1024px) {
-            .service-row {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .service-row.reverse .service-content {
-                order: 1;
-            }
-
-            .service-row.reverse .service-feature-card {
-                order: 2;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0;
-            }
-
-            .stat-item:nth-child(2)::after {
-                display: none;
-            }
-
-            .comparison-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links,
-            .nav-right {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: clamp(36px, 8vw, 56px);
-            }
-
-            .section-header h2 {
-                font-size: 28px;
-            }
-
-            .service-row {
-                grid-template-columns: 1fr;
-            }
-
-            .steps {
-                flex-direction: column;
-                gap: 40px;
-            }
-
-            .steps::before {
-                display: none;
-            }
-
-            .step:not(:last-child)::after {
-                display: none;
-            }
-
-            .avatar-cta-row {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .avatar-circle {
-                width: 56px;
-                height: 56px;
-            }
-
-            .stat-item .stat-number {
-                font-size: 32px;
-            }
-
-            .stat-item:not(:last-child)::after {
-                display: none;
-            }
-
-            .final-cta-card {
-                padding: 40px 24px;
-            }
-
-            .final-cta-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .final-cta-left {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .final-cta-photos {
-                justify-content: center;
-            }
-
-            .avail-badge {
-                justify-content: center;
-            }
-
-            .final-cta h2 {
-                font-size: 32px;
-            }
-
-            .final-cta p {
-                text-align: center;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .footer-links {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 140px 0 80px;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .hero-ctas .btn-orange,
-            .hero-ctas .btn-ghost {
-                text-align: center;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0;
-            }
-
-            .stat-item .stat-number {
-                font-size: 28px;
-            }
-
-            .stat-item {
-                padding: 28px 16px;
-            }
-        }
-        /* CTA Section Animations */
-        .cta-avatar-group,
-        .avail-row,
-        .cta-card h2,
-        .cta-card p,
-        .cta-actions,
-        .cta-phone-link {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .cta-card.animated .cta-avatar-group { opacity: 1; transform: translateY(0); transition-delay: 0s; }
-        .cta-card.animated .avail-row       { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
-        .cta-card.animated h2               { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
-        .cta-card.animated p                { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
-        .cta-card.animated .cta-actions     { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
-        .cta-card.animated .cta-phone-link  { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
-
-        .cta-section .cta-card-wrap {
-            opacity: 0;
-            transform: scale(0.96) translateY(40px);
-            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .cta-section.animated .cta-card-wrap {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-    </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://scalenational.com/#organization",
-          "name": "Scale National",
-          "url": "https://scalenational.com",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://scalenational.com/logo.png"
-          },
-          "description": "Done-for-you marketing systems for contractors. Website, CRM, review automation, missed call text back, and live chat — all built and managed for you.",
-          "email": "info@scalenational.com",
-          "telephone": "+19179822327",
-          "sameAs": [
-            "https://www.facebook.com/scalenational",
-            "https://www.instagram.com/scalenational"
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://scalenational.com/#website",
-          "url": "https://scalenational.com",
-          "name": "Scale National",
-          "publisher": {"@id": "https://scalenational.com/#organization"}
-        }
-      ]
-    }
-    </script>
+<!-- Facebook Domain Verification -->
+<meta name="facebook-domain-verification" content="c7jj5r6v59ybbbes1dc43n2w4ikaho" />
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scale National | We Teach Companies to Get Leads with Meta Ads</title>
+<meta name="description" content="We teach companies to get leads with Meta ads. Hands-on training in your own ad account. Month to month, you own everything.">
+
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scalenational.com">
+<meta property="og:title" content="Scale National | We Teach Companies to Get Leads with Meta Ads">
+<meta property="og:description" content="We teach companies to get leads with Meta ads. Hands-on training in your own ad account.">
+<meta property="og:image" content="https://scalenational.com/og-image.png">
+<meta property="og:site_name" content="Scale National">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scale National | We Teach Companies to Get Leads with Meta Ads">
+<meta name="twitter:description" content="We teach companies to get leads with Meta ads.">
+<meta name="twitter:image" content="https://scalenational.com/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Scale National",
+  "url": "https://scalenational.com",
+  "logo": "https://scalenational.com/logo.png",
+  "description": "We teach companies to get leads with Meta ads and scale their business. Hands-on training in your own ad account.",
+  "email": "info@scalenational.com",
+  "telephone": "+18887744290",
+  "sameAs": ["https://www.facebook.com/scalenational", "https://www.instagram.com/scalenational"],
+  "founder": { "@type": "Person", "name": "Eric", "jobTitle": "Founder", "description": "Expert marketer with 50k+ followers across all platforms. Teaches companies to generate leads with Meta ads." }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do you run the ads for us or teach us?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We run them with you. Your team makes the changes and we guide every move. That's how they learn." } },
+    { "@type": "Question", "name": "What if we don't have a team yet?",
+      "acceptedAnswer": { "@type": "Answer", "text": "One person is enough. If you need to hire, we'll help you pick the right one." } },
+    { "@type": "Question", "name": "What do we need to start?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A Business Manager, an ad budget, and a few hours a week. We handle the rest of the setup with you." } },
+    { "@type": "Question", "name": "How much does Meta ads training cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Flat monthly fee, month to month. You get the exact number on the call." } },
+    { "@type": "Question", "name": "How long does it take to learn Meta ads?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most teams have their first batch of ads live by the end of the first month. That’s when the learning phase begins. Speed mostly comes down to how fast we can connect your CRM to Meta and set up the workflows that route your leads." } }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --black:#0d0d0d;
+  --dark2:#161616;
+  --orange:#FF5A1F;
+  --orange-press:#e04a10;
+  --white:#ffffff;
+  --off:#f7f7f7;
+  --gray:#555a60;
+  --gray-lt:#9aa0a6;
+  --line:rgba(13,13,13,0.1);
+  --line-w:rgba(255,255,255,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Urbanist',sans-serif;font-weight:400;color:var(--black);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+.container{max-width:1140px;margin:0 auto;padding:0 24px;}
+h1,h2{font-weight:900;letter-spacing:-0.5px;line-height:1.1;}
+section[id]{scroll-margin-top:90px;}
+
+/* ---------- Buttons ---------- */
+.btn-orange{display:inline-flex;align-items:center;justify-content:center;background:var(--orange);color:#fff;font-weight:700;font-size:16px;padding:16px 32px;border-radius:12px;border:none;cursor:pointer;transition:all .25s ease;min-height:52px;}
+.btn-orange:hover{background:var(--orange-press);transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,90,31,0.35);}
+.btn-ghost{display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--black);color:var(--black);font-weight:700;font-size:16px;padding:14px 32px;border-radius:12px;cursor:pointer;transition:all .25s ease;background:transparent;min-height:52px;}
+.btn-ghost:hover{background:rgba(13,13,13,0.05);transform:translateY(-2px);}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(255,90,31,0.35);}50%{box-shadow:0 0 0 12px rgba(255,90,31,0);}}
+.pulse{animation:pulseGlow 2.4s infinite;}
+:is(a,button,summary):focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:8px;}
+@media(prefers-reduced-motion:reduce){.pulse{animation:none;}html{scroll-behavior:auto;}}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:0;z-index:200;background:rgba(13,13,13,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-w);}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-logo img{height:32px;width:auto;display:block;}
+.nav-links{display:flex;gap:30px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.85);font-weight:600;font-size:15px;transition:color .2s;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{display:flex;align-items:center;gap:14px;}
+.nav-cta .btn-orange{min-height:44px;padding:10px 22px;font-size:15px;}
+.hamburger{display:none;background:none;border:0;cursor:pointer;padding:10px;min-width:44px;min-height:44px;}
+.hamburger span{display:block;width:24px;height:2.5px;background:#fff;border-radius:2px;margin:5px 0;transition:transform .25s,opacity .25s;}
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:block;}
+}
+.mobile-menu{display:none;position:fixed;inset:68px 0 0 0;background:var(--black);z-index:190;padding:36px 24px;flex-direction:column;gap:6px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:#fff;font-weight:700;font-size:22px;padding:14px 4px;border-bottom:1px solid var(--line-w);}
+.mobile-menu .btn-orange{margin-top:22px;border-bottom:none;font-size:17px;}
+body.menu-open{overflow:hidden;}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--black);color:#fff;position:relative;overflow:hidden;padding:88px 0 92px;}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px);background-size:26px 26px;pointer-events:none;}
+.hero-inner{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;}
+.hero-solo{grid-template-columns:1fr;max-width:780px;text-align:center;}
+.hero-solo .hero-sub{margin-inline:auto;}
+.hero-solo .hero-ctas{justify-content:center;margin-bottom:20px;}
+.hero h1{font-size:clamp(38px,4.8vw,60px);color:#fff;margin-bottom:20px;letter-spacing:-1.5px;}
+.hero h1 .orange{color:var(--orange);}
+.hero-sub{font-size:clamp(17px,1.6vw,19px);color:rgba(255,255,255,0.72);max-width:520px;margin-bottom:24px;line-height:1.65;}
+.hero-ctas{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+.hero-tel{font-size:15px;color:rgba(255,255,255,0.6);font-weight:600;}
+.hero-tel a{color:#fff;font-weight:700;border-bottom:2px solid var(--orange);padding-bottom:1px;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+/* ---------- Logo wheel ---------- */
+.wheel{background:var(--white);border-bottom:1px solid var(--line);padding:44px 0 52px;overflow:hidden;}
+.wheel-label{text-align:center;font-weight:800;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--gray-lt);margin-bottom:30px;}
+.wheel-mask{position:relative;overflow:hidden;}
+.wheel-mask::before,.wheel-mask::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;}
+.wheel-mask::before{left:0;background:linear-gradient(90deg,var(--white),transparent);}
+.wheel-mask::after{right:0;background:linear-gradient(270deg,var(--white),transparent);}
+.wheel-track{display:flex;width:max-content;animation:wheel 36s linear infinite;}
+.wheel-mask:hover .wheel-track{animation-play-state:paused;}
+.wheel-set{display:flex;align-items:center;gap:72px;padding-right:72px;}
+.wheel-set img{width:auto;opacity:0.92;transition:opacity .2s;}
+.wheel-set img:hover{opacity:1;}
+.wheel-set .lg-word{height:28px;}
+.wheel-set .lg-meta{height:21px;}
+.wheel-set .lg-icon{height:36px;}
+@keyframes wheel{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@media(prefers-reduced-motion:reduce){
+  .wheel-track{animation:none;flex-wrap:wrap;justify-content:center;width:100%;}
+  .wheel-set{padding-right:0;gap:40px;flex-wrap:wrap;justify-content:center;}
+  .wheel-set[aria-hidden]{display:none;}
+}
+
+.quote-card{max-width:720px;margin:36px auto 0;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px 40px;box-shadow:0 16px 40px rgba(13,13,13,0.05);position:relative;}
+.quote-card::before{content:'\201C';position:absolute;top:6px;left:22px;font-size:84px;font-weight:900;color:rgba(255,90,31,0.25);line-height:1;font-family:Georgia,serif;}
+.quote-card blockquote{font-size:19px;font-weight:600;line-height:1.6;margin-bottom:18px;border:0;}
+.quote-card figcaption{font-size:14.5px;color:var(--gray);}
+.quote-card figcaption strong{color:var(--black);display:block;font-size:15.5px;}
+
+/* ---------- What we do ---------- */
+.what{background:var(--white);padding:96px 0;}
+.sec-head{max-width:680px;margin-bottom:48px;}
+.sec-head h2{font-size:clamp(30px,4vw,44px);margin-bottom:12px;letter-spacing:-1px;}
+.sec-head p{font-size:17px;color:var(--gray);}
+.sec-head.center{text-align:center;margin-inline:auto;}
+.how-row{display:flex;justify-content:center;align-items:flex-start;gap:18px;max-width:960px;margin:0 auto;}
+.how-step{flex:1;text-align:center;padding:0 10px;}
+.how-circle{width:58px;height:58px;border-radius:50%;background:var(--orange);color:#fff;font-weight:900;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 10px 24px rgba(255,90,31,0.3);}
+.how-step h3{font-weight:800;font-size:20px;margin-bottom:8px;letter-spacing:-0.3px;}
+.how-step p{font-size:15px;color:var(--gray);line-height:1.6;max-width:280px;margin:0 auto;}
+.how-arrow{width:15px;height:15px;border-top:3px solid #d9d9d9;border-right:3px solid #d9d9d9;transform:rotate(45deg);margin-top:22px;flex-shrink:0;}
+
+/* ---------- Team ---------- */
+.team{background:var(--off);padding:96px 0;}
+.team-panel{background:var(--black);border-radius:26px;padding:clamp(32px,5vw,56px);display:grid;grid-template-columns:300px 1fr;gap:clamp(32px,5vw,56px);align-items:center;color:#fff;position:relative;overflow:hidden;}
+.team-photo{border-radius:18px;overflow:hidden;box-shadow:10px 10px 0 rgba(255,90,31,0.9);}
+.team-photo img{width:100%;height:auto;display:block;}
+.team-panel::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.05) 1px,transparent 1px);background-size:26px 26px;pointer-events:none;}
+.team-panel>*{position:relative;z-index:1;}
+.team-panel h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:8px;color:#fff;}
+.team-name{font-weight:700;font-size:16px;color:var(--orange);margin-bottom:20px;}
+.team-facts{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:26px;}
+.team-facts li{font-size:16px;font-weight:600;padding-left:26px;position:relative;color:rgba(255,255,255,0.85);}
+.team-facts li::before{content:'';position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:var(--orange);}
+.team-panel .btn-ghost{border-color:#fff;color:#fff;}
+.team-panel .btn-ghost:hover{background:rgba(255,255,255,0.08);}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--white);padding:96px 0;}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+.faq-item{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 8px 20px rgba(13,13,13,0.04);}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;font-weight:700;font-size:17px;min-height:52px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-plus{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--off);color:var(--black);font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;transition:transform .25s,background .25s,color .25s;line-height:1;}
+.faq-item[open] .faq-plus{transform:rotate(45deg);background:var(--orange);color:#fff;}
+.faq-a{padding:0 24px 20px;font-size:15.5px;color:var(--gray);line-height:1.7;}
+
+/* ---------- Final CTA (production card) ---------- */
+@keyframes availPulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,0.5);}70%{box-shadow:0 0 0 10px rgba(34,197,94,0);}100%{box-shadow:0 0 0 0 rgba(34,197,94,0);}}
+.final-cta{background:#0d0d0d;padding:80px 24px;}
+.final-cta-card{max-width:900px;margin:0 auto;background:linear-gradient(135deg,#161616 0%,#1a1a1a 50%,#0f0f0f 100%);border-radius:24px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 40px 80px rgba(0,0,0,0.4);padding:64px;position:relative;overflow:hidden;}
+.final-cta-card::before{content:'';position:absolute;top:0;right:0;width:60%;height:60%;background:radial-gradient(ellipse at top right,rgba(255,90,31,0.08) 0%,transparent 60%);pointer-events:none;}
+.final-cta-inner{display:flex;align-items:center;gap:48px;position:relative;z-index:1;}
+.final-cta-left{flex:1;}
+.final-cta-right{display:flex;flex-direction:column;align-items:center;gap:16px;flex-shrink:0;}
+.final-cta-photos{display:flex;align-items:center;margin-bottom:16px;}
+.final-cta-photos img{width:64px;height:64px;border-radius:50%;border:3px solid #FF5A1F;object-fit:cover;object-position:center top;}
+.avail-badge{display:flex;align-items:center;gap:8px;margin-bottom:24px;}
+.avail-dot{width:10px;height:10px;background:#22c55e;border-radius:50%;animation:availPulse 2s infinite;}
+.avail-text{color:#22c55e;font-size:13px;font-weight:600;}
+.final-cta h2{font-size:48px;font-weight:900;color:#ffffff;margin-bottom:16px;line-height:1.1;}
+.final-cta p{color:rgba(255,255,255,0.7);font-size:17px;max-width:600px;margin-bottom:24px;line-height:1.6;}
+.final-cta .btn-cta{display:inline-block;background:#FF5A1F;color:#fff;padding:18px 40px;border-radius:12px;font-size:18px;font-weight:700;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(255,90,31,0.3);}
+.final-cta .btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,90,31,0.4);}
+.final-cta .phone-cta{color:rgba(255,255,255,0.5);font-size:15px;margin-top:12px;}
+.final-cta .phone-cta a{color:rgba(255,255,255,0.7);text-decoration:underline;}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--black);color:#fff;border-top:1px solid var(--line-w);padding:56px 0 28px;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-brand img{height:28px;margin-bottom:14px;}
+.footer-tag{font-size:14px;color:var(--gray-lt);}
+.footer h4{font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--gray-lt);margin-bottom:14px;}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer a{color:rgba(255,255,255,0.85);font-size:15px;font-weight:600;display:inline-block;padding:4px 0;}
+.footer a:hover{color:var(--orange);}
+.footer-bottom{border-top:1px solid var(--line-w);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13.5px;color:var(--gray-lt);}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+        .how-row{flex-direction:column;align-items:center;gap:32px;}
+  .how-arrow{transform:rotate(135deg);margin:0;}
+  .footer-grid{grid-template-columns:1fr;gap:32px;}
+  .hero{padding:64px 0 64px;}
+  .team-panel{grid-template-columns:1fr;gap:32px;}
+  .team-photo{max-width:260px;}
+  .final-cta-card{padding:40px 24px;}
+  .final-cta-inner{flex-direction:column;text-align:center;}
+  .final-cta-left{display:flex;flex-direction:column;align-items:center;}
+  .final-cta-photos{justify-content:center;}
+  .avail-badge{justify-content:center;}
+  .final-cta h2{font-size:32px;}
+  .final-cta p{text-align:center;}
+  .hero-inner{grid-template-columns:1fr;gap:44px;}
+  .hero-sub{max-width:none;}
+  .what,.team,.faq,.cta{padding:72px 0;}
+  .hero-ctas .btn-orange,.hero-ctas .btn-ghost{width:100%;}
+}
+</style>
 </head>
 <body>
 
-    <!-- STICKY NAV -->
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="#" class="nav-logo">
-                <img src="logo.png" alt="Scale National" style="height:38px;width:auto;">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#services">The System</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#trades">Trades</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-            <div class="nav-right">
-                <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="nav-btn">Book a Call</a>
-            </div>
-            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#services" onclick="toggleMenu()">Services</a>
-        <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
-        <a href="#trades" onclick="toggleMenu()">Trades</a>
-        <a href="#faq" onclick="toggleMenu()">FAQ</a>
-        <a href="#contact_removed" onclick="toggleMenu()">Contact</a>
-        <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
+<!-- NAV -->
+<nav class="nav" aria-label="Main">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Scale National home">
+      <img src="logo-nav.png" alt="Scale National" width="1108" height="248">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#what">What We Do</a></li>
+      <li><a href="#team">Meet Eric</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
     </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                Built for High-Volume Trades &amp; Home Services
-            </div>
-            <h1>Stop Losing Leads.<br><span class="orange">Start Scaling Your Business.</span></h1>
-            <p class="sub">One complete system handles everything: quote forms, chat, review automation, missed call text back, text remarketing, and a mobile app to run it all. Built for trades and home service businesses who want to grow without hiring a marketing team.</p>
-
-            <div class="hero-ctas" style="justify-content:center;">
-                <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Schedule a Free Call</a>
-            </div>
-
-            <!-- Avatar circles + Book a call CTA -->
-            <div class="avatar-cta-row" data-aos="fade-up" data-aos-delay="200">
-                <div class="avatar-pair">
-                    <img class="avatar-circle" src="eric.jpg" alt="Eric">
-                    <img class="avatar-circle" src="tim.jpg" alt="Tim">
-                </div>
-                <div class="avatar-cta-text">
-                    <strong>Book a call with Eric & Tim</strong>
-                    No pressure, just a thoughtful chat.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STATS BAR -->
-    <section class="stats-bar">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
-                    <div class="stat-number">6 Tools</div>
-                    <div class="stat-label">One pre-built system</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
-                    <div class="stat-number">Day 1</div>
-                    <div class="stat-label">System goes live</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-                    <div class="stat-number">1 App</div>
-                    <div class="stat-label">Runs everything</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Automated follow-up</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>6 tools. One system. Zero busywork.</h2>
-                <p>Everything is pre-built, pre-connected, and ready to deploy the day you sign up.</p>
-            </div>
-            <div class="services-features">
-
-                <!-- Service 1: Website -->
-                <div class="service-row" data-aos="fade-up">
-                    <div class="service-content">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                        </div>
-                        <h3>Get a Quote Form</h3>
-                        <p>A professional quote request form embedded directly on your website. Homeowners fill it out, you get notified instantly, and the lead enters your pipeline. No more playing phone tag to gather project details.</p>
-                        <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                    </div>
-                    <div class="service-feature-card">
-                        <div class="mini-browser" style="width:100%;max-width:280px;">
-                            <div class="browser-bar" style="display:flex;align-items:center;gap:6px;padding:10px 14px;background:#222;border-radius:10px 10px 0 0;">
-                                <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;"></span>
-                                <span style="width:10px;height:10px;border-radius:50%;background:#ffbd2e;"></span>
-                                <span style="width:10px;height:10px;border-radius:50%;background:#28c840;"></span>
-                                <span style="flex:1;margin-left:10px;background:#1a1a1a;border-radius:4px;padding:4px 10px;font-size:10px;color:rgba(255,255,255,0.5);">yourcompany.com</span>
-                            </div>
-                            <div style="background:#1a1a1a;padding:16px;border-radius:0 0 10px 10px;">
-                                <div style="width:100%;height:80px;background:linear-gradient(135deg,#FF5A1F,#ff8c42);border-radius:6px;margin-bottom:12px;"></div>
-                                <div style="width:70%;height:10px;background:#333;border-radius:4px;margin-bottom:8px;"></div>
-                                <div style="width:90%;height:6px;background:#2a2a2a;border-radius:3px;margin-bottom:5px;"></div>
-                                <div style="width:75%;height:6px;background:#2a2a2a;border-radius:3px;margin-bottom:14px;"></div>
-                                <div style="display:inline-block;background:#FF5A1F;color:#fff;font-size:10px;font-weight:700;padding:6px 14px;border-radius:4px;">Get Free Quote</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 2: Missed Call -->
-                <div class="service-row reverse" data-aos="fade-up">
-                    <div class="service-content">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-                        </div>
-                        <h3>Missed Call Auto Text Back</h3>
-                        <p>You are on a roof, under a house, or elbow deep in a job. When you miss a call, the system automatically texts the caller within seconds. They stay engaged instead of calling your competitor down the street.</p>
-                        <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                    </div>
-                    <div class="service-feature-card">
-                        <div style="width:100%;max-width:260px;">
-                            <div style="background:#1a1a1a;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;">
-                                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-                                    <div style="width:24px;height:24px;background:#FF5A1F;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;">S</div>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.5);font-weight:600;">Scale National</span>
-                                    <span style="font-size:10px;color:rgba(255,255,255,0.3);margin-left:auto;">now</span>
-                                </div>
-                                <div style="background:#2a2a2a;border-radius:10px;padding:12px 14px;">
-                                    <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-bottom:2px;">Missed call from (555) 847-2910</div>
-                                </div>
-                                <div style="background:#28a745;border-radius:10px;padding:12px 14px;align-self:flex-end;max-width:90%;">
-                                    <div style="font-size:11px;color:#fff;">Hey! Just saw I missed your call — still need help with your roof?</div>
-                                </div>
-                                <div style="font-size:9px;color:rgba(255,255,255,0.3);text-align:right;">Auto-sent in under 3 min</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 3: Automated Review Funnel -->
-                <div class="service-row" data-aos="fade-up">
-                    <div class="service-content">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        </div>
-                        <h3>Automated Review Funnel</h3>
-                        <p>After every job, the system sends a review request. Customers who rate you 4 or 5 stars get redirected to leave a public Google review. Anything under 4 stars goes to a private feedback form so you can resolve it quietly. Your public rating climbs while negative experiences stay between you and the customer. The more jobs you complete, the faster your Google profile builds — businesses doing 5+ jobs a week see results within the first 30 days.</p>
-                        <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                    </div>
-                    <div class="service-feature-card">
-                        <div style="width:100%;max-width:260px;background:#fff;border-radius:12px;padding:20px;text-align:left;">
-                            <div style="font-size:18px;font-weight:700;color:#4285f4;margin-bottom:4px;font-family:'Urbanist',sans-serif;">
-                                <span style="color:#4285f4;">G</span><span style="color:#ea4335;">o</span><span style="color:#fbbc05;">o</span><span style="color:#4285f4;">g</span><span style="color:#34a853;">l</span><span style="color:#ea4335;">e</span>
-                            </div>
-                            <div style="font-size:14px;font-weight:700;color:#222;margin-bottom:6px;">Mike's HVAC & Cooling</div>
-                            <div style="display:flex;align-items:center;gap:4px;margin-bottom:4px;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF5A1F" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF5A1F" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF5A1F" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF5A1F" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF5A1F" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            </div>
-                            <div style="font-size:13px;color:#555;"><strong style="color:#222;">4.9</strong> (127 reviews)</div>
-                            <div style="font-size:11px;color:#777;margin-top:6px;">HVAC contractor &middot; Open now</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 4: Chat Widget -->
-                <div class="service-row reverse" data-aos="fade-up">
-                    <div class="service-content">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-                        </div>
-                        <h3>Chat Widget (Direct to SMS)</h3>
-                        <p>A live chat widget sits on your website. When a visitor types a message, it goes straight to your phone as a text. You reply via SMS and they see it in the chat. No apps to check, no dashboards to monitor. Just text like you normally would.</p>
-                        <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                    </div>
-                    <div class="service-feature-card">
-<div style="width:100%;max-width:280px;margin:0 auto;">
-    <!-- Phone shell -->
-    <div style="background:#1a1a1a;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 60px rgba(0,0,0,0.5);">
-        <!-- Status bar -->
-        <div style="padding:10px 16px 4px;display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:11px;font-weight:700;color:#fff;">9:41</span>
-            <div style="display:flex;gap:5px;align-items:center;">
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="white"><rect x="0" y="3" width="3" height="7" rx="1"/><rect x="4" y="2" width="3" height="8" rx="1"/><rect x="8" y="0" width="3" height="10" rx="1"/><rect x="12" y="1" width="2" height="9" rx="1" opacity="0.4"/></svg>
-                <svg width="14" height="10" viewBox="0 0 24 24" fill="white"><path d="M1 6s4.5-4 11-4 11 4 11 4M5 10s3-2.5 7-2.5 7 2.5 7 2.5M9 14s1.5-1 3-1 3 1 3 1M12 18h.01"/></svg>
-                <svg width="22" height="10" viewBox="0 0 22 10" fill="none"><rect x="0.5" y="0.5" width="18" height="9" rx="3" stroke="white" stroke-opacity="0.35"/><rect x="1.5" y="1.5" width="14" height="7" rx="2" fill="white"/><path d="M20 3.5v3a1.5 1.5 0 000-3z" fill="white" opacity="0.4"/></svg>
-            </div>
-        </div>
-        <!-- Contact header -->
-        <div style="padding:4px 16px 10px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.07);">
-            <div style="width:32px;height:32px;border-radius:50%;background:#FF5A1F;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;margin:0 auto 4px;">J</div>
-            <div style="font-size:13px;font-weight:600;color:#fff;">John Martinez</div>
-            <div style="font-size:10px;color:rgba(255,255,255,0.4);">Customer</div>
-        </div>
-        <!-- Messages -->
-        <div style="padding:14px 12px;display:flex;flex-direction:column;gap:8px;">
-            <!-- Outbound auto text -->
-            <div style="align-self:flex-end;max-width:88%;">
-                <div style="background:#FF5A1F;border-radius:14px 14px 4px 14px;padding:9px 13px;font-size:11px;color:#fff;line-height:1.5;">
-                    Hi John! Thanks for choosing Mike's HVAC. Mind leaving us a quick Google review? It only takes 30 seconds.<br>
-                    <span style="color:rgba(255,255,255,0.8);text-decoration:underline;">g.page/mikeshvac</span>
-                </div>
-                <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.3);margin-top:3px;">Delivered</div>
-            </div>
-            <!-- Customer reply -->
-            <div style="align-self:flex-start;max-width:72%;">
-                <div style="background:#2a2a2a;border-radius:14px 14px 14px 4px;padding:9px 13px;font-size:11px;color:rgba(255,255,255,0.9);line-height:1.5;">
-                    Of course! You guys did an amazing job
-                </div>
-            </div>
-            <!-- Google review posted confirmation -->
-            <div style="align-self:flex-start;max-width:90%;">
-                <div style="background:#2a2a2a;border-radius:14px;padding:9px 13px;">
-                    <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Google Review Posted</div>
-                    <div style="display:flex;gap:2px;margin-bottom:3px;">
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="#FF5A1F"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="#FF5A1F"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="#FF5A1F"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="#FF5A1F"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="#FF5A1F"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <div style="font-size:10px;color:rgba(255,255,255,0.7);">"Great work, highly recommend!"</div>
-                </div>
-            </div>
-        </div>
-        <!-- Home indicator -->
-        <div style="padding:8px 0 10px;display:flex;justify-content:center;">
-            <div style="width:100px;height:4px;background:rgba(255,255,255,0.2);border-radius:2px;"></div>
-        </div>
-    </div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#what" onclick="toggleMenu()">What We Do</a>
+  <a href="#team" onclick="toggleMenu()">Meet Eric</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="tel:+18887744290" onclick="toggleMenu()">Call (888) 774-4290</a>
+  <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
 </div>
-                    </div>
-                </div>
 
-                <!-- Service 5: Mobile App -->
-                <div class="service-row" data-aos="fade-up">
-                    <div class="service-content">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                        </div>
-                        <h3>Scale National Mobile App</h3>
-                        <p>Run your entire business from one app on your phone. See new leads, respond to messages, check your calendar, and manage your pipeline. All from the job site.</p>
-                        <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                    </div>
-                    <div class="service-feature-card">
-                        <div style="width:100%;max-width:200px;">
-                            <div style="background:#1a1a1a;border-radius:24px;border:2px solid #333;padding:12px;overflow:hidden;">
-                                <div style="background:#222;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;">
-                                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-                                        <div style="width:28px;height:28px;background:#FF5A1F;border-radius:8px;display:flex;align-items:center;justify-content:center;">
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                                        </div>
-                                        <span style="font-size:12px;font-weight:700;color:#fff;">Your Company</span>
-                                    </div>
-                                    <div style="background:#2a2a2a;border-radius:8px;padding:10px;display:flex;align-items:center;gap:8px;">
-                                        <div style="width:8px;height:8px;border-radius:50%;background:#28c840;"></div>
-                                        <span style="font-size:10px;color:rgba(255,255,255,0.7);">3 new leads today</span>
-                                    </div>
-                                    <div style="background:#2a2a2a;border-radius:8px;padding:10px;display:flex;align-items:center;gap:8px;">
-                                        <div style="width:8px;height:8px;border-radius:50%;background:#FF5A1F;"></div>
-                                        <span style="font-size:10px;color:rgba(255,255,255,0.7);">2 messages waiting</span>
-                                    </div>
-                                    <div style="background:#2a2a2a;border-radius:8px;padding:10px;display:flex;align-items:center;gap:8px;">
-                                        <div style="width:8px;height:8px;border-radius:50%;background:#fbbf24;"></div>
-                                        <span style="font-size:10px;color:rgba(255,255,255,0.7);">1 review request sent</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<span id="top"></span>
 
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner hero-solo">
+    <div>
+      <h1 data-aos="fade-up" data-aos-delay="50">Stop buying leads. <span class="orange">Start making your own.</span></h1>
+      <p class="hero-sub" data-aos="fade-up" data-aos-delay="100">We teach your team to run Meta ads that actually bring in leads. In your account, until you don't need us.</p>
+      <div class="hero-ctas" data-aos="fade-up" data-aos-delay="150">
+        <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange pulse">Book a Call</a>
+      </div>
+      <p class="hero-tel" data-aos="fade-up" data-aos-delay="200">Or call/text <a href="tel:+18887744290">(888) 774-4290</a></p>
+    </div>
+  </div>
+</header>
 
-                <!-- Service 6: Text Remarketing -->
-                <div class="service-row reverse" data-aos="fade-up">
-                    <div class="service-content">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </div>
-                        <h3>Text Remarketing</h3>
-                        <p>Your past customers are your easiest source of new revenue. Send a mass text to your customer list with a seasonal offer or discount. "15% off your next job this month." One tap sends it to hundreds of past clients, driving repeat business back to you.</p>
-                        <a href="#" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                    </div>
-                    <div class="service-feature-card">
-                        <div style="width:100%;max-width:260px;">
-                            <div style="background:#1a1a1a;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;">
-                                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-                                    <div style="width:24px;height:24px;background:#FF5A1F;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:700;">S</div>
-                                    <span style="font-size:11px;color:rgba(255,255,255,0.5);font-weight:600;">Scale National</span>
-                                    <span style="font-size:10px;color:rgba(255,255,255,0.3);margin-left:auto;">Campaign</span>
-                                </div>
-                                <div style="background:#FF5A1F;border-radius:10px;padding:12px 14px;align-self:flex-end;max-width:95%;">
-                                    <div style="font-size:11px;color:#fff;line-height:1.5;">Hey! Just wanted to let you know we are offering 15% off any job booked this month. Reply YES to schedule.</div>
-                                </div>
-                                <div style="display:flex;gap:6px;align-items:center;margin-top:4px;">
-                                    <div style="background:#2a2a2a;border-radius:8px;padding:6px 10px;font-size:10px;color:rgba(255,255,255,0.6);">Sent to 347 contacts</div>
-                                    <div style="background:#28a745;border-radius:8px;padding:6px 10px;font-size:10px;color:#fff;">12 replies</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- LOGO WHEEL -->
+<div class="wheel" aria-label="Platforms we work in">
+  <p class="wheel-label">We work with the best</p>
+  <div class="wheel-mask">
+    <div class="wheel-track">
+      <div class="wheel-set">
+        <img class="lg-meta" src="logos/meta.svg" alt="Meta">
+        <img class="lg-word" src="logos/google.png" alt="Google">
+        <img class="lg-icon" src="logos/facebook.png" alt="Facebook">
+        <img class="lg-icon" src="logos/instagram.png" alt="Instagram">
+        <img class="lg-icon" src="logos/slack.png" alt="Slack">
+        <img class="lg-word" src="logos/zapier.svg" alt="Zapier">
+        <img class="lg-word" src="logos/openai.svg" alt="OpenAI">
+      </div>
+      <div class="wheel-set" aria-hidden="true">
+        <img class="lg-meta" src="logos/meta.svg" alt="">
+        <img class="lg-word" src="logos/google.png" alt="">
+        <img class="lg-icon" src="logos/facebook.png" alt="">
+        <img class="lg-icon" src="logos/instagram.png" alt="">
+        <img class="lg-icon" src="logos/slack.png" alt="">
+        <img class="lg-word" src="logos/zapier.svg" alt="">
+        <img class="lg-word" src="logos/openai.svg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
 
-            </div>
+<!-- WHAT WE DO -->
+<section class="what" id="what">
+  <div class="container">
+    <div class="sec-head" data-aos="fade-up">
+      <h2>How our Meta ads training works</h2>
+      <p>Three steps from zero to your own lead machine.</p>
+    </div>
+    <div class="how-row">
+      <div class="how-step" data-aos="fade-up">
+        <div class="how-circle">1</div>
+        <h3>Set up</h3>
+        <p>Account structure, tracking, and your CRM wired into Meta. Built with your team.</p>
+      </div>
+      <div class="how-arrow" aria-hidden="true"></div>
+      <div class="how-step" data-aos="fade-up" data-aos-delay="100">
+        <div class="how-circle">2</div>
+        <h3>Launch</h3>
+        <p>Creative plan and first lead campaigns live in your account.</p>
+      </div>
+      <div class="how-arrow" aria-hidden="true"></div>
+      <div class="how-step" data-aos="fade-up" data-aos-delay="200">
+        <div class="how-circle">3</div>
+        <h3>Run</h3>
+        <p>Weekly sessions on live campaigns until your team brings in leads on its own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="team-panel" data-aos="fade-up">
+      <div class="team-photo">
+        <img src="eric-profile.jpg" alt="Eric, Founder" width="1280" height="1279" loading="lazy">
+      </div>
+      <div>
+        <h2>Learn from an expert marketer</h2>
+        <p class="team-name">Eric &middot; Founder</p>
+        <ul class="team-facts">
+          <li>50k+ followers across all platforms</li>
+          <li>Teaches companies to run their own lead campaigns</li>
+          <li>In every session. No account managers, no handoffs.</li>
+        </ul>
+        <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-ghost">Book a Call</a>
+      </div>
+    </div>
+    <figure class="quote-card" hidden data-aos="fade-up">
+      <blockquote>Client quote goes here.</blockquote>
+      <figcaption><strong>Name</strong><span>Title, Firm</span></figcaption>
+    </figure>
+    <!-- OWNER: when the law firm testimonial arrives, paste the quote and name above and delete the `hidden` attribute. -->
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="sec-head center" data-aos="fade-up">
+      <h2>Meta ads training FAQ</h2>
+    </div>
+    <div class="faq-list" data-aos="fade-up">
+      <details class="faq-item">
+        <summary>Do you run the ads for us or teach us?<span class="faq-plus">+</span></summary>
+        <div class="faq-a"><p>We run them with you. Your team makes the changes and we guide every move. That's how they learn.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What if we don't have a team yet?<span class="faq-plus">+</span></summary>
+        <div class="faq-a"><p>One person is enough. If you need to hire, we'll help you pick the right one.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What do we need to start?<span class="faq-plus">+</span></summary>
+        <div class="faq-a"><p>A Business Manager, an ad budget, and a few hours a week. We handle the rest of the setup with you.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How much does Meta ads training cost?<span class="faq-plus">+</span></summary>
+        <div class="faq-a"><p>Flat monthly fee, month to month. You get the exact number on the call.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How long does it take to learn Meta ads?<span class="faq-plus">+</span></summary>
+        <div class="faq-a"><p>Most teams have their first batch of ads live by the end of the first month. That’s when the learning phase begins. Speed mostly comes down to how fast we can connect your CRM to Meta and set up the workflows that route your leads.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-card">
+    <div class="final-cta-inner">
+      <div class="final-cta-left">
+        <div class="final-cta-photos">
+          <img src="eric-call.jpg" alt="Eric, Founder" width="400" height="400" loading="lazy">
         </div>
-    </section>
-
-    <!-- VIDEO SECTION (hidden until video is recorded) -->
-
-    <section class="logos-section">
-        <div class="container">
-            <p class="logos-label">Powered By Tools You Already Trust</p>
-            <p class="logos-sub">Our system runs on the same enterprise-grade platforms used by the world's top businesses.</p>
-            <div class="logos-carousel">
-                <div class="logos-track" id="logos-track">
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/meta.svg" alt="Meta" class="logo-white"></div>
-                        <span class="logo-name">Meta</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/google.png" alt="Google"></div>
-                        <span class="logo-name">Google</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/stripe.svg" alt="Stripe"></div>
-                        <span class="logo-name">Stripe</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/twilio.svg" alt="Twilio"></div>
-                        <span class="logo-name">Twilio</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/zapier.svg" alt="Zapier"></div>
-                        <span class="logo-name">Zapier</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/openai.svg" alt="OpenAI" class="logo-white"></div>
-                        <span class="logo-name">OpenAI</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/cloudflare.svg" alt="Cloudflare" class="logo-white"></div>
-                        <span class="logo-name">Cloudflare</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/instagram.png" alt="Instagram"></div>
-                        <span class="logo-name">Instagram</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/facebook.png" alt="Facebook"></div>
-                        <span class="logo-name">Facebook</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-box"><img src="/logos/slack.png" alt="Slack"></div>
-                        <span class="logo-name">Slack</span>
-                    </div>
-                </div>
-            </div>
+        <div class="avail-badge">
+          <span class="avail-dot"></span>
+          <span class="avail-text">Available now</span>
         </div>
-    </section>
+        <h2>Ready to scale your business?</h2>
+        <p>Book a free 15-minute call with Eric. We will walk you through the training and show you exactly what you get.</p>
+      </div>
+      <div class="final-cta-right">
+        <a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-cta">Book a Free Call</a>
+        <p class="phone-cta">Or call/text us: <a href="tel:+18887744290">(888) 774-4290</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- TRADES TICKER -->
-    <section class="trades" id="trades">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Built for every trade</h2>
-            </div>
-        </div>
-        <div class="ticker-wrapper">
-            <div class="ticker-track">
-                <!-- Set 1 -->
-                <span class="ticker-item">Landscaping</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Lawn Care</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">HVAC</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Plumbing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Pest Control</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Cleaning Services</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Pool Service</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Pressure Washing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Electricians</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Painters</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Carpet Cleaning</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Handyman</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Gutter Cleaning</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Junk Removal</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Appliance Repair</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Roofers</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Tree Service</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Flooring</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Fence Companies</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Concrete</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Deck Building</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <!-- Set 2 — exact duplicate -->
-                <span class="ticker-item">Landscaping</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Lawn Care</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">HVAC</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Plumbing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Pest Control</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Cleaning Services</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Pool Service</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Pressure Washing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Electricians</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Painters</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Carpet Cleaning</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Handyman</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Gutter Cleaning</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Junk Removal</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Appliance Repair</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Roofers</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Tree Service</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Flooring</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Fence Companies</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Concrete</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Deck Building</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-            </div>
-        </div>
-        <div class="ticker-wrapper" style="margin-top:8px;">
-            <div class="ticker-track reverse">
-                <!-- Set 1 -->
-                <span class="ticker-item">Landscaping</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Lawn Care</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">HVAC</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Plumbing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Pest Control</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Cleaning Services</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Pool Service</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Pressure Washing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Electricians</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Painters</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Carpet Cleaning</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Handyman</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Gutter Cleaning</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Junk Removal</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Appliance Repair</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Roofers</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Tree Service</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Flooring</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Fence Companies</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Concrete</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Deck Building</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <!-- Set 2 — exact duplicate -->
-                <span class="ticker-item">Landscaping</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Lawn Care</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">HVAC</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Plumbing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Pest Control</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Cleaning Services</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Pool Service</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Pressure Washing</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Electricians</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Painters</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Carpet Cleaning</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Handyman</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Gutter Cleaning</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Junk Removal</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Appliance Repair</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Roofers</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Tree Service</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Flooring</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Fence Companies</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Concrete</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-                <span class="ticker-item">Deck Building</span><span class="ticker-sep" style="color:rgba(255,255,255,0.2);margin:0 2px;flex-shrink:0;">&bull;</span>
-            </div>
-        </div>
-    </section>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo-nav.png" alt="Scale National">
+        <p class="footer-tag">We teach companies to get leads with Meta ads.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#what">What We Do</a></li>
+          <li><a href="#team">Meet Eric</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://calendar.app.google/jtbLDbfJjPZYehFE8" target="_blank" rel="noopener" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}">Book a Call</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+18887744290">(888) 774-4290</a></li>
+          <li><a href="mailto:info@scalenational.com">info@scalenational.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Scale National. All rights reserved.</span>
+      <span>New York, NY</span>
+    </div>
+  </div>
+</footer>
 
-            <!-- HOW IT WORKS -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>A collaborative approach</h2>
-                <p>Up and running in days, not months</p>
-            </div>
-            <div class="steps">
-                <div class="step" data-aos="fade-up" data-aos-delay="100">
-                    <div class="step-number">1</div>
-                    <h3>15-minute kickoff call</h3>
-                    <p>Tell us about your business, your services, and your goals. We handle everything from there.</p>
-                </div>
-                <div class="step" data-aos="fade-up" data-aos-delay="200">
-                    <div class="step-number">2</div>
-                    <h3>We deploy your system</h3>
-                    <p>Quote form, chat widget, review funnel, missed call text back, mobile app, and text remarketing. All live within days.</p>
-                </div>
-                <div class="step" data-aos="fade-up" data-aos-delay="300">
-                    <div class="step-number">3</div>
-                    <h3>You grow on autopilot</h3>
-                    <p>Leads come in, reviews stack up, and repeat customers come back. You focus on the work.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Got questions? We have answers.</h2>
-            </div>
-            <div class="faq-list">
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Who do you work with?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">High-volume service businesses in the trades and home improvement space. The system works best for companies doing multiple jobs per week — landscapers, HVAC companies, plumbers, pest control, cleaning services, pool maintenance, and pressure washing. The more jobs you complete, the more reviews stack up, the more your remarketing list grows, and the more revenue the system generates for your business.</div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        What do I actually get?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">A complete pre-built marketing system: get-a-quote form on your website, live chat widget that texts your phone, automated review funnel that protects your reputation and drives Google reviews, missed call text back, text remarketing to your customer list, and our mobile app to manage it all. Delivered in days.</div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        How is this different from other agencies?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">We are not an agency that custom-builds everything from scratch. We sell a pre-built, proven marketing system that gets cloned and deployed for your business. That means faster setup, lower cost, and a system that is already tested and working for other trades and home service companies.</div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        How long until everything is up and running?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">Days after our kickoff call. The system is pre-built, so deployment is fast. You will have everything live and working before the week is out.</div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Do I need to be tech savvy to use it?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">Not at all. Everything runs automatically or through a simple mobile app. If you can send a text message, you can use this system.</div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        I already have a website. Do I need a new one?
-                        <span class="icon">+</span>
-                    </div>
-                    <div class="faq-answer">If your current site is not generating leads consistently, we can embed the quote form and chat widget on it. Or we can build you a new site optimized for conversions. Either way, the system plugs into what you already have.</div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- FINAL CTA -->
-    <section class="final-cta cta-section">
-        <div class="cta-card-wrap">
-            <div class="final-cta-card cta-card">
-                <div class="final-cta-inner">
-                    <div class="final-cta-left">
-                        <div class="final-cta-photos cta-avatar-group">
-                            <img src="eric.jpg" alt="Eric">
-                            <img src="tim.jpg" alt="Tim">
-                        </div>
-                        <div class="avail-badge avail-row">
-                            <span class="avail-dot"></span>
-                            <span class="avail-text">Available now</span>
-                        </div>
-                        <h2>Ready to scale your business?</h2>
-                        <p>Book a free 15-minute call with Eric or Tim. We will walk you through the system and show you exactly what you get.</p>
-                    </div>
-                    <div class="final-cta-right cta-actions">
-                        <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-cta">Book a Free Call</a>
-                        <p class="phone-cta">Or call/text us: <a href="tel:+19179822327">(917) 982-2327</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-inner">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="logo.png" alt="Scale National" style="height:38px;width:auto;">
-                    </div>
-                    <div class="tagline">The pre-built marketing system for local service businesses</div>
-                </div>
-                <div class="footer-contact">
-                    Email: <a href="mailto:info@scalenational.com">info@scalenational.com</a><br>
-                    Call/Text: <a href="tel:+19179822327">(917) 982-2327</a>
-                </div>
-                <div class="footer-links">
-                    <a href="#services">The System</a>
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="#trades">Trades</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}">Book a Call</a>
-                </div>
-                <div class="footer-links" style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);">
-                    <a href="/website-development">Free Website</a>
-                    <a href="/crm-for-contractors">CRM & Lead Management</a>
-                    <a href="/missed-call-text-back">Missed Call Text Back</a>
-                    <a href="/review-automation">Review Automation</a>
-                    <a href="/seo-for-contractors">SEO for Contractors</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 Scale National. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
-    <!-- GHL Chat Widget -->
-    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69f5f917bf76611a222d6a71"></script>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-
-        // Mobile menu
-        function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('open');
-        }
-
-        // FAQ accordion
-        function toggleFaq(el) {
-            const item = el.parentElement;
-            document.querySelectorAll('.faq-item.open').forEach(i => {
-                if (i !== item) i.classList.remove('open');
-            });
-            item.classList.toggle('open');
-        }
-
-        // Logo carousel — clone items for seamless infinite loop
-        (function() {
-            var track = document.querySelector('.logos-track');
-            if (!track) return;
-            var items = track.innerHTML;
-            track.innerHTML = items + items; // exact clone = translateX(-50%) always works
-        })();
-
-        // CTA section slide-in animation
-        (function() {
-            var ctaSection = document.querySelector('.cta-section');
-            var ctaCard = document.querySelector('.cta-card');
-            if (!ctaSection || !ctaCard) return;
-
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        ctaSection.classList.add('animated');
-                        setTimeout(function() {
-                            ctaCard.classList.add('animated');
-                        }, 100);
-                        observer.disconnect();
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            observer.observe(ctaSection);
-        })();
-    </script>
-
-  <!-- GHL Chat Widget loaded via platform -->
-
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({duration:600,easing:'ease-out',once:true,offset:80});
+function toggleMenu(){
+  var m=document.getElementById('mobileMenu');
+  var open=m.classList.toggle('open');
+  document.body.classList.toggle('menu-open',open);
+  document.querySelector('.hamburger').setAttribute('aria-expanded',open?'true':'false');
+}
+addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    var m=document.getElementById('mobileMenu');
+    if(m.classList.contains('open')) toggleMenu();
+  }
+});
+</script>
 </body>
 </html>
