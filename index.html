@@ -136,6 +136,7 @@ body.menu-open{overflow:hidden;}
 .wheel-set img{width:auto;opacity:0.92;transition:opacity .2s;}
 .wheel-set img:hover{opacity:1;}
 .wheel-set .lg-word{height:28px;}
+.wheel-set .lg-meta{height:21px;}
 .wheel-set .lg-icon{height:36px;}
 @keyframes wheel{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 @media(prefers-reduced-motion:reduce){
@@ -147,7 +148,6 @@ body.menu-open{overflow:hidden;}
 /* ---------- Stats / proof ---------- */
 .stats{background:var(--white);padding:80px 0;}
 .stats .sec-head{margin-bottom:44px;}
-.proof-line{text-align:center;margin-top:44px;font-size:16px;font-weight:700;color:var(--black);background:var(--off);border:1px solid var(--line);border-radius:999px;padding:12px 26px;width:fit-content;margin-inline:auto;}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;text-align:center;}
 .stat-num{font-weight:900;font-size:clamp(40px,5vw,56px);color:var(--orange);line-height:1;letter-spacing:-1px;}
 .stat-label{font-weight:700;font-size:16px;margin-top:10px;}
@@ -206,10 +206,6 @@ body.menu-open{overflow:hidden;}
 .footer ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
 .footer a{color:rgba(255,255,255,0.85);font-size:15px;font-weight:600;display:inline-block;padding:4px 0;}
 .footer a:hover{color:var(--orange);}
-.footer-legacy{border-top:1px solid var(--line-w);padding-top:20px;margin-bottom:20px;}
-.footer-legacy span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--gray-lt);margin-bottom:10px;}
-.footer-legacy ul{flex-direction:row;flex-wrap:wrap;gap:18px;opacity:0.55;}
-.footer-legacy a{font-size:13.5px;font-weight:500;}
 .footer-bottom{border-top:1px solid var(--line-w);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13.5px;color:var(--gray-lt);}
 
 /* ---------- Responsive ---------- */
@@ -235,7 +231,7 @@ body.menu-open{overflow:hidden;}
     </a>
     <ul class="nav-links">
       <li><a href="#what">What We Do</a></li>
-      <li><a href="#team">Who We Are</a></li>
+      <li><a href="#team">Meet Eric</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-cta">
@@ -249,7 +245,7 @@ body.menu-open{overflow:hidden;}
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#what" onclick="toggleMenu()">What We Do</a>
-  <a href="#team" onclick="toggleMenu()">Who We Are</a>
+  <a href="#team" onclick="toggleMenu()">Meet Eric</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
   <a href="tel:+18887744290" onclick="toggleMenu()">Call (888) 774-4290</a>
   <a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}" class="btn-orange">Book a Call</a>
@@ -275,7 +271,7 @@ body.menu-open{overflow:hidden;}
   <div class="wheel-mask">
     <div class="wheel-track">
       <div class="wheel-set">
-        <img class="lg-word" src="logos/meta.svg" alt="Meta">
+        <img class="lg-meta" src="logos/meta.svg" alt="Meta">
         <img class="lg-word" src="logos/google.png" alt="Google">
         <img class="lg-icon" src="logos/facebook.png" alt="Facebook">
         <img class="lg-icon" src="logos/instagram.png" alt="Instagram">
@@ -284,7 +280,7 @@ body.menu-open{overflow:hidden;}
         <img class="lg-word" src="logos/openai.svg" alt="OpenAI">
       </div>
       <div class="wheel-set" aria-hidden="true">
-        <img class="lg-word" src="logos/meta.svg" alt="">
+        <img class="lg-meta" src="logos/meta.svg" alt="">
         <img class="lg-word" src="logos/google.png" alt="">
         <img class="lg-icon" src="logos/facebook.png" alt="">
         <img class="lg-icon" src="logos/instagram.png" alt="">
@@ -319,7 +315,6 @@ body.menu-open{overflow:hidden;}
         <div class="stat-sub">Month to month, leave anytime</div>
       </div>
     </div>
-    <p class="proof-line" data-aos="fade-up">In the room right now: training the intake team at a class action law firm.</p>
     <!-- OWNER TODO: when the first client review lands, drop it in here:
     <figure class="quote-card">
       <blockquote>"Quote goes here."</blockquote>
@@ -333,8 +328,8 @@ body.menu-open{overflow:hidden;}
 <section class="what" id="what">
   <div class="container">
     <div class="sec-head" data-aos="fade-up">
-      <h2>Simple by design</h2>
-      <p>Three steps. All of it inside your Business Manager.</p>
+      <h2>How it works</h2>
+      <p>Three steps, all inside your Business Manager.</p>
     </div>
     <div class="steps">
       <div class="step" data-aos="fade-up">
@@ -366,8 +361,8 @@ body.menu-open{overflow:hidden;}
       <img src="eric-profile.jpg" alt="Eric, founder of Scale National" width="1280" height="1279" loading="lazy">
     </div>
     <div data-aos="fade-up" data-aos-delay="100">
-      <h2>Who you'll work with</h2>
-      <p class="team-name">Eric &middot; Founder</p>
+      <h2>Meet Eric</h2>
+      <p class="team-name">Founder &middot; Scale National</p>
       <ul class="team-facts">
         <li>50k+ combined audience on social</li>
         <li>Meta ads for companies in legal, home services, and ecommerce</li>
@@ -435,7 +430,7 @@ body.menu-open{overflow:hidden;}
         <h4>Explore</h4>
         <ul>
           <li><a href="#what">What We Do</a></li>
-          <li><a href="#team">Who We Are</a></li>
+          <li><a href="#team">Meet Eric</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="https://go.scalenational.com/widget/booking/6aQ6B5dMeaSsgLLQCJUm" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead');}">Book a Call</a></li>
         </ul>
@@ -447,16 +442,6 @@ body.menu-open{overflow:hidden;}
           <li><a href="mailto:info@scalenational.com">info@scalenational.com</a></li>
         </ul>
       </div>
-    </div>
-    <div class="footer-legacy">
-      <span>Legacy tools for contractors</span>
-      <ul>
-        <li><a href="/website-development">Website Development</a></li>
-        <li><a href="/crm-for-contractors">CRM</a></li>
-        <li><a href="/missed-call-text-back">Missed Call Text Back</a></li>
-        <li><a href="/review-automation">Review Automation</a></li>
-        <li><a href="/seo-for-contractors">SEO</a></li>
-      </ul>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Scale National. All rights reserved.</span>
