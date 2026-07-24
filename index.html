@@ -509,6 +509,30 @@ body.menu-open{overflow:hidden;}
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 AOS.init({duration:600,easing:'ease-out',once:true,offset:80});
+(function(){
+  var track=document.querySelector('.wheel-track');
+  if(!track)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  function go(){
+    var set=track.querySelector('.wheel-set');
+    if(!set)return;
+    var w=set.getBoundingClientRect().width;
+    if(!w)return;
+    track.style.animation='none';
+    if(track._anim)track._anim.cancel();
+    track._anim=track.animate(
+      [{transform:'translateX(0)'},{transform:'translateX(-'+w+'px)'}],
+      {duration:Math.round(w*18),iterations:Infinity,easing:'linear'}
+    );
+  }
+  if(document.readyState==='complete')go();else addEventListener('load',go);
+  var t;addEventListener('resize',function(){clearTimeout(t);t=setTimeout(go,200);},{passive:true});
+  var mask=document.querySelector('.wheel-mask');
+  if(mask){
+    mask.addEventListener('mouseenter',function(){if(track._anim)track._anim.pause();});
+    mask.addEventListener('mouseleave',function(){if(track._anim)track._anim.play();});
+  }
+})();
 function toggleMenu(){
   var m=document.getElementById('mobileMenu');
   var open=m.classList.toggle('open');
